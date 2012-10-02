@@ -21,8 +21,11 @@ group :assets do
 end
 
 group :development, :test do
-	gem 'rspec'
-	gem 'rspec-rails'
+	gem 'rspec', '>= 2.8.1'
+	gem 'rspec-rails', '>= 2.8.1'
+  gem 'shoulda', '>= 2.11.3'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 

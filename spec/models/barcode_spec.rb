@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe Barcode do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    FactoryGirl.create(:barcode)
+  end
+  it {should validate_presence_of(:code)}
+  it {should validate_presence_of(:item)}
+  it {should validate_uniqueness_of(:code)}
+  it {should belong_to(:item)}
 end
