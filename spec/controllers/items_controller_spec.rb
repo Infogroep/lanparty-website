@@ -24,7 +24,7 @@ describe ItemsController do
   # Item. As you add validations to Item, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {:name => "itemname", :buy_price => 12, :item_type => "itemtype"}
   end
 
   describe "GET index" do

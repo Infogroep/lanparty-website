@@ -23,8 +23,11 @@ describe BarcodesController do
   # This should return the minimal set of attributes required to create a valid
   # Barcode. As you add validations to Barcode, be sure to
   # update the return value of this method accordingly.
+  before(:each) do
+    @item = FactoryGirl.create(:item)
+  end
   def valid_attributes
-    {}
+    {:code => "1234567890", :item_id => @item.id}
   end
 
   describe "GET index" do
