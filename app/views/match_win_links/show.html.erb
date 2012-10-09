@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Match:</b>
+  <%= @match_win_link.match_id %>
+</p>
+
+<p>
+  <b>Next match:</b>
+  <%= @match_win_link.next_match_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_match_win_link_path(@match_win_link) %> |
+<%= link_to 'Back', match_win_links_path %>
