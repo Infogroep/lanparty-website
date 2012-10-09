@@ -1,4 +1,14 @@
 Lanparty::Application.routes.draw do
+  resources :matches
+
+  resources :prices
+
+  resources :games
+
+  resources :users
+
+  resources :compos
+
   resources :barcodes
 
   resources :items

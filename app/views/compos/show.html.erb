@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Info:</b>
+  <%= @compo.info %>
+</p>
+
+<p>
+  <b>Slots:</b>
+  <%= @compo.slots %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @compo.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_compo_path(@compo) %> |
+<%= link_to 'Back', compos_path %>

@@ -1,0 +1,27 @@
+<h1>Listing compos</h1>
+
+<table>
+  <tr>
+    <th>Info</th>
+    <th>Slots</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @compos.each do |compo| %>
+  <tr>
+    <td><%= compo.info %></td>
+    <td><%= compo.slots %></td>
+    <td><%= compo.date %></td>
+    <td><%= link_to 'Show', compo %></td>
+    <td><%= link_to 'Edit', edit_compo_path(compo) %></td>
+    <td><%= link_to 'Destroy', compo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Compo', new_compo_path %>
