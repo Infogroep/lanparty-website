@@ -1,4 +1,6 @@
 Lanparty::Application.routes.draw do
+  resources :rounds
+
   resources :matches
 
   resources :prices

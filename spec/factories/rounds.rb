@@ -1,8 +1,8 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :match do
-    round_id 1
-    round
+  factory :round do
+    compo_id 1
+    compo
   end
 end

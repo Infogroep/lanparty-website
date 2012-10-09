@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121008175902) do
+ActiveRecord::Schema.define(:version => 20121009152519) do
 
   create_table "barcodes", :force => true do |t|
     t.string   "code"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20121008175902) do
   end
 
   create_table "matches", :force => true do |t|
-    t.integer  "compo_id"
+    t.integer  "round_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -56,6 +56,12 @@ ActiveRecord::Schema.define(:version => 20121008175902) do
     t.string   "info"
     t.float    "value"
     t.string   "sponsor"
+    t.integer  "compo_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "rounds", :force => true do |t|
     t.integer  "compo_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

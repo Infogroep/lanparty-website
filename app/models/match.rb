@@ -1,7 +1,7 @@
 class Match < ActiveRecord::Base
-  attr_accessible :compo_id
+  attr_accessible :round_id
 
-  validates_presence_of :compo
+  validates_presence_of :round
 
-  belongs_to :compo
+  belongs_to :round
 end

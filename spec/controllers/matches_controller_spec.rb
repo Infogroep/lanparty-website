@@ -24,10 +24,10 @@ describe MatchesController do
   # Match. As you add validations to Match, be sure to
   # update the return value of this method accordingly.
   before(:each) do
-    @compo = FactoryGirl.create(:compo)
+    @round = FactoryGirl.create(:round)
   end
   def valid_attributes
-    {:compo_id => @compo.id}
+    {:round_id => @round.id}
   end
 
   # This should return the minimal set of values that should be in the session
