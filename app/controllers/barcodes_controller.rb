@@ -1,4 +1,5 @@
 class BarcodesController < ApplicationController
+  before_filter :login_required
   # GET /barcodes
   # GET /barcodes.json
   def index

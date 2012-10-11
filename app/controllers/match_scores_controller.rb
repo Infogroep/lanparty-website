@@ -1,4 +1,5 @@
 class MatchScoresController < ApplicationController
+  before_filter :login_required
   # GET /match_scores
   # GET /match_scores.json
   def index

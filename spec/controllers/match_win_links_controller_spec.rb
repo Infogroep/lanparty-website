@@ -38,131 +38,139 @@ describe MatchWinLinksController do
     {}
   end
 
-  describe "GET index" do
-    it "assigns all match_win_links as @match_win_links" do
-      match_win_link = MatchWinLink.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:match_win_links).should eq([match_win_link])
-    end
+  describe "unauthorised access" do
+    it_should_require_login_for_actions :index, :destroy, :show, :new, :update, :create
   end
 
-  describe "GET show" do
-    it "assigns the requested match_win_link as @match_win_link" do
-      match_win_link = MatchWinLink.create! valid_attributes
-      get :show, {:id => match_win_link.to_param}, valid_session
-      assigns(:match_win_link).should eq(match_win_link)
+  describe "authorised access" do
+    before(:each) do
+      login
     end
-  end
-
-  describe "GET new" do
-    it "assigns a new match_win_link as @match_win_link" do
-      get :new, {}, valid_session
-      assigns(:match_win_link).should be_a_new(MatchWinLink)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested match_win_link as @match_win_link" do
-      match_win_link = MatchWinLink.create! valid_attributes
-      get :edit, {:id => match_win_link.to_param}, valid_session
-      assigns(:match_win_link).should eq(match_win_link)
-    end
-  end
-
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new MatchWinLink" do
-        expect {
-          post :create, {:match_win_link => valid_attributes}, valid_session
-        }.to change(MatchWinLink, :count).by(1)
-      end
-
-      it "assigns a newly created match_win_link as @match_win_link" do
-        post :create, {:match_win_link => valid_attributes}, valid_session
-        assigns(:match_win_link).should be_a(MatchWinLink)
-        assigns(:match_win_link).should be_persisted
-      end
-
-      it "redirects to the created match_win_link" do
-        post :create, {:match_win_link => valid_attributes}, valid_session
-        response.should redirect_to(MatchWinLink.last)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved match_win_link as @match_win_link" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        MatchWinLink.any_instance.stub(:save).and_return(false)
-        post :create, {:match_win_link => {}}, valid_session
-        assigns(:match_win_link).should be_a_new(MatchWinLink)
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        MatchWinLink.any_instance.stub(:save).and_return(false)
-        post :create, {:match_win_link => {}}, valid_session
-        response.should render_template("new")
-      end
-    end
-  end
-
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested match_win_link" do
+    describe "GET index" do
+      it "assigns all match_win_links as @match_win_links" do
         match_win_link = MatchWinLink.create! valid_attributes
-        # Assuming there are no other match_win_links in the database, this
-        # specifies that the MatchWinLink created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        MatchWinLink.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => match_win_link.to_param, :match_win_link => {'these' => 'params'}}, valid_session
+        get :index, {}
+        assigns(:match_win_links).should eq([match_win_link])
       end
+    end
 
+    describe "GET show" do
       it "assigns the requested match_win_link as @match_win_link" do
         match_win_link = MatchWinLink.create! valid_attributes
-        put :update, {:id => match_win_link.to_param, :match_win_link => valid_attributes}, valid_session
+        get :show, {:id => match_win_link.to_param}
         assigns(:match_win_link).should eq(match_win_link)
-      end
-
-      it "redirects to the match_win_link" do
-        match_win_link = MatchWinLink.create! valid_attributes
-        put :update, {:id => match_win_link.to_param, :match_win_link => valid_attributes}, valid_session
-        response.should redirect_to(match_win_link)
       end
     end
 
-    describe "with invalid params" do
-      it "assigns the match_win_link as @match_win_link" do
+    describe "GET new" do
+      it "assigns a new match_win_link as @match_win_link" do
+        get :new, {}
+        assigns(:match_win_link).should be_a_new(MatchWinLink)
+      end
+    end
+
+    describe "GET edit" do
+      it "assigns the requested match_win_link as @match_win_link" do
         match_win_link = MatchWinLink.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        MatchWinLink.any_instance.stub(:save).and_return(false)
-        put :update, {:id => match_win_link.to_param, :match_win_link => {}}, valid_session
+        get :edit, {:id => match_win_link.to_param}
         assigns(:match_win_link).should eq(match_win_link)
       end
+    end
 
-      it "re-renders the 'edit' template" do
+    describe "POST create" do
+      describe "with valid params" do
+        it "creates a new MatchWinLink" do
+          expect {
+            post :create, {:match_win_link => valid_attributes}
+          }.to change(MatchWinLink, :count).by(1)
+        end
+
+        it "assigns a newly created match_win_link as @match_win_link" do
+          post :create, {:match_win_link => valid_attributes}
+          assigns(:match_win_link).should be_a(MatchWinLink)
+          assigns(:match_win_link).should be_persisted
+        end
+
+        it "redirects to the created match_win_link" do
+          post :create, {:match_win_link => valid_attributes}
+          response.should redirect_to(MatchWinLink.last)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns a newly created but unsaved match_win_link as @match_win_link" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          MatchWinLink.any_instance.stub(:save).and_return(false)
+          post :create, {:match_win_link => {}}
+          assigns(:match_win_link).should be_a_new(MatchWinLink)
+        end
+
+        it "re-renders the 'new' template" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          MatchWinLink.any_instance.stub(:save).and_return(false)
+          post :create, {:match_win_link => {}}
+          response.should render_template("new")
+        end
+      end
+    end
+
+    describe "PUT update" do
+      describe "with valid params" do
+        it "updates the requested match_win_link" do
+          match_win_link = MatchWinLink.create! valid_attributes
+          # Assuming there are no other match_win_links in the database, this
+          # specifies that the MatchWinLink created on the previous line
+          # receives the :update_attributes message with whatever params are
+          # submitted in the request.
+          MatchWinLink.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+          put :update, {:id => match_win_link.to_param, :match_win_link => {'these' => 'params'}}
+        end
+
+        it "assigns the requested match_win_link as @match_win_link" do
+          match_win_link = MatchWinLink.create! valid_attributes
+          put :update, {:id => match_win_link.to_param, :match_win_link => valid_attributes}
+          assigns(:match_win_link).should eq(match_win_link)
+        end
+
+        it "redirects to the match_win_link" do
+          match_win_link = MatchWinLink.create! valid_attributes
+          put :update, {:id => match_win_link.to_param, :match_win_link => valid_attributes}
+          response.should redirect_to(match_win_link)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns the match_win_link as @match_win_link" do
+          match_win_link = MatchWinLink.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          MatchWinLink.any_instance.stub(:save).and_return(false)
+          put :update, {:id => match_win_link.to_param, :match_win_link => {}}
+          assigns(:match_win_link).should eq(match_win_link)
+        end
+
+        it "re-renders the 'edit' template" do
+          match_win_link = MatchWinLink.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          MatchWinLink.any_instance.stub(:save).and_return(false)
+          put :update, {:id => match_win_link.to_param, :match_win_link => {}}
+          response.should render_template("edit")
+        end
+      end
+    end
+
+    describe "DELETE destroy" do
+      it "destroys the requested match_win_link" do
         match_win_link = MatchWinLink.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        MatchWinLink.any_instance.stub(:save).and_return(false)
-        put :update, {:id => match_win_link.to_param, :match_win_link => {}}, valid_session
-        response.should render_template("edit")
+        expect {
+          delete :destroy, {:id => match_win_link.to_param}
+        }.to change(MatchWinLink, :count).by(-1)
+      end
+
+      it "redirects to the match_win_links list" do
+        match_win_link = MatchWinLink.create! valid_attributes
+        delete :destroy, {:id => match_win_link.to_param}
+        response.should redirect_to(match_win_links_url)
       end
     end
   end
-
-  describe "DELETE destroy" do
-    it "destroys the requested match_win_link" do
-      match_win_link = MatchWinLink.create! valid_attributes
-      expect {
-        delete :destroy, {:id => match_win_link.to_param}, valid_session
-      }.to change(MatchWinLink, :count).by(-1)
-    end
-
-    it "redirects to the match_win_links list" do
-      match_win_link = MatchWinLink.create! valid_attributes
-      delete :destroy, {:id => match_win_link.to_param}, valid_session
-      response.should redirect_to(match_win_links_url)
-    end
-  end
-
 end

@@ -1,4 +1,5 @@
 class RoundsController < ApplicationController
+  before_filter :login_required
   # GET /rounds
   # GET /rounds.json
   def index

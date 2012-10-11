@@ -34,131 +34,139 @@ describe PricesController do
     {}
   end
 
-  describe "GET index" do
-    it "assigns all prices as @prices" do
-      price = Price.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:prices).should eq([price])
-    end
+  describe "unauthorised access" do
+    it_should_require_login_for_actions :index, :destroy, :show, :new, :update, :create
   end
 
-  describe "GET show" do
-    it "assigns the requested price as @price" do
-      price = Price.create! valid_attributes
-      get :show, {:id => price.to_param}, valid_session
-      assigns(:price).should eq(price)
+  describe "authorised access" do
+    before(:each) do
+      login
     end
-  end
-
-  describe "GET new" do
-    it "assigns a new price as @price" do
-      get :new, {}, valid_session
-      assigns(:price).should be_a_new(Price)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested price as @price" do
-      price = Price.create! valid_attributes
-      get :edit, {:id => price.to_param}, valid_session
-      assigns(:price).should eq(price)
-    end
-  end
-
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Price" do
-        expect {
-          post :create, {:price => valid_attributes}, valid_session
-        }.to change(Price, :count).by(1)
-      end
-
-      it "assigns a newly created price as @price" do
-        post :create, {:price => valid_attributes}, valid_session
-        assigns(:price).should be_a(Price)
-        assigns(:price).should be_persisted
-      end
-
-      it "redirects to the created price" do
-        post :create, {:price => valid_attributes}, valid_session
-        response.should redirect_to(Price.last)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved price as @price" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Price.any_instance.stub(:save).and_return(false)
-        post :create, {:price => {}}, valid_session
-        assigns(:price).should be_a_new(Price)
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Price.any_instance.stub(:save).and_return(false)
-        post :create, {:price => {}}, valid_session
-        response.should render_template("new")
-      end
-    end
-  end
-
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested price" do
+    describe "GET index" do
+      it "assigns all prices as @prices" do
         price = Price.create! valid_attributes
-        # Assuming there are no other prices in the database, this
-        # specifies that the Price created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Price.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => price.to_param, :price => {'these' => 'params'}}, valid_session
+        get :index, {}
+        assigns(:prices).should eq([price])
       end
+    end
 
+    describe "GET show" do
       it "assigns the requested price as @price" do
         price = Price.create! valid_attributes
-        put :update, {:id => price.to_param, :price => valid_attributes}, valid_session
+        get :show, {:id => price.to_param}
         assigns(:price).should eq(price)
-      end
-
-      it "redirects to the price" do
-        price = Price.create! valid_attributes
-        put :update, {:id => price.to_param, :price => valid_attributes}, valid_session
-        response.should redirect_to(price)
       end
     end
 
-    describe "with invalid params" do
-      it "assigns the price as @price" do
+    describe "GET new" do
+      it "assigns a new price as @price" do
+        get :new, {}
+        assigns(:price).should be_a_new(Price)
+      end
+    end
+
+    describe "GET edit" do
+      it "assigns the requested price as @price" do
         price = Price.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Price.any_instance.stub(:save).and_return(false)
-        put :update, {:id => price.to_param, :price => {}}, valid_session
+        get :edit, {:id => price.to_param}
         assigns(:price).should eq(price)
       end
+    end
 
-      it "re-renders the 'edit' template" do
+    describe "POST create" do
+      describe "with valid params" do
+        it "creates a new Price" do
+          expect {
+            post :create, {:price => valid_attributes}
+          }.to change(Price, :count).by(1)
+        end
+
+        it "assigns a newly created price as @price" do
+          post :create, {:price => valid_attributes}
+          assigns(:price).should be_a(Price)
+          assigns(:price).should be_persisted
+        end
+
+        it "redirects to the created price" do
+          post :create, {:price => valid_attributes}
+          response.should redirect_to(Price.last)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns a newly created but unsaved price as @price" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          Price.any_instance.stub(:save).and_return(false)
+          post :create, {:price => {}}
+          assigns(:price).should be_a_new(Price)
+        end
+
+        it "re-renders the 'new' template" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          Price.any_instance.stub(:save).and_return(false)
+          post :create, {:price => {}}
+          response.should render_template("new")
+        end
+      end
+    end
+
+    describe "PUT update" do
+      describe "with valid params" do
+        it "updates the requested price" do
+          price = Price.create! valid_attributes
+          # Assuming there are no other prices in the database, this
+          # specifies that the Price created on the previous line
+          # receives the :update_attributes message with whatever params are
+          # submitted in the request.
+          Price.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+          put :update, {:id => price.to_param, :price => {'these' => 'params'}}
+        end
+
+        it "assigns the requested price as @price" do
+          price = Price.create! valid_attributes
+          put :update, {:id => price.to_param, :price => valid_attributes}
+          assigns(:price).should eq(price)
+        end
+
+        it "redirects to the price" do
+          price = Price.create! valid_attributes
+          put :update, {:id => price.to_param, :price => valid_attributes}
+          response.should redirect_to(price)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns the price as @price" do
+          price = Price.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          Price.any_instance.stub(:save).and_return(false)
+          put :update, {:id => price.to_param, :price => {}}
+          assigns(:price).should eq(price)
+        end
+
+        it "re-renders the 'edit' template" do
+          price = Price.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          Price.any_instance.stub(:save).and_return(false)
+          put :update, {:id => price.to_param, :price => {}}
+          response.should render_template("edit")
+        end
+      end
+    end
+
+    describe "DELETE destroy" do
+      it "destroys the requested price" do
         price = Price.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Price.any_instance.stub(:save).and_return(false)
-        put :update, {:id => price.to_param, :price => {}}, valid_session
-        response.should render_template("edit")
+        expect {
+          delete :destroy, {:id => price.to_param}
+        }.to change(Price, :count).by(-1)
+      end
+
+      it "redirects to the prices list" do
+        price = Price.create! valid_attributes
+        delete :destroy, {:id => price.to_param}
+        response.should redirect_to(prices_url)
       end
     end
   end
-
-  describe "DELETE destroy" do
-    it "destroys the requested price" do
-      price = Price.create! valid_attributes
-      expect {
-        delete :destroy, {:id => price.to_param}, valid_session
-      }.to change(Price, :count).by(-1)
-    end
-
-    it "redirects to the prices list" do
-      price = Price.create! valid_attributes
-      delete :destroy, {:id => price.to_param}, valid_session
-      response.should redirect_to(prices_url)
-    end
-  end
-
 end

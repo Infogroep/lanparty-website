@@ -29,131 +29,139 @@ describe BarcodesController do
   def valid_attributes
     {:code => "1234567890", :item_id => @item.id}
   end
-
-  describe "GET index" do
-    it "assigns all barcodes as @barcodes" do
-      barcode = Barcode.create! valid_attributes
-      get :index
-      assigns(:barcodes).should eq([barcode])
-    end
+  describe "unauthorised access" do
+    it_should_require_login_for_actions :index, :destroy, :show, :new, :update, :create
   end
 
-  describe "GET show" do
-    it "assigns the requested barcode as @barcode" do
-      barcode = Barcode.create! valid_attributes
-      get :show, :id => barcode.id.to_s
-      assigns(:barcode).should eq(barcode)
+  describe "authorised access" do
+    before(:each) do
+      login
     end
-  end
-
-  describe "GET new" do
-    it "assigns a new barcode as @barcode" do
-      get :new
-      assigns(:barcode).should be_a_new(Barcode)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested barcode as @barcode" do
-      barcode = Barcode.create! valid_attributes
-      get :edit, :id => barcode.id.to_s
-      assigns(:barcode).should eq(barcode)
-    end
-  end
-
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Barcode" do
-        expect {
-          post :create, :barcode => valid_attributes
-        }.to change(Barcode, :count).by(1)
-      end
-
-      it "assigns a newly created barcode as @barcode" do
-        post :create, :barcode => valid_attributes
-        assigns(:barcode).should be_a(Barcode)
-        assigns(:barcode).should be_persisted
-      end
-
-      it "redirects to the created barcode" do
-        post :create, :barcode => valid_attributes
-        response.should redirect_to(Barcode.last)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved barcode as @barcode" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Barcode.any_instance.stub(:save).and_return(false)
-        post :create, :barcode => {}
-        assigns(:barcode).should be_a_new(Barcode)
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Barcode.any_instance.stub(:save).and_return(false)
-        post :create, :barcode => {}
-        response.should render_template("new")
-      end
-    end
-  end
-
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested barcode" do
+    describe "GET index" do
+      it "assigns all barcodes as @barcodes" do
         barcode = Barcode.create! valid_attributes
-        # Assuming there are no other barcodes in the database, this
-        # specifies that the Barcode created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Barcode.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => barcode.id, :barcode => {'these' => 'params'}
+        get :index
+        assigns(:barcodes).should eq([barcode])
       end
+    end
 
+    describe "GET show" do
       it "assigns the requested barcode as @barcode" do
         barcode = Barcode.create! valid_attributes
-        put :update, :id => barcode.id, :barcode => valid_attributes
+        get :show, :id => barcode.id.to_s
         assigns(:barcode).should eq(barcode)
-      end
-
-      it "redirects to the barcode" do
-        barcode = Barcode.create! valid_attributes
-        put :update, :id => barcode.id, :barcode => valid_attributes
-        response.should redirect_to(barcode)
       end
     end
 
-    describe "with invalid params" do
-      it "assigns the barcode as @barcode" do
-        barcode = Barcode.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Barcode.any_instance.stub(:save).and_return(false)
-        put :update, :id => barcode.id.to_s, :barcode => {}
-        assigns(:barcode).should eq(barcode)
-      end
-
-      it "re-renders the 'edit' template" do
-        barcode = Barcode.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Barcode.any_instance.stub(:save).and_return(false)
-        put :update, :id => barcode.id.to_s, :barcode => {}
-        response.should render_template("edit")
+    describe "GET new" do
+      it "assigns a new barcode as @barcode" do
+        get :new
+        assigns(:barcode).should be_a_new(Barcode)
       end
     end
-  end
 
-  describe "DELETE destroy" do
-    it "destroys the requested barcode" do
-      barcode = Barcode.create! valid_attributes
-      expect {
+    describe "GET edit" do
+      it "assigns the requested barcode as @barcode" do
+        barcode = Barcode.create! valid_attributes
+        get :edit, :id => barcode.id.to_s
+        assigns(:barcode).should eq(barcode)
+      end
+    end
+
+    describe "POST create" do
+      describe "with valid params" do
+        it "creates a new Barcode" do
+          expect {
+            post :create, :barcode => valid_attributes
+          }.to change(Barcode, :count).by(1)
+        end
+
+        it "assigns a newly created barcode as @barcode" do
+          post :create, :barcode => valid_attributes
+          assigns(:barcode).should be_a(Barcode)
+          assigns(:barcode).should be_persisted
+        end
+
+        it "redirects to the created barcode" do
+          post :create, :barcode => valid_attributes
+          response.should redirect_to(Barcode.last)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns a newly created but unsaved barcode as @barcode" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          Barcode.any_instance.stub(:save).and_return(false)
+          post :create, :barcode => {}
+          assigns(:barcode).should be_a_new(Barcode)
+        end
+
+        it "re-renders the 'new' template" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          Barcode.any_instance.stub(:save).and_return(false)
+          post :create, :barcode => {}
+          response.should render_template("new")
+        end
+      end
+    end
+
+    describe "PUT update" do
+      describe "with valid params" do
+        it "updates the requested barcode" do
+          barcode = Barcode.create! valid_attributes
+          # Assuming there are no other barcodes in the database, this
+          # specifies that the Barcode created on the previous line
+          # receives the :update_attributes message with whatever params are
+          # submitted in the request.
+          Barcode.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+          put :update, :id => barcode.id, :barcode => {'these' => 'params'}
+        end
+
+        it "assigns the requested barcode as @barcode" do
+          barcode = Barcode.create! valid_attributes
+          put :update, :id => barcode.id, :barcode => valid_attributes
+          assigns(:barcode).should eq(barcode)
+        end
+
+        it "redirects to the barcode" do
+          barcode = Barcode.create! valid_attributes
+          put :update, :id => barcode.id, :barcode => valid_attributes
+          response.should redirect_to(barcode)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns the barcode as @barcode" do
+          barcode = Barcode.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          Barcode.any_instance.stub(:save).and_return(false)
+          put :update, :id => barcode.id.to_s, :barcode => {}
+          assigns(:barcode).should eq(barcode)
+        end
+
+        it "re-renders the 'edit' template" do
+          barcode = Barcode.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          Barcode.any_instance.stub(:save).and_return(false)
+          put :update, :id => barcode.id.to_s, :barcode => {}
+          response.should render_template("edit")
+        end
+      end
+    end
+
+    describe "DELETE destroy" do
+      it "destroys the requested barcode" do
+        barcode = Barcode.create! valid_attributes
+        expect {
+          delete :destroy, :id => barcode.id.to_s
+        }.to change(Barcode, :count).by(-1)
+      end
+
+      it "redirects to the barcodes list" do
+        barcode = Barcode.create! valid_attributes
         delete :destroy, :id => barcode.id.to_s
-      }.to change(Barcode, :count).by(-1)
-    end
-
-    it "redirects to the barcodes list" do
-      barcode = Barcode.create! valid_attributes
-      delete :destroy, :id => barcode.id.to_s
-      response.should redirect_to(barcodes_url)
+        response.should redirect_to(barcodes_url)
+      end
     end
   end
 

@@ -1,4 +1,5 @@
 class MatchesController < ApplicationController
+  before_filter :login_required
   # GET /matches
   # GET /matches.json
   def index

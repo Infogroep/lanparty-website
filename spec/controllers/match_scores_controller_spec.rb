@@ -38,131 +38,139 @@ describe MatchScoresController do
     {}
   end
 
-  describe "GET index" do
-    it "assigns all match_scores as @match_scores" do
-      match_score = MatchScore.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:match_scores).should eq([match_score])
-    end
+  describe "unauthorised access" do
+    it_should_require_login_for_actions :index, :destroy, :show, :new, :update, :create
   end
 
-  describe "GET show" do
-    it "assigns the requested match_score as @match_score" do
-      match_score = MatchScore.create! valid_attributes
-      get :show, {:id => match_score.to_param}, valid_session
-      assigns(:match_score).should eq(match_score)
+  describe "authorised access" do
+    before(:each) do
+      login
     end
-  end
-
-  describe "GET new" do
-    it "assigns a new match_score as @match_score" do
-      get :new, {}, valid_session
-      assigns(:match_score).should be_a_new(MatchScore)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested match_score as @match_score" do
-      match_score = MatchScore.create! valid_attributes
-      get :edit, {:id => match_score.to_param}, valid_session
-      assigns(:match_score).should eq(match_score)
-    end
-  end
-
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new MatchScore" do
-        expect {
-          post :create, {:match_score => valid_attributes}, valid_session
-        }.to change(MatchScore, :count).by(1)
-      end
-
-      it "assigns a newly created match_score as @match_score" do
-        post :create, {:match_score => valid_attributes}, valid_session
-        assigns(:match_score).should be_a(MatchScore)
-        assigns(:match_score).should be_persisted
-      end
-
-      it "redirects to the created match_score" do
-        post :create, {:match_score => valid_attributes}, valid_session
-        response.should redirect_to(MatchScore.last)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved match_score as @match_score" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        MatchScore.any_instance.stub(:save).and_return(false)
-        post :create, {:match_score => {}}, valid_session
-        assigns(:match_score).should be_a_new(MatchScore)
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        MatchScore.any_instance.stub(:save).and_return(false)
-        post :create, {:match_score => {}}, valid_session
-        response.should render_template("new")
-      end
-    end
-  end
-
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested match_score" do
+    describe "GET index" do
+      it "assigns all match_scores as @match_scores" do
         match_score = MatchScore.create! valid_attributes
-        # Assuming there are no other match_scores in the database, this
-        # specifies that the MatchScore created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        MatchScore.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => match_score.to_param, :match_score => {'these' => 'params'}}, valid_session
+        get :index, {}
+        assigns(:match_scores).should eq([match_score])
       end
+    end
 
+    describe "GET show" do
       it "assigns the requested match_score as @match_score" do
         match_score = MatchScore.create! valid_attributes
-        put :update, {:id => match_score.to_param, :match_score => valid_attributes}, valid_session
+        get :show, {:id => match_score.to_param}
         assigns(:match_score).should eq(match_score)
-      end
-
-      it "redirects to the match_score" do
-        match_score = MatchScore.create! valid_attributes
-        put :update, {:id => match_score.to_param, :match_score => valid_attributes}, valid_session
-        response.should redirect_to(match_score)
       end
     end
 
-    describe "with invalid params" do
-      it "assigns the match_score as @match_score" do
+    describe "GET new" do
+      it "assigns a new match_score as @match_score" do
+        get :new, {}
+        assigns(:match_score).should be_a_new(MatchScore)
+      end
+    end
+
+    describe "GET edit" do
+      it "assigns the requested match_score as @match_score" do
         match_score = MatchScore.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        MatchScore.any_instance.stub(:save).and_return(false)
-        put :update, {:id => match_score.to_param, :match_score => {}}, valid_session
+        get :edit, {:id => match_score.to_param}
         assigns(:match_score).should eq(match_score)
       end
+    end
 
-      it "re-renders the 'edit' template" do
+    describe "POST create" do
+      describe "with valid params" do
+        it "creates a new MatchScore" do
+          expect {
+            post :create, {:match_score => valid_attributes}
+          }.to change(MatchScore, :count).by(1)
+        end
+
+        it "assigns a newly created match_score as @match_score" do
+          post :create, {:match_score => valid_attributes}
+          assigns(:match_score).should be_a(MatchScore)
+          assigns(:match_score).should be_persisted
+        end
+
+        it "redirects to the created match_score" do
+          post :create, {:match_score => valid_attributes}
+          response.should redirect_to(MatchScore.last)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns a newly created but unsaved match_score as @match_score" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          MatchScore.any_instance.stub(:save).and_return(false)
+          post :create, {:match_score => {}}
+          assigns(:match_score).should be_a_new(MatchScore)
+        end
+
+        it "re-renders the 'new' template" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          MatchScore.any_instance.stub(:save).and_return(false)
+          post :create, {:match_score => {}}
+          response.should render_template("new")
+        end
+      end
+    end
+
+    describe "PUT update" do
+      describe "with valid params" do
+        it "updates the requested match_score" do
+          match_score = MatchScore.create! valid_attributes
+          # Assuming there are no other match_scores in the database, this
+          # specifies that the MatchScore created on the previous line
+          # receives the :update_attributes message with whatever params are
+          # submitted in the request.
+          MatchScore.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+          put :update, {:id => match_score.to_param, :match_score => {'these' => 'params'}}
+        end
+
+        it "assigns the requested match_score as @match_score" do
+          match_score = MatchScore.create! valid_attributes
+          put :update, {:id => match_score.to_param, :match_score => valid_attributes}
+          assigns(:match_score).should eq(match_score)
+        end
+
+        it "redirects to the match_score" do
+          match_score = MatchScore.create! valid_attributes
+          put :update, {:id => match_score.to_param, :match_score => valid_attributes}
+          response.should redirect_to(match_score)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns the match_score as @match_score" do
+          match_score = MatchScore.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          MatchScore.any_instance.stub(:save).and_return(false)
+          put :update, {:id => match_score.to_param, :match_score => {}}
+          assigns(:match_score).should eq(match_score)
+        end
+
+        it "re-renders the 'edit' template" do
+          match_score = MatchScore.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          MatchScore.any_instance.stub(:save).and_return(false)
+          put :update, {:id => match_score.to_param, :match_score => {}}
+          response.should render_template("edit")
+        end
+      end
+    end
+
+    describe "DELETE destroy" do
+      it "destroys the requested match_score" do
         match_score = MatchScore.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        MatchScore.any_instance.stub(:save).and_return(false)
-        put :update, {:id => match_score.to_param, :match_score => {}}, valid_session
-        response.should render_template("edit")
+        expect {
+          delete :destroy, {:id => match_score.to_param}
+        }.to change(MatchScore, :count).by(-1)
+      end
+
+      it "redirects to the match_scores list" do
+        match_score = MatchScore.create! valid_attributes
+        delete :destroy, {:id => match_score.to_param}
+        response.should redirect_to(match_scores_url)
       end
     end
   end
-
-  describe "DELETE destroy" do
-    it "destroys the requested match_score" do
-      match_score = MatchScore.create! valid_attributes
-      expect {
-        delete :destroy, {:id => match_score.to_param}, valid_session
-      }.to change(MatchScore, :count).by(-1)
-    end
-
-    it "redirects to the match_scores list" do
-      match_score = MatchScore.create! valid_attributes
-      delete :destroy, {:id => match_score.to_param}, valid_session
-      response.should redirect_to(match_scores_url)
-    end
-  end
-
 end

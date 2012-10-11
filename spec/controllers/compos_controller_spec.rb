@@ -33,135 +33,140 @@ describe ComposController do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ComposController. Be sure to keep this updated too.
-  def valid_session
-    {}
+
+  describe "unauthorised access" do
+    it_should_require_login_for_actions :index, :destroy, :show, :new, :update, :create
   end
 
-  describe "GET index" do
-    it "assigns all compos as @compos" do
-      compo = Compo.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:compos).should eq([compo])
+  describe "authorised access" do
+    before(:each) do
+      login
     end
-  end
-
-  describe "GET show" do
-    it "assigns the requested compo as @compo" do
-      compo = Compo.create! valid_attributes
-      get :show, {:id => compo.to_param}, valid_session
-      assigns(:compo).should eq(compo)
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new compo as @compo" do
-      get :new, {}, valid_session
-      assigns(:compo).should be_a_new(Compo)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested compo as @compo" do
-      compo = Compo.create! valid_attributes
-      get :edit, {:id => compo.to_param}, valid_session
-      assigns(:compo).should eq(compo)
-    end
-  end
-
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Compo" do
-        expect {
-          post :create, {:compo => valid_attributes}, valid_session
-        }.to change(Compo, :count).by(1)
-      end
-
-      it "assigns a newly created compo as @compo" do
-        post :create, {:compo => valid_attributes}, valid_session
-        assigns(:compo).should be_a(Compo)
-        assigns(:compo).should be_persisted
-      end
-
-      it "redirects to the created compo" do
-        post :create, {:compo => valid_attributes}, valid_session
-        response.should redirect_to(Compo.last)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved compo as @compo" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Compo.any_instance.stub(:save).and_return(false)
-        post :create, {:compo => {}}, valid_session
-        assigns(:compo).should be_a_new(Compo)
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Compo.any_instance.stub(:save).and_return(false)
-        post :create, {:compo => {}}, valid_session
-        response.should render_template("new")
-      end
-    end
-  end
-
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested compo" do
+    describe "GET index" do
+      it "assigns all compos as @compos" do
         compo = Compo.create! valid_attributes
-        # Assuming there are no other compos in the database, this
-        # specifies that the Compo created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Compo.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => compo.to_param, :compo => {'these' => 'params'}}, valid_session
+        get :index
+        assigns(:compos).should eq([compo])
       end
+    end
 
+    describe "GET show" do
       it "assigns the requested compo as @compo" do
         compo = Compo.create! valid_attributes
-        put :update, {:id => compo.to_param, :compo => valid_attributes}, valid_session
+        get :show, {:id => compo.to_param}
         assigns(:compo).should eq(compo)
-      end
-
-      it "redirects to the compo" do
-        compo = Compo.create! valid_attributes
-        put :update, {:id => compo.to_param, :compo => valid_attributes}, valid_session
-        response.should redirect_to(compo)
       end
     end
 
-    describe "with invalid params" do
-      it "assigns the compo as @compo" do
+    describe "GET new" do
+      it "assigns a new compo as @compo" do
+        get :new, {}
+        assigns(:compo).should be_a_new(Compo)
+      end
+    end
+
+    describe "GET edit" do
+      it "assigns the requested compo as @compo" do
         compo = Compo.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Compo.any_instance.stub(:save).and_return(false)
-        put :update, {:id => compo.to_param, :compo => {}}, valid_session
+        get :edit, {:id => compo.to_param}
         assigns(:compo).should eq(compo)
       end
+    end
 
-      it "re-renders the 'edit' template" do
+    describe "POST create" do
+      describe "with valid params" do
+        it "creates a new Compo" do
+          expect {
+            post :create, {:compo => valid_attributes}
+          }.to change(Compo, :count).by(1)
+        end
+
+        it "assigns a newly created compo as @compo" do
+          post :create, {:compo => valid_attributes}
+          assigns(:compo).should be_a(Compo)
+          assigns(:compo).should be_persisted
+        end
+
+        it "redirects to the created compo" do
+          post :create, {:compo => valid_attributes}
+          response.should redirect_to(Compo.last)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns a newly created but unsaved compo as @compo" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          Compo.any_instance.stub(:save).and_return(false)
+          post :create, {:compo => {}}
+          assigns(:compo).should be_a_new(Compo)
+        end
+
+        it "re-renders the 'new' template" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          Compo.any_instance.stub(:save).and_return(false)
+          post :create, {:compo => {}}
+          response.should render_template("new")
+        end
+      end
+    end
+
+    describe "PUT update" do
+      describe "with valid params" do
+        it "updates the requested compo" do
+          compo = Compo.create! valid_attributes
+          # Assuming there are no other compos in the database, this
+          # specifies that the Compo created on the previous line
+          # receives the :update_attributes message with whatever params are
+          # submitted in the request.
+          Compo.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+          put :update, {:id => compo.to_param, :compo => {'these' => 'params'}}
+        end
+
+        it "assigns the requested compo as @compo" do
+          compo = Compo.create! valid_attributes
+          put :update, {:id => compo.to_param, :compo => valid_attributes}
+          assigns(:compo).should eq(compo)
+        end
+
+        it "redirects to the compo" do
+          compo = Compo.create! valid_attributes
+          put :update, {:id => compo.to_param, :compo => valid_attributes}
+          response.should redirect_to(compo)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns the compo as @compo" do
+          compo = Compo.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          Compo.any_instance.stub(:save).and_return(false)
+          put :update, {:id => compo.to_param, :compo => {}}
+          assigns(:compo).should eq(compo)
+        end
+
+        it "re-renders the 'edit' template" do
+          compo = Compo.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          Compo.any_instance.stub(:save).and_return(false)
+          put :update, {:id => compo.to_param, :compo => {}}
+          response.should render_template("edit")
+        end
+      end
+    end
+
+    describe "DELETE destroy" do
+      it "destroys the requested compo" do
         compo = Compo.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Compo.any_instance.stub(:save).and_return(false)
-        put :update, {:id => compo.to_param, :compo => {}}, valid_session
-        response.should render_template("edit")
+        expect {
+          delete :destroy, {:id => compo.to_param}
+        }.to change(Compo, :count).by(-1)
+      end
+
+      it "redirects to the compos list" do
+        compo = Compo.create! valid_attributes
+        delete :destroy, {:id => compo.to_param}
+        response.should redirect_to(compos_url)
       end
     end
   end
-
-  describe "DELETE destroy" do
-    it "destroys the requested compo" do
-      compo = Compo.create! valid_attributes
-      expect {
-        delete :destroy, {:id => compo.to_param}, valid_session
-      }.to change(Compo, :count).by(-1)
-    end
-
-    it "redirects to the compos list" do
-      compo = Compo.create! valid_attributes
-      delete :destroy, {:id => compo.to_param}, valid_session
-      response.should redirect_to(compos_url)
-    end
-  end
-
 end

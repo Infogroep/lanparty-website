@@ -1,4 +1,5 @@
 class MatchLoseLinksController < ApplicationController
+  before_filter :login_required
   # GET /match_lose_links
   # GET /match_lose_links.json
   def index

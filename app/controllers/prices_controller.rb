@@ -1,4 +1,5 @@
 class PricesController < ApplicationController
+  before_filter :login_required
   # GET /prices
   # GET /prices.json
   def index
