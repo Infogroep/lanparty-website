@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Info:</b>
-  <%= @compo.info %>
+  <b>Game:</b>
+  <%= @compo.game.name %>
 </p>
 
 <p>
@@ -11,8 +11,23 @@
 </p>
 
 <p>
+  <b>Group size:</b>
+  <%= @compo.group_size %>
+</p>
+
+<p>
+  <b>Datetime:</b>
+  <%= @compo.date_time %>
+</p>
+
+<p>
   <b>Date:</b>
-  <%= @compo.date %>
+  <%= @compo.time %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%= @compo.info %>
 </p>
 
 

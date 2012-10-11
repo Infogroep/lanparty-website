@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(:version => 20121009164953) do
   create_table "compos", :force => true do |t|
     t.string   "info"
     t.integer  "slots"
-    t.date     "date"
+    t.datetime "date_time"
+    t.time     "time"
     t.integer  "group_size"
     t.integer  "game_id"
     t.datetime "created_at", :null => false

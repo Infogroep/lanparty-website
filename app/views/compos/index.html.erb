@@ -2,9 +2,10 @@
 
 <table>
   <tr>
-    <th>Info</th>
+    <th>Game</th>
     <th>Slots</th>
-    <th>Date</th>
+    <th>Group size</th>
+    <th>Datetime</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +13,10 @@
 
 <% @compos.each do |compo| %>
   <tr>
-    <td><%= compo.info %></td>
+    <td><%= compo.game.name %></td>
     <td><%= compo.slots %></td>
-    <td><%= compo.date %></td>
+    <td><%= compo.group_size %></td>
+    <td><%= compo.date_time %></td>
     <td><%= link_to 'Show', compo %></td>
     <td><%= link_to 'Edit', edit_compo_path(compo) %></td>
     <td><%= link_to 'Destroy', compo, method: :delete, data: { confirm: 'Are you sure?' } %></td>

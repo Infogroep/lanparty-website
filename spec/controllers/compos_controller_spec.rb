@@ -23,8 +23,11 @@ describe ComposController do
   # This should return the minimal set of attributes required to create a valid
   # Compo. As you add validations to Compo, be sure to
   # update the return value of this method accordingly.
+  before(:each) do
+    @game = FactoryGirl.create(:game)
+  end
   def valid_attributes
-    {:group_size => 1, :slots => 1, :date => "2012-10-10"}
+    {:group_size => 1, :slots => 1, :game_id => @game.id, :date_time => "2012-10-10-12-12"}
   end
 
   # This should return the minimal set of values that should be in the session

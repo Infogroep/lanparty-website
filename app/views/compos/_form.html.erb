@@ -12,16 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :info %><br />
-    <%= f.text_field :info %>
+    <%= f.label :game %><br />
+    <%= select_tag "compo[game_id]", options_from_collection_for_select(Game.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :slots %><br />
     <%= f.number_field :slots %>
   </div>
   <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
+    <%= f.label :group_size %><br />
+    <%= f.number_field :group_size %>
+  </div>
+  <div class="field">
+    <%= f.label :date_time %><br />
+    <%= f.datetime_select :date_time %>
+  </div>
+  <div class="field">
+    <%= f.label :info %><br />
+    <%= f.text_field :info %>
   </div>
   <div class="actions">
     <%= f.submit %>

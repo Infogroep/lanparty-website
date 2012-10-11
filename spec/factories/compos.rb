@@ -4,7 +4,8 @@ FactoryGirl.define do
   factory :compo do
     info "MyString"
     slots 1
-    date "2012-10-08"
+    date_time "2012-10-08-12-12"
     group_size 1
+    game
   end
 end

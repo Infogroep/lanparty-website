@@ -3,7 +3,8 @@ class CreateCompos < ActiveRecord::Migration
     create_table :compos do |t|
       t.string :info
       t.integer :slots
-      t.date :date
+      t.datetime :date_time
+      t.time :time
       t.integer :group_size
       t.integer :game_id
 
