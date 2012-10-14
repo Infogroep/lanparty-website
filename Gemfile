@@ -30,6 +30,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
 	gem 'nifty-generators'
 	gem 'bcrypt-ruby', :require => 'bcrypt'
+	gem 'faker'
 end
 
 
