@@ -11,92 +11,104 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121011173815) do
+ActiveRecord::Schema.define(:version => 20121015172737) do
 
-	create_table "barcodes", :force => true do |t|
-		t.string	 "code"
-		t.integer	"item_id"
-		t.datetime "created_at", :null => false
-		t.datetime "updated_at", :null => false
-	end
+  create_table "barcodes", :force => true do |t|
+    t.string   "code"
+    t.integer  "item_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
-	create_table "compos", :force => true do |t|
-		t.string	 "info"
-		t.integer	"slots"
-		t.datetime "date_time"
-		t.time		 "time"
-		t.integer	"group_size"
-		t.integer	"game_id"
-		t.datetime "created_at", :null => false
-		t.datetime "updated_at", :null => false
-	end
+  create_table "compos", :force => true do |t|
+    t.string   "info"
+    t.integer  "slots"
+    t.datetime "date_time"
+    t.time     "time"
+    t.integer  "group_size"
+    t.integer  "game_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
-	create_table "games", :force => true do |t|
-		t.string	 "name"
-		t.string	 "info"
-		t.string	 "download_location"
-		t.datetime "created_at",				:null => false
-		t.datetime "updated_at",				:null => false
-	end
+  create_table "games", :force => true do |t|
+    t.string   "name"
+    t.string   "info"
+    t.string   "download_location"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
-	create_table "items", :force => true do |t|
-		t.string	 "name"
-		t.float		"buy_price"
-		t.string	 "item_type"
-		t.datetime "created_at", :null => false
-		t.datetime "updated_at", :null => false
-	end
+  create_table "items", :force => true do |t|
+    t.string   "name"
+    t.float    "buy_price"
+    t.string   "item_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
-	create_table "match_lose_links", :force => true do |t|
-		t.integer	"match_id"
-		t.integer	"next_match_id"
-		t.datetime "created_at",		:null => false
-		t.datetime "updated_at",		:null => false
-	end
+  create_table "match_lose_links", :force => true do |t|
+    t.integer  "match_id"
+    t.integer  "next_match_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
-	create_table "match_scores", :force => true do |t|
-		t.integer	"match_id"
-		t.integer	"user_id"
-		t.integer	"score"
-		t.datetime "created_at", :null => false
-		t.datetime "updated_at", :null => false
-	end
+  create_table "match_scores", :force => true do |t|
+    t.integer  "match_id"
+    t.integer  "user_id"
+    t.integer  "score"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
-	create_table "match_win_links", :force => true do |t|
-		t.integer	"match_id"
-		t.integer	"next_match_id"
-		t.datetime "created_at",		:null => false
-		t.datetime "updated_at",		:null => false
-	end
+  create_table "match_win_links", :force => true do |t|
+    t.integer  "match_id"
+    t.integer  "next_match_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
-	create_table "matches", :force => true do |t|
-		t.integer	"round_id"
-		t.datetime "created_at", :null => false
-		t.datetime "updated_at", :null => false
-	end
+  create_table "matches", :force => true do |t|
+    t.integer  "round_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
-	create_table "prices", :force => true do |t|
-		t.string	 "info"
-		t.float		"value"
-		t.string	 "sponsor"
-		t.integer	"compo_id"
-		t.datetime "created_at", :null => false
-		t.datetime "updated_at", :null => false
-	end
+  create_table "prices", :force => true do |t|
+    t.string   "info"
+    t.float    "value"
+    t.string   "sponsor"
+    t.integer  "compo_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
-	create_table "rounds", :force => true do |t|
-		t.integer	"compo_id"
-		t.datetime "created_at", :null => false
-		t.datetime "updated_at", :null => false
-	end
+  create_table "rounds", :force => true do |t|
+    t.integer  "compo_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
-	create_table "users", :force => true do |t|
-		t.string	 "username"
-		t.string	 "email"
-		t.string	 "password_hash"
-		t.string	 "password_salt"
-		t.datetime "created_at",		:null => false
-		t.datetime "updated_at",		:null => false
-	end
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.integer  "compo_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "teams_users", :force => true do |t|
+    t.integer "team_id", :null => false
+    t.integer "user_id", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
 end

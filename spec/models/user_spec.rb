@@ -13,6 +13,8 @@ describe User do
 		User.delete_all
 	end
 
+	it { should have_and_belong_to_many :teams }
+
 	it "should be valid" do
 		new_user.should be_valid
 	end
