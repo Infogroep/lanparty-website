@@ -4,11 +4,11 @@ require 'spec_helper'
 # the GamesHelper. For example:
 #
 # describe GamesHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
+#	 describe "string concat" do
+#		 it "concats two strings with spaces" do
+#			 helper.concat_strings("this","that").should == "this that"
+#		 end
+#	 end
 # end
 describe GamesHelper do
 end

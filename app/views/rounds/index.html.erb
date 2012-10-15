@@ -1,20 +1,20 @@
 <h1>Listing rounds</h1>
 
 <table>
-  <tr>
-    <th>Compo</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<tr>
+		<th>Compo</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
 
 <% @rounds.each do |round| %>
-  <tr>
-    <td><%= round.compo_id %></td>
-    <td><%= link_to 'Show', round %></td>
-    <td><%= link_to 'Edit', edit_round_path(round) %></td>
-    <td><%= link_to 'Destroy', round, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+	<tr>
+		<td><%= round.compo_id %></td>
+		<td><%= link_to 'Show', round %></td>
+		<td><%= link_to 'Edit', edit_round_path(round) %></td>
+		<td><%= link_to 'Destroy', round, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
 <% end %>
 </table>
 

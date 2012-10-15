@@ -1,24 +1,24 @@
 <h1>Listing prices</h1>
 
 <table>
-  <tr>
-    <th>Info</th>
-    <th>Value</th>
-    <th>Sponsor</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<tr>
+		<th>Info</th>
+		<th>Value</th>
+		<th>Sponsor</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
 
 <% @prices.each do |price| %>
-  <tr>
-    <td><%= price.info %></td>
-    <td><%= price.value %></td>
-    <td><%= price.sponsor %></td>
-    <td><%= link_to 'Show', price %></td>
-    <td><%= link_to 'Edit', edit_price_path(price) %></td>
-    <td><%= link_to 'Destroy', price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+	<tr>
+		<td><%= price.info %></td>
+		<td><%= price.value %></td>
+		<td><%= price.sponsor %></td>
+		<td><%= link_to 'Show', price %></td>
+		<td><%= link_to 'Edit', edit_price_path(price) %></td>
+		<td><%= link_to 'Destroy', price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
 <% end %>
 </table>
 

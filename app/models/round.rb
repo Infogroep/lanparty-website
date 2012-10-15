@@ -1,6 +1,6 @@
 class Round < ActiveRecord::Base
-  attr_accessible :compo_id
+	attr_accessible :compo_id
 
-  validates_presence_of :compo
-  belongs_to :compo
+	validates_presence_of :compo
+	belongs_to :compo
 end

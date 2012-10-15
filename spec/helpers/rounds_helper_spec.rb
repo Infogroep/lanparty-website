@@ -4,11 +4,11 @@ require 'spec_helper'
 # the RoundsHelper. For example:
 #
 # describe RoundsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
+#	 describe "string concat" do
+#		 it "concats two strings with spaces" do
+#			 helper.concat_strings("this","that").should == "this that"
+#		 end
+#	 end
 # end
 describe RoundsHelper do
 end

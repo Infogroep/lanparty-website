@@ -1,25 +1,25 @@
 <%= form_for(@match_win_link) do |f| %>
-  <% if @match_win_link.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@match_win_link.errors.count, "error") %> prohibited this match_win_link from being saved:</h2>
+	<% if @match_win_link.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@match_win_link.errors.count, "error") %> prohibited this match_win_link from being saved:</h2>
 
-      <ul>
-      <% @match_win_link.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+			<% @match_win_link.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.label :match_id %><br />
-    <%= f.number_field :match_id %>
-  </div>
-  <div class="field">
-    <%= f.label :next_match %><br />
-    <%= f.number_field :next_match %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div class="field">
+		<%= f.label :match_id %><br />
+		<%= f.number_field :match_id %>
+	</div>
+	<div class="field">
+		<%= f.label :next_match %><br />
+		<%= f.number_field :next_match %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 <% end %>

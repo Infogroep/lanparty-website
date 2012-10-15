@@ -1,10 +1,10 @@
 module Faker
-  class Game < Base
+	class Game < Base
 
-    class << self
-      def name
-        fetch('game.name')
-      end
-    end
-  end
+		class << self
+			def name
+				fetch('game.name')
+			end
+		end
+	end
 end

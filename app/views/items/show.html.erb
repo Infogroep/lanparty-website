@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @item.name %>
+	<b>Name:</b>
+	<%= @item.name %>
 </p>
 
 <p>
-  <b>Buy price:</b>
-  <%= @item.buy_price %>
+	<b>Buy price:</b>
+	<%= @item.buy_price %>
 </p>
 <fieldset id="barcodes">
-  <legend>barcodes</legend>
-  <ul>
-  <table border="0">
-  <% @item.barcodes.each do |barcode| %>
-    <tr>
-      <td><%= link_to barcode.code, barcode %></td>
-      <td><%= link_to 'Show', barcode %></td>
-      <td><%= link_to 'Edit', edit_barcode_path(barcode) %></td>
-      <td><%= link_to 'Destroy', barcode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  </table>
-  <%= link_to 'Add Barcode', new_barcode_path %>
-  </ul>
+	<legend>barcodes</legend>
+	<ul>
+	<table border="0">
+	<% @item.barcodes.each do |barcode| %>
+		<tr>
+			<td><%= link_to barcode.code, barcode %></td>
+			<td><%= link_to 'Show', barcode %></td>
+			<td><%= link_to 'Edit', edit_barcode_path(barcode) %></td>
+			<td><%= link_to 'Destroy', barcode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	<% end %>
+	</table>
+	<%= link_to 'Add Barcode', new_barcode_path %>
+	</ul>
 </fieldset>
 
 

@@ -1,26 +1,26 @@
 <h1>Listing compos</h1>
 
 <table>
-  <tr>
-    <th>Game</th>
-    <th>Slots</th>
-    <th>Group size</th>
-    <th>Datetime</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<tr>
+		<th>Game</th>
+		<th>Slots</th>
+		<th>Group size</th>
+		<th>Datetime</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
 
 <% @compos.each do |compo| %>
-  <tr>
-    <td><%= compo.game.name %></td>
-    <td><%= compo.slots %></td>
-    <td><%= compo.group_size %></td>
-    <td><%= compo.date_time %></td>
-    <td><%= link_to 'Show', compo %></td>
-    <td><%= link_to 'Edit', edit_compo_path(compo) %></td>
-    <td><%= link_to 'Destroy', compo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+	<tr>
+		<td><%= compo.game.name %></td>
+		<td><%= compo.slots %></td>
+		<td><%= compo.group_size %></td>
+		<td><%= compo.date_time %></td>
+		<td><%= link_to 'Show', compo %></td>
+		<td><%= link_to 'Edit', edit_compo_path(compo) %></td>
+		<td><%= link_to 'Destroy', compo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
 <% end %>
 </table>
 

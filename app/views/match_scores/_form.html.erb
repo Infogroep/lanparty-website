@@ -1,29 +1,29 @@
 <%= form_for(@match_score) do |f| %>
-  <% if @match_score.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@match_score.errors.count, "error") %> prohibited this match_score from being saved:</h2>
+	<% if @match_score.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@match_score.errors.count, "error") %> prohibited this match_score from being saved:</h2>
 
-      <ul>
-      <% @match_score.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+			<% @match_score.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.label :match_id %><br />
-    <%= f.number_field :match_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :score %><br />
-    <%= f.number_field :score %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div class="field">
+		<%= f.label :match_id %><br />
+		<%= f.number_field :match_id %>
+	</div>
+	<div class="field">
+		<%= f.label :user_id %><br />
+		<%= f.number_field :user_id %>
+	</div>
+	<div class="field">
+		<%= f.label :score %><br />
+		<%= f.number_field :score %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 <% end %>

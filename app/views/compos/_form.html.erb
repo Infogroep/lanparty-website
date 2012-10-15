@@ -1,37 +1,37 @@
 <%= form_for(@compo) do |f| %>
-  <% if @compo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@compo.errors.count, "error") %> prohibited this compo from being saved:</h2>
+	<% if @compo.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@compo.errors.count, "error") %> prohibited this compo from being saved:</h2>
 
-      <ul>
-      <% @compo.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+			<% @compo.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.label :game %><br />
-    <%= select_tag "compo[game_id]", options_from_collection_for_select(Game.all, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :slots %><br />
-    <%= f.number_field :slots %>
-  </div>
-  <div class="field">
-    <%= f.label :group_size %><br />
-    <%= f.number_field :group_size %>
-  </div>
-  <div class="field">
-    <%= f.label :date_time %><br />
-    <%= f.datetime_select :date_time %>
-  </div>
-  <div class="field">
-    <%= f.label :info %><br />
-    <%= f.text_field :info %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div class="field">
+		<%= f.label :game %><br />
+		<%= select_tag "compo[game_id]", options_from_collection_for_select(Game.all, :id, :name) %>
+	</div>
+	<div class="field">
+		<%= f.label :slots %><br />
+		<%= f.number_field :slots %>
+	</div>
+	<div class="field">
+		<%= f.label :group_size %><br />
+		<%= f.number_field :group_size %>
+	</div>
+	<div class="field">
+		<%= f.label :date_time %><br />
+		<%= f.datetime_select :date_time %>
+	</div>
+	<div class="field">
+		<%= f.label :info %><br />
+		<%= f.text_field :info %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 <% end %>

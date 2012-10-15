@@ -1,22 +1,22 @@
 <h1>Listing barcodes</h1>
 
 <table>
-  <tr>
-    <th>Item</th>
-    <th>Code</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<tr>
+		<th>Item</th>
+		<th>Code</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
 
 <% @barcodes.each do |barcode| %>
-  <tr>
-    <td><%= barcode.item.name %></td>
-    <td><%= barcode.code %></td>
-    <td><%= link_to 'Show', barcode %></td>
-    <td><%= link_to 'Edit', edit_barcode_path(barcode) %></td>
-    <td><%= link_to 'Destroy', barcode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+	<tr>
+		<td><%= barcode.item.name %></td>
+		<td><%= barcode.code %></td>
+		<td><%= link_to 'Show', barcode %></td>
+		<td><%= link_to 'Edit', edit_barcode_path(barcode) %></td>
+		<td><%= link_to 'Destroy', barcode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
 <% end %>
 </table>
 

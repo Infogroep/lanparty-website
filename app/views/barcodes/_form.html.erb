@@ -1,25 +1,25 @@
 <%= form_for(@barcode) do |f| %>
-  <% if @barcode.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@barcode.errors.count, "error") %> prohibited this barcode from being saved:</h2>
+	<% if @barcode.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@barcode.errors.count, "error") %> prohibited this barcode from being saved:</h2>
 
-      <ul>
-      <% @barcode.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+			<% @barcode.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-    <%= f.label :item %><br />
-    <%= select_tag "barcode[item_id]", options_from_collection_for_select(Item.all, :id, :name) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div class="field">
+		<%= f.label :code %><br />
+		<%= f.text_field :code %>
+	</div>
+	<div class="field">
+		<%= f.label :item %><br />
+		<%= select_tag "barcode[item_id]", options_from_collection_for_select(Item.all, :id, :name) %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 <% end %>
