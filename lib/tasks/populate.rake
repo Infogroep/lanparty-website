@@ -11,7 +11,7 @@ namespace :db do
 		puts "--------------"
 		User.create(
 			:username => "Enermis",
-			:email => Faker::Internet.email,
+			:email => "fulgens.ailurus@gmail.com",
 			:password => "roeland1",
 			:password_confirmation => "roeland1"
 		)

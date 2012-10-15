@@ -2,6 +2,7 @@
 
 <table>
 	<tr>
+		<th>avatar</th>
 		<th>username</th>
 		<th>email</th>
 		<th></th>
@@ -11,6 +12,7 @@
 
 <% @users.each do |user| %>
 	<tr>
+		<td><%= image_tag avatar_url user%></td>
 		<td><%= user.username %></td>
 		<td><%= user.email %></td>
 		<td><%= link_to 'Show', user %></td>
