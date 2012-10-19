@@ -1,15 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+    <td><%= button_to 'join', join_team_path(@team), method: :put %></td>
   <b>Name:</b>
   <%= @team.name %>
+
 </p>
 
 <p>
   <b>Compo:</b>
   <%= @team.compo_id %>
 </p>
-
+	<%= @team.users %>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

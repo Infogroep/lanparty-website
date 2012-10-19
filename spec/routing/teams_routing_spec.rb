@@ -27,6 +27,10 @@ describe TeamsController do
       put("/teams/1").should route_to("teams#update", :id => "1")
     end
 
+		it "routes to #join" do
+			put("/teams/1/join").should route_to("teams#join", :id => "1")
+		end
+
     it "routes to #destroy" do
       delete("/teams/1").should route_to("teams#destroy", :id => "1")
     end

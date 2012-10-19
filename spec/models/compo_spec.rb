@@ -12,4 +12,5 @@ describe Compo do
 	it { should belong_to(:game) }
 	it { should have_many(:prices) }
 	it { should have_many(:rounds) }
+	it { should have_many(:teams) }
 end

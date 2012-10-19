@@ -8,4 +8,5 @@ class Compo < ActiveRecord::Base
 	belongs_to :game
 	has_many :prices
 	has_many :rounds
+	has_many :teams
 end

@@ -1,5 +1,4 @@
 Lanparty::Application.routes.draw do
-  resources :teams
 
 	match 'user/edit' => 'users#edit', :as => :edit_current_user
 
@@ -8,6 +7,10 @@ Lanparty::Application.routes.draw do
 	match 'logout' => 'sessions#destroy', :as => :logout
 
 	match 'login' => 'sessions#new', :as => :login
+
+	resources :teams do
+		put :join, :on => :member
+	end
 
 	resources :sessions
 

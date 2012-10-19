@@ -16,8 +16,8 @@ module ControllerMacros
 	end
 	
 	def login
-		user = User.new(:username => "user", :email => "user@example.com", :password => "secret")
-		user.save!
-		session[:user_id] = user.id
+		@current_user = User.new(:username => "user", :email => "user@example.com", :password => "secret")
+		@current_user.save!
+		session[:user_id] = @current_user.id
 	end
 end
