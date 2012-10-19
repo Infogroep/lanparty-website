@@ -10,6 +10,7 @@ Lanparty::Application.routes.draw do
 
 	resources :teams do
 		put :join, :on => :member
+		put :leave, :on => :member
 	end
 
 	resources :sessions

@@ -73,6 +73,24 @@ class TeamsController < ApplicationController
 			end
 		end
 	end
+
+	# PUT /teams/1/leave
+	# PUT /teams/1/leave.json
+	def leave
+		@team = Team.find(params[:id])
+		@user = current_user
+		respond_to do |format|
+			if @team.users.include? @user
+				@team.users.delete @user
+				format.html {redirect_to @team, notice: 'Succesfully left team'}
+				format.json {head :no_content}
+			else
+				format.html {redirect_to @team, notice: 'Not a member of team'}
+				format.json {head :unable_to_leave_team}
+			end
+		end
+	end
+
 	# PUT /teams/1
 	# PUT /teams/1.json
 	def update

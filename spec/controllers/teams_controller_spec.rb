@@ -113,18 +113,34 @@ describe TeamsController do
 			end
 		end
 
+		describe "Put leave" do
+			it "removes user from the team" do
+				team = FactoryGirl.create(:team)
+				team.users << @current_user
+				put :leave, {:id => team.id}
+				team.users.count.should == 0
+			end
+			it "will not remove users that are not present" do
+				team = FactoryGirl.create(:team)
+				user = FactoryGirl.create(:user)
+				team.users << user
+				put :leave, {:id => team.id}
+				team.users.count.should == 1
+			end
+		end
+
 		describe "PUT join" do
 			it "adds current user to the team" do
 				team = Team.create! valid_attributes
-				put :join, {:id => team.id, :team => {}}
+				put :join, {:id => team.id}
 				@current_user.teams.should include(team)
 				team.users.should include(@current_user)
 				
 			end
 			it "rejects users that are already in the team" do
 				team = FactoryGirl.create(:team)
-				put :join, {:id => team.id, :team => {}}
-				put :join, {:id => team.id, :team => {}}
+				put :join, {:id => team.id}
+				put :join, {:id => team.id}
 				team.users.count.should == 1
 			end
 			it "rejects users if the team exceeds maxumum capacity" do
