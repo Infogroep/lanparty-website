@@ -61,6 +61,7 @@ class TeamsController < ApplicationController
 		@user = current_user
 		respond_to do |format|
 			if @team.users.include? @user
+				flash[:error] = "ermegerd"
 				format.html {redirect_to @team, notice: 'Already in team'}
 				format.json { render json: @team.errors, status: :unable_to_join_team }
 			elsif @team.users.count >= @team.compo.group_size

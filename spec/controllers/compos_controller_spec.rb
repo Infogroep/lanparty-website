@@ -170,3 +170,4 @@ describe ComposController do
 		end
 	end
 end
+
