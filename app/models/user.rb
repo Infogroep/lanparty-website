@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 	validates_length_of :password, :minimum => 4, :allow_blank => true
 
 	has_and_belongs_to_many :teams
+	has_many :logs
 
 	# login can be either username or email address
 	def self.authenticate(login, pass)

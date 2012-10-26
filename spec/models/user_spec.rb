@@ -15,6 +15,7 @@ describe User do
 	end
 
 	it { should have_and_belong_to_many :teams }
+	it { should have_many :logs}
 
 	it "should be valid" do
 		new_user.should be_valid

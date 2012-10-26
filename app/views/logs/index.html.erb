@@ -1,0 +1,7 @@
+<% title "Logs" %>
+
+<%= render :partial => 'log_list', :locals => {:logs => @logs} %>
+
+<br />
+
+<%= link_to 'New Log', new_log_path %>

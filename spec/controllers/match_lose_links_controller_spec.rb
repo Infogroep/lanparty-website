@@ -46,21 +46,6 @@ describe MatchLoseLinksController do
 		before(:each) do
 			login
 		end
-		describe "GET index" do
-			it "assigns all match_lose_links as @match_lose_links" do
-				match_lose_link = MatchLoseLink.create! valid_attributes
-				get :index, {}
-				assigns(:match_lose_links).should eq([match_lose_link])
-			end
-		end
-
-		describe "GET show" do
-			it "assigns the requested match_lose_link as @match_lose_link" do
-				match_lose_link = MatchLoseLink.create! valid_attributes
-				get :show, {:id => match_lose_link.to_param}
-				assigns(:match_lose_link).should eq(match_lose_link)
-			end
-		end
 
 		describe "GET new" do
 			it "assigns a new match_lose_link as @match_lose_link" do
@@ -89,11 +74,6 @@ describe MatchLoseLinksController do
 					post :create, {:match_lose_link => valid_attributes}
 					assigns(:match_lose_link).should be_a(MatchLoseLink)
 					assigns(:match_lose_link).should be_persisted
-				end
-
-				it "redirects to the created match_lose_link" do
-					post :create, {:match_lose_link => valid_attributes}
-					response.should redirect_to(MatchLoseLink.last)
 				end
 			end
 
@@ -132,9 +112,9 @@ describe MatchLoseLinksController do
 					assigns(:match_lose_link).should eq(match_lose_link)
 				end
 
-				it "redirects to the match_lose_link" do
+				it "redirects to the match_link" do
 					match_lose_link = MatchLoseLink.create! valid_attributes
-					put :update, {:id => match_lose_link.to_param, :match_lose_link => valid_attributes}
+					put :update, {:id => match_lose_link.match.to_param, :match_lose_link => valid_attributes}
 					response.should redirect_to(match_lose_link)
 				end
 			end

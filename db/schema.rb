@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015172737) do
+ActiveRecord::Schema.define(:version => 20121022062004) do
 
   create_table "barcodes", :force => true do |t|
     t.string   "code"
@@ -46,6 +46,15 @@ ActiveRecord::Schema.define(:version => 20121015172737) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "logs", :force => true do |t|
+    t.string   "message"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "logs", ["user_id"], :name => "index_logs_on_user_id"
 
   create_table "match_lose_links", :force => true do |t|
     t.integer  "match_id"

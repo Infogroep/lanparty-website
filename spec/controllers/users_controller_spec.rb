@@ -51,4 +51,15 @@ describe UsersController do
 		put :update, :id => "ignored"
 		response.should redirect_to(root_url)
 	end
+
+	describe "get show" do
+		it "assigns the requested user as @user" do
+			login
+			user = FactoryGirl.create(:user)
+			get :show, {:id => user.to_param}
+			assigns(:user).should eq(user)
+		end
+	end
+
+
 end
