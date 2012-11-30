@@ -2,7 +2,7 @@ namespace :db do
 	desc "populates the database"
 
 	task :populate => :environment do
-		require 'faker'
+		require 'lanparty_faker'
 		@amount = 10
 
 		User.delete_all
