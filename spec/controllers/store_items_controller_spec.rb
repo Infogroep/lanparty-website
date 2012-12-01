@@ -24,7 +24,7 @@ describe StoreItemsController do
 	# StoreItem. As you add validations to StoreItem, be sure to
 	# update the return value of this method accordingly.
 	def valid_attributes
-		{:name => "store_itemname", :price => 12, :store_item_type => "store_itemtype"}
+		{:name => "store_itemname", :buy_price => 12, :store_item_type => "store_itemtype"}
 	end
 
 	describe "unauthorised access" do

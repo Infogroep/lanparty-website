@@ -1,9 +1,7 @@
 class StoreItem < ActiveRecord::Base
-	attr_accessible :price, :name
+	attr_accessible :buy_price, :name, :store_item_type
 
 	has_many :barcodes, :dependent => :destroy
-	has_and_belongs_to_many :store_item_classes
-
-	validates_presence_of :name, :price
+	validates_presence_of :name, :buy_price, :store_item_type
 	validates_uniqueness_of :name
 end
