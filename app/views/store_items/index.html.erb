@@ -13,7 +13,7 @@
 <% @store_items.each do |store_item| %>
 	<tr>
 		<td><%= store_item.name %></td>
-		<td><%= store_item.buy_price %></td>
+		<td><%= store_item.purchase_price %></td>
 		<td><%= store_item.store_item_type %></td>
 		<td><%= link_to 'Show', store_item %></td>
 		<td><%= link_to 'Edit', edit_store_item_path(store_item) %></td>

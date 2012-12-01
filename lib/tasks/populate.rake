@@ -41,7 +41,7 @@ namespace :db do
 		@amount.times do
 			store_item = StoreItem.new(
 				:name => Faker::Name.name,
-				:buy_price => rand(100),
+				:purchase_price => rand(100),
 				:store_item_type => ['Drinks','Foods','Goodies','Etc'].sample
 			)
 			(1..3).to_a.sample.times do
