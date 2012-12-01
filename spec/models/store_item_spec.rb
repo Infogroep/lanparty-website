@@ -6,8 +6,9 @@ describe StoreItem do
 	end
 
 	it {should validate_presence_of(:name)}
-	it {should validate_presence_of(:buy_price)}
-	it {should validate_presence_of(:store_item_type)}
+	it {should validate_presence_of(:price)}
+
+	it {should have_and_belong_to_many(:store_item_classes)}
 
 	it {should validate_uniqueness_of(:name)}
 	it {should have_many(:barcodes)}
