@@ -37,7 +37,7 @@ Lanparty::Application.routes.draw do
 
 	resources :barcodes
 
-	resources :items
+	resources :store_items
 
 	match '/', :to => 'compos#index'
 

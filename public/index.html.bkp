@@ -188,7 +188,7 @@
 	<body>
 		<div id="page">
 			<div id="sidebar">
-				<ul id="sidebar-items">
+				<ul id="sidebar-store_items">
 					<li>
 						<h3>Browse the documentation</h3>
 						<ul class="links">

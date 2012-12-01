@@ -1,0 +1,2 @@
+find * -type f | xargs sed -i -e 's/item/store_item/g' -e 's/Item/StoreItem/g'
+find * -type f -exec ../rename-items {} \;

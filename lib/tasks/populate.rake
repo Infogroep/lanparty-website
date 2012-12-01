@@ -32,31 +32,31 @@ namespace :db do
 			end
 		end
 
-		Item.delete_all
+		StoreItem.delete_all
 		Barcode.delete_all
 		puts ""
 		puts "--------------"
-		puts "Creating Items"
+		puts "Creating StoreItems"
 		puts "--------------"
 		@amount.times do
-			item = Item.new(
+			store_item = StoreItem.new(
 				:name => Faker::Name.name,
 				:buy_price => rand(100),
-				:item_type => ['Drinks','Foods','Goodies','Etc'].sample
+				:store_item_type => ['Drinks','Foods','Goodies','Etc'].sample
 			)
 			(1..3).to_a.sample.times do
 				barcode = Barcode.new(
 					:code => (0...10).map{ ('a'..'z').to_a[rand(26)] }.join
 					)
-				barcode.item = item
+				barcode.store_item = store_item
 				barcode.save!
 				puts "\tcreated barcode #{barcode.code}" 
 			end
-			if item.valid?
-				item.save!
-				puts "created item #{item.name}"
+			if store_item.valid?
+				store_item.save!
+				puts "created store_item #{store_item.name}"
 			else
-				puts "tried to create item #{item.name} but failed"
+				puts "tried to create store_item #{store_item.name} but failed"
 			end
 		end
 

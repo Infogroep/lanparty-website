@@ -1,0 +1,27 @@
+<% title "StoreItems" %>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Buy price</th>
+		<th>StoreItem type </th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+
+<% @store_items.each do |store_item| %>
+	<tr>
+		<td><%= store_item.name %></td>
+		<td><%= store_item.buy_price %></td>
+		<td><%= store_item.store_item_type %></td>
+		<td><%= link_to 'Show', store_item %></td>
+		<td><%= link_to 'Edit', edit_store_item_path(store_item) %></td>
+		<td><%= link_to 'Destroy', store_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New StoreItem', new_store_item_path %>

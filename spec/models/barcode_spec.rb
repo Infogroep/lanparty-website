@@ -5,7 +5,7 @@ describe Barcode do
 		FactoryGirl.create(:barcode)
 	end
 	it {should validate_presence_of(:code)}
-	it {should validate_presence_of(:item)}
+	it {should validate_presence_of(:store_item)}
 	it {should validate_uniqueness_of(:code)}
-	it {should belong_to(:item)}
+	it {should belong_to(:store_item)}
 end
