@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @pricing_default.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @pricing_default.description %>
+</p>
+
+<p>
+  <b>Rounding precision:</b>
+  <%= @pricing_default.rounding_precision %>
+</p>
+
+<p>
+  <b>Ratio:</b>
+  <%= @pricing_default.ratio %>
+</p>
+
+
+<%= link_to 'Edit', edit_pricing_default_path(@pricing_default) %> |
+<%= link_to 'Back', pricing_defaults_path %>

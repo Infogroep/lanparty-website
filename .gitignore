@@ -17,3 +17,4 @@ pickle-email-*.html
 *.swp
 *.lock
 /db/schema.rb
+.idea

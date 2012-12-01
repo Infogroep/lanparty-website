@@ -1,0 +1,29 @@
+<h1>Listing pricing_defaults</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Rounding precision</th>
+    <th>Ratio</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pricing_defaults.each do |pricing_default| %>
+  <tr>
+    <td><%= pricing_default.name %></td>
+    <td><%= pricing_default.description %></td>
+    <td><%= pricing_default.rounding_precision %></td>
+    <td><%= pricing_default.ratio %></td>
+    <td><%= link_to 'Show', pricing_default %></td>
+    <td><%= link_to 'Edit', edit_pricing_default_path(pricing_default) %></td>
+    <td><%= link_to 'Destroy', pricing_default, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pricing default', new_pricing_default_path %>

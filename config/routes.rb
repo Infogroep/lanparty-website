@@ -1,5 +1,11 @@
 Lanparty::Application.routes.draw do
 
+  resources :pricing_defaults
+
+
+  resources :user_groups
+
+
   resources :logs
 
 	match 'user/edit' => 'users#edit', :as => :edit_current_user

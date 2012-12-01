@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe MatchLoseLink do
-	before(:each) do
-		FactoryGirl.create(:match_lose_link)
-	end
-
 	it { should validate_presence_of(:match) }
 	it { should validate_presence_of(:next_match) }
 
