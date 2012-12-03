@@ -24,7 +24,7 @@ describe PricingDefaultsController do
   # PricingDefault. As you add validations to PricingDefault, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "name" => "MyString", "ratio" => 9.99, "rounding_precision" => 0.05 }
+    { "name" => "MyString", "transform" => "ccost" }
   end
 
   # This should return the minimal set of values that should be in the session

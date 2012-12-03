@@ -1,9 +1,13 @@
 class PricingOverride < ActiveRecord::Base
-  belongs_to :store_item
-  belongs_to :pricing_default
-  attr_accessible :price
+  include PricingTransform
+  attr_accessible :transform
 
-  validates_presence_of :store_item
-  validates_presence_of :price
-  validates_uniqueness_of :pricing_default_id, :scope => :store_item_id
+  validates_presence_of :transform
+
+  belongs_to :payable, :polymorphic => true
+  belongs_to :pricing_default
+
+  validates_presence_of :payable
+  validates_uniqueness_of :pricing_default_id, :scope => :payable_id
+  validates_uniqueness_of :payable_id, :scope => :pricing_default_id
 end

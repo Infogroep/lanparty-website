@@ -1,0 +1,25 @@
+<h1>Listing store_item_classes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Parent</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @store_item_classes.each do |store_item_class| %>
+  <tr>
+    <td><%= store_item_class.name %></td>
+    <td><%= store_item_class.parent %></td>
+    <td><%= link_to 'Show', store_item_class %></td>
+    <td><%= link_to 'Edit', edit_store_item_class_path(store_item_class) %></td>
+    <td><%= link_to 'Destroy', store_item_class, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Store item class', new_store_item_class_path %>

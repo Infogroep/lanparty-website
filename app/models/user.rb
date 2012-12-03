@@ -34,5 +34,13 @@ class User < ActiveRecord::Base
 			self.password_salt = BCrypt::Engine.generate_salt
 			self.password_hash = encrypt_password(password)
 		end
-	end
+  end
+
+  def access_allowed?(access_type)
+    allowed = false
+    user_groups.find_each do |group|
+      allowed ||= group.allows_access?(access_type)
+    end
+    return allowed
+  end
 end

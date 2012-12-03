@@ -1,5 +1,8 @@
 Lanparty::Application.routes.draw do
 
+  resources :store_item_classes
+
+
   resources :pricing_defaults
 
 

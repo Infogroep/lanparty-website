@@ -1,0 +1,2 @@
+module StoreItemClassesHelper
+end

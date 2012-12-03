@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe PricingOverride do
-  it { should validate_presence_of :price }
-  it { should validate_presence_of :store_item }
+  it { should validate_presence_of :payable }
+  it { should validate_presence_of :transform }
   it { should validate_uniqueness_of :pricing_default_id }
-  it { should belong_to :store_item }
+  it { should validate_uniqueness_of :payable_id }
+  it { should belong_to :payable }
   it { should belong_to :pricing_default }
 end
