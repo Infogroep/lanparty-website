@@ -20,12 +20,12 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :rounding_precision %><br />
-    <%= f.text_field :rounding_precision %>
+    <%= f.label :user_groups %><br />
+    <%= f.collection_select :user_group_ids, UserGroup.all, :id, :id, {}, { :multiple => true } %>
   </div>
   <div class="field">
-    <%= f.label :ratio %><br />
-    <%= f.text_field :ratio %>
+    <%= f.label :transform %><br />
+    <%= f.text_area :transform %>
   </div>
   <div class="actions">
     <%= f.submit %>

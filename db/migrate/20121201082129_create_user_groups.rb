@@ -4,11 +4,8 @@ class CreateUserGroups < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.references :pricing_override
-      t.boolean :allow_group_editing
-      t.boolean :allow_store_editing
-      t.boolean :allow_stock_editing
-      t.boolean :allow_user_editing
-      t.boolean :allow_pricing_editing
+      t.boolean :store_editing
+      t.boolean :user_editing
 
       t.timestamps
     end

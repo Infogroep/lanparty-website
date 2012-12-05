@@ -34,14 +34,10 @@ describe LogsController do
 		{:message => "MyString", :user_id => FactoryGirl.create(:user).id}
 	end
 
-	describe "unauthorised access" do
-		it_should_require_login_for_actions :index, :destroy, :show, :new, :update, :create
-	end
+	describe_access(
+    :login => [:index, :destroy, :show, :new, :update, :create]
+  ) do
 
-	describe "authorised acces" do
-		before(:each) do
-			login
-		end
 	  describe "GET index" do
 	    it "assigns all logs as @logs" do
 	      log = FactoryGirl.create(:log)

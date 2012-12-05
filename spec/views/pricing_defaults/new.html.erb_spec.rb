@@ -5,8 +5,7 @@ describe "pricing_defaults/new" do
     assign(:pricing_default, stub_model(PricingDefault,
       :name => "MyString",
       :description => "MyText",
-      :rounding_precision => "9.99",
-      :ratio => 1.5
+      :transform => "trololo"
     ).as_new_record)
   end
 
@@ -17,8 +16,7 @@ describe "pricing_defaults/new" do
     assert_select "form", :action => pricing_defaults_path, :method => "post" do
       assert_select "input#pricing_default_name", :name => "pricing_default[name]"
       assert_select "textarea#pricing_default_description", :name => "pricing_default[description]"
-      assert_select "input#pricing_default_rounding_precision", :name => "pricing_default[rounding_precision]"
-      assert_select "input#pricing_default_ratio", :name => "pricing_default[ratio]"
+      assert_select "textarea#pricing_default_transform", :name => "pricing_default[transform]"
     end
   end
 end

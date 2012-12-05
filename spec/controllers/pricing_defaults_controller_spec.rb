@@ -27,137 +27,136 @@ describe PricingDefaultsController do
     { "name" => "MyString", "transform" => "ccost" }
   end
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # PricingDefaultsController. Be sure to keep this updated too.
-  def valid_session
-    {}
-  end
+  describe_access(
+    :login => [:index, :destroy, :show, :new, :update, :create],
+    :store_editing => [:index, :destroy, :show, :new, :update, :create]
+  ) do
 
-  describe "GET index" do
-    it "assigns all pricing_defaults as @pricing_defaults" do
-      pricing_default = PricingDefault.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:pricing_defaults).should eq([pricing_default])
-    end
-  end
-
-  describe "GET show" do
-    it "assigns the requested pricing_default as @pricing_default" do
-      pricing_default = PricingDefault.create! valid_attributes
-      get :show, {:id => pricing_default.to_param}, valid_session
-      assigns(:pricing_default).should eq(pricing_default)
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new pricing_default as @pricing_default" do
-      get :new, {}, valid_session
-      assigns(:pricing_default).should be_a_new(PricingDefault)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested pricing_default as @pricing_default" do
-      pricing_default = PricingDefault.create! valid_attributes
-      get :edit, {:id => pricing_default.to_param}, valid_session
-      assigns(:pricing_default).should eq(pricing_default)
-    end
-  end
-
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new PricingDefault" do
-        expect {
-          post :create, {:pricing_default => valid_attributes}, valid_session
-        }.to change(PricingDefault, :count).by(1)
-      end
-
-      it "assigns a newly created pricing_default as @pricing_default" do
-        post :create, {:pricing_default => valid_attributes}, valid_session
-        assigns(:pricing_default).should be_a(PricingDefault)
-        assigns(:pricing_default).should be_persisted
-      end
-
-      it "redirects to the created pricing_default" do
-        post :create, {:pricing_default => valid_attributes}, valid_session
-        response.should redirect_to(PricingDefault.last)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved pricing_default as @pricing_default" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        PricingDefault.any_instance.stub(:save).and_return(false)
-        post :create, {:pricing_default => { "name" => "invalid value" }}, valid_session
-        assigns(:pricing_default).should be_a_new(PricingDefault)
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        PricingDefault.any_instance.stub(:save).and_return(false)
-        post :create, {:pricing_default => { "name" => "invalid value" }}, valid_session
-        response.should render_template("new")
-      end
-    end
-  end
-
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested pricing_default" do
+    describe "GET index" do
+      it "assigns all pricing_defaults as @pricing_defaults" do
         pricing_default = PricingDefault.create! valid_attributes
-        # Assuming there are no other pricing_defaults in the database, this
-        # specifies that the PricingDefault created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        PricingDefault.any_instance.should_receive(:update_attributes).with({ "name" => "MyString" })
-        put :update, {:id => pricing_default.to_param, :pricing_default => { "name" => "MyString" }}, valid_session
+        get :index, {}
+        assigns(:pricing_defaults).should eq([pricing_default])
       end
+    end
 
+    describe "GET show" do
       it "assigns the requested pricing_default as @pricing_default" do
         pricing_default = PricingDefault.create! valid_attributes
-        put :update, {:id => pricing_default.to_param, :pricing_default => valid_attributes}, valid_session
+        get :show, {:id => pricing_default.to_param}
         assigns(:pricing_default).should eq(pricing_default)
       end
+    end
 
-      it "redirects to the pricing_default" do
-        pricing_default = PricingDefault.create! valid_attributes
-        put :update, {:id => pricing_default.to_param, :pricing_default => valid_attributes}, valid_session
-        response.should redirect_to(pricing_default)
+    describe "GET new" do
+      it "assigns a new pricing_default as @pricing_default" do
+        get :new, {}
+        assigns(:pricing_default).should be_a_new(PricingDefault)
       end
     end
 
-    describe "with invalid params" do
-      it "assigns the pricing_default as @pricing_default" do
+    describe "GET edit" do
+      it "assigns the requested pricing_default as @pricing_default" do
         pricing_default = PricingDefault.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        PricingDefault.any_instance.stub(:save).and_return(false)
-        put :update, {:id => pricing_default.to_param, :pricing_default => { "name" => "invalid value" }}, valid_session
+        get :edit, {:id => pricing_default.to_param}
         assigns(:pricing_default).should eq(pricing_default)
       end
+    end
 
-      it "re-renders the 'edit' template" do
-        pricing_default = PricingDefault.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        PricingDefault.any_instance.stub(:save).and_return(false)
-        put :update, {:id => pricing_default.to_param, :pricing_default => { "name" => "invalid value" }}, valid_session
-        response.should render_template("edit")
+    describe "POST create" do
+      describe "with valid params" do
+        it "creates a new PricingDefault" do
+          expect {
+            post :create, {:pricing_default => valid_attributes}
+          }.to change(PricingDefault, :count).by(1)
+        end
+
+        it "assigns a newly created pricing_default as @pricing_default" do
+          post :create, {:pricing_default => valid_attributes}
+          assigns(:pricing_default).should be_a(PricingDefault)
+          assigns(:pricing_default).should be_persisted
+        end
+
+        it "redirects to the created pricing_default" do
+          post :create, {:pricing_default => valid_attributes}
+          response.should redirect_to(PricingDefault.last)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns a newly created but unsaved pricing_default as @pricing_default" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          PricingDefault.any_instance.stub(:save).and_return(false)
+          post :create, {:pricing_default => { "name" => "invalid value" }}
+          assigns(:pricing_default).should be_a_new(PricingDefault)
+        end
+
+        it "re-renders the 'new' template" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          PricingDefault.any_instance.stub(:save).and_return(false)
+          post :create, {:pricing_default => { "name" => "invalid value" }}
+          response.should render_template("new")
+        end
       end
     end
-  end
 
-  describe "DELETE destroy" do
-    it "destroys the requested pricing_default" do
-      pricing_default = PricingDefault.create! valid_attributes
-      expect {
-        delete :destroy, {:id => pricing_default.to_param}, valid_session
-      }.to change(PricingDefault, :count).by(-1)
+    describe "PUT update" do
+      describe "with valid params" do
+        it "updates the requested pricing_default" do
+          pricing_default = PricingDefault.create! valid_attributes
+          # Assuming there are no other pricing_defaults in the database, this
+          # specifies that the PricingDefault created on the previous line
+          # receives the :update_attributes message with whatever params are
+          # submitted in the request.
+          PricingDefault.any_instance.should_receive(:update_attributes).with({ "name" => "MyString" })
+          put :update, {:id => pricing_default.to_param, :pricing_default => { "name" => "MyString" }}
+        end
+
+        it "assigns the requested pricing_default as @pricing_default" do
+          pricing_default = PricingDefault.create! valid_attributes
+          put :update, {:id => pricing_default.to_param, :pricing_default => valid_attributes}
+          assigns(:pricing_default).should eq(pricing_default)
+        end
+
+        it "redirects to the pricing_default" do
+          pricing_default = PricingDefault.create! valid_attributes
+          put :update, {:id => pricing_default.to_param, :pricing_default => valid_attributes}
+          response.should redirect_to(pricing_default)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns the pricing_default as @pricing_default" do
+          pricing_default = PricingDefault.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          PricingDefault.any_instance.stub(:save).and_return(false)
+          put :update, {:id => pricing_default.to_param, :pricing_default => { "name" => "invalid value" }}
+          assigns(:pricing_default).should eq(pricing_default)
+        end
+
+        it "re-renders the 'edit' template" do
+          pricing_default = PricingDefault.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          PricingDefault.any_instance.stub(:save).and_return(false)
+          put :update, {:id => pricing_default.to_param, :pricing_default => { "name" => "invalid value" }}
+          response.should render_template("edit")
+        end
+      end
     end
 
-    it "redirects to the pricing_defaults list" do
-      pricing_default = PricingDefault.create! valid_attributes
-      delete :destroy, {:id => pricing_default.to_param}, valid_session
-      response.should redirect_to(pricing_defaults_url)
+    describe "DELETE destroy" do
+      it "destroys the requested pricing_default" do
+        pricing_default = PricingDefault.create! valid_attributes
+        expect {
+          delete :destroy, {:id => pricing_default.to_param}
+        }.to change(PricingDefault, :count).by(-1)
+      end
+
+      it "redirects to the pricing_defaults list" do
+        pricing_default = PricingDefault.create! valid_attributes
+        delete :destroy, {:id => pricing_default.to_param}
+        response.should redirect_to(pricing_defaults_url)
+      end
     end
   end
 

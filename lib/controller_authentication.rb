@@ -33,7 +33,13 @@ module ControllerAuthentication
 			store_target_location
 			redirect_to login_url, :alert => "You must first log in or sign up before accessing this page."
 		end
-	end
+  end
+
+  def access_required(access_type)
+    unless current_user.access_allowed? access_type
+      redirect_to root_url, :alert => "You are not allowed in this section."
+    end
+  end
 
 	def redirect_to_target_or_default(default, *args)
 		redirect_to(session[:return_to] || default, *args)

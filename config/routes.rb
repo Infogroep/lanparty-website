@@ -48,6 +48,10 @@ Lanparty::Application.routes.draw do
 
 	resources :store_items
 
+  namespace :admin do
+    resources :users
+  end
+
 	match '/', :to => 'compos#index'
 
 	# The priority is based upon order of creation:

@@ -1,4 +1,7 @@
 class PricingDefaultsController < ApplicationController
+  before_filter :login_required
+  before_filter { access_required :store_editing }
+
   # GET /pricing_defaults
   # GET /pricing_defaults.json
   def index

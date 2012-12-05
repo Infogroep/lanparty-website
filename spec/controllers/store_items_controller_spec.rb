@@ -24,17 +24,14 @@ describe StoreItemsController do
 	# StoreItem. As you add validations to StoreItem, be sure to
 	# update the return value of this method accordingly.
 	def valid_attributes
-		{:name => "store_itemname", :purchase_price => 12 }
+		{:name => "store_itemname", :purchase_price => 12, :stock => 5 }
 	end
 
-	describe "unauthorised access" do
-		it_should_require_login_for_actions :index, :destroy, :show, :new, :update, :create
-	end
+	describe_access(
+		:login => [:index, :destroy, :show, :new, :update, :create],
+    :store_editing => [:destroy, :new, :update, :create]
+	) do
 
-	describe "authorised access" do
-		before(:each) do
-			login
-		end
 		describe "GET index" do
 			it "assigns all store_items as @store_items" do
 				store_item = StoreItem.create! valid_attributes

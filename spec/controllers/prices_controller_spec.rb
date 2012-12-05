@@ -27,21 +27,10 @@ describe PricesController do
 		{:value => 1, :sponsor => "IG"}
 	end
 
-	# This should return the minimal set of values that should be in the session
-	# in order to pass any filters (e.g. authentication) defined in
-	# PricesController. Be sure to keep this updated too.
-	def valid_session
-		{}
-	end
+	describe_access(
+		:login => [:index, :destroy, :show, :new, :update, :create]
+	) do
 
-	describe "unauthorised access" do
-		it_should_require_login_for_actions :index, :destroy, :show, :new, :update, :create
-	end
-
-	describe "authorised access" do
-		before(:each) do
-			login
-		end
 		describe "GET index" do
 			it "assigns all prices as @prices" do
 				price = Price.create! valid_attributes

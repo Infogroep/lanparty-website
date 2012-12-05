@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :user_group do
-    name { Faker::Name.name }
-    description { Faker::Lorem.paragraph }
+    sequence(:name){|n| "MyString #{n}"}
+    description "MyText"
   end
 end

@@ -1,4 +1,7 @@
 class StoreItemClassesController < ApplicationController
+  before_filter :login_required
+  before_filter { access_required :store_editing }
+
   # GET /store_item_classes
   # GET /store_item_classes.json
   def index

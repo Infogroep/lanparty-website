@@ -5,8 +5,7 @@ describe "pricing_defaults/show" do
     @pricing_default = assign(:pricing_default, stub_model(PricingDefault,
       :name => "Name",
       :description => "MyText",
-      :rounding_precision => "9.99",
-      :ratio => 1.5
+      :transform => "trololo"
     ))
   end
 
@@ -15,7 +14,6 @@ describe "pricing_defaults/show" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Name/)
     rendered.should match(/MyText/)
-    rendered.should match(/9.99/)
-    rendered.should match(/1.5/)
+    rendered.should match(/trololo/)
   end
 end

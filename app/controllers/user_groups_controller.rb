@@ -1,4 +1,7 @@
 class UserGroupsController < ApplicationController
+  before_filter :login_required
+  before_filter { access_required :user_editing }
+
   # GET /user_groups
   # GET /user_groups.json
   def index

@@ -27,6 +27,14 @@ class User < ActiveRecord::Base
 		BCrypt::Engine.hash_secret(pass, password_salt)
 	end
 
+  def access_allowed?(access_type)
+    allowed = false
+    user_groups.find_each do |group|
+      allowed ||= group.allows_access?(access_type)
+    end
+    return allowed
+  end
+
 	private
 
 	def prepare_password
@@ -36,11 +44,4 @@ class User < ActiveRecord::Base
 		end
   end
 
-  def access_allowed?(access_type)
-    allowed = false
-    user_groups.find_each do |group|
-      allowed ||= group.allows_access?(access_type)
-    end
-    return allowed
-  end
 end
