@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		@nav_tab = 'profile'
 		@user = User.find(params[:id])
 	end
 

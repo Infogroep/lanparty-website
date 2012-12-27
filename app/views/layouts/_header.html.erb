@@ -1,14 +1,24 @@
-<div id="header">
-	<nav>
-		<ul>
-			<li><%= link_to "Compos", compos_path %></li>
-			<li><%= link_to "Items", items_path %></li>
-			<% if @current_user %>
-				<li><%= link_to "Profile", @current_user %></li>
-				<li><%= link_to "Logout", logout_path %></li>
-			<% else %>
-				<li><%= link_to "Login", login_path %></li>
-			<% end %>
-		</ul>
-	</nav>
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<a class="brand" href="#">iLan</a>
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li class=<%= active_class('compos') %> ><%= link_to "Compos", compos_path %></li>
+					<li class=<%= active_class('items') %> ><%= link_to "Items", items_path %></li>
+					<% if @current_user %>
+						<li class=<%= active_class('profile') %> ><%= link_to "Profile", @current_user %></li>
+						<li><%= link_to "Logout", logout_path %></li>
+					<% else %>
+						<li><%= link_to "Login", login_path %></li>
+					<% end %>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
 </div>
