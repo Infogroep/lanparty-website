@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
 	factory :game do 
-		sequence(:name){|n| "MyString #{n}"}
-		info "MyString "
-		sequence(:download_location){|n| "MyString #{n}"}
+		download_location {Faker::Internet.url}
+		info {Faker::Lorem.paragraph(2)}
+		name {Faker::Game.name}
 	end
 end

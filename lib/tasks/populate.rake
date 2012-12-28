@@ -6,34 +6,7 @@ namespace :db do
 		@amount = 10
 
 		Rake::Task["populate_users"].invoke(@amount)
-
-		StoreItem.delete_all
-		Barcode.delete_all
-		puts ""
-		puts "--------------"
-		puts "Creating StoreItems"
-		puts "--------------"
-		@amount.times do
-			store_item = StoreItem.new(
-				:name => Faker::Name.name,
-				:purchase_price => rand(100),
-				:store_item_type => ['Drinks','Foods','Goodies','Etc'].sample
-			)
-			(1..3).to_a.sample.times do
-				barcode = Barcode.new(
-					:code => (0...10).map{ ('a'..'z').to_a[rand(26)] }.join
-					)
-				barcode.store_item = store_item
-				barcode.save!
-				puts "\tcreated barcode #{barcode.code}" 
-			end
-			if store_item.valid?
-				store_item.save!
-				puts "created store_item #{store_item.name}"
-			else
-				puts "tried to create store_item #{store_item.name} but failed"
-			end
-		end
+		Rake::Task["populate_store_items"].invoke(@amount)
 
 		Game.delete_all
 		Compo.delete_all
