@@ -10,7 +10,7 @@
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<li class=<%= active_class('compos') %> ><%= link_to "Compos", compos_path %></li>
-					<li class=<%= active_class('items') %> ><%= link_to "Items", items_path %></li>
+					<li class=<%= active_class('items') %> ><%= link_to "Items", store_items_path %></li>
 					<% if @current_user %>
 						<li class=<%= active_class('profile') %> ><%= link_to "Profile", @current_user %></li>
 						<li><%= link_to "Logout", logout_path %></li>

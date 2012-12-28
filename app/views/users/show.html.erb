@@ -2,4 +2,4 @@
 <p class="field"> <b>Name:</b> <%= @user.username %> </p>
 <p class="field"> <b>email:</b> <%= @user.email %> </p>
 
-<%= render :partial => 'logs/log_list', :locals => {:logs => @user.logs, :@no_user => true} %>
+<%= render :partial => 'logs/log_list', :locals => {:logs => @user.logs, :no_user => true} %>
