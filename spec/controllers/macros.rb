@@ -51,9 +51,12 @@ module ControllerMacros
 
 
 	def login
+    User.skip_callback :save, :before, :prepare_password, :unless => Proc.new { |user| user.password_hash.nil? }
 		@current_user = User.new(:username => "user",
                              :email => "user@example.com",
-                             :password => "secret")
+                             :password => "secret",
+                             :password_hash => "$2a$10$cg2feQJfTglKpkJjwCtFves068nDh00m6AYhSvwkBvFb5af2AAvwi",
+                             :password_salt => "$2a$10$cg2feQJfTglKpkJjwCtFve")
 		@current_user.save!
 		session[:user_id] = @current_user.id
   end
