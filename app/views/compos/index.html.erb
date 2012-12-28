@@ -6,9 +6,9 @@
 		<th>Slots</th>
 		<th>Group size</th>
 		<th>Datetime</th>
-		<th></th>
-		<th></th>
-		<th></th>
+		<th class="action_column"></th>
+		<th class="action_column"></th>
+		<th class="action_column"></th>
 	</tr>
 
 <% @compos.each do |compo| %>
@@ -17,9 +17,9 @@
 		<td><%= compo.slots %></td>
 		<td><%= compo.group_size %></td>
 		<td><%= compo.date_time %></td>
-		<td><%= link_to 'Show', compo %></td>
-		<td><%= link_to 'Edit', edit_compo_path(compo) %></td>
-		<td><%= link_to 'Destroy', compo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= button_to 'Show', compo %></td>
+		<td><%= button_to 'Edit', edit_compo_path(compo) %></td>
+		<td><%= button_to 'Destroy', compo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-danger" %></td>
 	</tr>
 <% end %>
 </table>

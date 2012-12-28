@@ -10,5 +10,8 @@
  *
  *= require_self
  */
- @import "bootstrap_and_overrides";
- @import "pages";
+@import "bootstrap_and_overrides";
+@import "pages";
+input[type=submit]{
+	border-radius: 5px;
+}
