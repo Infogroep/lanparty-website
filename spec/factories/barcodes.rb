@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
 	factory :barcode do 
-		code "123456789"
-		store_item
+		code {rand(1000000000)}
 	end
 end

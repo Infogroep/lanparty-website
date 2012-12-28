@@ -5,32 +5,7 @@ namespace :db do
 		require 'lanparty_faker'
 		@amount = 10
 
-		User.delete_all
-		puts "--------------"
-		puts "Creating Users"
-		puts "--------------"
-		User.create(
-			:username => "Enermis",
-			:email => "fulgens.ailurus@gmail.com",
-			:password => "roeland1",
-			:password_confirmation => "roeland1"
-		)
-		puts "created Enermis"
-		@amount.times do
-			password = Faker::Lorem.characters 10
-			user = User.new(
-				:username => Faker::Internet.user_name,
-				:email => Faker::Internet.email,
-				:password => password,
-				:password_confirmation => password
-			)
-			if user.valid?
-				user.save!
-				puts "created user #{user.username}"
-			else
-				puts "tried to create user #{user.username} but failed"
-			end
-		end
+		Rake::Task["populate_users"].invoke(@amount)
 
 		StoreItem.delete_all
 		Barcode.delete_all
