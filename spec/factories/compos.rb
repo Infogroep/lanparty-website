@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
 	factory :compo do
-		info "MyString"
+		description "MyString"
 		slots 1
 		date_time "2012-10-08-12-12"
 		group_size 1

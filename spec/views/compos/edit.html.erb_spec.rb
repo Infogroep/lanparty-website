@@ -14,10 +14,10 @@ describe "compos/edit" do
 
 		# Run the generator again with the --webrat flag if you want to use webrat matchers
 		assert_select "form", :action => compos_path(@compo), :method => "post" do
-			assert_select "input#compo_info", :name => "compo[info]"
 			assert_select "input#compo_group_size", :name => "compo[group_size]"
 			assert_select "input#compo_slots", :name => "compo[slots]"
 			assert_select "select#compo_game_id", :name => "compo[game_id]"
+			assert_select "textarea#compo_description", :name => "compo[description]"
 		end
 	end
 

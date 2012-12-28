@@ -14,6 +14,7 @@ describe Compo do
 	it { should have_many :rounds }
 	it { should have_many :teams }
 	it { should respond_to :featured }
+	it { should respond_to :description }
 
 	it "defaults featured to false" do
 		x = Compo.new()
