@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @store_item_class.name %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%= @store_item_class.parent %>
+</p>
+
+
+<%= link_to 'Edit', edit_store_item_class_path(@store_item_class) %> |
+<%= link_to 'Back', store_item_classes_path %>

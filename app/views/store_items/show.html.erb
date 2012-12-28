@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<b>Name:</b>
+	<%= @store_item.name %>
+</p>
+
+<p>
+	<b>Buy price:</b>
+	<%= @store_item.purchase_price %>
+</p>
+<fieldset id="barcodes">
+	<legend>barcodes</legend>
+	<ul>
+	<table border="0">
+	<% @store_item.barcodes.each do |barcode| %>
+		<tr>
+			<td><%= link_to barcode.code, barcode %></td>
+			<td><%= link_to 'Show', barcode %></td>
+			<td><%= link_to 'Edit', edit_barcode_path(barcode) %></td>
+			<td><%= link_to 'Destroy', barcode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	<% end %>
+	</table>
+	<%= link_to 'Add Barcode', new_barcode_path %>
+	</ul>
+</fieldset>
+
+
+<%= link_to 'Edit', edit_store_item_path(@store_item) %> |
+<%= link_to 'Back', store_items_path %>

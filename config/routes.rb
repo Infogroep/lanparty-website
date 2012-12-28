@@ -1,5 +1,14 @@
 Lanparty::Application.routes.draw do
 
+  resources :store_item_classes
+
+
+  resources :pricing_defaults
+
+
+  resources :user_groups
+
+
   resources :logs
 
 	match 'user/edit' => 'users#edit', :as => :edit_current_user
@@ -37,7 +46,11 @@ Lanparty::Application.routes.draw do
 
 	resources :barcodes
 
-	resources :items
+	resources :store_items
+
+  namespace :admin do
+    resources :users
+  end
 
 	# The priority is based upon order of creation:
 	# first created -> highest priority.

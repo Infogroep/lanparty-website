@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 	validates_confirmation_of :password
 	validates_length_of :password, :minimum => 4, :allow_blank => true
 
+  has_and_belongs_to_many :user_groups
 	has_and_belongs_to_many :teams
 	has_many :logs
 
@@ -26,6 +27,14 @@ class User < ActiveRecord::Base
 		BCrypt::Engine.hash_secret(pass, password_salt)
 	end
 
+  def access_allowed?(access_type)
+    allowed = false
+    user_groups.find_each do |group|
+      allowed ||= group.allows_access?(access_type)
+    end
+    return allowed
+  end
+
 	private
 
 	def prepare_password
@@ -33,5 +42,6 @@ class User < ActiveRecord::Base
 			self.password_salt = BCrypt::Engine.generate_salt
 			self.password_hash = encrypt_password(password)
 		end
-	end
+  end
+
 end

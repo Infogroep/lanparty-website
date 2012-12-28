@@ -30,21 +30,10 @@ describe TeamsController do
 		{:name => "teamname", :compo_id => @compo.id}
 	end
 
-	# This should return the minimal set of values that should be in the session
-	# in order to pass any filters (e.g. authentication) defined in
-	# TeamsController. Be sure to keep this updated too.
-	def valid_session
-		{}
-	end
+	describe_access(
+		:login => [:index, :destroy, :show, :new, :update, :create, :join]
+	) do
 
-	describe "unauthorised access" do
-		it_should_require_login_for_actions :index, :destroy, :show, :new, :update, :create, :join
-	end
-
-	describe "authorised access" do
-		before(:each) do
-			login
-		end
 		describe "GET index" do
 			it "assigns all teams as @teams" do
 				team = Team.create! valid_attributes

@@ -34,14 +34,10 @@ describe ComposController do
 	# in order to pass any filters (e.g. authentication) defined in
 	# ComposController. Be sure to keep this updated too.
 
-	describe "unauthorised access" do
-		it_should_require_login_for_actions :index, :destroy, :show, :new, :update, :create
-	end
+	describe_access(
+      :login => [:index, :destroy, :show, :new, :update, :create]
+  ) do
 
-	describe "authorised access" do
-		before(:each) do
-			login
-		end
 		describe "GET index" do
 			it "assigns all compos as @compos" do
 				compo = Compo.create! valid_attributes

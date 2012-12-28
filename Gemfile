@@ -33,6 +33,10 @@ group :development, :test do
 	gem 'nifty-generators'
 	gem 'bcrypt-ruby', :require => 'bcrypt'
 	gem 'faker'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'spork'
+  gem 'rb-inotify'
 end
 
 

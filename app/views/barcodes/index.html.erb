@@ -2,7 +2,7 @@
 
 <table>
 	<tr>
-		<th>Item</th>
+		<th>StoreItem</th>
 		<th>Code</th>
 		<th></th>
 		<th></th>
@@ -11,7 +11,7 @@
 
 <% @barcodes.each do |barcode| %>
 	<tr>
-		<td><%= barcode.item.name %></td>
+		<td><%= barcode.store_item.name %></td>
 		<td><%= barcode.code %></td>
 		<td><%= link_to 'Show', barcode %></td>
 		<td><%= link_to 'Edit', edit_barcode_path(barcode) %></td>

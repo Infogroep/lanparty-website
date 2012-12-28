@@ -24,19 +24,17 @@ describe BarcodesController do
 	# Barcode. As you add validations to Barcode, be sure to
 	# update the return value of this method accordingly.
 	before(:each) do
-		@item = FactoryGirl.create(:item)
+		@store_item = FactoryGirl.create(:store_item)
 	end
 	def valid_attributes
-		{:code => "1234567890", :item_id => @item.id}
-	end
-	describe "unauthorised access" do
-		it_should_require_login_for_actions :index, :destroy, :show, :new, :update, :create
-	end
+		{:code => "1234567890", :store_item_id => @store_item.id}
+  end
 
-	describe "authorised access" do
-		before(:each) do
-			login
-		end
+	describe_access(
+    :login => [:index, :destroy, :show, :new, :update, :create],
+    :store_editing => [:index, :destroy, :show, :new, :update, :create]
+  ) do
+
 		describe "GET index" do
 			it "assigns all barcodes as @barcodes" do
 				barcode = Barcode.create! valid_attributes
