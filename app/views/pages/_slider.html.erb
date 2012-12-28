@@ -1,7 +1,19 @@
 <div class="carousel slide" id="slider">
 	<div class="carousel-inner">
-		<div class="active item"><%= image_tag("bam1.jpg", :size => "100%x100%") %></div>
-		<div class="item"><%= image_tag("bam2.jpg", :size => "100%x100%") %></div>
+		<div class="active item">
+			<%= image_tag("bam1.jpg", :size => "100%x100%") %>
+			<div class="carousel-caption">
+				<p class=""> caption text lallaalal </p>
+			</div>
+		</div>
+		<div class="item">
+			<%= link_to image_tag("bam2.jpg", :size => "100%x100%"), compos_path %>
+			<div class="carousel-caption">
+				<p> caption text lallaalal </p>
+				<p> caption text lallaalal </p>
+				<p> caption text lallaalal </p>
+			</div>
+		</div>
 	</div>
 	<a class="carousel-control left" href="#slider" data-slide="prev">&lsaquo;</a>
 	<a class="carousel-control right" href="#slider" data-slide="next">&rsaquo;</a>
