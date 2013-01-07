@@ -5,11 +5,11 @@ namespace :db do
 		require 'lanparty_faker'
 		@amount = 10
 
-		Rake::Task["populate_users"].invoke(@amount)
-		Rake::Task["populate_store_items"].invoke(@amount)
+		Rake::Task["db:populate_users"].invoke(@amount)
+		Rake::Task["db:populate_store_items"].invoke(@amount)
+		Rake::Task["db:populate_games"].invoke(@amount)
+		Rake::Task["db:populate_compos"].invoke(@amount)
 
-		Game.delete_all
-		Compo.delete_all
 		Team.delete_all
 		puts ""
 		puts "--------------"

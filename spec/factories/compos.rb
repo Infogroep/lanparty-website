@@ -2,10 +2,9 @@
 
 FactoryGirl.define do
 	factory :compo do
-		description "MyString"
-		slots 1
-		date_time "2012-10-08-12-12"
-		group_size 1
-		game
+		description {Faker::Lorem.paragraph(2)}
+		slots {rand(10)+1}
+		date_time {rand(5000).hours.ago}
+		group_size {rand(5)+1}
 	end
 end

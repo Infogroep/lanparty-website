@@ -4,7 +4,6 @@ class CreateCompos < ActiveRecord::Migration
 			t.string :description
 			t.integer :slots
 			t.datetime :date_time
-			t.time :time
 			t.integer :group_size
 			t.integer :game_id
 			t.boolean :featured, :default => false

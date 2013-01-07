@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :team do
-    name "MyString"
+    name {Faker::Team.name}
     compo
   end
 end

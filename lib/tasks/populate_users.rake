@@ -1,7 +1,9 @@
 namespace :db do
 	desc "populates the database with users"
 
-	task :populate_users, [:amount] => :environment do |t, args|
+	task :populate_users, [:amount, :delete] => :environment do |t, args|
+		args.with_defaults(:delete => 'true')
+		delete = args[:delete] == 'true'
 		require 'lanparty_faker'
 		amount = args[:amount].to_i
 		puts "--------------"

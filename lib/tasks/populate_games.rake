@@ -1,14 +1,16 @@
 namespace :db do
-	desc "populates games"
+	desc "populates the database with games"
 
-	task :populate_games, [:amount] => :environment do |t, args|
+	task :populate_games, [:amount, :delete] => :environment do |t, args|
+		args.with_defaults(:delete => 'true')
+		delete = args[:delete] == 'true'
 		require 'lanparty_faker'
 		amount = args[:amount].to_i
 		puts "--------------"
 		puts "Creating Games"
 		puts "--------------"
 
-		Game.delete_all
+		Game.delete_all if delete
 		amount.times do
 			tries = 0
 			game = false
