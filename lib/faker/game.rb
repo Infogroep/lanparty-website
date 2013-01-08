@@ -1,5 +1,5 @@
 module Faker
-	class Game < Faker::Base
+	class Game < Base
 		class << self
 			def name
 				fetch('game.name')
