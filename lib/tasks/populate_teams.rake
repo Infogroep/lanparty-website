@@ -23,9 +23,7 @@ namespace :db do
 		amount.times do
 			team = FactoryGirl.build("team")
 			team.compo = Compo.all.sample
-			rand(team.compo.group_size+1).times do
-				
-			end
+			team.users << User.all.sample(team.compo.group_size+1)
 			team.save
 			puts "creating #{team.name}"
 		end
