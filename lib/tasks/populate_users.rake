@@ -4,7 +4,6 @@ namespace :db do
 	task :populate_users, [:amount, :delete] => :environment do |t, args|
 		args.with_defaults(:delete => 'true')
 		delete = args[:delete] == 'true'
-		require 'lanparty_faker'
 		amount = args[:amount].to_i
 		puts "--------------"
 		puts "Creating Users"
@@ -21,6 +20,7 @@ namespace :db do
 		amount.times do
 			user = FactoryGirl.create("user")
 			puts "creating #{user.username}"
+			user.save! if user.valid?
 		end
 	end
 end

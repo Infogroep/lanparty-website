@@ -4,7 +4,6 @@ namespace :db do
 	task :populate_games, [:amount, :delete] => :environment do |t, args|
 		args.with_defaults(:delete => 'true')
 		delete = args[:delete] == 'true'
-		require 'lanparty_faker'
 		amount = args[:amount].to_i
 		puts "--------------"
 		puts "Creating Games"

@@ -4,7 +4,6 @@ namespace :db do
 	task :populate_store_items, [:amount, :delete] => :environment do |t, args|
 		args.with_defaults(:delete => 'true')
 		delete = args[:delete] == 'true'
-		require 'lanparty_faker'
 		amount = args[:amount].to_i
 		puts "-------------------"
 		puts "Creating StoreItems"
@@ -18,10 +17,10 @@ namespace :db do
 			rand(3)+1.times do
 				barcode = FactoryGirl.build("barcode")
 				store_item.barcodes << barcode
-				barcode.save!
+				barcode.save! if barcode.valid?
 				barcode_amount += 1
 			end
-			store_item.save!
+			store_item.save! if store_item.valid?
 			puts "created item #{store_item.name}"
 		end
 		puts "created #{barcode_amount} barcodes"

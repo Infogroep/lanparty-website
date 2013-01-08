@@ -4,7 +4,6 @@ namespace :db do
 	task :populate_teams, [:amount, :delete] => :environment do |t, args|
 		args.with_defaults(:delete => 'true')
 		delete = args[:delete] == 'true'
-		require 'lanparty_faker'
 		amount = args[:amount].to_i
 
 		users_to_create = [amount - User.count,0].min
@@ -23,10 +22,8 @@ namespace :db do
 		amount.times do
 			team = FactoryGirl.build("team")
 			team.compo = Compo.all.sample
-			rand(team.compo.group_size+1).times do
-				
-			end
-			team.save
+			team.users << User.all.sample(team.compo.group_size+1)
+			team.save! if team.valid?
 			puts "creating #{team.name}"
 		end
 	end
