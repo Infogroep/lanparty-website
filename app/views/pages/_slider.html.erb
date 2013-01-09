@@ -9,7 +9,7 @@
 		</div>
 		<% @featured_compos.each do |compo| %>
 			<div class="item">
-				<%= link_to image_tag("placeholder.jpg", :size => "100%x100%"), compo %>
+				<%= link_to image_tag(compo.game.image_url(:front)), compo %>
 				<div class="carousel-caption">
 					<div class="row">
 						<div class="span5 offset1">
