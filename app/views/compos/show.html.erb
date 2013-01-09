@@ -27,8 +27,11 @@
 <p class=""> 
 	<b>Featured:</b>
 	<%= @compo.featured %>
+	</p>
+<p class=""> 
+	<b>Game: </B>
+	<%= link_to @compo.game.name, @compo.game %>
 </p>
-
 
 <%= link_to 'Edit', edit_compo_path(@compo) %> |
 <%= link_to 'Back', compos_path %>
