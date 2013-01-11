@@ -17,6 +17,12 @@ namespace :db do
 			:password_confirmation => "roeland1"
 		)
 		User.create(
+			:username => "user",
+			:email => "user@gmail.com",
+			:password => "roeland1",
+			:password_confirmation => "roeland1"
+		)
+		User.create(
 			:username => "peanut",
 			:email => "rik.vanmechelen@gmail.com",
 			:password => "roeland1",
