@@ -48,10 +48,6 @@ Lanparty::Application.routes.draw do
 
 	resources :store_items
 
-  namespace :admin do
-    resources :users
-  end
-
 	# The priority is based upon order of creation:
 	# first created -> highest priority.
 
