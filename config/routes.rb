@@ -1,5 +1,7 @@
 Lanparty::Application.routes.draw do
 
+  resources :clans
+
   resources :store_item_classes
 
 

@@ -36,7 +36,7 @@ group :development, :test do
   gem 'guard-spork'
   gem 'guard-rspec'
   gem 'spork'
-  gem 'rb-inotify'
+  #gem 'rb-inotify'
 end
 
 

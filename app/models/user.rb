@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 	# new columns need to be added here to be writable through mass assignment
-	attr_accessible :username, :email, :password, :password_confirmation, :password_hash, :password_salt
-
+	attr_accessible :username, :email, :password, :password_confirmation, :password_hash, :password_salt, :clan_tag
 	attr_accessor :password
 	before_save :prepare_password
 
@@ -15,8 +14,9 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :user_groups
 	has_and_belongs_to_many :teams
+	belongs_to :clan
 	has_many :logs
-
+	
 	# login can be either username or email address
 	def self.authenticate(login, pass)
 		user = find_by_username(login) || find_by_email(login)
@@ -35,6 +35,14 @@ class User < ActiveRecord::Base
     return allowed
   end
 
+	def clan_tag
+		clan.try(:tag)
+	end
+	
+	def clan_tag=(tag)
+		self.clan = Clan.find_or_create_by_tag(tag) if tag.present?
+	end	
+
 	private
 
 	def prepare_password
@@ -43,5 +51,5 @@ class User < ActiveRecord::Base
 			self.password_hash = encrypt_password(password)
 		end
   end
-
+	
 end

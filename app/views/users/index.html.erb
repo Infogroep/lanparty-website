@@ -4,6 +4,7 @@
 	<tr>
 		<th>avatar</th>
 		<th>username</th>
+		<th>clan</th>
 		<th>email</th>
 		<th></th>
 		<th></th>
@@ -14,6 +15,7 @@
 	<tr>
 		<td><%= image_tag avatar_url user%></td>
 		<td><%= user.username %></td>
+		<td><%= user.clan.tag if user.clan %></td>
 		<td><%= user.email %></td>
 		<td><%= link_to 'Show', user %></td>
 		<td><%= link_to 'Edit', edit_user_path(user) %></td>
