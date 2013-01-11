@@ -24,7 +24,8 @@ describe TeamsController do
 	# Team. As you add validations to Team, be sure to
 	# update the return value of this method accordingly.
 	before(:each) do
-		@compo = FactoryGirl.create(:compo)
+		@compo = FactoryGirl.create(:compo, :game => FactoryGirl.create(:game))
+		@team = FactoryGirl.create(:team, :compo => @compo)
 	end
 	def valid_attributes
 		{:name => "teamname", :compo_id => @compo.id}
@@ -36,9 +37,8 @@ describe TeamsController do
 
 		describe "GET index" do
 			it "assigns all teams as @teams" do
-				team = Team.create! valid_attributes
 				get :index, {}
-				assigns(:teams).should eq([team])
+				assigns(:teams).should eq([@team])
 			end
 		end
 
@@ -104,44 +104,39 @@ describe TeamsController do
 
 		describe "Put leave" do
 			it "removes user from the team" do
-				team = FactoryGirl.create(:team)
-				team.users << @current_user
-				put :leave, {:id => team.id}
-				team.users.count.should == 0
+				@team.users << @current_user
+				put :leave, {:id => @team.id}
+				@team.users.count.should == 0
 			end
 			it "will not remove users that are not present" do
-				team = FactoryGirl.create(:team)
 				user = FactoryGirl.create(:user)
-				team.users << user
-				put :leave, {:id => team.id}
-				team.users.count.should == 1
+				@team.users << user
+				put :leave, {:id => @team.id}
+				@team.users.count.should == 1
 			end
 		end
 
 		describe "PUT join" do
 			it "adds current user to the team" do
-				team = Team.create! valid_attributes
-				put :join, {:id => team.id}
-				@current_user.teams.should include(team)
-				team.users.should include(@current_user)
+				put :join, {:id => @team.id}
+				@current_user.teams.should include(@team)
+				@team.users.should include(@current_user)
 				
 			end
 			it "rejects users that are already in the team" do
-				team = FactoryGirl.create(:team)
-				put :join, {:id => team.id}
-				put :join, {:id => team.id}
-				team.users.count.should == 1
+				put :join, {:id => @team.id}
+				put :join, {:id => @team.id}
+				@team.users.count.should == 1
 			end
 			it "rejects users if the team exceeds maxumum capacity" do
-				team = FactoryGirl.create(:team)
 				user = FactoryGirl.create(:user)
-				team.compo.group_size =0 
-				team.save!
+				@team.compo.group_size =0 
+				@team.save!
 				session[:user_id] = user.id
-				put :join, {:id => team.id}
+				put :join, {:id => @team.id}
 				session[:user_id] = @current_user.id
-				put :join, {:id => team.id}
-				team.users.should_not include(@current_user)
+				put :join, {:id => @team.id}
+				@team.users.should_not include(@current_user)
 			end
 		end
 		describe "PUT update" do

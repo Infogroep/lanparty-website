@@ -1,23 +1,21 @@
-<%= @featured_compos %>
 <div class="carousel slide" id="slider">
 	<div class="carousel-inner">
 		<div class="active item">
-			<%= image_tag("bam1.jpg", :size => "100%x100%") %>
-			<div class="carousel-caption">
-				<p class=""> caption text lallaalal </p>
+			<%= image_tag("bam1.jpg") %>
+			<div class="container">
+				<div class="carousel-caption">
+						lalalala
+						<%= Time.now %>
+				</div>
 			</div>
 		</div>
 		<% @featured_compos.each do |compo| %>
 			<div class="item">
-				<%= link_to image_tag("placeholder.jpg", :size => "100%x100%"), compo %>
-				<div class="carousel-caption">
-					<div class="row">
-						<div class="span5 offset1">
-							<%= compo.description %>
-						</div>
-						<div class="span6">
-							<%= compo.date_time %>
-						</div>
+				<%= link_to image_tag(compo.game.image_url(:front)), compo %>
+				<div class="container">
+					<div class="carousel-caption">
+						<%= compo.description %>
+						<%= compo.date_time %>
 					</div>
 				</div>
 			</div>

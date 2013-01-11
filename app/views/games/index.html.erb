@@ -1,27 +1,3 @@
 <% title "Games" %>
-
-<table class="table">
-	<tr>
-		<th>Name</th>
-		<th>Info</th>
-		<th>Download location</th>
-		<th></th>
-		<th></th>
-		<th></th>
-	</tr>
-
-<% @games.each do |game| %>
-	<tr>
-		<td><%= game.name %></td>
-		<td><%= game.info %></td>
-		<td><%= game.download_location %></td>
-		<td><%= link_to 'Show', game %></td>
-		<td><%= link_to 'Edit', edit_game_path(game) %></td>
-		<td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	</tr>
-<% end %>
-</table>
-
-<br />
-
+<%= render :partial => "game_list", :locals => {:games => @games} %>
 <%= link_to 'New Game', new_game_path %>

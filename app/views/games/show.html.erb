@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+	<b>image:</b>
+	<%= image_tag @game.image_url(:front).to_s %>
+</p>
+
+<p>
 	<b>Name:</b>
 	<%= @game.name %>
 </p>

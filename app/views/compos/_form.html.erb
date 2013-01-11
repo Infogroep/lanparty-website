@@ -1,37 +1,9 @@
-<%= form_for(@compo) do |f| %>
-	<% if @compo.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@compo.errors.count, "error") %> prohibited this compo from being saved:</h2>
-
-			<ul>
-			<% @compo.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>
-			</ul>
-		</div>
-	<% end %>
-
-	<div class="field">
-		<%= f.label :game %><br />
-		<%= select_tag "compo[game_id]", options_from_collection_for_select(Game.all, :id, :name) %>
-	</div>
-	<div class="field">
-		<%= f.label :slots %><br />
-		<%= f.number_field :slots %>
-	</div>
-	<div class="field">
-		<%= f.label :group_size %><br />
-		<%= f.number_field :group_size %>
-	</div>
-	<div class="field">
-		<%= f.label :date_time %><br />
-		<%= f.datetime_select :date_time %>
-	</div>
-	<div class="field">
-		<%= f.label :description %><br />
-		<%= f.text_area :description %>
-	</div>
-	<div class="actions">
-		<%= f.submit %>
-	</div>
+<%= simple_form_for(@compo) do |f| %>
+	<%= f.association :game %>
+	<%= f.input :slots %>
+	<%= f.input :group_size %>
+	<%= f.input :date_time, :as => :date_picker %>
+	<%= f.input :description %>
+	<%= f.input :featured %>
+	<%= f.button :submit %>
 <% end %>

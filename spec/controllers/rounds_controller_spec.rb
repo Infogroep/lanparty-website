@@ -24,7 +24,7 @@ describe RoundsController do
 	# Round. As you add validations to Round, be sure to
 	# update the return value of this method accordingly.
 	before(:each) do
-		@compo = FactoryGirl.create(:compo)
+		@compo = FactoryGirl.create(:compo, :game => FactoryGirl.create(:game))
 	end
 	def valid_attributes
 		{:compo_id => @compo.id}
