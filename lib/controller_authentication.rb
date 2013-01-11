@@ -31,13 +31,13 @@ module ControllerAuthentication
 	def login_required
 		unless logged_in?
 			store_target_location
-			redirect_to login_url, :alert => "You must first log in or sign up before accessing this page."
+			redirect_to login_url, flash: {:error => "You must first log in or sign up before accessing this page."}
 		end
   end
 
   def access_required(access_type)
     unless current_user.access_allowed? access_type
-      redirect_to root_url, :alert => "You are not allowed in this section."
+      redirect_to root_url, flash: {:error => "You are not allowed in this section."}
     end
   end
 

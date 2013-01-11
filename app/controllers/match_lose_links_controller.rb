@@ -45,7 +45,7 @@ class MatchLoseLinksController < ApplicationController
 
 		respond_to do |format|
 			if @match_lose_link.save
-				format.html { redirect_to @match_lose_link, notice: 'Match lose link was successfully created.' }
+				format.html { redirect_to @match_lose_link, flash:{info: 'Match lose link was successfully created.' }}
 				format.json { render json: @match_lose_link, status: :created, location: @match_lose_link }
 			else
 				format.html { render action: "new" }
@@ -61,7 +61,7 @@ class MatchLoseLinksController < ApplicationController
 
 		respond_to do |format|
 			if @match_lose_link.update_attributes(params[:match_lose_link])
-				format.html { redirect_to @match_lose_link, notice: 'Match lose link was successfully updated.' }
+				format.html { redirect_to @match_lose_link, flash:{info: 'Match lose link was successfully updated.' }}
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }
