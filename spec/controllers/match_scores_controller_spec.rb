@@ -25,7 +25,9 @@ describe MatchScoresController do
 	# update the return value of this method accordingly.
 	before(:each) do
 		@user = FactoryGirl.create(:user)
-		@match = FactoryGirl.create(:match)
+		compo = FactoryGirl.create(:compo, :game => FactoryGirl.create(:game))
+		round = FactoryGirl.create(:round, :compo => compo)
+		@match = FactoryGirl.create(:match, :round => round)
 	end
 	def valid_attributes
 		{:user_id => @user.id, :match_id => @match.id}

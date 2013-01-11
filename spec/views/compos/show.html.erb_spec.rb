@@ -1,10 +1,10 @@
 require 'spec_helper'
+include ERB::Util
 
 describe "compos/show" do
 	before(:each) do
-		@game = FactoryGirl.create(:game)
-		@compo = FactoryGirl.create(:compo)
-		@compo.game = @game
+		@game = FactoryGirl.create(:game, :name => "d&d")
+		@compo = FactoryGirl.create(:compo, :game => @game)
 	end
 
 	it "renders attributes in <p>" do
@@ -13,8 +13,8 @@ describe "compos/show" do
 		rendered.should match(/Description/)
 		rendered.should match(/1/)
 		rendered.should match(/2/)
-		rendered.should match(/#{@game.name}/)
-		rendered.should match(/#{@compo.time}/)
+		rendered.should match(/#{h @game.name}/)
+		rendered.should match(/#{@compo.date_time}/)
 		rendered.should match(/Featured/)
 	end
 end

@@ -2,7 +2,13 @@ require 'spec_helper'
 
 describe Team do
 	before(:each) do
-		@team = FactoryGirl.create(:team)
+		@game = FactoryGirl.create(:game)
+		@compo = FactoryGirl.build(:compo)
+		@compo.game = @game
+		@compo.save!
+		@team = FactoryGirl.build(:team)
+		@team.compo = @compo
+		@team.save!
 	end
   it { should validate_presence_of(:name) }
 	it { should validate_presence_of(:compo) }

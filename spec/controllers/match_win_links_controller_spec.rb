@@ -24,8 +24,10 @@ describe MatchWinLinksController do
 	# MatchWinLink. As you add validations to MatchWinLink, be sure to
 	# update the return value of this method accordingly.
 	before(:each) do
-		@match = FactoryGirl.create(:match)
-		@next_match = FactoryGirl.create(:match)
+		compo = FactoryGirl.create(:compo, :game => FactoryGirl.create(:game))
+		round = FactoryGirl.create(:round, :compo => compo)
+		@match = FactoryGirl.create(:match, :round => round)
+		@next_match = FactoryGirl.create(:match, :round => round)
 	end
 	def valid_attributes
 		{:match_id => @match.id, :next_match_id => @next_match.id}

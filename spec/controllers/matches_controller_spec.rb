@@ -24,7 +24,8 @@ describe MatchesController do
 	# Match. As you add validations to Match, be sure to
 	# update the return value of this method accordingly.
 	before(:each) do
-		@round = FactoryGirl.create(:round)
+		compo = FactoryGirl.create(:compo, :game => FactoryGirl.create(:game))
+		@round = FactoryGirl.create(:round, :compo => compo)
 	end
 	def valid_attributes
 		{:round_id => @round.id}

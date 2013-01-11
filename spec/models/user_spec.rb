@@ -84,8 +84,9 @@ describe User do
 	end
 	describe "linking users and teams" do
 		before(:each) do
-			@team = FactoryGirl.create(:team)
-			@team1= FactoryGirl.create(:team)
+			compo = FactoryGirl.create(:compo, :game => FactoryGirl.create(:game))
+			@team = FactoryGirl.create(:team, :compo => compo)
+			@team1= FactoryGirl.create(:team, :compo => compo)
 		end
 		it "adds 1 team" do
 			@user.teams << @team
