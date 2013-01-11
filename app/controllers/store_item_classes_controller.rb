@@ -47,7 +47,7 @@ class StoreItemClassesController < ApplicationController
 
     respond_to do |format|
       if @store_item_class.save
-        format.html { redirect_to @store_item_class, notice: 'Store item class was successfully created.' }
+        format.html { redirect_to @store_item_class, flash:{info: 'Store item class was successfully created.' }}
         format.json { render json: @store_item_class, status: :created, location: @store_item_class }
       else
         format.html { render action: "new" }
@@ -63,7 +63,7 @@ class StoreItemClassesController < ApplicationController
 
     respond_to do |format|
       if @store_item_class.update_attributes(params[:store_item_class])
-        format.html { redirect_to @store_item_class, notice: 'Store item class was successfully updated.' }
+        format.html { redirect_to @store_item_class, flash:{info: 'Store item class was successfully updated.' }}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

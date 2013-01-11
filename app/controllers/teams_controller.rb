@@ -45,7 +45,7 @@ class TeamsController < ApplicationController
 
 		respond_to do |format|
 			if @team.save
-				format.html { redirect_to @team, notice: 'Team was successfully created.' }
+				format.html { redirect_to @team, flash:{info: 'Team was successfully created.' }}
 				format.json { render json: @team, status: :created, location: @team }
 			else
 				format.html { render action: "new" }
@@ -62,14 +62,14 @@ class TeamsController < ApplicationController
 		respond_to do |format|
 			if @team.users.include? @user
 				flash[:error] = "ermegerd"
-				format.html {redirect_to @team, notice: 'Already in team'}
+				format.html {redirect_to @team, flash:{error: 'Already in team'}}
 				format.json { render json: @team.errors, status: :unable_to_join_team }
 			elsif @team.users.count >= @team.compo.group_size
-				format.html {redirect_to @team, notice: 'team is full'}
+				format.html {redirect_to @team, flash:{error: 'team is full'}}
 				format.json { render json: @team.errors, status: :unable_to_join_team }
 			else
 				@team.users << @user
-				format.html { redirect_to @team, notice: 'Succesfully joined team.' }
+				format.html { redirect_to @team, flash:{info: 'Succesfully joined team.' }}
 				format.json { head :no_content }
 			end
 		end
@@ -83,10 +83,10 @@ class TeamsController < ApplicationController
 		respond_to do |format|
 			if @team.users.include? @user
 				@team.users.delete @user
-				format.html {redirect_to @team, notice: 'Succesfully left team'}
+				format.html {redirect_to @team, flash:{info: 'Succesfully left team'}}
 				format.json {head :no_content}
 			else
-				format.html {redirect_to @team, notice: 'Not a member of team'}
+				format.html {redirect_to @team, flash:{error: 'Not a member of team'}}
 				format.json {head :unable_to_leave_team}
 			end
 		end
@@ -99,7 +99,7 @@ class TeamsController < ApplicationController
 
 		respond_to do |format|
 			if @team.update_attributes(params[:team])
-				format.html { redirect_to @team, notice: 'Team was successfully updated.' }
+				format.html { redirect_to @team, flash:{info: 'Team was successfully updated.' }}
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }
