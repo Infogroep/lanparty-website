@@ -1,7 +1,7 @@
 class CreateCompos < ActiveRecord::Migration
 	def change
 		create_table :compos do |t|
-			t.string :description
+			t.text :description
 			t.integer :slots
 			t.datetime :date_time
 			t.integer :group_size
