@@ -9,6 +9,7 @@
 	</head>
 	<body>
 		<%= render :partial => 'layouts/header' %>
+		<%= yield(:before_container) %>
 		<div class="container">
 			<%= render :partial => 'layouts/content' %>
 		</div>

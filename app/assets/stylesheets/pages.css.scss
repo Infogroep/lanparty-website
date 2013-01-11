@@ -11,4 +11,12 @@
 
 .carousel-caption {
 	color:white;
+	position:static;
+}
+
+.hero-unit{
+	padding:0px;
+	.container{
+		width:100%;
+	}
 }
