@@ -9,5 +9,6 @@ namespace :db do
 		Rake::Task["db:populate_games"].invoke(@amount)
 		Rake::Task["db:populate_compos"].invoke(@amount)
 		Rake::Task["db:populate_teams"].invoke(@amount)
+		Rake::Task["db:populate_user_groups"].invoke(@amount)
 	end
 end

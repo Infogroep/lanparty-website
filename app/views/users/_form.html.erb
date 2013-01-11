@@ -1,20 +1,16 @@
-<%= form_for @user do |f| %>
-	<%= f.error_messages %>
-	<p>
-		<%= f.label :username %><br />
-		<%= f.text_field :username %>
-	</p>
-	<p>
-		<%= f.label :email, "Email Address" %><br />
-		<%= f.text_field :email %>
-	</p>
-	<p>
-		<%= f.label :password %><br />
-		<%= f.password_field :password %>
-	</p>
-	<p>
-		<%= f.label :password_confirmation, "Confirm Password" %><br />
-		<%= f.password_field :password_confirmation %>
-	</p>
-	<p><%= f.submit (@user.new_record? ? "Sign up" : "Update") %></p>
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :username %>
+		<%= f.input :clan_tag, :input_html => { data: {autocomplete_source: Clan.order(:tag).map(&:tag)} } %>
+		<%= f.input :payed if (self.current_user && self.current_user.access_allowed?(:user_editing)) %>
+		<%= f.input :email %>
+		<%= f.input :password %>
+		<%= f.input :password_confirmation, :required => true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, (@user.new_record? ? t(".sign_up_btn") : t(".update_btn")) %>
+  </div>
 <% end %>

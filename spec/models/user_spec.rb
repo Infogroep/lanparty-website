@@ -61,6 +61,20 @@ describe User do
 		user.password_hash.should_not be_nil
 		user.password_salt.should_not be_nil
 	end
+	
+	it "should link users to a clan" do
+		user = new_user
+		clan = FactoryGirl.create(:clan)
+		user.clan = clan
+		user.save!
+		User.find_by_username(user.username).clan.tag.should == clan.tag
+	end
+	
+	it "should create new clan on user creation" do
+		tag = "[clan_tag]"
+		new_user(:clan_tag => tag).save!
+		User.find_by_username(new_user.username).clan.tag.should == tag
+	end
 
 	it "should authenticate by username" do
 		user = new_user(:username => 'foobar', :password => 'secret')
@@ -82,6 +96,7 @@ describe User do
 		new_user(:username => 'foobar', :password => 'secret').save!
 		User.authenticate('foobar', 'badpassword').should be_nil
 	end
+	
 	describe "linking users and teams" do
 		before(:each) do
 			compo = FactoryGirl.create(:compo, :game => FactoryGirl.create(:game))

@@ -1,0 +1,23 @@
+<h1>Listing clans</h1>
+
+<table>
+  <tr>
+    <th>Tag</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clans.each do |clan| %>
+  <tr>
+    <td><%= clan.tag %></td>
+    <td><%= link_to 'Show', clan %></td>
+    <td><%= link_to 'Edit', edit_clan_path(clan) %></td>
+    <td><%= link_to 'Destroy', clan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Clan', new_clan_path %>

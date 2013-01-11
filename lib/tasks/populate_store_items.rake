@@ -12,8 +12,14 @@ namespace :db do
 		StoreItem.delete_all
 		Barcode.delete_all
 		barcode_amount = 0
+		taken_item = []
 		amount.times do
 			store_item = FactoryGirl.create("store_item")
+			if taken_item.member? store_item.name
+				break
+			else
+				taken_item << store_item.name
+			end
 			rand(3)+1.times do
 				barcode = FactoryGirl.build("barcode")
 				store_item.barcodes << barcode
