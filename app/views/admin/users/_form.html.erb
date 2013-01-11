@@ -5,6 +5,10 @@
 		<%= f.text_field :username %>
 	</p>
 	<p>
+		<%= f.label :clan_tag %><br />
+		<%= f.text_field :clan_tag, data: {autocomplete_source: Clan.order(:tag).map(&:tag)} %>		
+	</p>
+	<p>
 		<%= f.label :email, "Email Address" %><br />
 		<%= f.text_field :email %>
 	</p>

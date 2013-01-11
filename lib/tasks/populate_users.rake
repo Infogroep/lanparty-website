@@ -16,7 +16,13 @@ namespace :db do
 			:password => "roeland1",
 			:password_confirmation => "roeland1"
 		)
-		puts "created Enermis"
+		User.create(
+			:username => "peanut",
+			:email => "rik.vanmechelen@gmail.com",
+			:password => "roeland1",
+			:password_confirmation => "roeland1"
+		)
+		puts "created Enermis and peanut"
 		amount.times do
 			user = FactoryGirl.create("user")
 			puts "creating #{user.username}"
