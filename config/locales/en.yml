@@ -18,6 +18,10 @@ en:
   new: "New %{model}"
 
   iLan: "iLan"
+  faq: "FAQ"
+  contact: "Contact"
+  location: "Location"
+  info: "Info"
   login: "Log in"
   signup: "Sign Up"
   logout: "Log out"

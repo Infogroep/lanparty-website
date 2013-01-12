@@ -9,9 +9,13 @@
 			<%= link_to t(:iLan), root_url, class:"brand" %>
 			<div class="nav-collapse collapse">
 				<ul class="nav pull-left">
-					<li class=<%= active_class('users') %> ><%= link_to t(:user, :count => 50), users_path %></li>
-					<li class=<%= active_class('compos') %> ><%= link_to t(:compo, :count => 50), compos_path %></li>
-					<li class=<%= active_class('store_items') %> ><%= link_to t(:store_item, :count => 50), store_items_path %></li>					
+                  <li class="<%= active_class('users') %>"><%= link_to t(:user, :count => 50), users_path %></li>
+                  <li class="<%= active_class('pages#info') %>"><%= link_to t(:info), controller: :pages, action: :info %></li>
+                  <li class="<%= active_class('compos') %>"><%= link_to t(:compo, :count => 50), compos_path %></li>
+                  <li class="<%= active_class('store_items') %>"><%= link_to t(:store_item, :count => 50), store_items_path %></li>
+                  <li class="<%= active_class('pages#location') %>"><%= link_to t(:location), controller: :pages, action: :location %></li>
+                  <li class="<%= active_class('pages#faq') %>"><%= link_to t(:faq), controller: :pages, action: :faq %></li>
+                  <li class="<%= active_class('pages#contact') %>"><%= link_to t(:contact), controller: :pages, action: :contact %></li>
 				</ul>
 				<ul class="nav  pull-right">
 					<% if self.current_user %>

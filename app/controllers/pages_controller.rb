@@ -1,9 +1,22 @@
 class PagesController < ApplicationController
 
 	def home
-		@nav_tab = 'home'
-		@title = "Home"
 		@featured_compos = Compo.featured
-	end
+  end
 
+  def info
+
+  end
+
+  def location
+
+  end
+
+  def contact
+
+  end
+
+  def faq
+
+  end
 end
