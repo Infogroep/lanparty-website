@@ -26,6 +26,13 @@ en:
   signup: "Sign Up"
   logout: "Log out"
 
+  compos:
+    index:
+      game: "Game"
+      slots: "Slots"
+      group_size: "Group size"
+      datetime: "Starting time"
+
   date:
     abbr_day_names:
     - Sun

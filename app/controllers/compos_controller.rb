@@ -1,5 +1,5 @@
 class ComposController < ApplicationController
-	before_filter :login_required
+
 	# GET /compos
 	# GET /compos.json
 	def index
