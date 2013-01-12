@@ -21,6 +21,11 @@ Lanparty::Application.routes.draw do
 
 	match 'login' => 'sessions#new', :as => :login
 
+  match 'info' => 'pages#info'
+  match 'location' => 'pages#location'
+  match 'faq' => 'pages#faq'
+  match 'contact' => 'pages#contact'
+
 	resources :teams do
 		put :join, :on => :member
 		put :leave, :on => :member
