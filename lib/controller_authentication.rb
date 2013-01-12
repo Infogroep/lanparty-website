@@ -33,13 +33,14 @@ module ControllerAuthentication
 			store_target_location
 			redirect_to login_url, flash: {:error => "You must first log in or sign up before accessing this page."}
 		end
-  end
+	end
 
-  def access_required(access_type)
-    unless current_user.access_allowed? access_type
-      redirect_to request.referrer, flash: {:error => "You are not allowed in this section."}
-    end
-  end
+	def access_required(access_type)
+		referer = request.referer.nil? ? root_url : request.referer
+		unless current_user.access_allowed? access_type
+		redirect_to referer, flash: {:error => "You are not allowed in this section."}
+		end
+	end
 
 	def redirect_to_target_or_default(default, *args)
 		redirect_to(session[:return_to] || default, *args)

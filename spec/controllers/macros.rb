@@ -18,7 +18,7 @@ module ControllerMacros
 			actions.each do |action|
 				it "#{action} action should require #{access_type} access" do
 					get action, :id => 1
-					response.should redirect_to(root_url)
+					response.should redirect(root_url)
 					flash[:error].should == "You are not allowed in this section."
 				end
 			end
