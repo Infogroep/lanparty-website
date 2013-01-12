@@ -37,7 +37,7 @@ module ControllerAuthentication
 
   def access_required(access_type)
     unless current_user.access_allowed? access_type
-      redirect_to root_url, flash: {:error => "You are not allowed in this section."}
+      redirect_to request.referrer, flash: {:error => "You are not allowed in this section."}
     end
   end
 
