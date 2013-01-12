@@ -25,7 +25,11 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		@user = current_user
+		if (self.current_user && self.current_user.access_allowed?(:user_editing))
+			@user = User.find params[:id]
+		else
+			@user = self.current_user
+		end
 	end
 
 	def update
