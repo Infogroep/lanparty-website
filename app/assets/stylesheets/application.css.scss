@@ -13,10 +13,14 @@
  *= require jquery-ui-timepicker-addon
  *= require dataTables/jquery.dataTables.bootstrap
  */
+@import 'font-awesome';
 @import "bootstrap_and_overrides";
 @import "pages";
 input[type=submit]{
 	border-radius: 5px;
+}
+.center {
+	text-align: center;
 }
 
 

@@ -19,6 +19,7 @@ group :assets do
 	gem 'therubyracer', :platform => :ruby
 	gem 'libv8', '~> 3.11.8'
 	gem 'jquery-datatables-rails'
+	gem 'font-awesome-sass-rails'
 
 	gem 'uglifier', '>= 1.0.3'
 end
