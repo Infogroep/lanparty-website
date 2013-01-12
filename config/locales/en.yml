@@ -237,9 +237,9 @@ en:
   pages:
     info:
       content_html: '<div id="left">
-      <h2>Event informatie</h2>
+      <h2>Event Information</h2>
       <p>	</p><div class="wiki">
-      <h3>Datum en locatie</h3>
+      <h3>Date and Location</h3>
       <div class="wikiText">ILAN 2013 will take place from Friday 17/2 at 18h till Sunday 19/2 at 18h.<br>
       <br>
       Our venue:<br>
@@ -249,7 +249,7 @@ en:
       B-1050 Brussel</em></div>
       </div>
       <p></p><p>	</p><div class="wiki">
-      <h3>Inschrijven &amp; reglement</h3>
+      <h3>Registration &amp; Rules</h3>
       <div class="wikiText">The entry fee is the mere sum of <strong>10</strong> euro, or only <strong>6</strong> euro if you only attend for a single day.<br>
       When you register, you automatically agree with the <a href="rules.php">rules</a> (only in Dutch for now, translation pending). These rules will also be posted at the entrance.<br>
       <br>
@@ -350,28 +350,28 @@ en:
       </div>"
     location:
       content_html: "<div id='left'>
-      <h2>Bereikbaarheid</h2>
+      <h2>Get there</h2>
       <p>	</p><div class='wiki'>
-      <h3>Adres</h3>
+      <h3>Address</h3>
       <div class='wikiText'><em>Vrije Universiteit Brussel<br>
       Pleinlaan 2<br>
       B-1050 Brussel</em></div>
       </div>
       <p></p><p>	</p><div class='wiki'>
-      <h3>Meer informatie</h3>
+      <h3>Aditional Information</h3>
       <div class='wikiText'>The main campus (aka 'campus Etterbeek') of the Vrije Universiteit Brussel is enclosed between several major traffic arteries. Below you may find short descriptions of the most common routes.<br>
       <br>
       <h4>How to reach the Campus Etterbeek? </h4>
       <h5>By train</h5>
-      <p>Our campus is located next to the railway station &quot;Etterbeek&quot;. 
+      <p>Our campus is located next to the railway station &quot;Etterbeek&quot;.
       <a 
       href='http://www.b-rail.be/main/E/'>Consult the timetables</a> of the Belgian National Railroad Company. (NMBS) </p>
       <h5>By subway/tram/bus</h5>
       <p>Subways, trams and buses in Brussels are run by the MIVB. Subwaystations &quot;Petillion&quot; and &quot;Delta&quot; are closest to the Campus (+/- 15 minutes walk). There are several trams and buses from the different train stations in Brussels. Please consult<a href='http://www.mivb.be/index.htm?guest_user=guest_en' target='_blank'> the timetables of the MIVB</a>. </p>
       <p>The vrije Universiteit Brussel has asked the MIVB to make a <strong>'How to get to' brochure</strong> for both Campus Etterbeek and Campus Jette. This brochure gives an overview of the different means of public transport in Brussel you can use to reach the campusses. </p>
       <ul>
-      <li><a class=' pdf' 
-      href='../../downloads/bereikbaarheidsficheMIVB_campusEtterbeek_ENG.pdf' 
+      <li><a class=' pdf'
+      href='../../downloads/bereikbaarheidsficheMIVB_campusEtterbeek_ENG.pdf'
       target='_blank'>'How to get to' brochure MIVB for Campus Etterbeek</a> </li>
       </ul>
       <h5>By plane</h5>
@@ -393,5 +393,5 @@ en:
       For detailed or alternative routes, you may use <a href='http://maps.google.com/maps?f=q&amp;hl=nl&amp;q=Pleinlaan+2&amp;sll=37.0625,-95.677068&amp;sspn=59.856937,113.730469&amp;ie=UTF8&amp;ll=50.820144,4.387493&amp;spn=0.023696,0.055532&amp;z=14&amp;om=1'>Google Maps</a> or <a href='http://www.mappy.com/'>Mappy.com</a>.<br>
       <br>
       (update to follow)</div>
-      </div>     	
+      </div>	
       </div>"
