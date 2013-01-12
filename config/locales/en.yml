@@ -241,3 +241,164 @@ en:
     form:
       sign_up_btn: "Sign Up"
       update_btn: "Update"
+  pages:
+    info:
+      content_html: '<div id="left">
+      <h2>Event informatie</h2>
+      <p>	</p><div class="wiki">
+      <h3>Datum en locatie</h3>
+      <div class="wikiText">ILAN 2013 will take place from Friday 17/2 at 18h till Sunday 19/2 at 18h.<br>
+      <br>
+      Our venue:<br>
+      <em>Mandela hall on campus Etterbeek of the Vrije Universiteit Brussel<br>
+      (als known as "Ruimte onder Aula Q")<br>
+      Pleinlaan 2<br>
+      B-1050 Brussel</em></div>
+      </div>
+      <p></p><p>	</p><div class="wiki">
+      <h3>Inschrijven &amp; reglement</h3>
+      <div class="wikiText">The entry fee is the mere sum of <strong>10</strong> euro, or only <strong>6</strong> euro if you only attend for a single day.<br>
+      When you register, you automatically agree with the <a href="rules.php">rules</a> (only in Dutch for now, translation pending). These rules will also be posted at the entrance.<br>
+      <br>
+      After registration, we will send u an email with a message you need to add to your payment.<br>
+      <br>
+      Students 1BA Computer Science get their entrance fee payed back in food&amp;drink credit. This will be when they arrive at ILAN.<br>
+      <br>
+      If you have any problems or questions, please send a mail to <a href="mailto:lanparty(AT-NOSPAM)infogroep.be">lanparty(AT-NOSPAM)infogroep.be</a>.<br>
+      <br>
+      Bank data:<br>
+      ING account: 363-0056700-92<br>
+      IBAN: BE12-3630-0567-0092<br>
+      BIC: BBRUBEBB<br>
+      <br>
+      In the name of:<br>
+      <em>ILAN Infogroep<br>
+      Pleinlaan 2<br>
+      B-1050 Brussel</em></div>
+      </div>
+      <p></p>
+      </div>'
+    faq:
+      content_html: "<div id='left'>
+      <div class='faq'>
+      <dl>
+      <dt>Wat moet ik meebrengen?</dt>
+      <dd><ul>
+      <li>Je computer + monitor (of je laptop) en bijhorende kabels.</li>
+      <li>Toetsenbord + muis.</li>
+      <li>Een stekkerdoos (zonder schakelaar!) met genoeg plaats voor al je materiaal; wij voorzien in principe maar één stopcontact.</li>
+      <li>Een cat5 of beter netwerkkabel van minstens 3m.</li>
+      <li>Een koptelefoon (speakers of andere materialen die geluid maken of anderen storen zijn niet toegelaten!)</li>
+      <li>Je studentenkaart of identiteitskaart om je te identificeren wanneer je aankomt.</li>
+      <li>Eventueel alle installatiecd's van je OS, drivers en de games die je wilt spelen. Je weet nooit dat er iets misgaat!</li>
+      <li>Als je constant in de zaal zelf blijft, kan een tandenborstel, wat deodorant, een handdoek, etc. misschien wel van pas komen.</li>
+      </ul>
+      </dd>
+      <dt>Wat mag niet?</dt>
+      <dd><ul>
+      <li>Luidsprekers. Andere luide apparaten zijn eveneens niet toegelaten.</li>
+      <li>Het illegaal downloaden en/of illegaal verspreiden van bestanden op het interne netwerk zal niet worden toegestaan.
+      Het mag niet en er zijn al vaker LAN-party's ten onder gegaan doordat dit toch gebeurde.</li>
+      <li>Zware elektronische apparaten, bijvoorbeeld frigo's, (microgolf)ovens, waterkokers, etc.
+      Als je toch iets wilt meebrengen waarvan je vermoedt dat het onder deze brede definitie valt, stuur ons dan een mail en dan beslissen we op een case-by-case basis of we het toelaten.</li>
+      <li>Alle andere dingen die verboden zijn in het reglement.
+      In geval van discussie of twijfel heeft de organisatie altijd het laatste woord.</li>
+      </ul>
+      </dd>
+      <dt>Hoeveel ruimte krijg ik?</dt>
+      <dd>De minimumtafelruimte die voorzien wordt is 90cm breed en 80cm diep.
+      Dit is meer dan genoeg voor je scherm, toetsenbord, muis, etc. plus nog wat armruimte natuurlijk.
+      Je computer kan je achter je scherm of naast de tafel op de grond zetten.<br>
+      Afhankelijk van aantal inschrijvingen en waar je zit in de zaal, is het mogelijk dat je iets meer ruimte zal krijgen.
+      </dd>
+      <dt>Kan ik op het internet?</dt>
+      <dd>Ja.<br>
+      We voorzien een breedbandverbinding van 200mbit. Opgepast, deze wordt gedeeld door alle deelnemers, dus je werkelijke snelheid zal meestal een stuk lager liggen.
+      </dd>
+      <dt>Zal ik verhongeren of uitdrogen?</dt>
+      <dd>Dat lijkt onwaarschijnlijk.<br>
+      Je zal doorlopend eten, drank, snacks, etc. uit een uitgebreid aanbod kunnen aankopen aan de bar.
+      Dit alles natuurlijk aan studentvriendelijke prijzen.
+      </dd>
+      <dt>Hoe gebeurt betaling van voedsel &amp; drank?</dt>
+      <dd>Er wordt gewerkt met een intern betalingssysteem.<br>
+      Iedereen krijgt een persoonlijk kaartje met een barcode.
+      Telkens je iets gaat halen, scan je deze even en wordt je bestelling automatisch verrekend.
+      Betalen doe je dan achteraf.
+      </dd>
+      <dt>Mag ik toch mijn eigen eten meebrengen?</dt>
+      <dd>We gaan je niet tegenhouden om dat te doen, maar vragen om toch eerder gebruik te maken van ons aanbod en ter plaatse te kopen.
+      Het is sowieso veel handiger om lokaal aan te kopen dan alles mee te moeten sleuren voor een weekend.
+      </dd>
+      <dt>Wat doe ik als ik moe word?</dt>
+      <dd>Slapen wordt meestal aangeraden op dit moment.<br>
+      Ofwel ga je naar jouw kot of dat van een vriend, ofwel rust je wat uit in de zaal zelf.
+      Opgepast: wij voorzien wel ruimte om je leggen, maar het is aan jou om een slaapzak en/of veldbed mee te brengen.
+      Hou er ook rekening mee dat de rustruimte in dezelfde zaal is als de LAN zelf: als je niet kan slapen met achtergrondlawaai of licht, zoek je misschien best je eigen accomodatie.
+      </dd>
+      <dt>Is er bewaking voor mijn spullen?</dt>
+      <dd>Iedereen is verantwoordelijk voor zijn eigen materiaal.
+      Breng dus geen waardevolle dingen mee die je niet nodig hebt en hou je portefeuille, gsm, etc. altijd bij de hand.<br>
+      De organisatie houdt wel een oogje in het zeil, maar we zijn niet verantwoordelijk als er toch iets verdwijnt.
+      </dd>
+      <dt>Zijn er ook andere activiteiten?</dt>
+      <dd>We voorzien een aantal tafels waaraan je niet-elektronisch spellen kan spelen, bijvoorbeeld met kaarten of een bordspel.
+      Je kan ze ook gebruiken om op je gemak te eten, als je dat liever niet aan je computer doet.<br>
+      Daarnaast zullen we ook een paar randcompetities organiseren, die het hele weekend doorlopen.
+      Dit zijn dingen die niet veel tijd in beslag nemen en je terloops voor de fun kan doen.
+      </dd>
+      <dt>Zijn bezoekers toegelaten?
+      </dt><dd>Bezoekers mogen overdag en tijdens de avond binnen; 's nachts wordt niemand binnengelaten die geen deelnemer is.<br>
+      Bezoekers mogen enkel toekijken tijdens het gamen, ze mogen geen gebruik maken van de plaats en het materiaal van een ingeschreven deelnemer.
+      Het staat ze natuurlijk wel vrij om aan een lege tafel te gaan zitten en eten of drank te kopen bij de organisatie: we moedigen dit zelfs aan ;-).
+      </dd>
+      </dl>
+      </div>
+      </div>"
+    location:
+      content_html: "<div id='left'>
+      <h2>Bereikbaarheid</h2>
+      <p>	</p><div class='wiki'>
+      <h3>Adres</h3>
+      <div class='wikiText'><em>Vrije Universiteit Brussel<br>
+      Pleinlaan 2<br>
+      B-1050 Brussel</em></div>
+      </div>
+      <p></p><p>	</p><div class='wiki'>
+      <h3>Meer informatie</h3>
+      <div class='wikiText'>The main campus (aka 'campus Etterbeek') of the Vrije Universiteit Brussel is enclosed between several major traffic arteries. Below you may find short descriptions of the most common routes.<br>
+      <br>
+      <h4>How to reach the Campus Etterbeek? </h4>
+      <h5>By train</h5>
+      <p>Our campus is located next to the railway station &quot;Etterbeek&quot;. 
+      <a 
+      href='http://www.b-rail.be/main/E/'>Consult the timetables</a> of the Belgian National Railroad Company. (NMBS) </p>
+      <h5>By subway/tram/bus</h5>
+      <p>Subways, trams and buses in Brussels are run by the MIVB. Subwaystations &quot;Petillion&quot; and &quot;Delta&quot; are closest to the Campus (+/- 15 minutes walk). There are several trams and buses from the different train stations in Brussels. Please consult<a href='http://www.mivb.be/index.htm?guest_user=guest_en' target='_blank'> the timetables of the MIVB</a>. </p>
+      <p>The vrije Universiteit Brussel has asked the MIVB to make a <strong>'How to get to' brochure</strong> for both Campus Etterbeek and Campus Jette. This brochure gives an overview of the different means of public transport in Brussel you can use to reach the campusses. </p>
+      <ul>
+      <li><a class=' pdf' 
+      href='../../downloads/bereikbaarheidsficheMIVB_campusEtterbeek_ENG.pdf' 
+      target='_blank'>'How to get to' brochure MIVB for Campus Etterbeek</a> </li>
+      </ul>
+      <h5>By plane</h5>
+      <p><a href='http://www.brusselsairport.be/en/'>Brussels Airport </a> (Zaventem) is the largest airport in Belgium. Most international flights arrive here. From Brussels Airport you can reach our campus by train or by bus (bus 12, Brussels City). </p>
+      <p>Other airports in Belgium are:</p>
+      <ul>
+      <li><a href='http://www.ost.aero'>Ostend-Bruges</a> (Jetair, TUI Airlines Belgium...) </li>
+      <li><a href='http://www.liegeairport.com'>Liege Airport </a> (Thomas Cook, TUI Airlines Belgium...) </li>
+      <li><a href='http://www.antwerpairport.be/'>Antwerp Airport</a> (VLM...) </li>
+      <li><a href='http://www.charleroi-airport.com'>Brussels South - Charleroi Airport</a> (Ryanair...) </li>
+      </ul>
+      <h5>By car </h5>
+      <ul>
+      <li>From France / Luxemburg / Namen: E411</li>
+      <li>From UK / Ostend (Oostende) / Brugge / Gent: E40 </li>
+      <li>From Netherlands / Antwerpen / Mechelen: A12 or E19 </li>
+      <li>From Germany / Aken / Luik / Leuven: E40 </li>
+      </ul>
+      For detailed or alternative routes, you may use <a href='http://maps.google.com/maps?f=q&amp;hl=nl&amp;q=Pleinlaan+2&amp;sll=37.0625,-95.677068&amp;sspn=59.856937,113.730469&amp;ie=UTF8&amp;ll=50.820144,4.387493&amp;spn=0.023696,0.055532&amp;z=14&amp;om=1'>Google Maps</a> or <a href='http://www.mappy.com/'>Mappy.com</a>.<br>
+      <br>
+      (update to follow)</div>
+      </div>     	
+      </div>"
