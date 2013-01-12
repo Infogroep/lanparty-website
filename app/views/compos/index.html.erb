@@ -1,27 +1,31 @@
 <% title "Compos" %>
 
-<table class="table table-striped">
-	<tr>
-		<th>Game</th>
-		<th>Slots</th>
-		<th>Group size</th>
-		<th>Datetime</th>
-		<th class="action_column"></th>
-		<th class="action_column"></th>
-		<th class="action_column"></th>
-	</tr>
+<table class="table table-striped datatable">
+	<thead>
+		<tr>
+			<th>Game</th>
+			<th>Slots</th>
+			<th>Group size</th>
+			<th>Datetime</th>
+			<th class="action_column"></th>
+			<th class="action_column"></th>
+			<th class="action_column"></th>
+		</tr>
+	</thead>
 
-<% @compos.each do |compo| %>
-	<tr>
-		<td><%= compo.game.name %></td>
-		<td><%= compo.slots %></td>
-		<td><%= compo.group_size %></td>
-		<td><%= compo.date_time %></td>
-		<td><%= link_to t(:show), compo, class: "btn" %></td>
-		<td><%= link_to t(:edit), edit_compo_path(compo), class:"btn" %></td>
-		<td><%= link_to t(:destroy), compo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-	</tr>
-<% end %>
+	<tbody>
+		<% @compos.each do |compo| %>
+		<tr>
+			<td><%= compo.game.name %></td>
+			<td><%= compo.slots %></td>
+			<td><%= compo.group_size %></td>
+			<td><%= compo.date_time %></td>
+			<td><%= link_to t(:show), compo, class: "btn" %></td>
+			<td><%= link_to t(:edit), edit_compo_path(compo), class:"btn" %></td>
+			<td><%= link_to t(:destroy), compo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+		</tr>
+		<% end %>
+	</tbody>
 </table>
 
 <br />
