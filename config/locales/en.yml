@@ -228,4 +228,4 @@ en:
   users:
     form:
       sign_up_btn: "Sign Up"
-      update_brn: "Update"
+      update_btn: "Update"

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	before_filter :login_required, :except => [:new, :create]
-  before_filter(:only => [:edit]) { params[:id] == self.current_user.id.to_s || access_required(:user_editing) }
+  before_filter(:only => [:edit, :update, :destroy]) { params[:id] == self.current_user.id.to_s || access_required(:user_editing) }
 
 	def index
 		@users = User.all
@@ -26,17 +26,13 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		if (self.current_user && self.current_user.access_allowed?(:user_editing))
-			@user = User.find params[:id]
-		else
-			@user = self.current_user
-		end
+		@user = User.find params[:id]
 	end
 
 	def update
-		@user = current_user
+		@user = User.find params[:id]
 		if @user.update_attributes(params[:user])
-			redirect_to root_url, flash:{info: "Your profile has been updated."}
+			redirect_to users_path, flash:{info: "Your profile has been updated."}
 		else
 			render :action => 'edit'
 		end
