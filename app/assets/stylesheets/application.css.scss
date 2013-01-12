@@ -27,3 +27,18 @@ input[type=submit]{
 	position:absolute;
 	z-index:1029;
 }
+.alert-error{
+	background-color:rgba(242,222,222,0.5);
+}
+.alert-info{
+	background-color:rgba(217,237,223,0.5);
+}
+.alert-warning{
+	background-color:rgba(252,248,227,0.5);
+}
+.alert-success{
+	background-color:rgba(223,208,216,0.5);
+}
+
+.align-right {
+}
