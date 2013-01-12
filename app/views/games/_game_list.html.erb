@@ -13,9 +13,9 @@
 		<td><%= game.name %></td>
 		<td><%= game.info %></td>
 		<td><%= game.download_location %></td>
-		<td><%= link_to 'Show', game %></td>
-		<td><%= link_to 'Edit', edit_game_path(game) %></td>
-		<td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to t(:show), game %></td>
+		<td><%= link_to t(:edit), edit_game_path(game) %></td>
+		<td><%= link_to t(:destroy), game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	</tr>
 <% end %>
 </table>

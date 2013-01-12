@@ -17,13 +17,13 @@
 		<td><%= compo.slots %></td>
 		<td><%= compo.group_size %></td>
 		<td><%= compo.date_time %></td>
-		<td><%= link_to 'Show', compo, class: "btn" %></td>
-		<td><%= link_to 'Edit', edit_compo_path(compo), class:"btn" %></td>
-		<td><%= link_to 'Destroy', compo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+		<td><%= link_to t(:show), compo, class: "btn" %></td>
+		<td><%= link_to t(:edit), edit_compo_path(compo), class:"btn" %></td>
+		<td><%= link_to t(:destroy), compo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
 	</tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Compo', new_compo_path %>
+<%= link_to t(:new, :model => t(:compo, :count => 1)), new_compo_path %>

@@ -15,13 +15,13 @@
 		<td><%= price.info %></td>
 		<td><%= price.value %></td>
 		<td><%= price.sponsor %></td>
-		<td><%= link_to 'Show', price %></td>
-		<td><%= link_to 'Edit', edit_price_path(price) %></td>
-		<td><%= link_to 'Destroy', price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to t(:show), price %></td>
+		<td><%= link_to t(:edit), edit_price_path(price) %></td>
+		<td><%= link_to t(:destroy), price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	</tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Price', new_price_path %>
+<%= link_to t(:new, :model => t(:price, :count => 1)), new_price_path %>

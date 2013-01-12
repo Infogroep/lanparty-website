@@ -9,11 +9,11 @@
 			<%= link_to t(:iLan), root_url, class:"brand" %>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
-					<li class=<%= active_class('compos') %> ><%= link_to t(:compos), compos_path %></li>
-					<li class=<%= active_class('store_items') %> ><%= link_to t(:store_items), store_items_path %></li>
-                    <li class=<%= active_class('users') %> ><%= link_to t(:users), store_items_path %></li>
-                    <% if self.current_user %>
-						<li class=<%= active_class('profile') %> ><%= link_to t(:profile), self.current_user %></li>
+					<li class=<%= active_class('compos') %> ><%= link_to t(:compo, :count => 50), compos_path %></li>
+					<li class=<%= active_class('store_items') %> ><%= link_to t(:store_item, :count => 50), store_items_path %></li>
+                    <li class=<%= active_class('users') %> ><%= link_to t(:user, :count => 50), users_path %></li>
+                  <% if self.current_user %>
+						<li class=<%= active_class('profile') %> ><%= link_to t(:profile, :count => 1), self.current_user %></li>
 						<li><%= link_to t(:logout), logout_path %></li>
 					<% else %>
 						<li><%= link_to t(:login), login_path %></li>

@@ -1,4 +1,26 @@
 en:
+  compo:
+    one: "Compo"
+    other: "Compos"
+  store_item:
+    one: "Store item"
+    other: "Store items"
+  user:
+    one: "User"
+    other: "Users"
+  profile:
+    one: "Profile"
+    other: "Profiles"
+
+  show: "Show"
+  edit: "Edit"
+  destroy: "Destroy"
+  new: "New %{model}"
+
+  iLan: "iLan"
+  login: "Log in"
+  logout: "Log out"
+
   date:
     abbr_day_names:
     - Sun

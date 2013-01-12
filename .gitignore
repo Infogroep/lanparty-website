@@ -18,3 +18,4 @@ pickle-email-*.html
 *.lock
 /db/schema.rb
 .idea
+.rvmrc

@@ -13,13 +13,13 @@
 	<tr>
 		<td><%= match_win_link.match_id %></td>
 		<td><%= match_win_link.next_match_id %></td>
-		<td><%= link_to 'Show', match_win_link %></td>
-		<td><%= link_to 'Edit', edit_match_win_link_path(match_win_link) %></td>
-		<td><%= link_to 'Destroy', match_win_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to t(:show), match_win_link %></td>
+		<td><%= link_to t(:edit), edit_match_win_link_path(match_win_link) %></td>
+		<td><%= link_to t(:destroy), match_win_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	</tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Match win link', new_match_win_link_path %>
+<%= link_to t(:new, :model => t(:match_win_link, :count => 1)), new_match_win_link_path %>

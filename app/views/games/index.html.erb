@@ -1,3 +1,3 @@
 <% title "Games" %>
 <%= render :partial => "game_list", :locals => {:games => @games} %>
-<%= link_to 'New Game', new_game_path %>
+<%= link_to t(:new, :model => t(:game, :count => 1)), new_game_path %>

@@ -16,9 +16,9 @@
 	<% @store_item.barcodes.each do |barcode| %>
 		<tr>
 			<td><%= link_to barcode.code, barcode %></td>
-			<td><%= link_to 'Show', barcode %></td>
-			<td><%= link_to 'Edit', edit_barcode_path(barcode) %></td>
-			<td><%= link_to 'Destroy', barcode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td><%= link_to t(:show), barcode %></td>
+			<td><%= link_to t(:edit), edit_barcode_path(barcode) %></td>
+			<td><%= link_to t(:destroy), barcode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 	<% end %>
 	</table>
@@ -27,5 +27,5 @@
 </fieldset>
 
 
-<%= link_to 'Edit', edit_store_item_path(@store_item) %> |
+<%= link_to t(:edit), edit_store_item_path(@store_item) %> |
 <%= link_to 'Back', store_items_path %>

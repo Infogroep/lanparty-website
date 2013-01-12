@@ -13,13 +13,13 @@
   <tr>
     <td><%= store_item_class.name %></td>
     <td><%= store_item_class.parent %></td>
-    <td><%= link_to 'Show', store_item_class %></td>
-    <td><%= link_to 'Edit', edit_store_item_class_path(store_item_class) %></td>
-    <td><%= link_to 'Destroy', store_item_class, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to t(:show), store_item_class %></td>
+    <td><%= link_to t(:edit), edit_store_item_class_path(store_item_class) %></td>
+    <td><%= link_to t(:destroy), store_item_class, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Store item class', new_store_item_class_path %>
+<%= link_to t(:new, :model => t(:store_item_class, :count => 1)), new_store_item_class_path %>

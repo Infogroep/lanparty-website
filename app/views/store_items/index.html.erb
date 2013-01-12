@@ -15,13 +15,13 @@
 		<td><%= store_item.name %></td>
 		<td><%= store_item.purchase_price %></td>
 		<td><%= store_item.store_item_type %></td>
-		<td><%= link_to 'Show', store_item %></td>
-		<td><%= link_to 'Edit', edit_store_item_path(store_item) %></td>
-		<td><%= link_to 'Destroy', store_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to t(:show), store_item %></td>
+		<td><%= link_to t(:edit), edit_store_item_path(store_item) %></td>
+		<td><%= link_to t(:destroy), store_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	</tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New StoreItem', new_store_item_path %>
+<%= link_to t(:new, :model => t(:store_item, :count => 1)), new_store_item_path %>

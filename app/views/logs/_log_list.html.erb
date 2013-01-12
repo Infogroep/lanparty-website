@@ -16,9 +16,9 @@
 		<% if not no_user %>
     <td><%= log.user.username %></td>
 		<% end %>
-    <td><%= link_to 'Show', log %></td>
-    <td><%= link_to 'Edit', edit_log_path(log) %></td>
-    <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to t(:show), log %></td>
+    <td><%= link_to t(:edit), edit_log_path(log) %></td>
+    <td><%= link_to t(:destroy), log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

@@ -11,13 +11,13 @@
 <% @clans.each do |clan| %>
   <tr>
     <td><%= clan.tag %></td>
-    <td><%= link_to 'Show', clan %></td>
-    <td><%= link_to 'Edit', edit_clan_path(clan) %></td>
-    <td><%= link_to 'Destroy', clan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to t(:show), clan %></td>
+    <td><%= link_to t(:edit), edit_clan_path(clan) %></td>
+    <td><%= link_to t(:destroy), clan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Clan', new_clan_path %>
+<%= link_to t(:new, :model => t(:clan, :count => 1)), new_clan_path %>
