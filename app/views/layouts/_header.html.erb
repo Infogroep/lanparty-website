@@ -6,16 +6,17 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</a>
-			<%= link_to "iLan", root_url, class:"brand" %>
+			<%= link_to t(:iLan), root_url, class:"brand" %>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
-					<li class=<%= active_class('compos') %> ><%= link_to "Compos", compos_path %></li>
-					<li class=<%= active_class('items') %> ><%= link_to "Items", store_items_path %></li>
-					<% if @current_user %>
-						<li class=<%= active_class('profile') %> ><%= link_to "Profile", @current_user %></li>
-						<li><%= link_to "Logout", logout_path %></li>
+					<li class=<%= active_class('compos') %> ><%= link_to t(:compos), compos_path %></li>
+					<li class=<%= active_class('store_items') %> ><%= link_to t(:store_items), store_items_path %></li>
+                    <li class=<%= active_class('users') %> ><%= link_to t(:users), store_items_path %></li>
+                    <% if self.current_user %>
+						<li class=<%= active_class('profile') %> ><%= link_to t(:profile), self.current_user %></li>
+						<li><%= link_to t(:logout), logout_path %></li>
 					<% else %>
-						<li><%= link_to "Login", login_path %></li>
+						<li><%= link_to t(:login), login_path %></li>
 					<% end %>
 				</ul>
 			</div>
