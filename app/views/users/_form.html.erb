@@ -1,16 +1,9 @@
 <%= simple_form_for(@user) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
     <%= f.input :username %>
-		<%= f.input :clan_tag, :input_html => { data: {autocomplete_source: Clan.order(:tag).map(&:tag)} } %>
-		<%= f.input :payed if (self.current_user && self.current_user.access_allowed?(:user_editing)) %>
-		<%= f.input :email %>
-		<%= f.input :password %>
-		<%= f.input :password_confirmation, :required => true %>
-  </div>
-
-  <div class="form-actions">
+	<%= f.input :clan_tag, :input_html => { data: {autocomplete_source: Clan.order(:tag).map(&:tag)} } %>
+	<%= f.input :payed if (self.current_user && self.current_user.access_allowed?(:user_editing)) %>
+	<%= f.input :email %>
+	<%= f.input :password %>
+	<%= f.input :password_confirmation, :required => true %>
     <%= f.button :submit, (@user.new_record? ? t(".sign_up_btn") : t(".update_btn")) %>
-  </div>
 <% end %>

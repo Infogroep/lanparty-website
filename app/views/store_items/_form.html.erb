@@ -1,29 +1,6 @@
-<%= form_for(@store_item) do |f| %>
-	<% if @store_item.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@store_item.errors.count, "error") %> prohibited this store_item from being saved:</h2>
-
-			<ul>
-			<% @store_item.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>
-			</ul>
-		</div>
-	<% end %>
-
-	<div class="field">
-		<%= f.label :name %><br />
-		<%= f.text_field :name %>
-	</div>
-	<div class="field">
-		<%= f.label :purchase_price %><br />
-		<%= f.text_field :purchase_price %>
-	</div>
-	<div class="field">
-		<%= f.label :store_item_type %><br />
-		<%= f.text_field :store_item_type %>
-	</div>
-	<div class="actions">
-		<%= f.submit %>
-	</div>
+<%= simple_form_for(@store_item) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :purchase_price %>
+    <%= f.input :store_item_type %>
+    <%= f.submit %>
 <% end %>
