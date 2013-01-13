@@ -11,6 +11,12 @@ en:
   profile:
     one: "Profile"
     other: "Profiles"
+  blog_post:
+    one: "Blag post"
+    other: "Blag posts"
+  comment:
+    one: "Comment"
+    other: "Comments"
 
   show: "Show"
   edit: "Edit"
@@ -32,6 +38,12 @@ en:
       slots: "Slots"
       group_size: "Group size"
       datetime: "Starting time"
+
+  ago: "%{time_difference} ago"
+  btn_details: "Details »"
+  btn_more: "More »"
+  add_comment: "Write a comment"
+  new_blog_post: "New blog post"
 
   date:
     abbr_day_names:

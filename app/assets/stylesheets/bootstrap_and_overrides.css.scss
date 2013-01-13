@@ -45,4 +45,56 @@ img.nav-profile-logo {
 	height: 25px;
 }
 
+.blog-post-info {
+  float: right;
+  font-style: italic;
+  opacity:0.6;
+  filter:alpha(opacity=60);
+}
+
+.blog-post-large-info {
+  font-style: italic;
+  opacity:0.6;
+  filter:alpha(opacity=60);
+}
+
+.paragraph-more {
+  text-align: center;
+  a {
+    color: #000;
+    opacity:0.6;
+    filter:alpha(opacity=60);
+  }
+}
+
+.btn-new-blog-post {
+  margin-top: 20px;
+  float: right;
+}
+
+.blog-comment-info {
+  vertical-align: center;
+}
+
+.blog-comment-avatar {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.blog-comment-author {
+  font-weight: bold;
+}
+
+.blog-comment-timestamp {
+  font-style: italic;
+  opacity:0.6;
+  filter:alpha(opacity=60);
+}
+
+.blog-comment-content {
+  clear: left;
+}
+
+
 @import "bootstrap-responsive";

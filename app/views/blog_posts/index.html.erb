@@ -1,0 +1,4 @@
+<h1><%= t(:blog_post, :count => 50) %></h1>
+<%= render BlogPost.order("created_at DESC").limit(5) %>
+
+

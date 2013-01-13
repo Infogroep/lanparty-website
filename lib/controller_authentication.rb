@@ -51,5 +51,5 @@ module ControllerAuthentication
 
 	def store_target_location
 		session[:return_to] = request.url
-	end
+  end
 end

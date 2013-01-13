@@ -1,5 +1,10 @@
 Lanparty::Application.routes.draw do
 
+  resources :blog_posts do
+    resources :blog_comments
+  end
+
+
   resources :clans
 
   resources :store_item_classes
