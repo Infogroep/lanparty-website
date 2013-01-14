@@ -1,5 +1,8 @@
 <%= simple_form_for(@user_group) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
+    <%= f.input :user_editing %>
+    <%= f.input :store_editing %>
+    <%= f.input :blog_editing %>
     <%= f.submit %>
 <% end %>

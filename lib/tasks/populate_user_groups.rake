@@ -11,8 +11,9 @@ namespace :db do
 
 		UserGroup.delete_all
 		admin_group = UserGroup.new(:name => "admin",
-                                 :user_editing => true,
-                                 :store_editing => true)
+                                :user_editing => true,
+                                :store_editing => true,
+                                :blog_editing => true)
     admin_group.save!
 
 		users.each do |u|

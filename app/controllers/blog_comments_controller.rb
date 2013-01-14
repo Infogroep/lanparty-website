@@ -1,4 +1,7 @@
 class BlogCommentsController < ApplicationController
+  before_filter :login_required
+  before_filter(:only => [:edit, :update, :destroy]) { BlogComment.find(params[:id]).user_id == self.current_user.id || access_required(:blog_editing) }
+
   # GET /blog_comments/1/edit
   def edit
     @blog_comment = BlogComment.find(params[:id])

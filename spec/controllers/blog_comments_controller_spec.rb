@@ -19,6 +19,8 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe BlogCommentsController do
+=begin
+# describe_access should be updated to allow passing extra params for the request
 
   # This should return the minimal set of attributes required to create a valid
   # BlogComment. As you add validations to BlogComment, be sure to
@@ -27,138 +29,119 @@ describe BlogCommentsController do
     { "content" => "MyText" }
   end
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # BlogCommentsController. Be sure to keep this updated too.
-  def valid_session
-    {}
-  end
+  describe_access(
+      :login => [:edit, :destroy, :update, :create],
+      :blog_editing => [:edit, :destroy, :update]
+  ) do
 
-  describe "GET index" do
-    it "assigns all blog_comments as @blog_comments" do
-      blog_comment = BlogComment.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:blog_comments).should eq([blog_comment])
-    end
-  end
-
-  describe "GET show" do
-    it "assigns the requested blog_comment as @blog_comment" do
-      blog_comment = BlogComment.create! valid_attributes
-      get :show, {:id => blog_comment.to_param}, valid_session
-      assigns(:blog_comment).should eq(blog_comment)
-    end
-  end
-
-  describe "GET new" do
-    it "assigns a new blog_comment as @blog_comment" do
-      get :new, {}, valid_session
-      assigns(:blog_comment).should be_a_new(BlogComment)
-    end
-  end
-
-  describe "GET edit" do
-    it "assigns the requested blog_comment as @blog_comment" do
-      blog_comment = BlogComment.create! valid_attributes
-      get :edit, {:id => blog_comment.to_param}, valid_session
-      assigns(:blog_comment).should eq(blog_comment)
-    end
-  end
-
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new BlogComment" do
-        expect {
-          post :create, {:blog_comment => valid_attributes}, valid_session
-        }.to change(BlogComment, :count).by(1)
-      end
-
-      it "assigns a newly created blog_comment as @blog_comment" do
-        post :create, {:blog_comment => valid_attributes}, valid_session
-        assigns(:blog_comment).should be_a(BlogComment)
-        assigns(:blog_comment).should be_persisted
-      end
-
-      it "redirects to the created blog_comment" do
-        post :create, {:blog_comment => valid_attributes}, valid_session
-        response.should redirect_to(BlogComment.last)
-      end
+    before(:each) do
+      @blog_post = FactoryGirl.create("blog_post")
+      @blog_post.user = @current_user
     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved blog_comment as @blog_comment" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        BlogComment.any_instance.stub(:save).and_return(false)
-        post :create, {:blog_comment => { "content" => "invalid value" }}, valid_session
-        assigns(:blog_comment).should be_a_new(BlogComment)
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        BlogComment.any_instance.stub(:save).and_return(false)
-        post :create, {:blog_comment => { "content" => "invalid value" }}, valid_session
-        response.should render_template("new")
-      end
-    end
-  end
-
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested blog_comment" do
-        blog_comment = BlogComment.create! valid_attributes
-        # Assuming there are no other blog_comments in the database, this
-        # specifies that the BlogComment created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        BlogComment.any_instance.should_receive(:update_attributes).with({ "content" => "MyText" })
-        put :update, {:id => blog_comment.to_param, :blog_comment => { "content" => "MyText" }}, valid_session
-      end
-
+    describe "GET edit" do
       it "assigns the requested blog_comment as @blog_comment" do
         blog_comment = BlogComment.create! valid_attributes
-        put :update, {:id => blog_comment.to_param, :blog_comment => valid_attributes}, valid_session
+        get :edit, {:id => blog_comment.to_param}
         assigns(:blog_comment).should eq(blog_comment)
-      end
-
-      it "redirects to the blog_comment" do
-        blog_comment = BlogComment.create! valid_attributes
-        put :update, {:id => blog_comment.to_param, :blog_comment => valid_attributes}, valid_session
-        response.should redirect_to(blog_comment)
       end
     end
 
-    describe "with invalid params" do
-      it "assigns the blog_comment as @blog_comment" do
-        blog_comment = BlogComment.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        BlogComment.any_instance.stub(:save).and_return(false)
-        put :update, {:id => blog_comment.to_param, :blog_comment => { "content" => "invalid value" }}, valid_session
-        assigns(:blog_comment).should eq(blog_comment)
+    describe "POST create" do
+      describe "with valid params" do
+        it "creates a new BlogComment" do
+          expect {
+            post :create, {:blog_comment => valid_attributes}
+          }.to change(BlogComment, :count).by(1)
+        end
+
+        it "assigns a newly created blog_comment as @blog_comment" do
+          post :create, {:blog_comment => valid_attributes}
+          assigns(:blog_comment).should be_a(BlogComment)
+          assigns(:blog_comment).should be_persisted
+        end
+
+        it "redirects to the created blog_comment" do
+          post :create, {:blog_comment => valid_attributes}
+          response.should redirect_to(BlogComment.last)
+        end
       end
 
-      it "re-renders the 'edit' template" do
+      describe "with invalid params" do
+        it "assigns a newly created but unsaved blog_comment as @blog_comment" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          BlogComment.any_instance.stub(:save).and_return(false)
+          post :create, {:blog_comment => { "content" => "invalid value" }}
+          assigns(:blog_comment).should be_a_new(BlogComment)
+        end
+
+        it "re-renders the 'new' template" do
+          # Trigger the behavior that occurs when invalid params are submitted
+          BlogComment.any_instance.stub(:save).and_return(false)
+          post :create, {:blog_comment => { "content" => "invalid value" }}
+          response.should render_template("new")
+        end
+      end
+    end
+
+    describe "PUT update" do
+      describe "with valid params" do
+        it "updates the requested blog_comment" do
+          blog_comment = BlogComment.create! valid_attributes
+          # Assuming there are no other blog_comments in the database, this
+          # specifies that the BlogComment created on the previous line
+          # receives the :update_attributes message with whatever params are
+          # submitted in the request.
+          BlogComment.any_instance.should_receive(:update_attributes).with({ "content" => "MyText" })
+          put :update, {:id => blog_comment.to_param, :blog_comment => { "content" => "MyText" }}
+        end
+
+        it "assigns the requested blog_comment as @blog_comment" do
+          blog_comment = BlogComment.create! valid_attributes
+          put :update, {:id => blog_comment.to_param, :blog_comment => valid_attributes}
+          assigns(:blog_comment).should eq(blog_comment)
+        end
+
+        it "redirects to the blog_comment" do
+          blog_comment = BlogComment.create! valid_attributes
+          put :update, {:id => blog_comment.to_param, :blog_comment => valid_attributes}
+          response.should redirect_to(blog_comment)
+        end
+      end
+
+      describe "with invalid params" do
+        it "assigns the blog_comment as @blog_comment" do
+          blog_comment = BlogComment.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          BlogComment.any_instance.stub(:save).and_return(false)
+          put :update, {:id => blog_comment.to_param, :blog_comment => { "content" => "invalid value" }}
+          assigns(:blog_comment).should eq(blog_comment)
+        end
+
+        it "re-renders the 'edit' template" do
+          blog_comment = BlogComment.create! valid_attributes
+          # Trigger the behavior that occurs when invalid params are submitted
+          BlogComment.any_instance.stub(:save).and_return(false)
+          put :update, {:id => blog_comment.to_param, :blog_comment => { "content" => "invalid value" }}
+          response.should render_template("edit")
+        end
+      end
+    end
+
+    describe "DELETE destroy" do
+      it "destroys the requested blog_comment" do
         blog_comment = BlogComment.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        BlogComment.any_instance.stub(:save).and_return(false)
-        put :update, {:id => blog_comment.to_param, :blog_comment => { "content" => "invalid value" }}, valid_session
-        response.should render_template("edit")
+        expect {
+          delete :destroy, {:id => blog_comment.to_param}
+        }.to change(BlogComment, :count).by(-1)
+      end
+
+      it "redirects to the blog_comments list" do
+        blog_comment = BlogComment.create! valid_attributes
+        delete :destroy, {:id => blog_comment.to_param}
+        response.should redirect_to(blog_comments_url)
       end
     end
   end
-
-  describe "DELETE destroy" do
-    it "destroys the requested blog_comment" do
-      blog_comment = BlogComment.create! valid_attributes
-      expect {
-        delete :destroy, {:id => blog_comment.to_param}, valid_session
-      }.to change(BlogComment, :count).by(-1)
-    end
-
-    it "redirects to the blog_comments list" do
-      blog_comment = BlogComment.create! valid_attributes
-      delete :destroy, {:id => blog_comment.to_param}, valid_session
-      response.should redirect_to(blog_comments_url)
-    end
-  end
-
+=end
 end

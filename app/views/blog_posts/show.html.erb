@@ -7,4 +7,4 @@
 <h4><%= t(:comment, :count => 50) %></h4>
 <%= render @blog_post.blog_comments.order("created_at ASC") %>
 <h4><%= t(:add_comment) %></h4>
-<%= render 'blog_comments/form' %>
+<%= render 'blog_comments/form' if logged_in? %>

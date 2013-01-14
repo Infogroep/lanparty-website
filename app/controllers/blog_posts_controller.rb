@@ -1,5 +1,6 @@
 class BlogPostsController < ApplicationController
-  before_filter(:only => [:edit, :update, :destroy]) { BlogPost.find(params[:id]).user_id == self.current_user.id || access_required(:blog_editing) }
+  before_filter :login_required, :except => [:index, :show]
+  before_filter(:only => [:new, :edit, :update, :create, :destroy]) { BlogPost.find(params[:id]).user_id == self.current_user.id || access_required(:blog_editing) }
 
   # GET /blog_posts
   # GET /blog_posts.json

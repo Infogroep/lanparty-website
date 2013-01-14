@@ -6,6 +6,7 @@ class CreateUserGroups < ActiveRecord::Migration
       t.references :pricing_override
       t.boolean :store_editing
       t.boolean :user_editing
+      t.boolean :blog_editing
 
       t.timestamps
     end

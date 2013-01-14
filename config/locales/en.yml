@@ -32,6 +32,8 @@ en:
   signup: "Sign Up"
   logout: "Log out"
 
+  blog: "Blag"
+
   compos:
     index:
       game: "Game"
@@ -183,6 +185,8 @@ en:
       create: Create %{model}
       submit: Save %{model}
       update: Update %{model}
+      blog_comment:
+        create: "Add comment"
   number:
     currency:
       format:
