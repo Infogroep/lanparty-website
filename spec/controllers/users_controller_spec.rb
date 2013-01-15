@@ -49,7 +49,7 @@ describe UsersController do
 		@controller.stubs(:current_user).returns(User.first)
 		User.any_instance.stubs(:valid?).returns(true)
 		put :update, :id => "ignored"
-		response.should redirect_to(root_url)
+		response.should redirect_to(home_url)
 	end
 
 	describe "get show" do

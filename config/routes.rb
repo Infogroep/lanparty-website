@@ -65,7 +65,7 @@ Lanparty::Application.routes.draw do
     resources :store_items
   end
 
-  match '/:locale' => 'pages#home'
+  match '/:locale' => 'pages#home', :as => :home
     # The priority is based upon order of creation:
     # first created -> highest priority.
 
