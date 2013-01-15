@@ -1,4 +1,4 @@
-<% title "Compos" %>
+<% title t("compo.other") %>
 
 <table class="table table-striped datatable">
 	<thead>
@@ -19,7 +19,7 @@
 			<td><%= compo.game.name %></td>
 			<td><%= compo.slots %></td>
 			<td><%= compo.group_size %></td>
-			<td><%= t(compo.date_time, :format => :short) %></td>
+			<td><%= l(compo.date_time, :format => :short) %></td>
 			<td><%= link_to t(:show), compo, class: "btn" %></td>
 			<td><%= link_to t(:edit), edit_compo_path(compo), class:"btn" %></td>
 			<td><%= link_to t(:destroy), compo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>

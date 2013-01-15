@@ -20,7 +20,7 @@
                   <% if I18n.locale == :nl %>
                   <li><%= link_to t("lang.en", :locale => :en), controller: :pages, action: :home, locale: :en %></li>
                   <% else %>
-                  <li><%= link_to t("lang.nl", :locale => :nl), controller: :pages, action: :home, locale: :en %></li>
+                  <li><%= link_to t("lang.nl", :locale => :nl), controller: :pages, action: :home, locale: :nl %></li>
                   <% end %>
                   <li class="divider-vertical"></li>
                   <% if self.current_user %>

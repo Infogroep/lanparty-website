@@ -27,6 +27,9 @@ en:
   comment:
     one: "Comment"
     other: "Comments"
+  clan:
+    one: "Clan"
+    other: "Clans"
 
   show: "Show"
   edit: "Edit"
@@ -43,6 +46,9 @@ en:
   logout: "Log out"
 
   blog: "Blag"
+  username: "Username"
+  email: "E-mail"
+  payed: "Payed"
 
   compos:
     index:
@@ -428,3 +434,5 @@ en:
       (update to follow)</div>
       </div>	
       </div>"
+      campusmap: "Map of the VUB campus"
+      brusselsmap: "Campus location in Brussels"

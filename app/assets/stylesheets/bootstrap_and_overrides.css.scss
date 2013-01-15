@@ -1,4 +1,6 @@
 $linkColor: #777;
+//$bodyBackground: #FBFFE0;
+
 
 @import "bootstrap";
 
@@ -31,18 +33,17 @@ body { padding-top: 40px; }
 div#content {padding-top: 20px;}
 
 table {
-	th {
-      &.action_column {
+	th.action_column {
         width:1px
-      }
-
-      td {
-        vertical-align: center;
-      }
     }
+
 	form{
 		margin:0px;
 	}
+}
+
+.table td {
+  vertical-align: middle;
 }
 
 ul.ui-autocomplete {
@@ -132,3 +133,4 @@ textarea {
 }
 
 @import "bootstrap-responsive";
+

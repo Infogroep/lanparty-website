@@ -1,17 +1,17 @@
-<% title "Users" %>
+<% title t("participant.other") %>
 <% admin = self.current_user.access_allowed?(:user_editing) if self.current_user %>
 <table class="table table-striped datatable">
 	<thead>
 		<tr>
-			<th>avatar</th>
-			<th>username</th>
-			<th>clan</th>
-			<th>email</th>
-			<th>payed</th>
+			<th class="action_column"></th>
+			<th><%= t("username") %></th>
+			<th><%= t("clan.one") %></th>
+			<th><%= t("email") %></th>
+			<th><%= t("payed") %></th>
 			<% if admin %>
-			<th></th>
-			<th></th>
-			<th></th>
+			<th class="action_column"></th>
+			<th class="action_column"></th>
+			<th class="action_column"></th>
 			<% end %>
 		</tr>
 	</thead>

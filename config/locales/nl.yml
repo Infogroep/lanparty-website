@@ -27,6 +27,9 @@ nl:
   comment:
     one: "Reactie"
     other: "Reacties"
+  clan:
+    one: "Clan"
+    other: "Clans"
 
   show: "Toon"
   edit: "Bewerk"
@@ -43,6 +46,9 @@ nl:
   logout: "Log uit"
 
   blog: "Blag"
+  username: "Gebruikersnaam"
+  email: "E-mail"
+  payed: "Betaald"
 
   compos:
     index:
@@ -411,3 +417,5 @@ nl:
                      bron: <a href='http://www.vub.ac.be/infoover/campussen/index.html'>VUB Bereikbaarheid</a></div>
                      	</div>
                      </div>"
+      campusmap: "Campusplan"
+      brusselsmap: "Situering in Brussel"
