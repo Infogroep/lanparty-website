@@ -1,6 +1,6 @@
 <p class="avatar"> <%= image_tag avatar_url @user %> </p>
-<p class="field"> <b>Name:</b> <%= @user.username %> </p>
-<p class="field"> <b>Clan:</b> <%= @user.clan.tag if @user.clan %> </p>
-<p class="field"> <b>email:</b> <%= @user.email %> </p>
+<p class="field"> <b><%= t(:username) %>:</b> <%= @user.username %> </p>
+<p class="field"> <b><%= t("clan.one") %>:</b> <%= @user.clan.tag if @user.clan %> </p>
+<p class="field"> <b><%= t(:email) %>:</b> <%= @user.email %> </p>
 
-<%= render :partial => 'logs/log_list', :locals => {:logs => @user.logs, :no_user => true} %>
+<%#= render :partial => 'logs/log_list', :locals => {:logs => @user.logs, :no_user => true} %>
