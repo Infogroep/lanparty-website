@@ -1,4 +1,8 @@
 nl:
+  lang:
+    en: "Engels"
+    nl: "Nederlands"
+
   compo:
     one: "Compo"
     other: "Compos"
@@ -36,7 +40,7 @@ nl:
   info: "Info"
   login: "Log in"
   signup: "Registreer"
-  logout: "Log out"
+  logout: "Log uit"
 
   blog: "Blag"
 
@@ -261,40 +265,41 @@ nl:
   pages:
     info:
       content_html: '<div id="left">
-      <h2>Event Information</h2>
-      <p>	</p><div class="wiki">
-      <h3>Date and Location</h3>
-      <div class="wikiText">ILAN 2013 will take place from Friday 17/2 at 18h till Sunday 19/2 at 18h.<br>
-      <br>
-      Our venue:<br>
-      <em>Mandela hall on campus Etterbeek of the Vrije Universiteit Brussel<br>
-      (als known as "Ruimte onder Aula Q")<br>
-      Pleinlaan 2<br>
-      B-1050 Brussel</em></div>
-      </div>
-      <div class="wiki">
-      <h3>Registration &amp; Rules</h3>
-      <div class="wikiText">The entry fee is the mere sum of <strong>10</strong> euro, or only <strong>6</strong> euro if you only attend for a single day.<br>
-      When you register, you automatically agree with the <a href="rules.php">rules</a> (only in Dutch for now, translation pending). These rules will also be posted at the entrance.<br>
-      <br>
-      After registration, we will send u an email with a message you need to add to your payment.<br>
-      <br>
-      Students 1BA Computer Science get their entrance fee payed back in food&amp;drink credit. This will be when they arrive at ILAN.<br>
-      <br>
-      If you have any problems or questions, please send a mail to <a href="mailto:lanparty(AT-NOSPAM)infogroep.be">lanparty(AT-NOSPAM)infogroep.be</a>.<br>
-      <br>
-      Bank data:<br>
-      ING account: 363-0056700-92<br>
-      IBAN: BE12-3630-0567-0092<br>
-      BIC: BBRUBEBB<br>
-      <br>
-      In the name of:<br>
-      <em>ILAN Infogroep<br>
-      Pleinlaan 2<br>
-      B-1050 Brussel</em></div>
-      </div>
-      <p></p>
-      </div>'
+
+                     <h2>Event informatie</h2>
+
+                     <p>	<div class="wiki">
+                     		<h3>Datum en locatie</h3>
+                     			<div class="wikiText">ILAN 2012 vindt plaats van vrijdag 17/2 om 18u tot zondag 19/2 om 18u.<br />
+                     <br />
+                     Onze zaal:<br />
+                     <em>Mandela-zaal op de campus van de Vrije Universiteit Brussel<br />
+                     (ook gekend als &quot;Ruimte onder Aula Q&quot;)<br />
+                     Pleinlaan 2<br />
+                     B-1050 Brussel</em></div>
+                     	</div>
+                     </p><p>	<div class="wiki">
+                     		<h3>Inschrijven & reglement</h3>
+                     			<div class="wikiText">De inkomprijs bij voorafbetaling zal dit jaar een luttele <strong>10</strong> euro bedragen, of <strong>6</strong> euro voor zij die maar 1 dag wensen te komen.<br />
+                     Wanneer u zich registreert gaat u automatisch akkoord met het <a href="rules.php">reglement</a>. Dit zal ook uithangen aan de ingang.<br />
+                     <br />
+                     Na registratie sturen we u een email met daarin een mededeling die u dient in te vullen op het overschrijvingsformulier.<br />
+                     <br />
+                     Studenten Computerwetenschappen 1BA krijgen hun inkom terug in eetkrediet. Dit gebeurt wanneer ze toekomen op ILAN.<br />
+                     <br />
+                     Indien er problemen of vragen zijn betreffende betalingen kan je steeds terecht op <a href="mailto:lanparty@(nospam)infogroep.be">lanparty@(nospam)infogroep.be</a>. (nospam) verwijderen ;)<br />
+                     <br />
+                     Dit zijn onze bankgegevens<br />
+                     ING-rekening: 363-0056700-92<br />
+                     IBAN: BE12-3630-0567-0092<br />
+                     BIC: BBRUBEBB<br />
+                     <br />
+                     Op naam van:<br />
+                     <em>ILAN Infogroep<br />
+                     Pleinlaan 2<br />
+                     B-1050 Brussel</em></div>
+                     	</div>
+                     </p>        	</div>'
     faq:
       content_html: "<div id='left'>
       <div class='faq'>
@@ -374,48 +379,35 @@ nl:
       </div>"
     location:
       content_html: "<div id='left'>
-      <h2>Get there</h2>
-      <p>	</p><div class='wiki'>
-      <h3>Address</h3>
-      <div class='wikiText'><em>Vrije Universiteit Brussel<br>
-      Pleinlaan 2<br>
-      B-1050 Brussel</em></div>
-      </div>
-      <p></p><p>	</p><div class='wiki'>
-      <h3>Aditional Information</h3>
-      <div class='wikiText'>The main campus (aka 'campus Etterbeek') of the Vrije Universiteit Brussel is enclosed between several major traffic arteries. Below you may find short descriptions of the most common routes.<br>
-      <br>
-      <h4>How to reach the Campus Etterbeek? </h4>
-      <h5>By train</h5>
-      <p>Our campus is located next to the railway station &quot;Etterbeek&quot;.
-      <a 
-      href='http://www.b-rail.be/main/E/'>Consult the timetables</a> of the Belgian National Railroad Company. (NMBS) </p>
-      <h5>By subway/tram/bus</h5>
-      <p>Subways, trams and buses in Brussels are run by the MIVB. Subwaystations &quot;Petillion&quot; and &quot;Delta&quot; are closest to the Campus (+/- 15 minutes walk). There are several trams and buses from the different train stations in Brussels. Please consult<a href='http://www.mivb.be/index.htm?guest_user=guest_en' target='_blank'> the timetables of the MIVB</a>. </p>
-      <p>The vrije Universiteit Brussel has asked the MIVB to make a <strong>'How to get to' brochure</strong> for both Campus Etterbeek and Campus Jette. This brochure gives an overview of the different means of public transport in Brussel you can use to reach the campusses. </p>
-      <ul>
-      <li><a class=' pdf'
-      href='../../downloads/bereikbaarheidsficheMIVB_campusEtterbeek_ENG.pdf'
-      target='_blank'>'How to get to' brochure MIVB for Campus Etterbeek</a> </li>
-      </ul>
-      <h5>By plane</h5>
-      <p><a href='http://www.brusselsairport.be/en/'>Brussels Airport </a> (Zaventem) is the largest airport in Belgium. Most international flights arrive here. From Brussels Airport you can reach our campus by train or by bus (bus 12, Brussels City). </p>
-      <p>Other airports in Belgium are:</p>
-      <ul>
-      <li><a href='http://www.ost.aero'>Ostend-Bruges</a> (Jetair, TUI Airlines Belgium...) </li>
-      <li><a href='http://www.liegeairport.com'>Liege Airport </a> (Thomas Cook, TUI Airlines Belgium...) </li>
-      <li><a href='http://www.antwerpairport.be/'>Antwerp Airport</a> (VLM...) </li>
-      <li><a href='http://www.charleroi-airport.com'>Brussels South - Charleroi Airport</a> (Ryanair...) </li>
-      </ul>
-      <h5>By car </h5>
-      <ul>
-      <li>From France / Luxemburg / Namen: E411</li>
-      <li>From UK / Ostend (Oostende) / Brugge / Gent: E40 </li>
-      <li>From Netherlands / Antwerpen / Mechelen: A12 or E19 </li>
-      <li>From Germany / Aken / Luik / Leuven: E40 </li>
-      </ul>
-      For detailed or alternative routes, you may use <a href='http://maps.google.com/maps?f=q&amp;hl=nl&amp;q=Pleinlaan+2&amp;sll=37.0625,-95.677068&amp;sspn=59.856937,113.730469&amp;ie=UTF8&amp;ll=50.820144,4.387493&amp;spn=0.023696,0.055532&amp;z=14&amp;om=1'>Google Maps</a> or <a href='http://www.mappy.com/'>Mappy.com</a>.<br>
-      <br>
-      (update to follow)</div>
-      </div>	
-      </div>"
+
+                     <h2>Bereikbaarheid</h2>
+                     <p>	<div class='wiki'>
+                     		<h3>Adres</h3>
+                     			<div class='wikiText'><em>Vrije Universiteit Brussel<br />
+                     Pleinlaan 2<br />
+                     B-1050 Brussel</em></div>
+                     	</div>
+                     </p><p>	<div class='wiki'>
+                     		<h3>Meer informatie</h3>
+                     			<div class='wikiText'>De hoofdcampus van de Vrije Universiteit Brussel ligt ingesloten tussen een aantal grote verkeersaders. We geven u hieronder een beknopte beschrijving van de meest courante routes naar onze campus.<br />
+                     <br />
+                     Voor gedetailleerde of alternatieve routes kan u onder andere <a href='http://maps.google.com/maps?f=q&amp;hl=nl&amp;q=Pleinlaan+2&amp;sll=37.0625,-95.677068&amp;sspn=59.856937,113.730469&amp;ie=UTF8&amp;ll=50.820144,4.387493&amp;spn=0.023696,0.055532&amp;z=14&amp;om=1'>Google Maps</a> of <a href='http://www.mappy.com/'>Mappy.com</a> raadplegen.<br />
+                     <br />
+                     <ol><li>De E40 vanuit Oostende/Brugge/Gent.<br />
+                     Aan het einde van de E40 volgt u richting Koekelberg en neemt u vervolgens de Leopold II-tunnel tot het centrum van Brussel. Volg de tunnels tot aan 'Troon/Trone'. Verlaat de tunnels en rij de Troonlaan af tot aan de General Jacqueslaan. Draai links op en u ziet de campus rechts van u liggen. Een andere mogelijkheid is dat u aan het einde van de E40 de Ring (R0) richting Namen/Luik neemt en vervolgens de A12 richting Laken volgt. Via de Van Praetlaan en de Van Praetbrug kan u dan richting Reyerslaan en Montgommery rijden. Aan het rond punt 'Montgommery' rijdt u rechtdoor tot u op de General Jacqueslaan komt. Draai links de Triomflaan op. Links ziet u het warenhuis Colruyt, rechts van u ligt de campus.<br />
+                     <br />
+                     </li><li>A12 vanuit Antwerpen/Aartselaar/Meise.<br />
+                     Volg de A12 richting Laken. Via de Van Praetlaan en de Van Praetbrug kan u dan richting Reyerslaan en Montgommery rijden. Aan het rond punt 'Montgommery' rijdt u rechtdoor tot u op de General Jacqueslaan komt. Draai links de Triomflaan op. Links ziet u het warenhuis Colruyt, rechts van u ligt de campus.<br />
+                     <br />
+                     </li><li>E19 vanuit Antwerpen/Mechelen.<br />
+                     Sluit via de grote Ring (R0) aan op de A201 naar Brussel/Evere. Rij voorbij de NAVO-gebouwen en volg richting Reyerslaan. Draai de Reyerslaan links op en volg richting Montgommery. Aan het rond punt 'Montgommery' rijdt u rechtdoor tot u op de General Jacqueslaan komt. Draai links de Triomflaan op. Links ziet u het warenhuis Colruyt, rechts van u ligt de campus.<br />
+                     <br />
+                     </li><li>E40 vanuit Leuven/Luik.<br />
+                     Volg de E40 tot het einde (18, Reyers). Draai de Reyerslaan links op en volg richting Montgommery. Aan het rond punt 'Montgommery' rijdt u rechtdoor tot u op de General Jacqueslaan komt. Draai links de Triomflaan op. Links ziet u het warenhuis Colruyt, rechts van u ligt de campus.<br />
+                     <br />
+                     </li><li>E411 vanuit Luxemburg/Namen/Overijse.<br />
+                     Volg de E411 helemaal tot op het einde. Vervolgens kan u aansluiten op de Jules Cockxstraat. Op het einde daarvan draait u links op, net voor brandweerpost 'Delta'. Dit is de Triomflaan. Volg deze tot voorbij het kruispunt (garage Renault op uw linkerkant) en vervolgens komt u de campus op uw rechterkant tegen.<br />
+                     </li></ol><br />
+                     bron: <a href='http://www.vub.ac.be/infoover/campussen/index.html'>VUB Bereikbaarheid</a></div>
+                     	</div>
+                     </div>"

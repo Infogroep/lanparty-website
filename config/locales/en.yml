@@ -1,4 +1,8 @@
 en:
+  lang:
+    en: "English"
+    nl: "Dutch"
+
   compo:
     one: "Compo"
     other: "Compos"
@@ -282,7 +286,7 @@ en:
       <div class="wikiText">The entry fee is the mere sum of <strong>10</strong> euro, or only <strong>6</strong> euro if you only attend for a single day.<br>
       When you register, you automatically agree with the <a href="rules.php">rules</a> (only in Dutch for now, translation pending). These rules will also be posted at the entrance.<br>
       <br>
-      After registration, we will send u an email with a message you need to add to your payment.<br>
+      After registration, we will send you an email with a message you need to add to your payment.<br>
       <br>
       Students 1BA Computer Science get their entrance fee payed back in food&amp;drink credit. This will be when they arrive at ILAN.<br>
       <br>
