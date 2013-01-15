@@ -1,3 +1,5 @@
+$linkColor: #777;
+
 @import "bootstrap";
 body { padding-top: 40px; }
 
@@ -60,11 +62,6 @@ img.nav-profile-logo {
 
 .paragraph-more {
   text-align: center;
-  a {
-    color: #000;
-    opacity:0.6;
-    filter:alpha(opacity=60);
-  }
 }
 
 .btn-new-blog-post {
@@ -101,5 +98,8 @@ textarea {
   height: 100px;
 }
 
+.carousel-inner {
+  background-color: black;
+}
 
 @import "bootstrap-responsive";
