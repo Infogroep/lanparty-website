@@ -7,6 +7,7 @@ class CreateUserGroups < ActiveRecord::Migration
       t.boolean :store_editing
       t.boolean :user_editing
       t.boolean :blog_editing
+      t.boolean :compo_editing
 
       t.timestamps
     end

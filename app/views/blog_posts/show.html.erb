@@ -6,5 +6,8 @@
 <hr>
 <h4><%= t("comment.other") %></h4>
 <%= render @blog_post.blog_comments.order("created_at ASC") %>
+
+<% if logged_in? %>
 <h4><%= t(:add_comment) %></h4>
-<%= render 'blog_comments/form' if logged_in? %>
+<%= render 'blog_comments/form' %>
+<% end %>

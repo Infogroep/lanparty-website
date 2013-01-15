@@ -1,6 +1,6 @@
 class UserGroup < ActiveRecord::Base
   attr_accessible :description, :name
-  attr_accessible :store_editing, :user_editing, :blog_editing
+  attr_accessible :store_editing, :user_editing, :blog_editing, :compo_editing
 
   validates_uniqueness_of :name
   validates_presence_of :name

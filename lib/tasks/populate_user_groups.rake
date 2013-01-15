@@ -13,7 +13,8 @@ namespace :db do
 		admin_group = UserGroup.new(:name => "admin",
                                 :user_editing => true,
                                 :store_editing => true,
-                                :blog_editing => true)
+                                :blog_editing => true,
+                                :compo_editing => true)
     admin_group.save!
 
 		users.each do |u|

@@ -1,6 +1,6 @@
 class BlogCommentsController < ApplicationController
   before_filter :login_required
-  before_filter(:only => [:edit, :update, :destroy]) { BlogComment.find(params[:id]).user_id == self.current_user.id || access_required(:blog_editing) }
+  before_filter(:only => [:edit, :update, :destroy]) { BlogComment.find(params[:id]).user_id == current_user.id || access_required(:blog_editing) }
 
   # GET /blog_comments/1/edit
   def edit
@@ -11,7 +11,7 @@ class BlogCommentsController < ApplicationController
   # POST /blog_comments.json
   def create
     @blog_post = BlogPost.find(params[:blog_post_id])
-    @blog_comment = @blog_post.blog_comments.create(params[:blog_comment].merge({:user_id => self.current_user.id}))
+    @blog_comment = @blog_post.blog_comments.create(params[:blog_comment].merge({:user_id => current_user.id}))
     redirect_to blog_post_path(@blog_post)
   end
 

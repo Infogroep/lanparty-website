@@ -1,5 +1,5 @@
 <% title t("participant.other") %>
-<% admin = self.current_user.access_allowed?(:user_editing) if self.current_user %>
+<% admin = current_user && current_user.access_allowed?(:user_editing) %>
 <table class="table table-striped datatable">
 	<thead>
 		<tr>
@@ -35,4 +35,4 @@
 
 <br />
 
-<%= link_to t(:new, :model => t("user.one")), new_user_path %>
+<%= link_to t(:new, :model => t("user.one")), new_user_path if current_user and current_user.access_allowed? :user_editing %>

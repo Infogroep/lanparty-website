@@ -23,8 +23,8 @@
                   <li><%= link_to t("lang.nl", :locale => :nl), controller: :pages, action: :home, locale: :nl %></li>
                   <% end %>
                   <li class="divider-vertical"></li>
-                  <% if self.current_user %>
-                  <li class=<%= active_class('profile') %> ><%= link_to image_tag(avatar_url(self.current_user), class: 'nav-profile-logo')+" "+self.current_user.username, self.current_user %></li>
+                  <% if current_user %>
+                  <li class=<%= active_class('profile') %> ><%= link_to image_tag(avatar_url(current_user), class: 'nav-profile-logo')+" "+current_user.username, current_user %></li>
                   <li class="divider-vertical"></li>
                   <li><%= link_to t(:logout), logout_path %></li>
                   <% else %>

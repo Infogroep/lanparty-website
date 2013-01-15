@@ -28,6 +28,4 @@
 	</tbody>
 </table>
 
-<br />
-
-<%= link_to t(:new, :model => t("compo.one")), new_compo_path %>
+<%= link_to t(:new, :model => t("compo.one")), new_compo_path, class: "btn" if logged_in? and current_user.access_allowed? :compo_editing %>

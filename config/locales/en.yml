@@ -30,6 +30,9 @@ en:
   clan:
     one: "Clan"
     other: "Clans"
+  game:
+    one: "Game"
+    other: "Games"
 
   show: "Show"
   edit: "Edit"

@@ -43,7 +43,7 @@ class BlogPostsController < ApplicationController
   # POST /blog_posts
   # POST /blog_posts.json
   def create
-    @blog_post = BlogPost.new(params[:blog_post].merge({:user_id => self.current_user.id}))
+    @blog_post = BlogPost.new(params[:blog_post].merge({:user_id => current_user.id}))
 
     respond_to do |format|
       if @blog_post.save

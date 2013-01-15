@@ -1,7 +1,7 @@
 <%= simple_form_for(@user) do |f| %>
     <%= f.input :username %>
 	<%= f.input :clan_tag, :input_html => { data: {autocomplete_source: Clan.order(:tag).map(&:tag)} } %>
-	<%= f.input :payed if (self.current_user && self.current_user.access_allowed?(:user_editing)) %>
+	<%= f.input :payed if logged_in? and current_user.access_allowed?(:user_editing) %>
 	<%= f.input :email %>
 	<%= f.input :password %>
 	<%= f.input :password_confirmation, :required => true %>
