@@ -55,10 +55,6 @@ en:
   no_account_yet_html: "Don't have an account? %{signup_link}!"
   or: "or"
 
-  image: "Image"
-  name: "Name"
-  download_location: "Download location"
-
   blog: "Blag"
   username: "Username"
   email: "E-mail"
@@ -80,6 +76,11 @@ en:
         date_time: "Starting time"
         description: "Description"
         featured: "Featured"
+      game:
+        name: "Name"
+        info: "Info"
+        download_location: "Download location"
+        image: "Image"
 
   ago: "%{time_difference} ago"
   btn_details: "Details »"

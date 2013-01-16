@@ -55,9 +55,6 @@ nl:
   no_account_yet_html: "Nog geen account? %{signup_link}!"
   or: "of"
 
-  image: "Afbeelding"
-  name: "Naam"
-  download_location: "Downloadlocatie"
 
   blog: "Blag"
   username: "Gebruikersnaam"
@@ -81,6 +78,11 @@ nl:
         date_time: "Starttijd"
         description: "Beschrijving"
         featured: "Op voorpagina"
+      game:
+        image: "Afbeelding"
+        name: "Naam"
+        download_location: "Downloadlocatie"
+        info: "Info"
 
   ago: "%{time_difference} geleden"
   btn_details: "Details »"
