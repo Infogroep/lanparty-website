@@ -22,8 +22,8 @@ en:
     one: "Profile"
     other: "Profiles"
   blog_post:
-    one: "Blag Post"
-    other: "Blag Posts"
+    one: "Blag post"
+    other: "Blag posts"
   comment:
     one: "Comment"
     other: "Comments"
@@ -33,15 +33,11 @@ en:
   game:
     one: "Game"
     other: "Games"
-  user_group:
-    one: "User Group"
-    other: "User Groups"
 
   show: "Show"
   edit: "Edit"
   destroy: "Destroy"
   new: "New %{model}"
-  edit_title: "Edit %{model}"
 
   iLan: "iLan"
   faq: "FAQ"
@@ -51,43 +47,24 @@ en:
   login: "Log in"
   signup: "Sign Up"
   logout: "Log out"
-  account_already_html: "Already have an account? %{login_link}!"
-  no_account_yet_html: "Don't have an account? %{signup_link}!"
-  or: "or"
-
-  image: "Image"
-  name: "Name"
-  download_location: "Download location"
 
   blog: "Blag"
   username: "Username"
   email: "E-mail"
   payed: "Payed"
 
-  simple_forms:
-    labels:
-      user:
-        username: "Username"
-        password: "Password"
-        password_confirmation: "Password confirmation"
-        clan_tag: "Clan tag"
-        payed: "Payed"
-        email: "E-mail"
-      compo:
-        game: "Game"
-        slots: "Slots"
-        group_size: "Group size"
-        date_time: "Starting time"
-        description: "Description"
-        featured: "Featured"
+  compos:
+    index:
+      game: "Game"
+      slots: "Slots"
+      group_size: "Group size"
+      datetime: "Starting time"
 
   ago: "%{time_difference} ago"
   btn_details: "Details »"
   btn_more: "More »"
   add_comment: "Write a comment"
   new_blog_post: "New blog post"
-
-  usernameoremail: "Username or Email Address"
 
   date:
     abbr_day_names:
