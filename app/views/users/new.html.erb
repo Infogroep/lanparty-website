@@ -1,5 +1,5 @@
-<% title "Sign up" %>
+<% title t(:signup) %>
 
-<p>Already have an account? <%= link_to "Log in", login_path %>.</p>
+<p><%= t(:account_already_html, :login_link => link_to(t(:login), login_path)) %></p>
 
 <%= render 'form' %>

@@ -1,15 +1,18 @@
+<% admin = current_user && current_user.access_allowed?(:compo_editing) %>
 <% title t("compo.other") %>
 
 <table class="table table-striped datatable">
 	<thead>
 		<tr>
-			<th><%= t(".game") %></th>
-			<th><%= t(".slots") %></th>
-			<th><%= t(".group_size") %></th>
-			<th><%= t(".datetime") %></th>
+			<th><%= t("simple_form.labels.compo.game") %></th>
+			<th><%= t("simple_form.labels.compo.slots") %></th>
+			<th><%= t("simple_form.labels.compo.group_size") %></th>
+			<th><%= t("simple_form.labels.compo.date_time") %></th>
+            <% if admin %>
 			<th class="action_column"></th>
 			<th class="action_column"></th>
 			<th class="action_column"></th>
+            <% end %>
 		</tr>
 	</thead>
 
@@ -20,9 +23,11 @@
 			<td><%= compo.slots %></td>
 			<td><%= compo.group_size %></td>
 			<td><%= l(compo.date_time, :format => :short) %></td>
+            <% if admin %>
 			<td><%= link_to t(:show), compo, class: "btn" %></td>
 			<td><%= link_to t(:edit), edit_compo_path(compo), class:"btn" %></td>
 			<td><%= link_to t(:destroy), compo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+            <% end %>
 		</tr>
 		<% end %>
 	</tbody>

@@ -1,5 +1,7 @@
 class GamesController < ApplicationController
 	before_filter :login_required
+  before_filter { access_required :compo_editing }
+
 	# GET /games
 	# GET /games.json
 	def index

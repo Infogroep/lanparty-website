@@ -1,11 +1,11 @@
 <table class="table">
 	<tr>
-		<th>Name</th>
-		<th>Info</th>
-		<th>Download location</th>
-		<th></th>
-		<th></th>
-		<th></th>
+		<th><%= t(:name) %></th>
+		<th><%= t(:info) %></th>
+		<th><%= t(:download_location) %></th>
+		<th class="action_column"></th>
+		<th class="action_column"></th>
+		<th class="action_column"></th>
 	</tr>
 
 <% games.each do |game| %>
@@ -13,9 +13,9 @@
 		<td><%= game.name %></td>
 		<td><%= game.info %></td>
 		<td><%= game.download_location %></td>
-		<td><%= link_to t(:show), game %></td>
-		<td><%= link_to t(:edit), edit_game_path(game) %></td>
-		<td><%= link_to t(:destroy), game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= link_to t(:show), game, class: "btn" %></td>
+		<td><%= link_to t(:edit), edit_game_path(game), class: "btn" %></td>
+		<td><%= link_to t(:destroy), game, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
 	</tr>
 <% end %>
 </table>

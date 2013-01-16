@@ -33,11 +33,15 @@ nl:
   game:
     one: "Game"
     other: "Games"
+  user_group:
+    one: "Gebruikersgroep"
+    other: "Gebruikersgroepen"
 
   show: "Toon"
   edit: "Bewerk"
   destroy: "Verwijder"
   new: "Nieuwe %{model}"
+  edit_title: "%{model} bewerken"
 
   iLan: "iLan"
   faq: "FAQ"
@@ -47,23 +51,43 @@ nl:
   login: "Log in"
   signup: "Registreer"
   logout: "Log uit"
+  account_already_html: "Heb je reeds een account? %{login_link}!"
+  no_account_yet_html: "Nog geen account? %{signup_link}!"
+  or: "of"
+
+  image: "Afbeelding"
+  name: "Naam"
+  download_location: "Downloadlocatie"
 
   blog: "Blag"
   username: "Gebruikersnaam"
   email: "E-mail"
   payed: "Betaald"
 
-  compos:
-    index:
-      game: "Spel"
-      slots: "Posities"
-      group_size: "Teamgrootte"
-      datetime: "Starttijd"
+
+  simple_form:
+    labels:
+      user:
+        username: "Gebruikersnaam"
+        password: "Wachtwoord"
+        password_confirmation: "Wachtwoord bevestiging"
+        clan_tag: "Clan tag"
+        payed: "Betaald"
+        email: "E-mail"
+      compo:
+        game: "Spel"
+        slots: "Plaatsen"
+        group_size: "Teamgrootte"
+        date_time: "Starttijd"
+        description: "Beschrijving"
+        featured: "Op voorpagina"
 
   ago: "%{time_difference} geleden"
   btn_details: "Details »"
   btn_more: "Meer »"
   add_comment: "Schrijf een reactie"
+
+  usernameoremail: "Gebruikersnaam of E-mailadres"
 
   date:
     abbr_day_names:

@@ -1,20 +1,20 @@
 <p>
-	<b>image:</b>
+	<b><%= t(:image) %>:</b>
 	<%= image_tag @game.image_url(:front).to_s %>
 </p>
 
 <p>
-	<b>Name:</b>
+	<b><%= t(:name) %>:</b>
 	<%= @game.name %>
 </p>
 
 <p>
-	<b>Info:</b>
+	<b><%= t(:info) %>:</b>
 	<%= @game.info %>
 </p>
 
 <p>
-	<b>Download location:</b>
+	<b><%= t(:download_location) %>:</b>
 	<%= @game.download_location %>
 </p>
 

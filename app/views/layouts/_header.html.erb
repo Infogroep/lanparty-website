@@ -18,18 +18,18 @@
 				</ul>
 				<ul class="nav  pull-right">
                   <% if I18n.locale == :nl %>
-                  <li><%= link_to t("lang.en", :locale => :en), controller: :pages, action: :home, locale: :en %></li>
+                  <li><%= link_to t("lang.en", :locale => :en), url_for(:locale => :en) %></li>
                   <% else %>
-                  <li><%= link_to t("lang.nl", :locale => :nl), controller: :pages, action: :home, locale: :nl %></li>
+                  <li><%= link_to t("lang.nl", :locale => :nl), url_for(:locale => :nl) %></li>
                   <% end %>
                   <li class="divider-vertical"></li>
                   <% if current_user %>
-                  <li class=<%= active_class('profile') %> ><%= link_to image_tag(avatar_url(current_user), class: 'nav-profile-logo')+" "+current_user.username, current_user %></li>
+                  <li class="<%= active_class('profile') %>"><%= link_to image_tag(avatar_url(current_user), class: 'nav-profile-logo')+" "+current_user.username, current_user %></li>
                   <li class="divider-vertical"></li>
                   <li><%= link_to t(:logout), logout_path %></li>
                   <% else %>
                   <li><%= link_to t(:login), login_path %></li>
-                  <li class="navbar-text">OR</li>
+                  <li class="navbar-text"><%= t(:or) %></li>
                   <li><%= link_to t(:signup), signup_path %></li>
                   <% end %>
 				</ul>
