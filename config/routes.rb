@@ -42,7 +42,9 @@ Lanparty::Application.routes.draw do
 
     resources :sessions
 
-    resources :users
+    resources :users do
+      post :markpayed, :on => :collection
+    end
 
     resources :match_lose_links
 

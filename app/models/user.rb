@@ -43,7 +43,32 @@ class User < ActiveRecord::Base
 	
 	def clan_tag=(tag)
 		self.clan = Clan.find_or_create_by_tag(tag) if tag.present?
-	end	
+	end
+
+  def self.smsg_generate_checksum val
+    mod = val % 97
+    return mod == 0 ? 97 : mod
+  end
+
+  def structured_message
+    id_str = sprintf "%010d", id
+    checksum = sprintf "%02d", User.smsg_generate_checksum(id)
+    return "+++#{id_str[0..2]}/#{id_str[3..6]}/#{id_str[7..9]}#{checksum}+++"
+  end
+
+  def self.find_by_structured_message msg
+    m = /\+\+\+(\d{3})\/(\d{4})\/(\d{3})(\d{2})\+\+\+/.match(msg)
+
+    raise "invalid structured message: #{msg}" if m.nil?
+
+    requested_id = (m[1] + m[2] + m[3]).to_i
+    calculated_checksum = smsg_generate_checksum(requested_id)
+    message_checksum = m[4].to_i
+
+    raise "wrong structured message checksum in #{msg}: expected #{calculated_checksum}, got #{message_checksum}." if calculated_checksum != message_checksum
+
+    self.find(requested_id)
+  end
 
 	private
 
@@ -52,6 +77,5 @@ class User < ActiveRecord::Base
 			self.password_salt = BCrypt::Engine.generate_salt
 			self.password_hash = encrypt_password(password)
 		end
-	end
-	
+  end
 end

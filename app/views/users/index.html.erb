@@ -35,4 +35,8 @@
 
 <br />
 
-<%= link_to t(:new, :model => t("user.one")), new_user_path if current_user and current_user.access_allowed? :user_editing %>
+<% if current_user and current_user.access_allowed? :user_editing %>
+<%= link_to t(:new, :model => t("user.one")), new_user_path, class: "btn"  %>
+<h4><%= t(".payment_processing") %></h4>
+<%= render 'payed_form' %>
+<% end %>

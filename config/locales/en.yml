@@ -59,6 +59,9 @@ en:
   username: "Username"
   email: "E-mail"
   payed: "Payed"
+  registrations: "Registrations"
+  open_slots: "Open Slots"
+  date_txt: "Date"
 
   simple_forms:
     labels:
@@ -300,42 +303,25 @@ en:
     form:
       sign_up_btn: "Sign Up"
       update_btn: "Update"
+    payed_form:
+      structured_message: "Structured message"
+      mark_as_payed: "Mark as payed"
+    payment_processing: "Payment processing"
   pages:
     info:
-      content_html: '<div id="left">
-      <h2>Event Information</h2>
-      <p>	</p><div class="wiki">
-      <h3>Date and Location</h3>
-      <div class="wikiText">ILAN 2013 will take place from Friday 17/2 at 18h till Sunday 19/2 at 18h.<br>
-      <br>
-      Our venue:<br>
-      <em>Mandela hall on campus Etterbeek of the Vrije Universiteit Brussel<br>
-      (als known as "Ruimte onder Aula Q")<br>
-      Pleinlaan 2<br>
-      B-1050 Brussel</em></div>
-      </div>
-      <div class="wiki">
-      <h3>Registration &amp; Rules</h3>
-      <div class="wikiText">The entry fee is the mere sum of <strong>10</strong> euro, or only <strong>6</strong> euro if you only attend for a single day.<br>
-      When you register, you automatically agree with the <a href="rules.php">rules</a> (only in Dutch for now, translation pending). These rules will also be posted at the entrance.<br>
-      <br>
-      After registration, we will send you an email with a message you need to add to your payment.<br>
-      <br>
-      Students 1BA Computer Science get their entrance fee payed back in food&amp;drink credit. This will be when they arrive at ILAN.<br>
-      <br>
-      If you have any problems or questions, please send a mail to <a href="mailto:lanparty(AT-NOSPAM)infogroep.be">lanparty(AT-NOSPAM)infogroep.be</a>.<br>
-      <br>
-      Bank data:<br>
-      ING account: 363-0056700-92<br>
-      IBAN: BE12-3630-0567-0092<br>
-      BIC: BBRUBEBB<br>
-      <br>
-      In the name of:<br>
-      <em>ILAN Infogroep<br>
-      Pleinlaan 2<br>
-      B-1050 Brussel</em></div>
-      </div>
-      <p></p>
+      content_html: '<h3>Where and when?</h3>
+                     <p>ILAN 2013 will take place from Friday 17/2 at 18h till Sunday 19/2 at 18h.</p>
+                     <p>Our venue:<br>
+                     <em>The Mandela hall on campus Etterbeek of the Vrije Universiteit Brussel<br>
+                     (also known as "Room below Aula Q")<br>
+                     Pleinlaan 2<br>
+                     B-1050 Brussel</em>
+                     <h3>Registration &amp; Rules</h3>
+                     <p>The entry fee is the mere sum of <strong>10</strong> euro, or only <strong>6</strong> euro if you only attend for a single day.<br>
+                     When you register, you automatically agree with the <a href="rules.php">rules</a> (only in Dutch for now, translation pending). These rules will also be posted at the entrance.</p>
+                     <p>Payment occurs by bank transfer. After registration, you will receive a structured message you need to add to your payment. Our bank information can be found on the contact page.</p>
+                     <p>Students 1BA Computer Science get their entrance fee payed back in food&amp;drink credit. This will be when they arrive at ILAN.</p>
+                     <p>Feel free to contact Infogroep with any questions.</p>
       </div>'
     faq:
       content_html: "<div id='left'>
@@ -450,3 +436,21 @@ en:
       </div>"
       campusmap: "Map of the VUB campus"
       brusselsmap: "Campus location in Brussels"
+    contact:
+      content_html: '<h4>Contact Address Infogroep</h4>
+                     <p>Infogroep VUB (WEAC)<br />
+                     Pleinlaan 2<br />
+                     B-1050 Brussel</p>
+                     <h4>Telephone &amp; e-mail</h4>
+                     <p>Telephone: +32 2 629 33 56<br />
+                     Fax: +32 2 629 13 59<br />
+                     E-mail: <a href="mailto:lanparty@(nospam)infogroep.be">lanparty@(nopam)infogroep.be</a> (remove the "(nospam)" part from the address)<br />
+                     Infogroep website: <a href="http://infogroep.be/">http://infogroep.be/</a></p>
+                     <h4>Bank information</h4>
+                     <p>ILAN Infogroep<br />
+                     Pleinlaan 2<br />
+                     B-1050 Brussel</p>
+                     <p>ING account: 363-0056700-92<br />
+                     IBAN: BE12-3630-0567-0092<br />
+                     BIC: BBRUBEBB</p>'
+      structured_message_html: '<p>Your structured message (must be added to your bank transfer form): %{structured_message}</p>'

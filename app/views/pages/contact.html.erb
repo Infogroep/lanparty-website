@@ -1,2 +1,3 @@
 <% title t("contact") %>
-<%= t(".content") %>
+<%= t(".content_html") %>
+<%= t(".structured_message_html", :structured_message => current_user.structured_message) if current_user %>
