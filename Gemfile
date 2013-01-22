@@ -41,6 +41,9 @@ group :development, :test do
   #gem 'rb-inotify'
 end
 
+group :production do
+  gem 'mysql2'
+end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
