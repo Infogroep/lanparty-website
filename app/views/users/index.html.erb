@@ -9,6 +9,7 @@
 			<th><%= t("email") %></th>
 			<th><%= t("payed") %></th>
 			<% if admin %>
+			<th><%= t("user_group.other") %></th>
 			<th class="action_column"></th>
 			<th class="action_column"></th>
 			<th class="action_column"></th>
@@ -24,6 +25,7 @@
 		<td><%= user.email %></td>
 		<td><span class="hide"><%= user.payed %></span><i class="<%= user.payed ? "icon-check" : "icon-check-empty" %>"></i></td>
 		<% if admin %>
+		<td><%= user.user_groups.map { |grp| grp.name }.join(",") %>
 		<td><%= link_to t(:show), user, class: "btn" %></td>
 		<td><%= link_to t(:edit), edit_user_path(user), class: "btn" %></td>
 		<td><%= link_to t(:destroy), user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
