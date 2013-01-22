@@ -45,6 +45,7 @@ group :production do
   gem 'mysql2'
 end
 
+gem 'bcrypt-ruby'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'carrierwave'
