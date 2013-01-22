@@ -35,11 +35,15 @@ module ControllerAuthentication
 		end
 	end
 
-	def access_required(access_type)
+	def true_required(value)
 		referer = request.referer.nil? ? home_url : request.referer
-		unless current_user.access_allowed? access_type
-		redirect_to referer, flash: {:error => "You are not allowed in this section."}
+		unless value
+			redirect_to referer, flash: {:error => "You are not allowed in this section."}
 		end
+	end
+
+	def access_required(access_type)
+		true_required(current_user.access_allowed?(access_type))
 	end
 
 	def redirect_to_target_or_default(default, *args)

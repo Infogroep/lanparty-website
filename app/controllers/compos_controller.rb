@@ -1,5 +1,6 @@
 class ComposController < ApplicationController
 	before_filter :login_required
+	before_filter(:except => [:index,:show]) { access_required :compo_editing }
 
 	# GET /compos
 	# GET /compos.json

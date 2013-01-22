@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 	before_filter :login_required, :except => [:new, :create, :index]
-  before_filter(:only => [:edit, :update, :destroy]) { params[:id] == current_user.id.to_s || access_required(:user_editing) }
+	before_filter(:only => [:create]) { true_required !params[:user].has_key?(:user_group_ids) }
+	before_filter(:only => [:update]) { true_required((params[:id] == current_user.id.to_s && !params[:user].has_key?(:user_group_ids)) || current_user.access_allowed?(:user_editing)) }
+	before_filter(:only => [:edit]) { true_required(params[:id] == current_user.id.to_s || current_user.access_allowed?(:user_editing)) }
+	before_filter(:only => [:destroy,:markpayed]) { access_required :user_editing }
 
 	def index
 		@users = User.all
