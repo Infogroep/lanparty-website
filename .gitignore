@@ -19,3 +19,4 @@ pickle-email-*.html
 /db/schema.rb
 .idea
 .rvmrc
+/public/assets
