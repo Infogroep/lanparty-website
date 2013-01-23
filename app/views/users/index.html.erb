@@ -19,7 +19,7 @@
 	<tbody>
 	<% @users.each do |user| %>
 	<tr class="<%= admin ? (user.payed ? "success" : "error") : "" %>">
-		<td class="action_column"><%= image_tag avatar_url user%></td>
+		<td class="action_column"><%= image_tag(avatar_url(user), :alt => "Icon") %></td>
 		<td><%= user.username %></td>
 		<td><%= user.clan.tag if user.clan %></td>
 		<td><span class="hide"><%= user.payed %></span><i class="<%= user.payed ? "icon-check" : "icon-check-empty" %>"></i></td>
