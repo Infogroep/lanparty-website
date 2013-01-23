@@ -19,4 +19,8 @@ class PagesController < ApplicationController
   def faq
 
   end
+
+  def signup_finished
+
+  end
 end

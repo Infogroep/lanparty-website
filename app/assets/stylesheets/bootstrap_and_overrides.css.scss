@@ -1,4 +1,6 @@
 $linkColor: #777;
+
+
 //$bodyBackground: #FBFFE0;
 
 
@@ -28,7 +30,7 @@ $linkColor: #777;
 
 }
 
-body { padding-top: 40px; }
+body { padding-top: 46px; }
 
 div#content {padding-top: 20px;}
 
@@ -132,5 +134,11 @@ textarea {
   font-family: razer_regularitalic;
 }
 
-@import "bootstrap-responsive";
+.bordered {
+  padding: 9.5px;
+  background-color: rgb(245,245,245);
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px 4px 4px 4px;
+}
 
+@import "bootstrap-responsive";

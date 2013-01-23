@@ -48,8 +48,10 @@ en:
   contact: "Contact"
   location: "Location"
   info: "Info"
+  rules: "Rules"
   login: "Log in"
   signup: "Sign Up"
+  signup_finished: "Sign up finished"
   logout: "Log out"
   account_already_html: "Already have an account? %{login_link}!"
   no_account_yet_html: "Don't have an account? %{signup_link}!"
@@ -299,6 +301,8 @@ en:
   activerecord:
     errors:
       <<: *errors
+
+
   users:
     form:
       sign_up_btn: "Sign Up"
@@ -307,6 +311,8 @@ en:
       structured_message: "Structured message"
       mark_as_payed: "Mark as payed"
     payment_processing: "Payment processing"
+    new:
+      warning: "Warning: This is a reservation form! Filling out this form will reserve a spot for you at ILAN!"
   pages:
     info:
       content_html: '<h3>Where and when?</h3>
@@ -317,11 +323,11 @@ en:
                      Pleinlaan 2<br>
                      B-1050 Brussel</em>
                      <h3>Registration &amp; Rules</h3>
-                     <p>The entry fee is the mere sum of <strong>10</strong> euro, or only <strong>6</strong> euro if you only attend for a single day.<br>
-                     When you register, you automatically agree with the rules. These rules will also be posted at the entrance.</p>
-                     <p>Payment occurs by bank transfer. Our bank information can be found on the contact page, along with the structured message you must write in the comment section of your bank transfer form.</p>
+                     <p>The entry fee is the mere sum of <strong>10</strong> euro.</p>
+                     <p>To reserve a spot, click on "Sign Up" in the top right corner. When you sign up, you automatically agree with the <a href="%{rules_link}">rules</a>. These rules will also be posted at the entrance.</p>
+                     <p>Payment occurs by bank transfer. Our bank information can be found on the <a href="%{contact_link}">contact page</a>, along with the structured message you must write in the comment section of your bank transfer form.</p>
                      <p>Students 1BA Computer Science get their entrance fee payed back in food&amp;drink credit. This will be when they arrive at ILAN.</p>
-                     <p>Feel free to contact Infogroep with any questions.</p>'
+                     <p>Feel free to contact Infogroep with any further questions.</p>'
     faq:
       content_html: "<div id='left'>
       <div class='faq'>
@@ -439,17 +445,56 @@ en:
       content_html: '<h4>Contact Address Infogroep</h4>
                      <p>Infogroep VUB (WEAC)<br />
                      Pleinlaan 2<br />
-                     B-1050 Brussel</p>
+                     B-1050 Brussel<br /><br />
+                     </p>
                      <h4>Telephone &amp; e-mail</h4>
                      <p>Telephone: +32 2 629 33 56<br />
                      Fax: +32 2 629 13 59<br />
                      E-mail: <a href="mailto:lanparty@(nospam)infogroep.be">lanparty@(nopam)infogroep.be</a> (remove the "(nospam)" part from the address)<br />
-                     Infogroep website: <a href="http://infogroep.be/">http://infogroep.be/</a></p>
-                     <h4>Bank information</h4>
-                     <p>ILAN Infogroep<br />
+                     Infogroep website: <a href="http://infogroep.be/">http://infogroep.be/</a><br /><br />
+                     </p>
+                     <h4>Bank information</h4>'
+    signup_finished:
+      content_html: '<p>Thank you for your reservation! You are can now explore the rest of the website.</p>
+                     <p>To complete your reservation, please transfer the amount of €10 onto the following bank account. Do not forget your structured message, as we need it to identify your payment. This information is also available on the contact page.</p>'
+    bank_info:
+      content_html: '<p>ILAN Infogroep<br />
                      Pleinlaan 2<br />
                      B-1050 Brussel</p>
                      <p>ING account: 363-0056700-92<br />
                      IBAN: BE12-3630-0567-0092<br />
                      BIC: BBRUBEBB</p>'
       structured_message_html: '<p>Your structured message (must be added to your bank transfer form): %{structured_message}</p>'
+    rules:
+      content_html: "<p>
+                         In short:
+                         <ul>
+                             <li>No smoking in the room. Those who can't go without can smoke outside.</li>
+                             <li>Drugs are strictly prohibited. Those caught in possession of or using drugs (including all forms of softdrugs) will be removed from the LAN immediately.</li>
+                             <li>Speakers are not allowed. You are therefore advised to bring a headset.</li>
+                             <li>In case of damage to the room or any kind of third party property the culprit, and only him/her, is personally responsible. Infogroep nor any of its members will be held responsible for damage, unless it was caused with absolute certainty by the malicious actions of one or more of its members.</li>
+                             <li>The organizers reserve the right to deny access to the LAN at any time and without prior notice.</li>
+                             <li>These rules can be changed at any time, even during the LANparty itself, and apply for the entire duration of the LANparty. </li>
+                             <li>Drinking is allowed, excessive drinking is not. Those who are a nuisance for the other attendees will be asked to leave the LAN prematurely.</li>
+                             <li>You are given 1 power socket and 1 network port. This is only meant for your PC and monitor.</li>
+                             <li>Power strips with a switch are NOT allowed, one without a switch is REQUIRED.</li>
+                             <li>De gegevens die de Infogroep verzamelt over de deelnemers bij de inschrijving worden opgeslagen in een databank. Deze gegevens zullen enkel gebruikt worden door de vereniging om zijn deelnemers informatie te verschaffen over voorbije/toekomstige evenementen georganiseerd door Infogroep. Op geen enkele manier en onder geen enkel beding zullen deze gegevens aan derden worden meegedeeld.</li>
+                             <li>De organisatie kan niet aansprakelijk worden gesteld voor inbreuken die derden of de deelnemer plegen via haar netwerk. Het netwerk en infrastructuur mag uitsluitend worden gebruikt voor wettelijk toegestane doeleinden. Het is ondermeer ten strengste verboden om materiaal te zenden, ontvangen, uploaden, downloaden of gebruiken:
+                                 <ul>
+                                     <li>waarvan het bestaan, de inhoud, het bezit, de verspreiding of het gebruik bedreigend, obsceen of frauduleus is</li>
+                                     <li>dat inbreuk pleegt op auteursrechten of andere intellectuele eigendomsrechten, rechten van derden of wettelijke bepalingen</li>
+                                     <li>dat een misdrijf vormt of een inbreuk op een rechterlijk bevel, een overheidsbesluit of enigerlei andere illegale handeling vormt</li>
+                                 </ul></li>
+                             <li>Het is tijdens de evenementen georganiseerd door Infogroep verboden het netwerk en infrastructuur te gebruiken voor elke actie die leidt tot:
+                                 <ul>
+                                     <li>de illegale of zonder toestemming genomen toegang tot de gegevens van de verbonden netwerken</li>
+                                     <li>de aantasting of het in gevaar brengen van de goede werking van het netwerk</li>
+                                     <li>het in gevaar brengen van of de aantasting van de integriteit van computergegevens of de beschadiging of vernietiging van de informaticagegevens of van hun betrouwbaarheid</li>
+                                     <li>het in gevaar brengen van of de aantasting van de privacy van derden in het algemeen of van andere deelnemers van het netwerk in het bijzonder </li>
+                                 </ul></li>
+                             <li>Het is verboden om illegale software binnen te brengen of te gebruiken alsook enig ander materiaal dat illegaal is of inbreuk pleegt op intellectuele eigendomsrechten of rechten van derden. Elke deelnemer vrijwaart de organisatie voor elke vordering van derden in dit verband. De organisatie is niet aansprakelijk voor inbreuken die deelnemers plegen via haar netwerk of infrastructuur. Elke deelnemer is aansprakelijk voor schade die voortvloeit uit het onrechtmatig gebruik ervan. </li>
+                             <li>De deelnemer erkent dat de organisatie niet verantwoordelijk is om de informatie die zich bevindt op haar server(s) en op de verschillende computers van de deelnemers te controleren. De deelnemer is en blijft alleen verantwoordelijk voor de inhoud van alle uitgewisselde gegevens, met inbegrip van maar niet beperkt tot de keuze en de gevolgen van het plaatsen van links naar andere servers of computers. Elke deelnemer vrijwaart de organisatie voor elke vordering en schade dienaangaande van derden.</li>
+                         </ul>
+                     </p>
+                     <p>Deze lijst is een veralgemening van het gedetaïlleerd officiëel reglement, hieronder te vinden.</p>
+                     <p><a href='files/lanparty-reglement.pdf'>%{pdf_image}Lange versie reglement</a></p>"

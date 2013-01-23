@@ -24,8 +24,21 @@ input[type=submit]{
 }
 
 .alert {
-	position:absolute;
+    // TODO: This line breaks twitter bootstrap on small devices. My solution is not ideal.
+    // position: absolute;
 	z-index:1029;
+}
+
+.flashmsgholder {
+  // Said solution
+  position: absolute;
+  padding-right: 20px;
+}
+
+@media(max-width: 979px) {
+  .alert {
+    margin-top: 51px;
+  }
 }
 .alert-error{
 	background-color:rgba(242,222,222,0.7);
@@ -40,5 +53,3 @@ input[type=submit]{
 	background-color:rgba(223,208,216,0.7);
 }
 
-.align-right {
-}
