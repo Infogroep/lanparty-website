@@ -318,11 +318,10 @@ en:
                      B-1050 Brussel</em>
                      <h3>Registration &amp; Rules</h3>
                      <p>The entry fee is the mere sum of <strong>10</strong> euro, or only <strong>6</strong> euro if you only attend for a single day.<br>
-                     When you register, you automatically agree with the <a href="rules.php">rules</a> (only in Dutch for now, translation pending). These rules will also be posted at the entrance.</p>
-                     <p>Payment occurs by bank transfer. After registration, you will receive a structured message you need to add to your payment. Our bank information can be found on the contact page.</p>
+                     When you register, you automatically agree with the rules. These rules will also be posted at the entrance.</p>
+                     <p>Payment occurs by bank transfer. Our bank information can be found on the contact page, along with the structured message you must write in the comment section of your bank transfer form.</p>
                      <p>Students 1BA Computer Science get their entrance fee payed back in food&amp;drink credit. This will be when they arrive at ILAN.</p>
-                     <p>Feel free to contact Infogroep with any questions.</p>
-      </div>'
+                     <p>Feel free to contact Infogroep with any questions.</p>'
     faq:
       content_html: "<div id='left'>
       <div class='faq'>
