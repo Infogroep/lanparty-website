@@ -36,8 +36,12 @@ div#content {padding-top: 20px;}
 
 table {
 	th.action_column {
-        width:1px
+        width: 1px;
     }
+
+	td.action_column {
+		white-space: nowrap;
+	}
 
 	form{
 		margin:0px;

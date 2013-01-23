@@ -24,9 +24,9 @@
 			<td><%= compo.group_size %></td>
 			<td><%= l(compo.date_time, :format => :short) %></td>
             <% if admin %>
-			<td><%= link_to t(:show), compo, class: "btn" %></td>
-			<td><%= link_to t(:edit), edit_compo_path(compo), class:"btn" %></td>
-			<td><%= link_to t(:destroy), compo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+			<td class="action_column"><%= link_to t(:show), compo, class: "btn" %></td>
+			<td class="action_column"><%= link_to t(:edit), edit_compo_path(compo), class:"btn" %></td>
+			<td class="action_column"><%= link_to t(:destroy), compo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
             <% end %>
 		</tr>
 		<% end %>
