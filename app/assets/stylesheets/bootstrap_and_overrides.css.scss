@@ -1,5 +1,5 @@
 $linkColor: #777;
-
+$navbarHeight: 45px;
 
 //$bodyBackground: #FBFFE0;
 
@@ -75,10 +75,20 @@ ul.ui-autocomplete {
   }
 }
 
+// Profile logo in navbar
+$profilePicHeight: 25px;
+$normalNavLinkPadding: ($navbarHeight - $baseLineHeight) / 2;
+$profilePicOverflow: ($profilePicHeight - $baseLineHeight) / 2;
+$profileNavLinkPadding: $normalNavLinkPadding - $profilePicOverflow;
+
+
 img.nav-profile-logo {
-	height: 25px;
+  height: $profilePicHeight;
 }
 
+.navbar .nav > li > a.nav-profile-logo {
+  padding: $profileNavLinkPadding 15px;
+}
 .blog-post-info {
   float: right;
   font-style: italic;
