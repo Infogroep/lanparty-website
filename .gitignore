@@ -20,3 +20,4 @@ pickle-email-*.html
 .idea
 .rvmrc
 /public/assets
+/public/uploads
