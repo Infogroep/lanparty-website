@@ -19,7 +19,7 @@
 //= require_tree .
 
 $(function() {
-    $('input.date_picker').datetimepicker();
+    $('input.date_picker').datetimepicker({dateFormat: "dd/mm/yy"});
 });
 
 function load_i18n_js(locale) {
