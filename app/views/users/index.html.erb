@@ -1,4 +1,5 @@
 <% title t("participant.other") %>
+<% canview = current_user && current_user.access_allowed?(:user_detail_viewing) %>
 <% admin = current_user && current_user.access_allowed?(:user_editing) %>
 <table class="table table-striped datatable">
 	<thead>
@@ -7,9 +8,11 @@
 			<th><%= t("username") %></th>
 			<th><%= t("clan.one") %></th>
 			<th><%= t("payed") %></th>
-			<% if admin %>
+			<% if canview %>
 			<th><%= t("email") %></th>
 			<th><%= t("user_group.other") %></th>
+			<% end %>
+			<% if admin %>
 			<th class="action_column"></th>
 			<th class="action_column"></th>
 			<th class="action_column"></th>
@@ -18,14 +21,16 @@
 	</thead>
 	<tbody>
 	<% @users.each do |user| %>
-	<tr class="<%= admin ? (user.payed ? "success" : "error") : "" %>">
+	<tr class="<%= canview ? (user.payed ? "success" : "error") : "" %>">
 		<td class="action_column"><%= image_tag(avatar_url(user), :alt => "Icon") %></td>
 		<td><%= user.username %></td>
 		<td><%= user.clan.tag if user.clan %></td>
 		<td><span class="hide"><%= user.payed %></span><i class="<%= user.payed ? "icon-check" : "icon-check-empty" %>"></i></td>
-		<% if admin %>
+		<% if canview %>
 		<td><%= user.email %></td>
-		<td><%= user.user_groups.map { |grp| grp.name }.join(",") %>
+		<td><%= user.user_groups.map { |grp| grp.name }.join(",") %></td>
+		<% end %>
+		<% if admin %>
 		<td class="action_column"><%= link_to t(:show), user, class: "btn" %></td>
 		<td class="action_column"><%= link_to t(:edit), edit_user_path(user), class: "btn" %></td>
 		<td class="action_column"><%= link_to t(:destroy), user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
@@ -37,7 +42,7 @@
 
 <br />
 
-<% if current_user and current_user.access_allowed? :user_editing %>
+<% if admin %>
 <%= link_to t(:new, :model => t("user.one")), new_user_path, class: "btn"  %>
 <h4><%= t(".payment_processing") %></h4>
 <%= render 'payed_form' %>
