@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 		user_groups.find_each do |group|
 			allowed ||= group.allows_access?(access_type)
 		end
-		return allowed
+		allowed
 	end
 
 	def clan_tag
@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
   def structured_message
     id_str = sprintf "%010d", id
     checksum = sprintf "%02d", User.smsg_generate_checksum(id)
-    return "+++#{id_str[0..2]}/#{id_str[3..6]}/#{id_str[7..9]}#{checksum}+++"
+    "+++#{id_str[0..2]}/#{id_str[3..6]}/#{id_str[7..9]}#{checksum}+++"
   end
 
   def self.find_by_structured_message msg
@@ -70,6 +70,25 @@ class User < ActiveRecord::Base
     raise "wrong structured message checksum in #{msg}: expected #{calculated_checksum}, got #{message_checksum}." if calculated_checksum != message_checksum
 
     self.find(requested_id)
+  end
+
+  def all_badges
+    badges = []
+
+    user_groups.each do |user_group|
+      badge_url = user_group.badge_url(:badge)
+      badges.push({ :image_url => badge_url, :title => user_group.description }) if badge_url
+    end
+
+    teams.each do |team|
+      compo = team.compo
+      has_won = compo.has_won?(team)
+      badge_url = has_won && compo.winning_badge_url(:badge) || compo.participation_badge_url(:badge)
+      badge_title = has_won && "#{compo.game.name} compo winner" || "#{compo.game.name} compo participant"
+      badges.push({ :image_url => badge_url, :title => badge_title }) if badge_url
+    end
+
+    badges
   end
 
 	private

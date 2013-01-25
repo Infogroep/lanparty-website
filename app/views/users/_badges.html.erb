@@ -1,13 +1,5 @@
 <span class="badges">
-  <% user.user_groups.each do |user_group|
-    badge_url = user_group.badge_url(:badge) %>
-    <%= image_tag badge_url, title: user_group.description if badge_url %>
-  <% end %>
-  <% user.teams.each do |team|
-       compo = team.compo
-       has_won = compo.has_won?(team)
-       badge_url = has_won && compo.winning_badge_url(:badge) || compo.participation_badge_url(:badge)
-       badge_title = has_won && "#{compo.game.name} compo winner" || "#{compo.game.name} compo participant" %>
-       <%= image_tag badge_url, title: badge_title if badge_url %>
+  <% user.all_badges.each do |badge| %>
+    <%= image_tag badge[:image_url], title: badge[:title] %>
   <% end %>
 </span>
