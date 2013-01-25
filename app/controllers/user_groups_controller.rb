@@ -47,7 +47,7 @@ class UserGroupsController < ApplicationController
 
     respond_to do |format|
       if @user_group.save
-        format.html { redirect_to @user_group, flash:{info: 'User group was successfully created.' }}
+        format.html { redirect_to user_groups_url, flash:{info: 'User group was successfully created.' }}
         format.json { render json: @user_group, status: :created, location: @user_group }
       else
         format.html { render action: "new" }
@@ -63,7 +63,7 @@ class UserGroupsController < ApplicationController
 
     respond_to do |format|
       if @user_group.update_attributes(params[:user_group])
-        format.html { redirect_to @user_group, flash:{info: 'User group was successfully updated.' }}
+        format.html { redirect_to user_groups_url, flash:{info: 'User group was successfully updated.' }}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

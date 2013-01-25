@@ -47,7 +47,7 @@ class ComposController < ApplicationController
 
 		respond_to do |format|
 			if @compo.save
-				format.html { redirect_to @compo, flash:{ info: 'Compo was successfully created.' }}
+				format.html { redirect_to compos_url, flash:{ info: 'Compo was successfully created.' }}
 				format.json { render json: @compo, status: :created, location: @compo }
 			else
 				format.html { render action: "new" }
@@ -63,7 +63,7 @@ class ComposController < ApplicationController
 
 		respond_to do |format|
 			if @compo.update_attributes(params[:compo])
-				format.html { redirect_to @compo, flash: { info: 'Compo was successfully updated.'} }
+				format.html { redirect_to compos_url, flash: { info: 'Compo was successfully updated.'} }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }
