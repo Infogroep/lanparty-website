@@ -67,15 +67,20 @@ en:
   open_slots: "Open Slots"
   date_txt: "Date"
 
-  simple_forms:
+  simple_form:
     labels:
+      user_group:
+        name: "Name"
+        description: "Description"
+        badge: "Badge"
       user:
         username: "Username"
         password: "Password"
         password_confirmation: "Password confirmation"
-        clan_tag: "Clan tag"
+        clan_tag: "Clan"
         payed: "Payed"
         email: "E-mail"
+        user_groups: "User groups"
       compo:
         game: "Game"
         slots: "Slots"
@@ -83,6 +88,8 @@ en:
         date_time: "Starting time"
         description: "Description"
         featured: "Featured"
+        participation_badge: "Participation badge"
+        winning_badge: "Winning badge"
       game:
         name: "Name"
         info: "Info"

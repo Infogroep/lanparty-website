@@ -4,6 +4,6 @@
     <% UserGroup.access_type_attributes.each do |group_attr| %>
         <%= f.input group_attr %>
     <% end %>
-    <%= f.file_field :badge %>
+    <%= f.input :badge %>
     <%= f.submit class: "btn" %>
 <% end %>

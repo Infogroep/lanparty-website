@@ -5,12 +5,12 @@
 	<thead>
 		<tr>
 			<th class="action_column"></th>
-			<th><%= t("username") %></th>
-			<th><%= t("clan.one") %></th>
-			<th><%= t("payed") %></th>
+			<th><%= t("simple_form.labels.user.username") %></th>
+			<th><%= t("simple_form.labels.user.clan_tag") %></th>
+			<th><%= t("simple_form.labels.user.payed") %></th>
 			<% if canview %>
-			<th><%= t("email") %></th>
-			<th><%= t("user_group.other") %></th>
+			<th><%= t("simple_form.labels.user.email") %></th>
+			<th><%= t("simple_form.labels.user.user_groups") %></th>
 			<% end %>
 			<% if admin %>
 			<th class="action_column"></th>
@@ -23,7 +23,7 @@
 	<% @users.each do |user| %>
 	<tr class="<%= canview ? (user.payed ? "success" : "error") : "" %>">
 		<td class="action_column"><%= image_tag(avatar_url(user), :alt => "Icon") %></td>
-		<td><%= user.username %> <%= render :partial => "user_groups/badges", :locals => { :user => user } %></td>
+		<td><%= user.username %> <%= render :partial => "badges", :locals => { :user => user } %></td>
 		<td><%= user.clan.tag if user.clan %></td>
 		<td><span class="hide"><%= user.payed %></span><i class="<%= user.payed ? "icon-check" : "icon-check-empty" %>"></i></td>
 		<% if canview %>

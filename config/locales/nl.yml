@@ -70,13 +70,18 @@ nl:
 
   simple_form:
     labels:
+      user_group:
+        name: "Naam"
+        description: "Beschrijving"
+        badge: "Badge"
       user:
         username: "Gebruikersnaam"
         password: "Wachtwoord"
         password_confirmation: "Wachtwoord bevestiging"
-        clan_tag: "Clan tag"
+        clan_tag: "Clan"
         payed: "Betaald"
         email: "E-mail"
+        user_groups: "Gebruikersgroepen"
       compo:
         game: "Spel"
         slots: "Plaatsen"
@@ -84,6 +89,8 @@ nl:
         date_time: "Starttijd"
         description: "Beschrijving"
         featured: "Op voorpagina"
+        participation_badge: "Deelnamebadge"
+        winning_badge: "Winstbadge"
       game:
         image: "Afbeelding"
         name: "Naam"

@@ -1,6 +1,0 @@
-<span class="badges">
-  <% user.user_groups.each do |user_group|
-    badge_url = user_group.badge_url(:badge) %>
-    <%= image_tag badge_url, title: user_group.description if badge_url %>
-  <% end %>
-</span>
