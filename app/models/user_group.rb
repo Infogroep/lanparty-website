@@ -1,7 +1,7 @@
 class UserGroup < ActiveRecord::Base
   @@access_type_attributes = []
 
-  attr_accessible :description, :name
+  attr_accessible :description, :name, :badge
   column_names.each do |col|
     if col.start_with?("access_type_")
       s = col.to_sym
@@ -15,6 +15,8 @@ class UserGroup < ActiveRecord::Base
 
   has_and_belongs_to_many :users
   has_and_belongs_to_many :pricing_defaults
+
+  mount_uploader :badge, BadgeUploader
 
   def allows_access?(access_type)
     self.send(:"access_type_#{access_type}") or self.allows_access_transitively?(access_type)

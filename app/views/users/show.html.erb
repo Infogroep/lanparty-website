@@ -1,5 +1,5 @@
 <p class="avatar"> <%= image_tag avatar_url @user %> </p>
-<p class="field"> <b><%= t(:username) %>:</b> <%= @user.username %> </p>
+<p class="field"> <b><%= t(:username) %>:</b> <%= @user.username %> <%= render :partial => "user_groups/badges", :locals => { :user => @user } %></p>
 <p class="field"> <b><%= t("clan.one") %>:</b> <%= @user.clan.tag if @user.clan %> </p>
 <p class="field"> <b><%= t(:email) %>:</b> <%= @user.email %> </p>
 

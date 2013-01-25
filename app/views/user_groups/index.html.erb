@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Badge</th>
     <th>Name</th>
     <th>Description</th>
     <th></th>
@@ -11,6 +12,7 @@
 
 <% @user_groups.each do |user_group| %>
   <tr>
+    <td><%= image_tag user_group.badge_url(:badge) if user_group.badge_url(:badge) %></td>
     <td><%= user_group.name %></td>
     <td><%= user_group.description %></td>
     <td><%= link_to t(:show), user_group %></td>
