@@ -148,15 +148,16 @@ textarea {
   font-family: razer_regularitalic;
 }
 
-.bordered {
-  padding: 9.5px;
-  background-color: rgb(245,245,245);
-  border: 1px solid rgba(0,0,0,0.15);
-  border-radius: 4px 4px 4px 4px;
-}
-
 span.badges {
   margin: 0px 5px;
+}
+
+.game-list-view-options {
+  float: right;
+}
+
+.grid-game-manipulation-buttons {
+  float: right;
 }
 
 @import "bootstrap-responsive";

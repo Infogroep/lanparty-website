@@ -1,6 +1,12 @@
 class GamesController < ApplicationController
-	before_filter :login_required
-  before_filter { access_required :compo_editing }
+	before_filter :login_required, :except => [:index]
+  before_filter(:except => [:index]) { access_required :compo_editing }
+
+  before_filter :set_view, :only => :index
+
+  def set_view
+    session[:games_view] = (params[:games_view] || session[:games_view] || :grid).to_sym
+  end
 
 	# GET /games
 	# GET /games.json

@@ -1,3 +1,13 @@
 <% title t("game.other") %>
-<%= render :partial => "game_list", :locals => {:games => @games} %>
-<%= link_to t(:new, :model => t("game.one")), new_game_path, class: "btn" %>
+
+<% content_for(:before_title) do %>
+<div class="btn-toolbar game-list-view-options">
+  <div class="btn-group">
+    <%= link_to raw('<i class="icon-th-large"></i>'), url_for(:games_view => :grid), class: view_selector_class(:grid) %>
+    <%= link_to raw('<i class="icon-list"></i>'), url_for(:games_view => :list), class: view_selector_class(:list) %>
+  </div>
+</div>
+<% end %>
+
+<%= render :partial => (session[:games_view] == :list ? "game_list" : "game_grid"), :locals => {:games => @games} %>
+<%= link_to t(:new, :model => t("game.one")), new_game_path, class: "btn" if current_user and current_user.access_allowed?(:compo_editing) %>
