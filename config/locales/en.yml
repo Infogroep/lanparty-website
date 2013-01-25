@@ -56,6 +56,8 @@ en:
   account_already_html: "Already have an account? %{login_link}!"
   no_account_yet_html: "Don't have an account? %{signup_link}!"
   or: "or"
+  admin: "Admin"
+  back: "Back"
 
   blog: "Blag"
   username: "Username"

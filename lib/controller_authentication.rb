@@ -17,7 +17,7 @@
 #	 before_filter :login_required, :except => [:index, :show]
 module ControllerAuthentication
 	def self.included(controller)
-		controller.send :helper_method, :current_user, :logged_in?, :redirect_to_target_or_default
+		controller.send :helper_method, :current_user, :logged_in?, :redirect_to_target_or_default, :admin_page_accessible
 	end
 
 	def current_user
@@ -49,7 +49,12 @@ module ControllerAuthentication
 	def redirect_to_target_or_default(default, *args)
 		redirect_to(session[:return_to] || default, *args)
 		session[:return_to] = nil
-	end
+  end
+
+  def admin_page_accessible
+    # add access types needed for functions available on the admin page in the array below
+    current_user && [:user_editing].any? { |access_type| current_user.access_allowed? access_type }
+  end
 
 	private
 

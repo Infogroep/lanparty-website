@@ -56,7 +56,8 @@ nl:
   account_already_html: "Heb je reeds een account? %{login_link}!"
   no_account_yet_html: "Nog geen account? %{signup_link}!"
   or: "of"
-
+  admin: "Admin"
+  back: "Terug"
 
   blog: "Blag"
   username: "Gebruikersnaam"

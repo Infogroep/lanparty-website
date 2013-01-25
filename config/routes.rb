@@ -36,6 +36,7 @@ Lanparty::Application.routes.draw do
     match 'contact' => 'pages#contact', :as => :contact
     match 'signup_finished' => 'pages#signup_finished', :as => :signup_finished
     match 'darules' => 'pages#rules', :as => :rules
+    match 'admin' => 'pages#admin', :as => :admin
 
     resources :teams do
       put :join, :on => :member
