@@ -10,11 +10,11 @@ namespace :db do
 		puts "--------------------"
 
 		UserGroup.delete_all
-		admin_group = UserGroup.new(:name => "admin",
-                                :user_editing => true,
-                                :store_editing => true,
-                                :blog_editing => true,
-                                :compo_editing => true)
+    params = {:name => "admin"}
+    UserGroup.access_type_attributes.each do |attrs|
+      params[attrs] = true
+    end
+		admin_group = UserGroup.new(params)
     admin_group.save!
 
 		users.each do |u|

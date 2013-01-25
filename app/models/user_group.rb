@@ -1,6 +1,14 @@
 class UserGroup < ActiveRecord::Base
+  @@access_type_attributes = []
+
   attr_accessible :description, :name
-  attr_accessible :store_editing, :user_editing, :blog_editing, :compo_editing, :user_detail_viewing
+  column_names.each do |col|
+    if col.start_with?("access_type_")
+      s = col.to_sym
+      attr_accessible s
+      @@access_type_attributes.push(s)
+    end
+  end
 
   validates_uniqueness_of :name
   validates_presence_of :name
@@ -9,7 +17,11 @@ class UserGroup < ActiveRecord::Base
   has_and_belongs_to_many :pricing_defaults
 
   def allows_access?(access_type)
-    self.send(access_type) or self.allows_access_transitively?(access_type)
+    self.send(:"access_type_#{access_type}") or self.allows_access_transitively?(access_type)
+  end
+
+  def self.access_type_attributes()
+    @@access_type_attributes
   end
 
   protected

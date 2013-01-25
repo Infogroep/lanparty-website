@@ -1,10 +1,8 @@
 <%= simple_form_for(@user_group) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :user_editing %>
-    <%= f.input :user_detail_viewing %>
-    <%= f.input :store_editing %>
-    <%= f.input :blog_editing %>
-    <%= f.input :compo_editing %>
+    <% UserGroup.access_type_attributes.each do |group_attr| %>
+        <%= f.input group_attr %>
+    <% end %>
     <%= f.submit %>
 <% end %>
