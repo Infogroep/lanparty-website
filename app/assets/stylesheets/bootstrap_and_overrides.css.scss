@@ -161,4 +161,12 @@ span.badges {
   margin-top: 18px;
 }
 
+.hidden-smalldesktop { display: inherit !important; }
+.visible-smalldesktop { display: none !important; }
+
+@media(min-width: 980px) and (max-width: 1199px) {
+  .hidden-smalldesktop { display: none !important; }
+  .visible-smalldesktop { display: inherit !important; }
+}
+
 @import "bootstrap-responsive";

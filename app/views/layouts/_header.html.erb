@@ -9,15 +9,27 @@
 			<%= link_to t(:iLan), home_path, :class => "brand" %>
 			<div class="nav-collapse collapse">
 				<ul class="nav pull-left">
-                  <li class="<%= active_class('pages#info') %>"><%= link_to t(:info), controller: :pages, action: :info %></li>
+                  <li class="dropdown visible-smalldesktop">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      Info
+                      <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li class="<%= active_class('pages#info') %>"><%= link_to t(:info), controller: :pages, action: :info %></li>
+                      <li class="<%= active_class('pages#location') %>"><%= link_to t(:location), controller: :pages, action: :location %></li>
+                      <li class="<%= active_class('pages#rules') %>"><%= link_to t(:rules), controller: :pages, action: :rules %></li>
+                      <li class="<%= active_class('pages#faq') %>"><%= link_to t(:faq), controller: :pages, action: :faq %></li>
+                    </ul>
+                  </li>
+                  <li class="<%= active_class('pages#info') %> hidden-smalldesktop"><%= link_to t(:info), controller: :pages, action: :info %></li>
                   <li class="<%= active_class('games') %>"><%= link_to t("game.other"), games_path %></li>
                   <% if current_user %>
                     <li class="<%= active_class('compos') %>"><%= link_to t("compo.other"), compos_path %></li>
                   <% end %>
                   <li class="<%= active_class('users') %>"><%= link_to t("participant.other"), users_path %></li>
-                  <li class="<%= active_class('pages#location') %>"><%= link_to t(:location), controller: :pages, action: :location %></li>
-                  <li class="<%= active_class('pages#rules') %>"><%= link_to t(:rules), controller: :pages, action: :rules %></li>
-                  <li class="<%= active_class('pages#faq') %>"><%= link_to t(:faq), controller: :pages, action: :faq %></li>
+                  <li class="<%= active_class('pages#location') %> hidden-smalldesktop"><%= link_to t(:location), controller: :pages, action: :location %></li>
+                  <li class="<%= active_class('pages#rules') %> hidden-smalldesktop"><%= link_to t(:rules), controller: :pages, action: :rules %></li>
+                  <li class="<%= active_class('pages#faq') %> hidden-smalldesktop"><%= link_to t(:faq), controller: :pages, action: :faq %></li>
                   <li class="<%= active_class('pages#contact') %>"><%= link_to t(:contact), controller: :pages, action: :contact %></li>
                   <% if admin_accessible %>
                     <li class="dropdown">
