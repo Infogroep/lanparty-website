@@ -95,6 +95,11 @@ en:
         info: "Info"
         download_location: "Download location"
         image: "Image"
+      store_item:
+        name: "Name"
+        stock: "Stock"
+        purchase_price: "Purchase price"
+        store_item_class: "Item class"
 
   ago: "%{time_difference} ago"
   btn_details: "Details »"
@@ -507,3 +512,7 @@ en:
                      </p>
                      <p>Deze lijst is een veralgemening van het gedetaïlleerd officiëel reglement, hieronder te vinden.</p>
                      <p><a href='/files/lanparty-reglement.pdf'>%{pdf_image}Lange versie reglement</a></p>"
+  orders:
+    show:
+      order: "Order for %{user}"
+      scan: "Scan"

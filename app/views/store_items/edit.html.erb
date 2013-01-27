@@ -1,6 +1,5 @@
-<% title "Edit store_item" %>
+<% title t(:edit_title, :model => t("store_item.one")) %>
 
 <%= render 'form' %>
 
-<%= link_to t(:show), @store_item %> |
 <%= link_to 'Back', store_items_path %>
