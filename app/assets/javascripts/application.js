@@ -19,36 +19,36 @@
 //= require_tree .
 
 $(function() {
-    $('input.date_picker').datetimepicker({dateFormat: "dd/mm/yy"});
+	$('input.date_picker').datetimepicker({dateFormat: "dd/mm/yy"});
 });
 
 function load_i18n_js(locale) {
-    var datatable_settings = {
-        "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-        "sPaginationType": "bootstrap"
-    };
+	var datatable_settings = {
+		"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+		"sPaginationType": "bootstrap"
+	};
 
-    if(locale == "nl") {
-        datatable_settings.oLanguage = {
-            "sProcessing": "Bezig...",
-            "sLengthMenu": "_MENU_ resultaten weergeven",
-            "sZeroRecords": "Geen resultaten gevonden",
-            "sInfo": "_START_ tot _END_ van _TOTAL_ resultaten",
-            "sInfoEmpty": "Geen resultaten om weer te geven",
-            "sInfoFiltered": " (gefilterd uit _MAX_ resultaten)",
-            "sInfoPostFix": "",
-            "sSearch": "Zoeken:",
-            "sEmptyTable": "Geen resultaten aanwezig in de tabel",
-            "sInfoThousands": ".",
-            "sLoadingRecords": "Een moment geduld aub - bezig met laden...",
-            "oPaginate": {
-                "sFirst": "Eerste",
-                "sLast": "Laatste",
-                "sNext": "Volgende",
-                "sPrevious": "Vorige"
-            }
-        }
-    }
+	if(locale == "nl") {
+		datatable_settings.oLanguage = {
+			"sProcessing": "Bezig...",
+			"sLengthMenu": "_MENU_ resultaten weergeven",
+			"sZeroRecords": "Geen resultaten gevonden",
+			"sInfo": "_START_ tot _END_ van _TOTAL_ resultaten",
+			"sInfoEmpty": "Geen resultaten om weer te geven",
+			"sInfoFiltered": " (gefilterd uit _MAX_ resultaten)",
+			"sInfoPostFix": "",
+			"sSearch": "Zoeken:",
+			"sEmptyTable": "Geen resultaten aanwezig in de tabel",
+			"sInfoThousands": ".",
+			"sLoadingRecords": "Een moment geduld aub - bezig met laden...",
+			"oPaginate": {
+				"sFirst": "Eerste",
+				"sLast": "Laatste",
+				"sNext": "Volgende",
+				"sPrevious": "Vorige"
+			}
+		}
+	}
 
-    $('.datatable').dataTable(datatable_settings);
+	$('.datatable').dataTable(datatable_settings);
 }

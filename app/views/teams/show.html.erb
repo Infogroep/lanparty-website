@@ -10,7 +10,14 @@
   <b>Compo:</b>
   <%= @team.compo_id %>
 </p>
-	<%= @team.users %>
+<p class=""> 
+	<b> Members:</b>
+	<ul>
+		<% @team.users.each do |u| %>
+			<li><%= link_to u.username, u %></li>
+		<% end %>
+	</ul>
+</p>
 
 <%= link_to t(:edit), edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

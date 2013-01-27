@@ -19,7 +19,7 @@
 	<tbody>
 		<% @compos.each do |compo| %>
 		<tr>
-			<td><%= compo.game.name %></td>
+			<td><%= link_to compo.game.name, compo %></td>
 			<td><%= compo.slots %></td>
 			<td><%= compo.group_size %></td>
 			<td><%= l(compo.date_time, :format => :short) %></td>

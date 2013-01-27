@@ -33,3 +33,9 @@
 
 <%= link_to t(:edit), edit_compo_path(@compo), class: "btn" %> |
 <%= link_to 'Back', compos_path, class: "btn" %>
+
+<ul>
+<% @compo.teams.each do |team| %>
+	<li><%= link_to team.name, team %></li>
+<% end %>
+</ul>
