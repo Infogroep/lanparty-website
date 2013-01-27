@@ -4,6 +4,8 @@ class Compo < ActiveRecord::Base
 	validates_presence_of :slots
 	validates_presence_of :group_size
 	validates_presence_of :game
+  validates_numericality_of :slots, :only_integer => true, :greater_than_or_equal_to => 0
+  validates_numericality_of :group_size, :only_integer => true, :greater_than_or_equal_to => 0
 
 	belongs_to :game
 	has_many :prices

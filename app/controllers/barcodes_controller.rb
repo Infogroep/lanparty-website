@@ -9,7 +9,6 @@ class BarcodesController < ApplicationController
 
 		respond_to do |format|
 			format.html # index.html.erb
-			format.json { render json: @barcodes }
 		end
 	end
 
@@ -20,7 +19,6 @@ class BarcodesController < ApplicationController
 
 		respond_to do |format|
 			format.html # show.html.erb
-			format.json { render json: @barcode }
 		end
 	end
 
@@ -31,7 +29,6 @@ class BarcodesController < ApplicationController
 
 		respond_to do |format|
 			format.html # new.html.erb
-			format.json { render json: @barcode }
 		end
 	end
 
@@ -48,10 +45,8 @@ class BarcodesController < ApplicationController
 		respond_to do |format|
 			if @barcode.save
 				format.html { redirect_to @barcode, flash:{info: 'Barcode was successfully created.'} }
-				format.json { render json: @barcode, status: :created, location: @barcode }
 			else
 				format.html { render action: "new" }
-				format.json { render json: @barcode.errors, status: :unprocessable_entity }
 			end
 		end
 	end
@@ -64,10 +59,8 @@ class BarcodesController < ApplicationController
 		respond_to do |format|
 			if @barcode.update_attributes(params[:barcode])
 				format.html { redirect_to @barcode, flash:{ info: 'Barcode was successfully updated.' }}
-				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }
-				format.json { render json: @barcode.errors, status: :unprocessable_entity }
 			end
 		end
 	end
@@ -80,7 +73,6 @@ class BarcodesController < ApplicationController
 
 		respond_to do |format|
 			format.html { redirect_to barcodes_url }
-			format.json { head :no_content }
 		end
 	end
 end

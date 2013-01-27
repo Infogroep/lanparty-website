@@ -1,22 +1,24 @@
 Lanparty::Application.routes.draw do
 
+
+
   scope "(:locale)", :locale => /en|nl/ do
 
     resources :blog_posts do
       resources :blog_comments
     end
 
+    resources :orders do
+      resources :order_items
+    end
 
     resources :clans
 
     resources :store_item_classes
 
-
     resources :pricing_defaults
 
-
     resources :user_groups
-
 
     resources :logs
 

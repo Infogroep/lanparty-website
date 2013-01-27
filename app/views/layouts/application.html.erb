@@ -9,7 +9,9 @@
 		<%= yield(:head) %>
 	</head>
 	<body>
-		<%= render :partial => 'layouts/flash_messages' %>
+		<div id="flash-messages">
+            <%= render :partial => 'layouts/flash_messages' %>
+		</div>
 		<%= render :partial => 'layouts/header' %>
 		<%= yield(:before_container) %>
 		<div class="container">

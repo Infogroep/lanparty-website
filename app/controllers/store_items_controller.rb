@@ -2,6 +2,12 @@ class StoreItemsController < ApplicationController
 	before_filter :login_required
   before_filter { access_required :store_editing }
 
+  before_filter :set_view, :only => :index
+
+  def set_view
+    session[:store_items_view] = (params[:store_items_view] || session[:store_items_view] || :list).to_sym
+  end
+
 	# GET /store_items
 	# GET /store_items.json
 	def index
@@ -47,8 +53,8 @@ class StoreItemsController < ApplicationController
 
 		respond_to do |format|
 			if @store_item.save
-				format.html { redirect_to @store_item, flash:{info: 'StoreItem was successfully created.' }}
-				format.json { render json: @store_item, status: :created, location: @store_item }
+				format.html { redirect_to store_items_url, flash:{info: 'StoreItem was successfully created.' }}
+				format.json { render json: store_items_url, status: :created, location: @store_item }
 			else
 				format.html { render action: "new" }
 				format.json { render json: @store_item.errors, status: :unprocessable_entity }
@@ -63,7 +69,7 @@ class StoreItemsController < ApplicationController
 
 		respond_to do |format|
 			if @store_item.update_attributes(params[:store_item])
-				format.html { redirect_to @store_item, flash:{info: 'StoreItem was successfully updated.' }}
+				format.html { redirect_to store_items_url, flash:{info: 'StoreItem was successfully updated.' }}
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }
