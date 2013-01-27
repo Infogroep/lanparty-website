@@ -62,10 +62,11 @@ module ControllerMacros
 	end
 
 	def give_full_access
-		@admin_group = UserGroup.new(:name => "admin",
-																 :user_editing => true,
-																 :store_editing => true)
-		@admin_group.save!
+    new_params = {:name => "admin"}
+    UserGroup.access_type_attributes.each do |attrs|
+      new_params[attrs] = true
+    end
+		@admin_group = UserGroup.create(new_params)
 		@current_user.user_groups = [@admin_group]
 		@current_user.save!
 	end
