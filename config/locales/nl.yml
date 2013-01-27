@@ -78,6 +78,7 @@ nl:
         username: "Gebruikersnaam"
         password: "Wachtwoord"
         password_confirmation: "Wachtwoord bevestiging"
+        badge: "Badge"
         clan_tag: "Clan"
         payed: "Betaald"
         email: "E-mail"

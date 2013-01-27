@@ -32,7 +32,7 @@ namespace :db do
         :user_id => enermis.id
       )
     ]
-    bp1.save!
+    bp1.save! if bp1.valid?
     BlogPost.create(
       :title => "Geen elektriciteitsuitval dit jaar",
       :content => "Dit jaar is er tegen alle verwachting in geen uitval van de elektriciteit geweest. Onze plaatselijke specialist heeft vastgesteld dat de computers inderdaad aangesloten zijn op de extra elektriciteitskast, en niet op het lokale lichtnet.",
@@ -49,6 +49,6 @@ namespace :db do
         :user_id => peanut.id
       )
     ]
-    bp2.save!
+    bp2.save! if bp2.valid?
   end
 end

@@ -1,8 +1,10 @@
 namespace :db do
 	desc "populates the database"
 
-	task :populate => :environment do
-		@amount = 10
+	task :populate, [:amount, :delete] => :environment do |t, args|
+		args.with_defaults(:delete => 'true')
+		delete = args[:delete] == 'true'
+		@amount = args[:amount].to_i
 
 		Rake::Task["db:populate_users"].invoke(@amount)
 		Rake::Task["db:populate_store_items"].invoke(@amount)
