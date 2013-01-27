@@ -19,7 +19,7 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe OrderItemsController do
-
+=begin
   # This should return the minimal set of attributes required to create a valid
   # OrderItem. As you add validations to OrderItem, be sure to
   # update the return value of this method accordingly.
@@ -160,5 +160,5 @@ describe OrderItemsController do
       response.should redirect_to(order_items_url)
     end
   end
-
+=end
 end
