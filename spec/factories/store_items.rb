@@ -5,5 +5,7 @@ FactoryGirl.define do
 		name {Faker::Item.name}
 		purchase_price {rand(100)}
 		stock {rand(50)}
+
+		store_item_class
 	end
 end
