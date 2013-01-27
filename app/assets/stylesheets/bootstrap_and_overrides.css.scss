@@ -169,4 +169,14 @@ span.badges {
   .visible-smalldesktop { display: inherit !important; }
 }
 
+@media (max-width: 980px) {
+	table td.colapse,
+	table th.colapse {display: none;}
+}
+ 
+@media (max-width: 980px) {
+	table td.colapse,
+	table th.colapse {display: none;}
+}
+
 @import "bootstrap-responsive";

@@ -78,6 +78,7 @@ en:
         password: "Password"
         password_confirmation: "Password confirmation"
         clan_tag: "Clan"
+        badge: "Badge"
         payed: "Payed"
         email: "E-mail"
         user_groups: "User groups"

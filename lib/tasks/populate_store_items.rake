@@ -14,7 +14,7 @@ namespace :db do
 		barcode_amount = 0
 		taken_item = []
 		amount.times do
-			store_item = FactoryGirl.create("store_item")
+			store_item = FactoryGirl.build("store_item")
 			if taken_item.member? store_item.name
 				break
 			else
