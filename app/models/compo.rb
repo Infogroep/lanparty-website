@@ -10,13 +10,17 @@ class Compo < ActiveRecord::Base
 	has_many :rounds
 	has_many :teams
 
-  mount_uploader :participation_badge, BadgeUploader
-  mount_uploader :winning_badge, BadgeUploader
+	mount_uploader :participation_badge, BadgeUploader
+	mount_uploader :winning_badge, BadgeUploader
 
 	scope :featured, where(featured: true)
 
-  def has_won?(team)
-    #stub
-    false
-  end
+	def has_won?(team)
+		#stub
+		false
+	end
+
+	def name
+		return game.name
+	end
 end

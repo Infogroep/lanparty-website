@@ -1,5 +1,7 @@
 <%= simple_form_for(@team) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :compo_id %>
-    <%= f.submit %>
+		<%= f.input :name %>
+		<%= f.association :compo, label_method: :name %>
+		<%= f.submit %>
+
+	<%= f.association :users, :label_method => :username %>
 <% end %>
