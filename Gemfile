@@ -52,6 +52,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'simple_form'
 gem 'ledermann-rails-settings', :require => 'rails-settings'
+gem 'chosen-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

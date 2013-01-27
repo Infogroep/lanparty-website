@@ -12,10 +12,12 @@
  *= require jquery.ui.all
  *= require jquery-ui-timepicker-addon
  *= require dataTables/jquery.dataTables.bootstrap
+ *= require chosen
  */
 @import "bootstrap_and_overrides";
 @import 'font-awesome';
 @import "pages";
+
 input[type=submit]{
 	border-radius: 5px;
 }

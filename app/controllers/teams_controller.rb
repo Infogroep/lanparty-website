@@ -54,44 +54,6 @@ class TeamsController < ApplicationController
 		end
 	end
 
-	# PUT /teams/1/join
-	# PUT /teams/1/join.json
-	def join
-		@team = Team.find(params[:id])
-		@user = current_user
-		respond_to do |format|
-			if @team.users.include? @user
-				flash[:error] = "ermegerd"
-				format.html {redirect_to @team, flash:{error: 'Already in team'}}
-				format.json { render json: @team.errors, status: :unable_to_join_team }
-			elsif @team.users.count >= @team.compo.group_size
-				format.html {redirect_to @team, flash:{error: 'team is full'}}
-				format.json { render json: @team.errors, status: :unable_to_join_team }
-			else
-				@team.users << @user
-				format.html { redirect_to @team, flash:{info: 'Succesfully joined team.' }}
-				format.json { head :no_content }
-			end
-		end
-	end
-
-	# PUT /teams/1/leave
-	# PUT /teams/1/leave.json
-	def leave
-		@team = Team.find(params[:id])
-		@user = current_user
-		respond_to do |format|
-			if @team.users.include? @user
-				@team.users.delete @user
-				format.html {redirect_to @team, flash:{info: 'Succesfully left team'}}
-				format.json {head :no_content}
-			else
-				format.html {redirect_to @team, flash:{error: 'Not a member of team'}}
-				format.json {head :unable_to_leave_team}
-			end
-		end
-	end
-
 	# PUT /teams/1
 	# PUT /teams/1.json
 	def update
