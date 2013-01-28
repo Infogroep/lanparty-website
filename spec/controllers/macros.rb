@@ -4,7 +4,7 @@ module ControllerMacros
 	end
 
 	module ClassMethods
-		def it_should_require_for_actions(actions, params, description, expected_redirect, expected_error)
+		def it_should_redirect_for_actions(actions, params, description, expected_redirect, expected_error)
 			actions.each do |action|
 				it "#{action} action #{description}" do
 					get action, params.nil? ? { :id => 1 } : { :id => 1 }.merge(params)
@@ -15,7 +15,11 @@ module ControllerMacros
 		end
 
 		def it_should_require_login_for_actions(actions, params)
-			it_should_require_for_actions(actions, params, "should require login", :login_url, "You must first log in or sign up before accessing this page.")
+			it_should_redirect_for_actions(actions, params, "should require login", :login_url, "You must first log in or sign up before accessing this page.")
+		end
+
+		def it_should_deny_access(actions, params)
+			it_should_redirect_for_actions(actions, params, "should deny access", :home_url, "You are not allowed in this section.")
 		end
 
 		def it_should_require_access_for_actions(access_type, actions, params)
@@ -23,7 +27,7 @@ module ControllerMacros
 				before(:each) do
 					@admin_group.update_attributes({ :"access_type_#{access_type}" => false })
 				end
-				it_should_require_for_actions(actions, params, "should require #{access_type} access", :home_url, "You are not allowed in this section.")
+				it_should_deny_access(actions, params)
 			end
 		end
 
