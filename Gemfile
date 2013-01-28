@@ -56,6 +56,7 @@ gem 'chosen-rails'
 
 
 gem 'rb-inotify', '~> 0.8.8'
+gem 'simplecov'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
