@@ -44,15 +44,13 @@ describe BlogCommentsController do
 		:login => [:edit, :destroy, :update, :create]
 	) do
 
-		describe "advanced access control" do
-			describe "if the current user has no blog_editing access and the blog comment does not belong to the user" do
-				before(:each) do
-					blog_comment = BlogComment.create! valid_attributes
-					withdraw_access(:blog_editing)
-					@additional_params = @additional_params.merge({ :id => blog_comment.id })
-				end
-				it_should_deny_access_for_actions([:edit,:update,:destroy])
+		describe "if the current user has no blog_editing access and the blog_comment does not belong to the current user" do
+			before(:each) do
+				blog_comment = BlogComment.create! valid_attributes
+				withdraw_access(:blog_editing)
+				@additional_params = @additional_params.merge({ :id => blog_comment.id })
 			end
+			it_should_deny_access_for_actions [:edit,:update,:destroy]
 		end
 
 		describe "GET edit" do
