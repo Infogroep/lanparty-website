@@ -29,18 +29,19 @@ describe MatchWinLinksController do
 		@match = FactoryGirl.create(:match, :round => round)
 		@next_match = FactoryGirl.create(:match, :round => round)
 	end
+
 	def valid_attributes
-		{:match_id => @match.id, :next_match_id => @next_match.id}
+		{ :match_id => @match.id, :next_match_id => @next_match.id }
 	end
 
 	describe_access(
-		:login => [:index, :destroy, :show, :new, :update, :create]
-  ) do
+			:login => [:index, :destroy, :show, :new, :update, :create]
+	) do
 
 		describe "GET index" do
 			it "assigns all match_win_links as @match_win_links" do
 				match_win_link = MatchWinLink.create! valid_attributes
-				get :index, {}
+				get :index, { }
 				assigns(:match_win_links).should eq([match_win_link])
 			end
 		end
@@ -48,14 +49,14 @@ describe MatchWinLinksController do
 		describe "GET show" do
 			it "assigns the requested match_win_link as @match_win_link" do
 				match_win_link = MatchWinLink.create! valid_attributes
-				get :show, {:id => match_win_link.to_param}
+				get :show, { :id => match_win_link.to_param }
 				assigns(:match_win_link).should eq(match_win_link)
 			end
 		end
 
 		describe "GET new" do
 			it "assigns a new match_win_link as @match_win_link" do
-				get :new, {}
+				get :new, { }
 				assigns(:match_win_link).should be_a_new(MatchWinLink)
 			end
 		end
@@ -63,7 +64,7 @@ describe MatchWinLinksController do
 		describe "GET edit" do
 			it "assigns the requested match_win_link as @match_win_link" do
 				match_win_link = MatchWinLink.create! valid_attributes
-				get :edit, {:id => match_win_link.to_param}
+				get :edit, { :id => match_win_link.to_param }
 				assigns(:match_win_link).should eq(match_win_link)
 			end
 		end
@@ -72,18 +73,18 @@ describe MatchWinLinksController do
 			describe "with valid params" do
 				it "creates a new MatchWinLink" do
 					expect {
-						post :create, {:match_win_link => valid_attributes}
+						post :create, { :match_win_link => valid_attributes }
 					}.to change(MatchWinLink, :count).by(1)
 				end
 
 				it "assigns a newly created match_win_link as @match_win_link" do
-					post :create, {:match_win_link => valid_attributes}
+					post :create, { :match_win_link => valid_attributes }
 					assigns(:match_win_link).should be_a(MatchWinLink)
 					assigns(:match_win_link).should be_persisted
 				end
 
 				it "redirects to the created match_win_link" do
-					post :create, {:match_win_link => valid_attributes}
+					post :create, { :match_win_link => valid_attributes }
 					response.should redirect_to(MatchWinLink.last)
 				end
 			end
@@ -92,14 +93,14 @@ describe MatchWinLinksController do
 				it "assigns a newly created but unsaved match_win_link as @match_win_link" do
 					# Trigger the behavior that occurs when invalid params are submitted
 					MatchWinLink.any_instance.stub(:save).and_return(false)
-					post :create, {:match_win_link => {}}
+					post :create, { :match_win_link => { } }
 					assigns(:match_win_link).should be_a_new(MatchWinLink)
 				end
 
 				it "re-renders the 'new' template" do
 					# Trigger the behavior that occurs when invalid params are submitted
 					MatchWinLink.any_instance.stub(:save).and_return(false)
-					post :create, {:match_win_link => {}}
+					post :create, { :match_win_link => { } }
 					response.should render_template("new")
 				end
 			end
@@ -113,19 +114,19 @@ describe MatchWinLinksController do
 					# specifies that the MatchWinLink created on the previous line
 					# receives the :update_attributes message with whatever params are
 					# submitted in the request.
-					MatchWinLink.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-					put :update, {:id => match_win_link.to_param, :match_win_link => {'these' => 'params'}}
+					MatchWinLink.any_instance.should_receive(:update_attributes).with({ 'these' => 'params' })
+					put :update, { :id => match_win_link.to_param, :match_win_link => { 'these' => 'params' } }
 				end
 
 				it "assigns the requested match_win_link as @match_win_link" do
 					match_win_link = MatchWinLink.create! valid_attributes
-					put :update, {:id => match_win_link.to_param, :match_win_link => valid_attributes}
+					put :update, { :id => match_win_link.to_param, :match_win_link => valid_attributes }
 					assigns(:match_win_link).should eq(match_win_link)
 				end
 
 				it "redirects to the match_win_link" do
 					match_win_link = MatchWinLink.create! valid_attributes
-					put :update, {:id => match_win_link.to_param, :match_win_link => valid_attributes}
+					put :update, { :id => match_win_link.to_param, :match_win_link => valid_attributes }
 					response.should redirect_to(match_win_link)
 				end
 			end
@@ -135,7 +136,7 @@ describe MatchWinLinksController do
 					match_win_link = MatchWinLink.create! valid_attributes
 					# Trigger the behavior that occurs when invalid params are submitted
 					MatchWinLink.any_instance.stub(:save).and_return(false)
-					put :update, {:id => match_win_link.to_param, :match_win_link => {}}
+					put :update, { :id => match_win_link.to_param, :match_win_link => { } }
 					assigns(:match_win_link).should eq(match_win_link)
 				end
 
@@ -143,7 +144,7 @@ describe MatchWinLinksController do
 					match_win_link = MatchWinLink.create! valid_attributes
 					# Trigger the behavior that occurs when invalid params are submitted
 					MatchWinLink.any_instance.stub(:save).and_return(false)
-					put :update, {:id => match_win_link.to_param, :match_win_link => {}}
+					put :update, { :id => match_win_link.to_param, :match_win_link => { } }
 					response.should render_template("edit")
 				end
 			end
@@ -153,13 +154,13 @@ describe MatchWinLinksController do
 			it "destroys the requested match_win_link" do
 				match_win_link = MatchWinLink.create! valid_attributes
 				expect {
-					delete :destroy, {:id => match_win_link.to_param}
+					delete :destroy, { :id => match_win_link.to_param }
 				}.to change(MatchWinLink, :count).by(-1)
 			end
 
 			it "redirects to the match_win_links list" do
 				match_win_link = MatchWinLink.create! valid_attributes
-				delete :destroy, {:id => match_win_link.to_param}
+				delete :destroy, { :id => match_win_link.to_param }
 				response.should redirect_to(match_win_links_url)
 			end
 		end

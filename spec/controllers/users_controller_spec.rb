@@ -56,7 +56,7 @@ describe UsersController do
 		it "assigns the requested user as @user" do
 			login
 			user = FactoryGirl.create(:user)
-			get :show, {:id => user.to_param}
+			get :show, { :id => user.to_param }
 			assigns(:user).should eq(user)
 		end
 	end

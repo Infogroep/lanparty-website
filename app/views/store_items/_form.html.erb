@@ -1,7 +1,7 @@
 <%= simple_form_for(@store_item) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :stock %>
-    <%= f.input :purchase_price %>
-    <%= f.association :store_item_class %>
-    <%= f.submit class: "btn" %>
+	<%= f.input :name %>
+	<%= f.input :stock %>
+	<%= f.input :purchase_price %>
+	<%= f.association :store_item_class %>
+	<%= f.submit class: "btn" %>
 <% end %>

@@ -1,33 +1,33 @@
 <table class="table table-striped">
-    <thead>
-        <tr>
-            <th><%= t(".amount") %></th>
-            <th><%= t(".product") %></th>
-            <th><%= t(".unit_price") %></th>
-            <th><%= t(".price") %></th>
-            <th class="action_column"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <% order.order_items.each do |order_item| %>
-            <tr>
-                <td>
-                    <%= simple_form_for([order,order_item], :remote => true) do |f| %>
-                        <%= order_item.count %> <%= f.input_field :count %><%= f.submit class: "btn" %>
-                    <% end %>
-                </td>
-                <td><%= order_item.store_item.name %></td>
-                <td><%= order_item.unit_price order.user %></td>
-                <td><%= order_item.price order.user %></td>
-                <td><%= link_to content_tag("i", "", :class => "icon-trash"), order_order_item_path(order,order_item), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-mini" %></td>
-            </tr>
-        <% end %>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td><%= order.total_price %></td>
-          <td></td>
-        </tr>
-    </tbody>
+	<thead>
+	<tr>
+		<th><%= t(".amount") %></th>
+		<th><%= t(".product") %></th>
+		<th><%= t(".unit_price") %></th>
+		<th><%= t(".price") %></th>
+		<th class="action_column"></th>
+	</tr>
+	</thead>
+	<tbody>
+	<% order.order_items.each do |order_item| %>
+		<tr>
+			<td>
+				<%= simple_form_for([order, order_item], :remote => true) do |f| %>
+					<%= order_item.count %> <%= f.input_field :count %><%= f.submit class: "btn" %>
+				<% end %>
+			</td>
+			<td><%= order_item.store_item.name %></td>
+			<td><%= order_item.unit_price order.user %></td>
+			<td><%= order_item.price order.user %></td>
+			<td><%= link_to content_tag("i", "", :class => "icon-trash"), order_order_item_path(order, order_item), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-mini" %></td>
+		</tr>
+	<% end %>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td><%= order.total_price %></td>
+		<td></td>
+	</tr>
+	</tbody>
 </table>

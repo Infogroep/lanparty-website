@@ -1,7 +1,7 @@
-<%= simple_form_for(@game, :html => {multipart:true}) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :info %>
-    <%= f.input :download_location %>
-    <%= f.input :image %>
-    <%= f.submit class: "btn" %>
+<%= simple_form_for(@game, :html => { multipart: true }) do |f| %>
+	<%= f.input :name %>
+	<%= f.input :info %>
+	<%= f.input :download_location %>
+	<%= f.input :image %>
+	<%= f.submit class: "btn" %>
 <% end %>

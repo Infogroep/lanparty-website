@@ -1,22 +1,22 @@
 <%= button_to 'join', join_team_path(@team), method: :put %>
 <%= button_to 'leave', leave_team_path(@team), method: :put %>
 <p>
-  <b>Name:</b>
-  <%= @team.name %>
+	<b>Name:</b>
+	<%= @team.name %>
 
 </p>
 
 <p>
-  <b>Compo:</b>
-  <%= @team.compo_id %>
+	<b>Compo:</b>
+	<%= @team.compo_id %>
 </p>
-<p class=""> 
+<p class="">
 	<b> Members:</b>
-	<ul>
-		<% @team.users.each do |u| %>
-			<li><%= link_to u.username, u %></li>
-		<% end %>
-	</ul>
+<ul>
+	<% @team.users.each do |u| %>
+		<li><%= link_to u.username, u %></li>
+	<% end %>
+</ul>
 </p>
 
 <%= link_to t(:edit), edit_team_path(@team) %> |

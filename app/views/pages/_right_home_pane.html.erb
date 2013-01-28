@@ -4,9 +4,24 @@
 <% end %>
 <h2><%= t(:info) %></h2>
 <table class="table table-striped">
-	<tr><td> <b><%= t("registrations") %>:</b>  </td> <td> <%= Settings.registration_available ? t(:open) : t(:closed) %> </td> </tr>
-	<tr><td> <b><%= t("location") %>:</b>       </td> <td> <%= Settings.location %>                                   </td> </tr>
-	<tr><td> <b><%= t("date_txt") %>:</b>           </td> <td> <%= Settings.date %>                                       </td> </tr>
-	<tr><td> <b><%= t("open_slots") %>:</b>     </td> <td> <%= Settings.max_participants - User.count %>              </td> </tr>
-	<tr><td> <b><%= t("payed") %>:</b>          </td> <td> <%= User.payed.count %>/<%= Settings.max_participants %>   </td> </tr>
+	<tr>
+		<td><b><%= t("registrations") %>:</b></td>
+		<td> <%= Settings.registration_available ? t(:open) : t(:closed) %> </td>
+	</tr>
+	<tr>
+		<td><b><%= t("location") %>:</b></td>
+		<td> <%= Settings.location %>                                   </td>
+	</tr>
+	<tr>
+		<td><b><%= t("date_txt") %>:</b></td>
+		<td> <%= Settings.date %>                                       </td>
+	</tr>
+	<tr>
+		<td><b><%= t("open_slots") %>:</b></td>
+		<td> <%= Settings.max_participants - User.count %>              </td>
+	</tr>
+	<tr>
+		<td><b><%= t("payed") %>:</b></td>
+		<td> <%= User.payed.count %>/<%= Settings.max_participants %>   </td>
+	</tr>
 </table>

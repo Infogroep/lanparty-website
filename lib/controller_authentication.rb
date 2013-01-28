@@ -31,14 +31,14 @@ module ControllerAuthentication
 	def login_required
 		unless logged_in?
 			store_target_location
-			redirect_to login_url, flash: {:error => "You must first log in or sign up before accessing this page."}
+			redirect_to login_url, flash: { :error => "You must first log in or sign up before accessing this page." }
 		end
 	end
 
 	def true_required(value)
 		referer = request.referer.nil? ? home_url : request.referer
 		unless value
-			redirect_to referer, flash: {:error => "You are not allowed in this section."}
+			redirect_to referer, flash: { :error => "You are not allowed in this section." }
 		end
 	end
 
@@ -49,16 +49,16 @@ module ControllerAuthentication
 	def redirect_to_target_or_default(default, *args)
 		redirect_to(session[:return_to] || default, *args)
 		session[:return_to] = nil
-  end
+	end
 
-  def admin_accessible
-    # add access types needed for functions available on the admin page in the array below
-    current_user && [:user_editing].any? { |access_type| current_user.access_allowed? access_type }
-  end
+	def admin_accessible
+		# add access types needed for functions available on the admin page in the array below
+		current_user && [:user_editing].any? { |access_type| current_user.access_allowed? access_type }
+	end
 
 	private
 
 	def store_target_location
 		session[:return_to] = request.url
-  end
+	end
 end

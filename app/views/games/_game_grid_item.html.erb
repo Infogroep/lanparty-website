@@ -1,11 +1,11 @@
 <% if current_user and current_user.access_allowed?(:compo_editing) %>
-<div class="btn-toolbar grid-game-manipulation-buttons">
-  <div class="btn-group">
-    <%= link_to raw('<i class="icon-eye-open"></i>'), game, class: "btn btn-mini" %>
-    <%= link_to raw('<i class="icon-edit"></i>'), edit_game_path(game), class: "btn btn-mini" %>
-    <%= link_to raw('<i class="icon-trash"></i>'), game, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %>
-  </div>
-</div>
+	<div class="btn-toolbar grid-game-manipulation-buttons">
+		<div class="btn-group">
+			<%= link_to raw('<i class="icon-eye-open"></i>'), game, class: "btn btn-mini" %>
+			<%= link_to raw('<i class="icon-edit"></i>'), edit_game_path(game), class: "btn btn-mini" %>
+			<%= link_to raw('<i class="icon-trash"></i>'), game, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-mini btn-danger" %>
+		</div>
+	</div>
 <% end %>
 <h3><%= game.name %></h3>
 <% image = game.image_url(:front) %>

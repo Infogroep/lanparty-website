@@ -1,6 +1,8 @@
 <% title @blog_post.title %>
 
-<p class="blog-post-large-info"><span class="blog-post-large-author"><%= @blog_post.user.username %></span> - <span class="blog-post-large-timestamp"><%= t(:ago,:time_difference => distance_of_time_in_words(@blog_post.created_at,DateTime.current)) %></span></p>
+<p class="blog-post-large-info"><span class="blog-post-large-author"><%= @blog_post.user.username %></span> -
+	<span class="blog-post-large-timestamp"><%= t(:ago, :time_difference => distance_of_time_in_words(@blog_post.created_at, DateTime.current)) %></span>
+</p>
 <hr>
 <p class="blog-post-large-content"><%= @blog_post.content %></p>
 <hr>
@@ -8,6 +10,6 @@
 <%= render @blog_post.blog_comments.order("created_at ASC") %>
 
 <% if logged_in? %>
-<h4><%= t(:add_comment) %></h4>
-<%= render 'blog_comments/form' %>
+	<h4><%= t(:add_comment) %></h4>
+	<%= render 'blog_comments/form' %>
 <% end %>

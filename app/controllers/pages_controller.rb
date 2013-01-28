@@ -1,32 +1,32 @@
 class PagesController < ApplicationController
-  before_filter :login_required, :only => :admin
-  before_filter(:only => :admin) { true_required(admin_accessible) }
+	before_filter :login_required, :only => :admin
+	before_filter(:only => :admin) { true_required(admin_accessible) }
 
 	def home
 		@featured_compos = Compo.featured
-  end
+	end
 
-  def info
+	def info
 
-  end
+	end
 
-  def location
+	def location
 
-  end
+	end
 
-  def contact
+	def contact
 
-  end
+	end
 
-  def faq
+	def faq
 
-  end
+	end
 
-  def signup_finished
+	def signup_finished
 
-  end
+	end
 
-  def admin
+	def admin
 
-  end
+	end
 end

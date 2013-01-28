@@ -1,13 +1,13 @@
 <% count = 0 %>
 <div class="row">
-  <% games.each do |game| %>
-    <div class="span6">
-      <%= render :partial => "game_grid_item", :locals => { :game => game } %>
-    </div>
-    <% count += 1 %>
-    <% if count % 2 == 0 %>
-</div>
-<div class="row">
-    <% end %>
-  <% end %>
-</div>
+	<% games.each do |game| %>
+		<div class="span6">
+			<%= render :partial => "game_grid_item", :locals => { :game => game } %>
+		</div>
+		<% count += 1 %>
+		<% if count % 2 == 0 %>
+			</div>
+			<div class="row">
+		<% end %>
+	<% end %>
+	</div>

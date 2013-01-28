@@ -18,40 +18,45 @@
 @import 'font-awesome';
 @import "pages";
 
-input[type=submit]{
+input[type=submit] {
 	border-radius: 5px;
 }
+
 .center {
 	text-align: center;
 }
 
 .alert {
-    // TODO: This line breaks twitter bootstrap on small devices. My solution is not ideal.
-    // position: absolute;
-	z-index:1029;
+	// TODO: This line breaks twitter bootstrap on small devices. My solution is not ideal.
+	// position: absolute;
+	z-index: 1029;
 }
 
 .flashmsgholder {
-  // Said solution
-  position: absolute;
-  padding-right: 20px;
+	// Said solution
+	position: absolute;
+	padding-right: 20px;
 }
 
-@media(max-width: 979px) {
-  .alert {
-    margin-top: 51px;
-  }
+@media (max-width: 979px) {
+	.alert {
+		margin-top: 51px;
+	}
 }
-.alert-error{
-	background-color:rgba(242,222,222,0.7);
+
+.alert-error {
+	background-color: rgba(242, 222, 222, 0.7);
 }
-.alert-info{
-	background-color:rgba(217,237,223,0.7);
+
+.alert-info {
+	background-color: rgba(217, 237, 223, 0.7);
 }
-.alert-warning{
-	background-color:rgba(252,248,227,0.7);
+
+.alert-warning {
+	background-color: rgba(252, 248, 227, 0.7);
 }
-.alert-success{
-	background-color:rgba(223,208,216,0.7);
+
+.alert-success {
+	background-color: rgba(223, 208, 216, 0.7);
 }
 

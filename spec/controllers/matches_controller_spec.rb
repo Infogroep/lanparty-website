@@ -27,18 +27,19 @@ describe MatchesController do
 		compo = FactoryGirl.create(:compo, :game => FactoryGirl.create(:game))
 		@round = FactoryGirl.create(:round, :compo => compo)
 	end
+
 	def valid_attributes
-		{:round_id => @round.id}
+		{ :round_id => @round.id }
 	end
 
 	describe_access(
-		:login => [:index, :destroy, :show, :new, :update, :create]
+			:login => [:index, :destroy, :show, :new, :update, :create]
 	) do
 
 		describe "GET index" do
 			it "assigns all matches as @matches" do
 				match = Match.create! valid_attributes
-				get :index, {}
+				get :index, { }
 				assigns(:matches).should eq([match])
 			end
 		end
@@ -46,14 +47,14 @@ describe MatchesController do
 		describe "GET show" do
 			it "assigns the requested match as @match" do
 				match = Match.create! valid_attributes
-				get :show, {:id => match.to_param}
+				get :show, { :id => match.to_param }
 				assigns(:match).should eq(match)
 			end
 		end
 
 		describe "GET new" do
 			it "assigns a new match as @match" do
-				get :new, {}
+				get :new, { }
 				assigns(:match).should be_a_new(Match)
 			end
 		end
@@ -61,7 +62,7 @@ describe MatchesController do
 		describe "GET edit" do
 			it "assigns the requested match as @match" do
 				match = Match.create! valid_attributes
-				get :edit, {:id => match.to_param}
+				get :edit, { :id => match.to_param }
 				assigns(:match).should eq(match)
 			end
 		end
@@ -70,18 +71,18 @@ describe MatchesController do
 			describe "with valid params" do
 				it "creates a new Match" do
 					expect {
-						post :create, {:match => valid_attributes}
+						post :create, { :match => valid_attributes }
 					}.to change(Match, :count).by(1)
 				end
 
 				it "assigns a newly created match as @match" do
-					post :create, {:match => valid_attributes}
+					post :create, { :match => valid_attributes }
 					assigns(:match).should be_a(Match)
 					assigns(:match).should be_persisted
 				end
 
 				it "redirects to the created match" do
-					post :create, {:match => valid_attributes}
+					post :create, { :match => valid_attributes }
 					response.should redirect_to(Match.last)
 				end
 			end
@@ -90,14 +91,14 @@ describe MatchesController do
 				it "assigns a newly created but unsaved match as @match" do
 					# Trigger the behavior that occurs when invalid params are submitted
 					Match.any_instance.stub(:save).and_return(false)
-					post :create, {:match => {}}
+					post :create, { :match => { } }
 					assigns(:match).should be_a_new(Match)
 				end
 
 				it "re-renders the 'new' template" do
 					# Trigger the behavior that occurs when invalid params are submitted
 					Match.any_instance.stub(:save).and_return(false)
-					post :create, {:match => {}}
+					post :create, { :match => { } }
 					response.should render_template("new")
 				end
 			end
@@ -111,19 +112,19 @@ describe MatchesController do
 					# specifies that the Match created on the previous line
 					# receives the :update_attributes message with whatever params are
 					# submitted in the request.
-					Match.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-					put :update, {:id => match.to_param, :match => {'these' => 'params'}}
+					Match.any_instance.should_receive(:update_attributes).with({ 'these' => 'params' })
+					put :update, { :id => match.to_param, :match => { 'these' => 'params' } }
 				end
 
 				it "assigns the requested match as @match" do
 					match = Match.create! valid_attributes
-					put :update, {:id => match.to_param, :match => valid_attributes}
+					put :update, { :id => match.to_param, :match => valid_attributes }
 					assigns(:match).should eq(match)
 				end
 
 				it "redirects to the match" do
 					match = Match.create! valid_attributes
-					put :update, {:id => match.to_param, :match => valid_attributes}
+					put :update, { :id => match.to_param, :match => valid_attributes }
 					response.should redirect_to(match)
 				end
 			end
@@ -133,7 +134,7 @@ describe MatchesController do
 					match = Match.create! valid_attributes
 					# Trigger the behavior that occurs when invalid params are submitted
 					Match.any_instance.stub(:save).and_return(false)
-					put :update, {:id => match.to_param, :match => {}}
+					put :update, { :id => match.to_param, :match => { } }
 					assigns(:match).should eq(match)
 				end
 
@@ -141,7 +142,7 @@ describe MatchesController do
 					match = Match.create! valid_attributes
 					# Trigger the behavior that occurs when invalid params are submitted
 					Match.any_instance.stub(:save).and_return(false)
-					put :update, {:id => match.to_param, :match => {}}
+					put :update, { :id => match.to_param, :match => { } }
 					response.should render_template("edit")
 				end
 			end
@@ -151,13 +152,13 @@ describe MatchesController do
 			it "destroys the requested match" do
 				match = Match.create! valid_attributes
 				expect {
-					delete :destroy, {:id => match.to_param}
+					delete :destroy, { :id => match.to_param }
 				}.to change(Match, :count).by(-1)
 			end
 
 			it "redirects to the matches list" do
 				match = Match.create! valid_attributes
-				delete :destroy, {:id => match.to_param}
+				delete :destroy, { :id => match.to_param }
 				response.should redirect_to(matches_url)
 			end
 		end

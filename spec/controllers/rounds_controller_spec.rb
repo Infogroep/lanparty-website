@@ -26,18 +26,19 @@ describe RoundsController do
 	before(:each) do
 		@compo = FactoryGirl.create(:compo, :game => FactoryGirl.create(:game))
 	end
+
 	def valid_attributes
-		{:compo_id => @compo.id}
+		{ :compo_id => @compo.id }
 	end
 
-  describe_access(
-		:login => [:index, :destroy, :show, :new, :update, :create]
-  ) do
+	describe_access(
+			:login => [:index, :destroy, :show, :new, :update, :create]
+	) do
 
 		describe "GET index" do
 			it "assigns all rounds as @rounds" do
 				round = Round.create! valid_attributes
-				get :index, {}
+				get :index, { }
 				assigns(:rounds).should eq([round])
 			end
 		end
@@ -45,14 +46,14 @@ describe RoundsController do
 		describe "GET show" do
 			it "assigns the requested round as @round" do
 				round = Round.create! valid_attributes
-				get :show, {:id => round.to_param}
+				get :show, { :id => round.to_param }
 				assigns(:round).should eq(round)
 			end
 		end
 
 		describe "GET new" do
 			it "assigns a new round as @round" do
-				get :new, {}
+				get :new, { }
 				assigns(:round).should be_a_new(Round)
 			end
 		end
@@ -60,7 +61,7 @@ describe RoundsController do
 		describe "GET edit" do
 			it "assigns the requested round as @round" do
 				round = Round.create! valid_attributes
-				get :edit, {:id => round.to_param}
+				get :edit, { :id => round.to_param }
 				assigns(:round).should eq(round)
 			end
 		end
@@ -69,18 +70,18 @@ describe RoundsController do
 			describe "with valid params" do
 				it "creates a new Round" do
 					expect {
-						post :create, {:round => valid_attributes}
+						post :create, { :round => valid_attributes }
 					}.to change(Round, :count).by(1)
 				end
 
 				it "assigns a newly created round as @round" do
-					post :create, {:round => valid_attributes}
+					post :create, { :round => valid_attributes }
 					assigns(:round).should be_a(Round)
 					assigns(:round).should be_persisted
 				end
 
 				it "redirects to the created round" do
-					post :create, {:round => valid_attributes}
+					post :create, { :round => valid_attributes }
 					response.should redirect_to(Round.last)
 				end
 			end
@@ -89,14 +90,14 @@ describe RoundsController do
 				it "assigns a newly created but unsaved round as @round" do
 					# Trigger the behavior that occurs when invalid params are submitted
 					Round.any_instance.stub(:save).and_return(false)
-					post :create, {:round => {}}
+					post :create, { :round => { } }
 					assigns(:round).should be_a_new(Round)
 				end
 
 				it "re-renders the 'new' template" do
 					# Trigger the behavior that occurs when invalid params are submitted
 					Round.any_instance.stub(:save).and_return(false)
-					post :create, {:round => {}}
+					post :create, { :round => { } }
 					response.should render_template("new")
 				end
 			end
@@ -110,19 +111,19 @@ describe RoundsController do
 					# specifies that the Round created on the previous line
 					# receives the :update_attributes message with whatever params are
 					# submitted in the request.
-					Round.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-					put :update, {:id => round.to_param, :round => {'these' => 'params'}}
+					Round.any_instance.should_receive(:update_attributes).with({ 'these' => 'params' })
+					put :update, { :id => round.to_param, :round => { 'these' => 'params' } }
 				end
 
 				it "assigns the requested round as @round" do
 					round = Round.create! valid_attributes
-					put :update, {:id => round.to_param, :round => valid_attributes}
+					put :update, { :id => round.to_param, :round => valid_attributes }
 					assigns(:round).should eq(round)
 				end
 
 				it "redirects to the round" do
 					round = Round.create! valid_attributes
-					put :update, {:id => round.to_param, :round => valid_attributes}
+					put :update, { :id => round.to_param, :round => valid_attributes }
 					response.should redirect_to(round)
 				end
 			end
@@ -132,7 +133,7 @@ describe RoundsController do
 					round = Round.create! valid_attributes
 					# Trigger the behavior that occurs when invalid params are submitted
 					Round.any_instance.stub(:save).and_return(false)
-					put :update, {:id => round.to_param, :round => {}}
+					put :update, { :id => round.to_param, :round => { } }
 					assigns(:round).should eq(round)
 				end
 
@@ -140,7 +141,7 @@ describe RoundsController do
 					round = Round.create! valid_attributes
 					# Trigger the behavior that occurs when invalid params are submitted
 					Round.any_instance.stub(:save).and_return(false)
-					put :update, {:id => round.to_param, :round => {}}
+					put :update, { :id => round.to_param, :round => { } }
 					response.should render_template("edit")
 				end
 			end
@@ -150,13 +151,13 @@ describe RoundsController do
 			it "destroys the requested round" do
 				round = Round.create! valid_attributes
 				expect {
-					delete :destroy, {:id => round.to_param}
+					delete :destroy, { :id => round.to_param }
 				}.to change(Round, :count).by(-1)
 			end
 
 			it "redirects to the rounds list" do
 				round = Round.create! valid_attributes
-				delete :destroy, {:id => round.to_param}
+				delete :destroy, { :id => round.to_param }
 				response.should redirect_to(rounds_url)
 			end
 		end

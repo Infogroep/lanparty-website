@@ -29,18 +29,19 @@ describe MatchScoresController do
 		round = FactoryGirl.create(:round, :compo => compo)
 		@match = FactoryGirl.create(:match, :round => round)
 	end
+
 	def valid_attributes
-		{:user_id => @user.id, :match_id => @match.id}
+		{ :user_id => @user.id, :match_id => @match.id }
 	end
 
 	describe_access(
-		:login => [:index, :destroy, :show, :new, :update, :create]
-  ) do
+			:login => [:index, :destroy, :show, :new, :update, :create]
+	) do
 
 		describe "GET index" do
 			it "assigns all match_scores as @match_scores" do
 				match_score = MatchScore.create! valid_attributes
-				get :index, {}
+				get :index, { }
 				assigns(:match_scores).should eq([match_score])
 			end
 		end
@@ -48,14 +49,14 @@ describe MatchScoresController do
 		describe "GET show" do
 			it "assigns the requested match_score as @match_score" do
 				match_score = MatchScore.create! valid_attributes
-				get :show, {:id => match_score.to_param}
+				get :show, { :id => match_score.to_param }
 				assigns(:match_score).should eq(match_score)
 			end
 		end
 
 		describe "GET new" do
 			it "assigns a new match_score as @match_score" do
-				get :new, {}
+				get :new, { }
 				assigns(:match_score).should be_a_new(MatchScore)
 			end
 		end
@@ -63,7 +64,7 @@ describe MatchScoresController do
 		describe "GET edit" do
 			it "assigns the requested match_score as @match_score" do
 				match_score = MatchScore.create! valid_attributes
-				get :edit, {:id => match_score.to_param}
+				get :edit, { :id => match_score.to_param }
 				assigns(:match_score).should eq(match_score)
 			end
 		end
@@ -72,18 +73,18 @@ describe MatchScoresController do
 			describe "with valid params" do
 				it "creates a new MatchScore" do
 					expect {
-						post :create, {:match_score => valid_attributes}
+						post :create, { :match_score => valid_attributes }
 					}.to change(MatchScore, :count).by(1)
 				end
 
 				it "assigns a newly created match_score as @match_score" do
-					post :create, {:match_score => valid_attributes}
+					post :create, { :match_score => valid_attributes }
 					assigns(:match_score).should be_a(MatchScore)
 					assigns(:match_score).should be_persisted
 				end
 
 				it "redirects to the created match_score" do
-					post :create, {:match_score => valid_attributes}
+					post :create, { :match_score => valid_attributes }
 					response.should redirect_to(MatchScore.last)
 				end
 			end
@@ -92,14 +93,14 @@ describe MatchScoresController do
 				it "assigns a newly created but unsaved match_score as @match_score" do
 					# Trigger the behavior that occurs when invalid params are submitted
 					MatchScore.any_instance.stub(:save).and_return(false)
-					post :create, {:match_score => {}}
+					post :create, { :match_score => { } }
 					assigns(:match_score).should be_a_new(MatchScore)
 				end
 
 				it "re-renders the 'new' template" do
 					# Trigger the behavior that occurs when invalid params are submitted
 					MatchScore.any_instance.stub(:save).and_return(false)
-					post :create, {:match_score => {}}
+					post :create, { :match_score => { } }
 					response.should render_template("new")
 				end
 			end
@@ -113,19 +114,19 @@ describe MatchScoresController do
 					# specifies that the MatchScore created on the previous line
 					# receives the :update_attributes message with whatever params are
 					# submitted in the request.
-					MatchScore.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-					put :update, {:id => match_score.to_param, :match_score => {'these' => 'params'}}
+					MatchScore.any_instance.should_receive(:update_attributes).with({ 'these' => 'params' })
+					put :update, { :id => match_score.to_param, :match_score => { 'these' => 'params' } }
 				end
 
 				it "assigns the requested match_score as @match_score" do
 					match_score = MatchScore.create! valid_attributes
-					put :update, {:id => match_score.to_param, :match_score => valid_attributes}
+					put :update, { :id => match_score.to_param, :match_score => valid_attributes }
 					assigns(:match_score).should eq(match_score)
 				end
 
 				it "redirects to the match_score" do
 					match_score = MatchScore.create! valid_attributes
-					put :update, {:id => match_score.to_param, :match_score => valid_attributes}
+					put :update, { :id => match_score.to_param, :match_score => valid_attributes }
 					response.should redirect_to(match_score)
 				end
 			end
@@ -135,7 +136,7 @@ describe MatchScoresController do
 					match_score = MatchScore.create! valid_attributes
 					# Trigger the behavior that occurs when invalid params are submitted
 					MatchScore.any_instance.stub(:save).and_return(false)
-					put :update, {:id => match_score.to_param, :match_score => {}}
+					put :update, { :id => match_score.to_param, :match_score => { } }
 					assigns(:match_score).should eq(match_score)
 				end
 
@@ -143,7 +144,7 @@ describe MatchScoresController do
 					match_score = MatchScore.create! valid_attributes
 					# Trigger the behavior that occurs when invalid params are submitted
 					MatchScore.any_instance.stub(:save).and_return(false)
-					put :update, {:id => match_score.to_param, :match_score => {}}
+					put :update, { :id => match_score.to_param, :match_score => { } }
 					response.should render_template("edit")
 				end
 			end
@@ -153,13 +154,13 @@ describe MatchScoresController do
 			it "destroys the requested match_score" do
 				match_score = MatchScore.create! valid_attributes
 				expect {
-					delete :destroy, {:id => match_score.to_param}
+					delete :destroy, { :id => match_score.to_param }
 				}.to change(MatchScore, :count).by(-1)
 			end
 
 			it "redirects to the match_scores list" do
 				match_score = MatchScore.create! valid_attributes
-				delete :destroy, {:id => match_score.to_param}
+				delete :destroy, { :id => match_score.to_param }
 				response.should redirect_to(match_scores_url)
 			end
 		end

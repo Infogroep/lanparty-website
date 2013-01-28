@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
-	def new_user(attributes = {})
+	def new_user(attributes = { })
 		attributes[:username] ||= 'foo'
 		attributes[:email] ||= 'foo@example.com'
 		attributes[:password] ||= 'abc123'
@@ -15,7 +15,7 @@ describe User do
 	end
 
 	it { should have_and_belong_to_many :teams }
-	it { should have_many :logs}
+	it { should have_many :logs }
 
 	it "should be valid" do
 		new_user.should be_valid
@@ -61,7 +61,7 @@ describe User do
 		user.password_hash.should_not be_nil
 		user.password_salt.should_not be_nil
 	end
-	
+
 	it "should link users to a clan" do
 		user = new_user
 		clan = FactoryGirl.create(:clan)
@@ -69,7 +69,7 @@ describe User do
 		user.save!
 		User.find_by_username(user.username).clan.tag.should == clan.tag
 	end
-	
+
 	it "should create new clan on user creation" do
 		tag = "[clan_tag]"
 		new_user(:clan_tag => tag).save!
@@ -96,7 +96,7 @@ describe User do
 		new_user(:username => 'foobar', :password => 'secret').save!
 		User.authenticate('foobar', 'badpassword').should be_nil
 	end
-	
+
 	describe "linking users and teams" do
 		before(:each) do
 			compo = FactoryGirl.create(:compo, :game => FactoryGirl.create(:game))

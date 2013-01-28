@@ -1,25 +1,25 @@
 <table class="table table-striped datatable">
-  <thead>
-  <tr>
-    <th><%= t("simple_form.labels.store_item.name") %></th>
-    <th><%= t("simple_form.labels.store_item.stock") %></th>
-    <th><%= t("simple_form.labels.store_item.purchase_price") %></th>
-    <th class="action_column"></th>
-    <th class="action_column"></th>
-    <th class="action_column"></th>
-  </tr>
-  </thead>
+	<thead>
+	<tr>
+		<th><%= t("simple_form.labels.store_item.name") %></th>
+		<th><%= t("simple_form.labels.store_item.stock") %></th>
+		<th><%= t("simple_form.labels.store_item.purchase_price") %></th>
+		<th class="action_column"></th>
+		<th class="action_column"></th>
+		<th class="action_column"></th>
+	</tr>
+	</thead>
 
-  <tbody>
-  <% store_items.each do |store_item| %>
-      <tr>
-        <td><%= store_item.name %></td>
-        <td><%= store_item.stock %></td>
-        <td><%= store_item.purchase_price %></td>
-        <td class="action_column"><%= link_to t(:show), store_item, class: "btn" %></td>
-        <td class="action_column"><%= link_to t(:edit), edit_store_item_path(store_item), class: "btn" %></td>
-        <td class="action_column"><%= link_to t(:destroy), store_item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-      </tr>
-  <% end %>
-  </tbody>
+	<tbody>
+	<% store_items.each do |store_item| %>
+		<tr>
+			<td><%= store_item.name %></td>
+			<td><%= store_item.stock %></td>
+			<td><%= store_item.purchase_price %></td>
+			<td class="action_column"><%= link_to t(:show), store_item, class: "btn" %></td>
+			<td class="action_column"><%= link_to t(:edit), edit_store_item_path(store_item), class: "btn" %></td>
+			<td class="action_column"><%= link_to t(:destroy), store_item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+		</tr>
+	<% end %>
+	</tbody>
 </table>

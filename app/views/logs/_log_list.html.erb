@@ -1,26 +1,26 @@
 <% no_user ||= false %>
 <table>
-  <tr>
-    <th>Message</th>
+	<tr>
+		<th>Message</th>
 		<% if not @no_user %>
-    <th>User</th>
+			<th>User</th>
 		<% end %>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
 
-<% logs.each do |log| %>
-  <tr>
-    <td><%= log.message %></td>
-		<% if not no_user %>
-    <td><%= log.user.username %></td>
-		<% end %>
-    <td><%= link_to t(:show), log %></td>
-    <td><%= link_to t(:edit), edit_log_path(log) %></td>
-    <td><%= link_to t(:destroy), log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+	<% logs.each do |log| %>
+		<tr>
+			<td><%= log.message %></td>
+			<% if not no_user %>
+				<td><%= log.user.username %></td>
+			<% end %>
+			<td><%= link_to t(:show), log %></td>
+			<td><%= link_to t(:edit), edit_log_path(log) %></td>
+			<td><%= link_to t(:destroy), log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	<% end %>
 </table>
 
 

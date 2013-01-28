@@ -3,47 +3,49 @@
 <% admin = current_user && current_user.access_allowed?(:user_editing) %>
 <table class="table table-striped datatable">
 	<thead>
-		<tr>
-			<th class="action_column"></th>
-			<th><%= t("simple_form.labels.user.username") %></th>
-			<th nowrap><%= t("simple_form.labels.user.badge") %></th>
-			<th><%= t("simple_form.labels.user.clan_tag") %></th>
-			<th class="colapse"><%= t("simple_form.labels.user.payed") %></th>
-			<% if canview %>
+	<tr>
+		<th class="action_column"></th>
+		<th><%= t("simple_form.labels.user.username") %></th>
+		<th nowrap><%= t("simple_form.labels.user.badge") %></th>
+		<th><%= t("simple_form.labels.user.clan_tag") %></th>
+		<th class="colapse"><%= t("simple_form.labels.user.payed") %></th>
+		<% if canview %>
 			<th class="colapse"><%= t("simple_form.labels.user.email") %></th>
 			<th class="colapse"><%= t("simple_form.labels.user.user_groups") %></th>
-			<% end %>
-			<% if admin %>
+		<% end %>
+		<% if admin %>
 			<th class="action_column"></th>
 			<th class="action_column"></th>
 			<th class="action_column"></th>
-			<% end %>
-		</tr>
+		<% end %>
+	</tr>
 	</thead>
 	<tbody>
 	<% @users.each do |user| %>
-	<tr class="<%= canview ? (user.payed ? "success" : "error") : "" %>">
-		<td class="action_column"><%= image_tag(avatar_url(user), :alt => "Icon") %></td>
-		<td><%= user.username %> </td>
-		<td nowrap><%= render :partial => "badges", :locals => { :user => user } %></td>
-		<td><%= user.clan.tag if user.clan %></td>
-		<td class="colapse"><span class="hide"><%= user.payed %></span><i class="<%= user.payed ? "icon-check" : "icon-check-empty" %>"></i></td>
-		<% if canview %>
-		<td class="colapse"><%= user.email %></td>
-		<td class="colapse"><%= user.user_groups.map { |grp| grp.name }.join(",") %></td>
-		<% end %>
-		<% if admin %>
-		<td class="action_column"><%= link_to t(:show), user, class: "btn" %></td>
-		<td class="action_column"><%= link_to t(:edit), edit_user_path(user), class: "btn" %></td>
-		<td class="action_column"><%= link_to t(:destroy), user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-		<% end %>
-	</tr>
+		<tr class="<%= canview ? (user.payed ? "success" : "error") : "" %>">
+			<td class="action_column"><%= image_tag(avatar_url(user), :alt => "Icon") %></td>
+			<td><%= user.username %> </td>
+			<td nowrap><%= render :partial => "badges", :locals => { :user => user } %></td>
+			<td><%= user.clan.tag if user.clan %></td>
+			<td class="colapse">
+				<span class="hide"><%= user.payed %></span><i class="<%= user.payed ? "icon-check" : "icon-check-empty" %>"></i>
+			</td>
+			<% if canview %>
+				<td class="colapse"><%= user.email %></td>
+				<td class="colapse"><%= user.user_groups.map { |grp| grp.name }.join(",") %></td>
+			<% end %>
+			<% if admin %>
+				<td class="action_column"><%= link_to t(:show), user, class: "btn" %></td>
+				<td class="action_column"><%= link_to t(:edit), edit_user_path(user), class: "btn" %></td>
+				<td class="action_column"><%= link_to t(:destroy), user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+			<% end %>
+		</tr>
 	<% end %>
 	</tbody>
 </table>
 
 <% if admin %>
-<%= link_to t(:new, :model => t("user.one")), new_user_path, class: "btn"  %>
-<h4><%= t(".payment_processing") %></h4>
-<%= render 'payed_form' %>
+	<%= link_to t(:new, :model => t("user.one")), new_user_path, class: "btn" %>
+	<h4><%= t(".payment_processing") %></h4>
+	<%= render 'payed_form' %>
 <% end %>

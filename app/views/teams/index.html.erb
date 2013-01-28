@@ -1,25 +1,25 @@
 <% title "Teams" %>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Compo</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<tr>
+		<th>Name</th>
+		<th>Compo</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
 
-<% @teams.each do |team| %>
-  <tr>
-    <td><%= team.name %></td>
-    <td><%= team.compo_id %></td>
-    <td><%= link_to t(:show), team %></td>
-    <td><%= link_to t(:edit), edit_team_path(team) %></td>
-    <td><%= link_to t(:destroy), team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+	<% @teams.each do |team| %>
+		<tr>
+			<td><%= team.name %></td>
+			<td><%= team.compo_id %></td>
+			<td><%= link_to t(:show), team %></td>
+			<td><%= link_to t(:edit), edit_team_path(team) %></td>
+			<td><%= link_to t(:destroy), team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	<% end %>
 </table>
 
-<br />
+<br/>
 
 <%= link_to t(:new, :model => t("team.one")), new_team_path %>

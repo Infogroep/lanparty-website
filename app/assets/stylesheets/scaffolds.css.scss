@@ -10,8 +10,8 @@ body {
 #content {
 	background: white;
 	width: 760px;
-	margin-left:auto;
-	margin-right:auto;
+	margin-left: auto;
+	margin-right: auto;
 	padding: 2px 15px 19px 15px;
 	text-align: justify;
 }
@@ -28,20 +28,20 @@ h1 {
 #header {
 	background: white;
 	width: 760px;
-	margin-left:auto;
-	margin-right:auto;
+	margin-left: auto;
+	margin-right: auto;
 	margin-bottom: 20px;
 	padding: 2px 15px 19px 15px;
 	text-align: justify;
 	nav {
 		ul {
-			margin:0px;
-			padding:5px;
+			margin: 0px;
+			padding: 5px;
 		}
 		li {
-			float:left;
+			float: left;
 			padding: 5px;
-			list-style-type:none;
+			list-style-type: none;
 		}
 	}
 }

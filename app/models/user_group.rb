@@ -27,26 +27,27 @@ class UserGroup < ActiveRecord::Base
 	end
 
 	protected
-	@@implied_by = {}
-	def self.is_implied_by(one,other)
+	@@implied_by = { }
+
+	def self.is_implied_by(one, other)
 		if @@implied_by.has_key?(one)
-		@@implied_by[one].push(other)
+			@@implied_by[one].push(other)
 		else
-		@@implied_by[one] = [other]
+			@@implied_by[one] = [other]
 		end
 	end
 
 	def self.get_implications(one)
-	result = @@implied_by[one]
-	return result.nil? ? [] : result
+		result = @@implied_by[one]
+		return result.nil? ? [] : result
 	end
 
-	def self.implies(one,other)
-	is_implied_by(other,one)
+	def self.implies(one, other)
+		is_implied_by(other, one)
 	end
 
 	def allows_access_transitively?(access_type)
-	self.class.get_implications(access_type).any? { |atype| self.allows_access?(atype) }
+		self.class.get_implications(access_type).any? { |atype| self.allows_access?(atype) }
 	end
 
 	implies :user_editing, :user_detail_viewing

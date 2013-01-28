@@ -1,22 +1,27 @@
-#slider{
-	height:300px;
+#slider {
+	height: 300px;
 }
 
 .carousel img {
-	max-height:300px;
+	max-height: 300px;
 }
 
-.carousel-inner { text-align: center; }
-.carousel .item > img { display: inline-block; }
+.carousel-inner {
+	text-align: center;
+}
+
+.carousel .item > img {
+	display: inline-block;
+}
 
 .carousel-caption {
-	color:white;
-	position:static;
+	color: white;
+	position: static;
 }
 
-.hero-unit{
-	padding:0px;
-	.container{
-		width:100%;
+.hero-unit {
+	padding: 0px;
+	.container {
+		width: 100%;
 	}
 }

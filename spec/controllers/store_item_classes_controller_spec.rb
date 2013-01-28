@@ -20,144 +20,144 @@ require 'spec_helper'
 
 describe StoreItemClassesController do
 
-  # This should return the minimal set of attributes required to create a valid
-  # StoreItemClass. As you add validations to StoreItemClass, be sure to
-  # update the return value of this method accordingly.
-  def valid_attributes
-    { "name" => "MyString" }
-  end
+	# This should return the minimal set of attributes required to create a valid
+	# StoreItemClass. As you add validations to StoreItemClass, be sure to
+	# update the return value of this method accordingly.
+	def valid_attributes
+		{ "name" => "MyString" }
+	end
 
-  describe_access(
-    :login => [:index, :destroy, :show, :new, :update, :create],
-    :store_editing => [:index, :destroy, :show, :new, :update, :create]
-  ) do
+	describe_access(
+			:login => [:index, :destroy, :show, :new, :update, :create],
+			:store_editing => [:index, :destroy, :show, :new, :update, :create]
+	) do
 
-    describe "GET index" do
-      it "assigns all store_item_classes as @store_item_classes" do
-        store_item_class = StoreItemClass.create! valid_attributes
-        get :index, {}
-        assigns(:store_item_classes).should eq([store_item_class])
-      end
-    end
+		describe "GET index" do
+			it "assigns all store_item_classes as @store_item_classes" do
+				store_item_class = StoreItemClass.create! valid_attributes
+				get :index, { }
+				assigns(:store_item_classes).should eq([store_item_class])
+			end
+		end
 
-    describe "GET show" do
-      it "assigns the requested store_item_class as @store_item_class" do
-        store_item_class = StoreItemClass.create! valid_attributes
-        get :show, {:id => store_item_class.to_param}
-        assigns(:store_item_class).should eq(store_item_class)
-      end
-    end
+		describe "GET show" do
+			it "assigns the requested store_item_class as @store_item_class" do
+				store_item_class = StoreItemClass.create! valid_attributes
+				get :show, { :id => store_item_class.to_param }
+				assigns(:store_item_class).should eq(store_item_class)
+			end
+		end
 
-    describe "GET new" do
-      it "assigns a new store_item_class as @store_item_class" do
-        get :new, {}
-        assigns(:store_item_class).should be_a_new(StoreItemClass)
-      end
-    end
+		describe "GET new" do
+			it "assigns a new store_item_class as @store_item_class" do
+				get :new, { }
+				assigns(:store_item_class).should be_a_new(StoreItemClass)
+			end
+		end
 
-    describe "GET edit" do
-      it "assigns the requested store_item_class as @store_item_class" do
-        store_item_class = StoreItemClass.create! valid_attributes
-        get :edit, {:id => store_item_class.to_param}
-        assigns(:store_item_class).should eq(store_item_class)
-      end
-    end
+		describe "GET edit" do
+			it "assigns the requested store_item_class as @store_item_class" do
+				store_item_class = StoreItemClass.create! valid_attributes
+				get :edit, { :id => store_item_class.to_param }
+				assigns(:store_item_class).should eq(store_item_class)
+			end
+		end
 
-    describe "POST create" do
-      describe "with valid params" do
-        it "creates a new StoreItemClass" do
-          expect {
-            post :create, {:store_item_class => valid_attributes}
-          }.to change(StoreItemClass, :count).by(1)
-        end
+		describe "POST create" do
+			describe "with valid params" do
+				it "creates a new StoreItemClass" do
+					expect {
+						post :create, { :store_item_class => valid_attributes }
+					}.to change(StoreItemClass, :count).by(1)
+				end
 
-        it "assigns a newly created store_item_class as @store_item_class" do
-          post :create, {:store_item_class => valid_attributes}
-          assigns(:store_item_class).should be_a(StoreItemClass)
-          assigns(:store_item_class).should be_persisted
-        end
+				it "assigns a newly created store_item_class as @store_item_class" do
+					post :create, { :store_item_class => valid_attributes }
+					assigns(:store_item_class).should be_a(StoreItemClass)
+					assigns(:store_item_class).should be_persisted
+				end
 
-        it "redirects to the created store_item_class" do
-          post :create, {:store_item_class => valid_attributes}
-          response.should redirect_to(StoreItemClass.last)
-        end
-      end
+				it "redirects to the created store_item_class" do
+					post :create, { :store_item_class => valid_attributes }
+					response.should redirect_to(StoreItemClass.last)
+				end
+			end
 
-      describe "with invalid params" do
-        it "assigns a newly created but unsaved store_item_class as @store_item_class" do
-          # Trigger the behavior that occurs when invalid params are submitted
-          StoreItemClass.any_instance.stub(:save).and_return(false)
-          post :create, {:store_item_class => { "name" => "invalid value" }}
-          assigns(:store_item_class).should be_a_new(StoreItemClass)
-        end
+			describe "with invalid params" do
+				it "assigns a newly created but unsaved store_item_class as @store_item_class" do
+					# Trigger the behavior that occurs when invalid params are submitted
+					StoreItemClass.any_instance.stub(:save).and_return(false)
+					post :create, { :store_item_class => { "name" => "invalid value" } }
+					assigns(:store_item_class).should be_a_new(StoreItemClass)
+				end
 
-        it "re-renders the 'new' template" do
-          # Trigger the behavior that occurs when invalid params are submitted
-          StoreItemClass.any_instance.stub(:save).and_return(false)
-          post :create, {:store_item_class => { "name" => "invalid value" }}
-          response.should render_template("new")
-        end
-      end
-    end
+				it "re-renders the 'new' template" do
+					# Trigger the behavior that occurs when invalid params are submitted
+					StoreItemClass.any_instance.stub(:save).and_return(false)
+					post :create, { :store_item_class => { "name" => "invalid value" } }
+					response.should render_template("new")
+				end
+			end
+		end
 
-    describe "PUT update" do
-      describe "with valid params" do
-        it "updates the requested store_item_class" do
-          store_item_class = StoreItemClass.create! valid_attributes
-          # Assuming there are no other store_item_classes in the database, this
-          # specifies that the StoreItemClass created on the previous line
-          # receives the :update_attributes message with whatever params are
-          # submitted in the request.
-          StoreItemClass.any_instance.should_receive(:update_attributes).with({ "name" => "MyString" })
-          put :update, {:id => store_item_class.to_param, :store_item_class => { "name" => "MyString" }}
-        end
+		describe "PUT update" do
+			describe "with valid params" do
+				it "updates the requested store_item_class" do
+					store_item_class = StoreItemClass.create! valid_attributes
+					# Assuming there are no other store_item_classes in the database, this
+					# specifies that the StoreItemClass created on the previous line
+					# receives the :update_attributes message with whatever params are
+					# submitted in the request.
+					StoreItemClass.any_instance.should_receive(:update_attributes).with({ "name" => "MyString" })
+					put :update, { :id => store_item_class.to_param, :store_item_class => { "name" => "MyString" } }
+				end
 
-        it "assigns the requested store_item_class as @store_item_class" do
-          store_item_class = StoreItemClass.create! valid_attributes
-          put :update, {:id => store_item_class.to_param, :store_item_class => valid_attributes}
-          assigns(:store_item_class).should eq(store_item_class)
-        end
+				it "assigns the requested store_item_class as @store_item_class" do
+					store_item_class = StoreItemClass.create! valid_attributes
+					put :update, { :id => store_item_class.to_param, :store_item_class => valid_attributes }
+					assigns(:store_item_class).should eq(store_item_class)
+				end
 
-        it "redirects to the store_item_class" do
-          store_item_class = StoreItemClass.create! valid_attributes
-          put :update, {:id => store_item_class.to_param, :store_item_class => valid_attributes}
-          response.should redirect_to(store_item_class)
-        end
-      end
+				it "redirects to the store_item_class" do
+					store_item_class = StoreItemClass.create! valid_attributes
+					put :update, { :id => store_item_class.to_param, :store_item_class => valid_attributes }
+					response.should redirect_to(store_item_class)
+				end
+			end
 
-      describe "with invalid params" do
-        it "assigns the store_item_class as @store_item_class" do
-          store_item_class = StoreItemClass.create! valid_attributes
-          # Trigger the behavior that occurs when invalid params are submitted
-          StoreItemClass.any_instance.stub(:save).and_return(false)
-          put :update, {:id => store_item_class.to_param, :store_item_class => { "name" => "invalid value" }}
-          assigns(:store_item_class).should eq(store_item_class)
-        end
+			describe "with invalid params" do
+				it "assigns the store_item_class as @store_item_class" do
+					store_item_class = StoreItemClass.create! valid_attributes
+					# Trigger the behavior that occurs when invalid params are submitted
+					StoreItemClass.any_instance.stub(:save).and_return(false)
+					put :update, { :id => store_item_class.to_param, :store_item_class => { "name" => "invalid value" } }
+					assigns(:store_item_class).should eq(store_item_class)
+				end
 
-        it "re-renders the 'edit' template" do
-          store_item_class = StoreItemClass.create! valid_attributes
-          # Trigger the behavior that occurs when invalid params are submitted
-          StoreItemClass.any_instance.stub(:save).and_return(false)
-          put :update, {:id => store_item_class.to_param, :store_item_class => { "name" => "invalid value" }}
-          response.should render_template("edit")
-        end
-      end
-    end
+				it "re-renders the 'edit' template" do
+					store_item_class = StoreItemClass.create! valid_attributes
+					# Trigger the behavior that occurs when invalid params are submitted
+					StoreItemClass.any_instance.stub(:save).and_return(false)
+					put :update, { :id => store_item_class.to_param, :store_item_class => { "name" => "invalid value" } }
+					response.should render_template("edit")
+				end
+			end
+		end
 
-    describe "DELETE destroy" do
-      it "destroys the requested store_item_class" do
-        store_item_class = StoreItemClass.create! valid_attributes
-        expect {
-          delete :destroy, {:id => store_item_class.to_param}
-        }.to change(StoreItemClass, :count).by(-1)
-      end
+		describe "DELETE destroy" do
+			it "destroys the requested store_item_class" do
+				store_item_class = StoreItemClass.create! valid_attributes
+				expect {
+					delete :destroy, { :id => store_item_class.to_param }
+				}.to change(StoreItemClass, :count).by(-1)
+			end
 
-      it "redirects to the store_item_classes list" do
-        store_item_class = StoreItemClass.create! valid_attributes
-        delete :destroy, {:id => store_item_class.to_param}
-        response.should redirect_to(store_item_classes_url)
-      end
-    end
+			it "redirects to the store_item_classes list" do
+				store_item_class = StoreItemClass.create! valid_attributes
+				delete :destroy, { :id => store_item_class.to_param }
+				response.should redirect_to(store_item_classes_url)
+			end
+		end
 
-  end
+	end
 end

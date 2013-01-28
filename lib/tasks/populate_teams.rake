@@ -6,8 +6,8 @@ namespace :db do
 		delete = args[:delete] == 'true'
 		amount = args[:amount].to_i
 
-		users_to_create = [amount - User.count,0].min
-		compos_to_create = [amount - Compo.count,0].min
+		users_to_create = [amount - User.count, 0].min
+		compos_to_create = [amount - Compo.count, 0].min
 		puts "creating #{users_to_create} extra users"
 		Rake::Task["db:populate_users"].invoke(users_to_create, 'false')
 		puts "creating #{compos_to_create} extra compos"

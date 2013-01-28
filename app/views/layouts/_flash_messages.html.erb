@@ -1,11 +1,11 @@
 <div class="container">
 	<div class="row flashmsgholder">
-		
-	<% flash.each do |name, msg| %>
-	<div class="<%= "span12 alert alert-#{name}" %>">
-			<button type="button" class="close" data-dismiss="alert">&times;</button>
-			<%= msg %>
-		</div>
-	<% end %>
+
+		<% flash.each do |name, msg| %>
+			<div class="<%= "span12 alert alert-#{name}" %>">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<%= msg %>
+			</div>
+		<% end %>
 	</div>
 </div>

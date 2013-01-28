@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Clan do
-  def new_clan(attributes = {})
+	def new_clan(attributes = { })
 		attributes[:tag] ||= '[foo]clan_tag]'
 		Clan.new(attributes)
 	end
@@ -18,6 +18,6 @@ describe Clan do
 	it "should require username" do
 		new_clan(:tag => '').should have(1).error_on(:tag)
 	end
-	
-	
+
+
 end

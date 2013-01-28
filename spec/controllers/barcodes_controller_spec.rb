@@ -26,14 +26,15 @@ describe BarcodesController do
 	before(:each) do
 		@store_item = FactoryGirl.create(:store_item)
 	end
+
 	def valid_attributes
-		{:code => "1234567890", :store_item_id => @store_item.id}
-  end
+		{ :code => "1234567890", :store_item_id => @store_item.id }
+	end
 
 	describe_access(
-    :login => [:index, :destroy, :show, :new, :update, :create],
-    :store_editing => [:index, :destroy, :show, :new, :update, :create]
-  ) do
+			:login => [:index, :destroy, :show, :new, :update, :create],
+			:store_editing => [:index, :destroy, :show, :new, :update, :create]
+	) do
 
 		describe "GET index" do
 			it "assigns all barcodes as @barcodes" do
@@ -90,14 +91,14 @@ describe BarcodesController do
 				it "assigns a newly created but unsaved barcode as @barcode" do
 					# Trigger the behavior that occurs when invalid params are submitted
 					Barcode.any_instance.stub(:save).and_return(false)
-					post :create, :barcode => {}
+					post :create, :barcode => { }
 					assigns(:barcode).should be_a_new(Barcode)
 				end
 
 				it "re-renders the 'new' template" do
 					# Trigger the behavior that occurs when invalid params are submitted
 					Barcode.any_instance.stub(:save).and_return(false)
-					post :create, :barcode => {}
+					post :create, :barcode => { }
 					response.should render_template("new")
 				end
 			end
@@ -111,8 +112,8 @@ describe BarcodesController do
 					# specifies that the Barcode created on the previous line
 					# receives the :update_attributes message with whatever params are
 					# submitted in the request.
-					Barcode.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-					put :update, :id => barcode.id, :barcode => {'these' => 'params'}
+					Barcode.any_instance.should_receive(:update_attributes).with({ 'these' => 'params' })
+					put :update, :id => barcode.id, :barcode => { 'these' => 'params' }
 				end
 
 				it "assigns the requested barcode as @barcode" do
@@ -133,7 +134,7 @@ describe BarcodesController do
 					barcode = Barcode.create! valid_attributes
 					# Trigger the behavior that occurs when invalid params are submitted
 					Barcode.any_instance.stub(:save).and_return(false)
-					put :update, :id => barcode.id.to_s, :barcode => {}
+					put :update, :id => barcode.id.to_s, :barcode => { }
 					assigns(:barcode).should eq(barcode)
 				end
 
@@ -141,7 +142,7 @@ describe BarcodesController do
 					barcode = Barcode.create! valid_attributes
 					# Trigger the behavior that occurs when invalid params are submitted
 					Barcode.any_instance.stub(:save).and_return(false)
-					put :update, :id => barcode.id.to_s, :barcode => {}
+					put :update, :id => barcode.id.to_s, :barcode => { }
 					response.should render_template("edit")
 				end
 			end

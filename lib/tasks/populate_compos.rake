@@ -8,7 +8,7 @@ namespace :db do
 
 		games_to_build = [amount - Game.count, 0].min
 		puts "creating #{games_to_build} aditional games"
-		Rake::Task["db:populate_games"].invoke(games_to_build,'false')
+		Rake::Task["db:populate_games"].invoke(games_to_build, 'false')
 		puts "---------------"
 		puts "Creating compos"
 		puts "---------------"

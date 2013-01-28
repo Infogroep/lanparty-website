@@ -1,25 +1,25 @@
 <% title t("user_group.other") %>
 
 <table class="table">
-  <tr>
-    <th><%= t("simple_form.labels.user_group.badge") %></th>
-    <th><%= t("simple_form.labels.user_group.name") %></th>
-    <th><%= t("simple_form.labels.user_group.description") %></th>
-    <th class="action_column"></th>
-    <th class="action_column"></th>
-    <th class="action_column"></th>
-  </tr>
+	<tr>
+		<th><%= t("simple_form.labels.user_group.badge") %></th>
+		<th><%= t("simple_form.labels.user_group.name") %></th>
+		<th><%= t("simple_form.labels.user_group.description") %></th>
+		<th class="action_column"></th>
+		<th class="action_column"></th>
+		<th class="action_column"></th>
+	</tr>
 
-<% @user_groups.each do |user_group| %>
-  <tr>
-    <td><%= image_tag user_group.badge_url(:badge) if user_group.badge_url(:badge) %></td>
-    <td><%= user_group.name %></td>
-    <td><%= user_group.description %></td>
-    <td><%= link_to t(:show), user_group, class: "btn" %></td>
-    <td><%= link_to t(:edit), edit_user_group_path(user_group), class: "btn" %></td>
-    <td><%= link_to t(:destroy), user_group, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-  </tr>
-<% end %>
+	<% @user_groups.each do |user_group| %>
+		<tr>
+			<td><%= image_tag user_group.badge_url(:badge) if user_group.badge_url(:badge) %></td>
+			<td><%= user_group.name %></td>
+			<td><%= user_group.description %></td>
+			<td><%= link_to t(:show), user_group, class: "btn" %></td>
+			<td><%= link_to t(:edit), edit_user_group_path(user_group), class: "btn" %></td>
+			<td><%= link_to t(:destroy), user_group, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+		</tr>
+	<% end %>
 </table>
 
 <%= link_to t(:new, :model => t("user_group.one")), new_user_group_path, class: "btn" %>

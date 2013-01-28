@@ -1,4 +1,6 @@
-<p class="blog-post-info"><span class="blog-post-author"><%= blog_post.user.username %></span> - <span class="blog-post-timestamp"><%= t(:ago,:time_difference => distance_of_time_in_words(blog_post.created_at,DateTime.current)) %></span></p>
+<p class="blog-post-info"><span class="blog-post-author"><%= blog_post.user.username %></span> -
+	<span class="blog-post-timestamp"><%= t(:ago, :time_difference => distance_of_time_in_words(blog_post.created_at, DateTime.current)) %></span>
+</p>
 <h4 class="blog-post-title"><%= blog_post.title %></h4>
 <p class="blog-post-content"><%= blog_post.content %></p>
 <p><%= link_to t(:btn_details), blog_post, class: "btn" %></p>

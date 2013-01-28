@@ -3,7 +3,7 @@ class CreateStoreItems < ActiveRecord::Migration
 		create_table :store_items do |t|
 			t.string :name
 			t.float :purchase_price
-      t.integer :stock
+			t.integer :stock
 			t.references :store_item_class
 
 			t.timestamps

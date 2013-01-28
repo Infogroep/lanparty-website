@@ -29,17 +29,18 @@ describe MatchLoseLinksController do
 		@match = FactoryGirl.create(:match, :round => round)
 		@next_match = FactoryGirl.create(:match, :round => round)
 	end
+
 	def valid_attributes
-		{:match_id => @match.id, :next_match_id => @next_match.id}
+		{ :match_id => @match.id, :next_match_id => @next_match.id }
 	end
 
 	describe_access(
-    :login => [:index, :destroy, :show, :new, :update, :create]
-  ) do
+			:login => [:index, :destroy, :show, :new, :update, :create]
+	) do
 
 		describe "GET new" do
 			it "assigns a new match_lose_link as @match_lose_link" do
-				get :new, {}
+				get :new, { }
 				assigns(:match_lose_link).should be_a_new(MatchLoseLink)
 			end
 		end
@@ -47,7 +48,7 @@ describe MatchLoseLinksController do
 		describe "GET edit" do
 			it "assigns the requested match_lose_link as @match_lose_link" do
 				match_lose_link = MatchLoseLink.create! valid_attributes
-				get :edit, {:id => match_lose_link.to_param}
+				get :edit, { :id => match_lose_link.to_param }
 				assigns(:match_lose_link).should eq(match_lose_link)
 			end
 		end
@@ -56,12 +57,12 @@ describe MatchLoseLinksController do
 			describe "with valid params" do
 				it "creates a new MatchLoseLink" do
 					expect {
-						post :create, {:match_lose_link => valid_attributes}
+						post :create, { :match_lose_link => valid_attributes }
 					}.to change(MatchLoseLink, :count).by(1)
 				end
 
 				it "assigns a newly created match_lose_link as @match_lose_link" do
-					post :create, {:match_lose_link => valid_attributes}
+					post :create, { :match_lose_link => valid_attributes }
 					assigns(:match_lose_link).should be_a(MatchLoseLink)
 					assigns(:match_lose_link).should be_persisted
 				end
@@ -71,14 +72,14 @@ describe MatchLoseLinksController do
 				it "assigns a newly created but unsaved match_lose_link as @match_lose_link" do
 					# Trigger the behavior that occurs when invalid params are submitted
 					MatchLoseLink.any_instance.stub(:save).and_return(false)
-					post :create, {:match_lose_link => {}}
+					post :create, { :match_lose_link => { } }
 					assigns(:match_lose_link).should be_a_new(MatchLoseLink)
 				end
 
 				it "re-renders the 'new' template" do
 					# Trigger the behavior that occurs when invalid params are submitted
 					MatchLoseLink.any_instance.stub(:save).and_return(false)
-					post :create, {:match_lose_link => {}}
+					post :create, { :match_lose_link => { } }
 					response.should render_template("new")
 				end
 			end
@@ -92,19 +93,19 @@ describe MatchLoseLinksController do
 					# specifies that the MatchLoseLink created on the previous line
 					# receives the :update_attributes message with whatever params are
 					# submitted in the request.
-					MatchLoseLink.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-					put :update, {:id => match_lose_link.to_param, :match_lose_link => {'these' => 'params'}}
+					MatchLoseLink.any_instance.should_receive(:update_attributes).with({ 'these' => 'params' })
+					put :update, { :id => match_lose_link.to_param, :match_lose_link => { 'these' => 'params' } }
 				end
 
 				it "assigns the requested match_lose_link as @match_lose_link" do
 					match_lose_link = MatchLoseLink.create! valid_attributes
-					put :update, {:id => match_lose_link.to_param, :match_lose_link => valid_attributes}
+					put :update, { :id => match_lose_link.to_param, :match_lose_link => valid_attributes }
 					assigns(:match_lose_link).should eq(match_lose_link)
 				end
 
 				it "redirects to the match_link" do
 					match_lose_link = MatchLoseLink.create! valid_attributes
-					put :update, {:id => match_lose_link.match.to_param, :match_lose_link => valid_attributes}
+					put :update, { :id => match_lose_link.match.to_param, :match_lose_link => valid_attributes }
 					response.should redirect_to(match_lose_link)
 				end
 			end
@@ -114,7 +115,7 @@ describe MatchLoseLinksController do
 					match_lose_link = MatchLoseLink.create! valid_attributes
 					# Trigger the behavior that occurs when invalid params are submitted
 					MatchLoseLink.any_instance.stub(:save).and_return(false)
-					put :update, {:id => match_lose_link.to_param, :match_lose_link => {}}
+					put :update, { :id => match_lose_link.to_param, :match_lose_link => { } }
 					assigns(:match_lose_link).should eq(match_lose_link)
 				end
 
@@ -122,7 +123,7 @@ describe MatchLoseLinksController do
 					match_lose_link = MatchLoseLink.create! valid_attributes
 					# Trigger the behavior that occurs when invalid params are submitted
 					MatchLoseLink.any_instance.stub(:save).and_return(false)
-					put :update, {:id => match_lose_link.to_param, :match_lose_link => {}}
+					put :update, { :id => match_lose_link.to_param, :match_lose_link => { } }
 					response.should render_template("edit")
 				end
 			end
@@ -132,13 +133,13 @@ describe MatchLoseLinksController do
 			it "destroys the requested match_lose_link" do
 				match_lose_link = MatchLoseLink.create! valid_attributes
 				expect {
-					delete :destroy, {:id => match_lose_link.to_param}
+					delete :destroy, { :id => match_lose_link.to_param }
 				}.to change(MatchLoseLink, :count).by(-1)
 			end
 
 			it "redirects to the match_lose_links list" do
 				match_lose_link = MatchLoseLink.create! valid_attributes
-				delete :destroy, {:id => match_lose_link.to_param}
+				delete :destroy, { :id => match_lose_link.to_param }
 				response.should redirect_to(match_lose_links_url)
 			end
 		end

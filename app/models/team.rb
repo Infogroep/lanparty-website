@@ -1,5 +1,5 @@
 class Team < ActiveRecord::Base
-  attr_accessible :compo_id, :name, :user_ids
+	attr_accessible :compo_id, :name, :user_ids
 
 	validates_presence_of :name
 	validates_presence_of :compo

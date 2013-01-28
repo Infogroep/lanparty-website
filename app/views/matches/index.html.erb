@@ -8,16 +8,16 @@
 		<th></th>
 	</tr>
 
-<% @matches.each do |match| %>
-	<tr>
-		<td><%= match.compo_id %></td>
-		<td><%= link_to t(:show), match %></td>
-		<td><%= link_to t(:edit), edit_match_path(match) %></td>
-		<td><%= link_to t(:destroy), match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	</tr>
-<% end %>
+	<% @matches.each do |match| %>
+		<tr>
+			<td><%= match.compo_id %></td>
+			<td><%= link_to t(:show), match %></td>
+			<td><%= link_to t(:edit), edit_match_path(match) %></td>
+			<td><%= link_to t(:destroy), match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	<% end %>
 </table>
 
-<br />
+<br/>
 
 <%= link_to t(:new, :model => t("match.one")), new_match_path %>

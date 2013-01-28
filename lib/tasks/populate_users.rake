@@ -11,22 +11,22 @@ namespace :db do
 
 		User.delete_all
 		User.create(
-			:username => "Enermis",
-			:email => "fulgens.ailurus@gmail.com",
-			:password => "roeland1",
-			:password_confirmation => "roeland1"
+				:username => "Enermis",
+				:email => "fulgens.ailurus@gmail.com",
+				:password => "roeland1",
+				:password_confirmation => "roeland1"
 		)
 		User.create(
-			:username => "user",
-			:email => "user@gmail.com",
-			:password => "roeland1",
-			:password_confirmation => "roeland1"
+				:username => "user",
+				:email => "user@gmail.com",
+				:password => "roeland1",
+				:password_confirmation => "roeland1"
 		)
 		User.create(
-			:username => "peanut",
-			:email => "rik.vanmechelen@gmail.com",
-			:password => "roeland1",
-			:password_confirmation => "roeland1"
+				:username => "peanut",
+				:email => "rik.vanmechelen@gmail.com",
+				:password => "roeland1",
+				:password_confirmation => "roeland1"
 		)
 		puts "created Enermis and peanut"
 		amount.times do

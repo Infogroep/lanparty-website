@@ -45,7 +45,7 @@ class MatchScoresController < ApplicationController
 
 		respond_to do |format|
 			if @match_score.save
-				format.html { redirect_to @match_score, flash:{info: 'Match score was successfully created.' }}
+				format.html { redirect_to @match_score, flash: { info: 'Match score was successfully created.' } }
 				format.json { render json: @match_score, status: :created, location: @match_score }
 			else
 				format.html { render action: "new" }
@@ -61,7 +61,7 @@ class MatchScoresController < ApplicationController
 
 		respond_to do |format|
 			if @match_score.update_attributes(params[:match_score])
-				format.html { redirect_to @match_score, flash:{info: 'Match score was successfully updated.' }}
+				format.html { redirect_to @match_score, flash: { info: 'Match score was successfully updated.' } }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

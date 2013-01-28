@@ -22,11 +22,11 @@
 	<b>Description:</b>
 	<%= @compo.description %>
 </p>
-<p class=""> 
+<p class="">
 	<b>Featured:</b>
 	<%= @compo.featured %>
-	</p>
-<p class=""> 
+</p>
+<p class="">
 	<b>Game: </B>
 	<%= link_to @compo.game.name, @compo.game %>
 </p>
@@ -35,7 +35,7 @@
 <%= link_to 'Back', compos_path, class: "btn" %>
 
 <ul>
-<% @compo.teams.each do |team| %>
-	<li><%= link_to team.name, team %></li>
-<% end %>
+	<% @compo.teams.each do |team| %>
+		<li><%= link_to team.name, team %></li>
+	<% end %>
 </ul>

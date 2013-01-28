@@ -3,33 +3,33 @@
 
 <table class="table table-striped datatable">
 	<thead>
-		<tr>
-			<th><%= t("simple_form.labels.compo.game") %></th>
-			<th><%= t("simple_form.labels.compo.slots") %></th>
-			<th><%= t("simple_form.labels.compo.group_size") %></th>
-			<th><%= t("simple_form.labels.compo.date_time") %></th>
-            <% if admin %>
+	<tr>
+		<th><%= t("simple_form.labels.compo.game") %></th>
+		<th><%= t("simple_form.labels.compo.slots") %></th>
+		<th><%= t("simple_form.labels.compo.group_size") %></th>
+		<th><%= t("simple_form.labels.compo.date_time") %></th>
+		<% if admin %>
 			<th class="action_column"></th>
 			<th class="action_column"></th>
 			<th class="action_column"></th>
-            <% end %>
-		</tr>
+		<% end %>
+	</tr>
 	</thead>
 
 	<tbody>
-		<% @compos.each do |compo| %>
+	<% @compos.each do |compo| %>
 		<tr>
 			<td><%= link_to compo.game.name, compo %></td>
 			<td><%= compo.slots %></td>
 			<td><%= compo.group_size %></td>
 			<td><%= l(compo.date_time, :format => :short) %></td>
-            <% if admin %>
-			<td class="action_column"><%= link_to t(:show), compo, class: "btn" %></td>
-			<td class="action_column"><%= link_to t(:edit), edit_compo_path(compo), class:"btn" %></td>
-			<td class="action_column"><%= link_to t(:destroy), compo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-            <% end %>
+			<% if admin %>
+				<td class="action_column"><%= link_to t(:show), compo, class: "btn" %></td>
+				<td class="action_column"><%= link_to t(:edit), edit_compo_path(compo), class: "btn" %></td>
+				<td class="action_column"><%= link_to t(:destroy), compo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+			<% end %>
 		</tr>
-		<% end %>
+	<% end %>
 	</tbody>
 </table>
 

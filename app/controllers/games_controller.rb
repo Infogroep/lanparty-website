@@ -1,12 +1,12 @@
 class GamesController < ApplicationController
 	before_filter :login_required, :except => [:index]
-  before_filter(:except => [:index]) { access_required :compo_editing }
+	before_filter(:except => [:index]) { access_required :compo_editing }
 
-  before_filter :set_view, :only => :index
+	before_filter :set_view, :only => :index
 
-  def set_view
-    session[:games_view] = (params[:games_view] || session[:games_view] || :grid).to_sym
-  end
+	def set_view
+		session[:games_view] = (params[:games_view] || session[:games_view] || :grid).to_sym
+	end
 
 	# GET /games
 	# GET /games.json
@@ -53,7 +53,7 @@ class GamesController < ApplicationController
 
 		respond_to do |format|
 			if @game.save
-				format.html { redirect_to games_url, flash:{info: 'Game was successfully created.' }}
+				format.html { redirect_to games_url, flash: { info: 'Game was successfully created.' } }
 				format.json { render json: @game, status: :created, location: @game }
 			else
 				format.html { render action: "new" }
@@ -69,7 +69,7 @@ class GamesController < ApplicationController
 
 		respond_to do |format|
 			if @game.update_attributes(params[:game])
-				format.html { redirect_to games_url, flash: {info: 'Game was successfully updated.' }}
+				format.html { redirect_to games_url, flash: { info: 'Game was successfully updated.' } }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

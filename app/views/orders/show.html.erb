@@ -1,11 +1,11 @@
 <% title t(".order", :user => @order.user.username) %>
 
 <% content_for(:before_title) do %>
-    <%= form_tag(order_order_items_path(@order), :remote => true, :data => { :static => true }, :class => "pull-right") do %>
-        <%= text_field_tag :barcode %>
-    <% end %>
+	<%= form_tag(order_order_items_path(@order), :remote => true, :data => { :static => true }, :class => "pull-right") do %>
+		<%= text_field_tag :barcode %>
+	<% end %>
 <% end %>
 
 <div id="order-item-table">
-  <%= render :partial => "order_items", :locals => { :order => @order } %>
+	<%= render :partial => "order_items", :locals => { :order => @order } %>
 </div>

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	before_filter(:only => [:create]) { true_required !params[:user].has_key?(:user_group_ids) }
 	before_filter(:only => [:update]) { true_required((params[:id] == current_user.id.to_s && !params[:user].has_key?(:user_group_ids)) || current_user.access_allowed?(:user_editing)) }
 	before_filter(:only => [:edit]) { true_required(params[:id] == current_user.id.to_s || current_user.access_allowed?(:user_editing)) }
-	before_filter(:only => [:destroy,:markpayed]) { access_required :user_editing }
+	before_filter(:only => [:destroy, :markpayed]) { access_required :user_editing }
 
 	def index
 		@users = User.all
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 		if @user.save
 			session[:user_id] = @user.id
-			redirect_to signup_finished_path, flash:{info: "Thank you for signing up! You are now logged in."}
+			redirect_to signup_finished_path, flash: { info: "Thank you for signing up! You are now logged in." }
 		else
 			render :action => 'new'
 		end
@@ -35,18 +35,18 @@ class UsersController < ApplicationController
 	def update
 		@user = User.find params[:id]
 		if @user.update_attributes(params[:user])
-			redirect_to users_path, flash:{info: "Your profile has been updated."}
+			redirect_to users_path, flash: { info: "Your profile has been updated." }
 		else
 			render :action => 'edit'
 		end
-  end
+	end
 
-  def markpayed
-    @user = User.find_by_structured_message(params[:msg])
-    if @user.update_attributes({:payed => true})
-      redirect_to users_path, flash:{info: "User has been marked as payed."}
-    else
-      render :action => 'index'
-    end
-  end
+	def markpayed
+		@user = User.find_by_structured_message(params[:msg])
+		if @user.update_attributes({ :payed => true })
+			redirect_to users_path, flash: { info: "User has been marked as payed." }
+		else
+			render :action => 'index'
+		end
+	end
 end

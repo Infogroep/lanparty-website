@@ -1,13 +1,13 @@
 <% title t("store_item.other") %>
 
 <% content_for(:before_title) do %>
-    <div class="btn-toolbar game-list-view-options">
-      <div class="btn-group">
-        <%= link_to raw('<i class="icon-list"></i>'), url_for(:games_view => :list), class: view_selector_class(:list) %>
-      </div>
-    </div>
+	<div class="btn-toolbar game-list-view-options">
+		<div class="btn-group">
+			<%= link_to raw('<i class="icon-list"></i>'), url_for(:games_view => :list), class: view_selector_class(:list) %>
+		</div>
+	</div>
 <% end %>
 
-<%= render :partial => (session[:store_items_view] == :list ? "store_items_list" : "game_grid"), :locals => {:store_items => @store_items} %>
+<%= render :partial => (session[:store_items_view] == :list ? "store_items_list" : "game_grid"), :locals => { :store_items => @store_items } %>
 
 <%= link_to t(:new, :model => t("store_item.one")), new_store_item_path, class: "btn" %>

@@ -24,12 +24,12 @@ describe StoreItemsController do
 	# StoreItem. As you add validations to StoreItem, be sure to
 	# update the return value of this method accordingly.
 	def valid_attributes
-		{:name => "store_itemname", :purchase_price => 12, :stock => 5 }
+		{ :name => "store_itemname", :purchase_price => 12, :stock => 5 }
 	end
 
 	describe_access(
-		:login => [:index, :destroy, :show, :new, :update, :create],
-    :store_editing => [:destroy, :new, :update, :create]
+			:login => [:index, :destroy, :show, :new, :update, :create],
+			:store_editing => [:destroy, :new, :update, :create]
 	) do
 
 		describe "GET index" do
@@ -87,14 +87,14 @@ describe StoreItemsController do
 				it "assigns a newly created but unsaved store_item as @store_item" do
 					# Trigger the behavior that occurs when invalid params are submitted
 					StoreItem.any_instance.stub(:save).and_return(false)
-					post :create, :store_item => {}
+					post :create, :store_item => { }
 					assigns(:store_item).should be_a_new(StoreItem)
 				end
 
 				it "re-renders the 'new' template" do
 					# Trigger the behavior that occurs when invalid params are submitted
 					StoreItem.any_instance.stub(:save).and_return(false)
-					post :create, :store_item => {}
+					post :create, :store_item => { }
 					response.should render_template("new")
 				end
 			end
@@ -108,8 +108,8 @@ describe StoreItemsController do
 					# specifies that the StoreItem created on the previous line
 					# receives the :update_attributes message with whatever params are
 					# submitted in the request.
-					StoreItem.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-					put :update, :id => store_item.id, :store_item => {'these' => 'params'}
+					StoreItem.any_instance.should_receive(:update_attributes).with({ 'these' => 'params' })
+					put :update, :id => store_item.id, :store_item => { 'these' => 'params' }
 				end
 
 				it "assigns the requested store_item as @store_item" do
@@ -130,7 +130,7 @@ describe StoreItemsController do
 					store_item = StoreItem.create! valid_attributes
 					# Trigger the behavior that occurs when invalid params are submitted
 					StoreItem.any_instance.stub(:save).and_return(false)
-					put :update, :id => store_item.id.to_s, :store_item => {}
+					put :update, :id => store_item.id.to_s, :store_item => { }
 					assigns(:store_item).should eq(store_item)
 				end
 
@@ -138,7 +138,7 @@ describe StoreItemsController do
 					store_item = StoreItem.create! valid_attributes
 					# Trigger the behavior that occurs when invalid params are submitted
 					StoreItem.any_instance.stub(:save).and_return(false)
-					put :update, :id => store_item.id.to_s, :store_item => {}
+					put :update, :id => store_item.id.to_s, :store_item => { }
 					response.should render_template("edit")
 				end
 			end

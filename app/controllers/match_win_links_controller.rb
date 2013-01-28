@@ -45,7 +45,7 @@ class MatchWinLinksController < ApplicationController
 
 		respond_to do |format|
 			if @match_win_link.save
-				format.html { redirect_to @match_win_link, flash:{info: 'Match win link was successfully created.' }}
+				format.html { redirect_to @match_win_link, flash: { info: 'Match win link was successfully created.' } }
 				format.json { render json: @match_win_link, status: :created, location: @match_win_link }
 			else
 				format.html { render action: "new" }
@@ -61,7 +61,7 @@ class MatchWinLinksController < ApplicationController
 
 		respond_to do |format|
 			if @match_win_link.update_attributes(params[:match_win_link])
-				format.html { redirect_to @match_win_link, flash:{info: 'Match win link was successfully updated.' }}
+				format.html { redirect_to @match_win_link, flash: { info: 'Match win link was successfully updated.' } }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

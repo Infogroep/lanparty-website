@@ -1,6 +1,6 @@
 class ComposController < ApplicationController
 	before_filter :login_required
-	before_filter(:except => [:index,:show]) { access_required :compo_editing }
+	before_filter(:except => [:index, :show]) { access_required :compo_editing }
 
 	# GET /compos
 	# GET /compos.json
@@ -47,7 +47,7 @@ class ComposController < ApplicationController
 
 		respond_to do |format|
 			if @compo.save
-				format.html { redirect_to compos_url, flash:{ info: 'Compo was successfully created.' }}
+				format.html { redirect_to compos_url, flash: { info: 'Compo was successfully created.' } }
 				format.json { render json: @compo, status: :created, location: @compo }
 			else
 				format.html { render action: "new" }
@@ -63,7 +63,7 @@ class ComposController < ApplicationController
 
 		respond_to do |format|
 			if @compo.update_attributes(params[:compo])
-				format.html { redirect_to compos_url, flash: { info: 'Compo was successfully updated.'} }
+				format.html { redirect_to compos_url, flash: { info: 'Compo was successfully updated.' } }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

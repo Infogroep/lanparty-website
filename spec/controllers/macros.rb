@@ -24,7 +24,7 @@ module ControllerMacros
 			end
 		end
 
-		def describe_access(access_requirements,&body)
+		def describe_access(access_requirements, &body)
 			login_actions = access_requirements.delete(:login) || []
 
 			describe "login required" do
@@ -35,7 +35,7 @@ module ControllerMacros
 					login
 				end
 				describe "access required" do
-					access_requirements.each do |access_type,actions|
+					access_requirements.each do |access_type, actions|
 						it_should_require_access_for_actions access_type, actions
 					end
 				end
@@ -53,19 +53,19 @@ module ControllerMacros
 	def login
 		User.skip_callback :save, :before, :prepare_password, :unless => Proc.new { |user| user.password_hash.nil? }
 		@current_user = User.new(:username => "user",
-														 :email => "user@example.com",
-														 :password => "secret",
-														 :password_hash => "$2a$10$cg2feQJfTglKpkJjwCtFves068nDh00m6AYhSvwkBvFb5af2AAvwi",
-														 :password_salt => "$2a$10$cg2feQJfTglKpkJjwCtFve")
+		                         :email => "user@example.com",
+		                         :password => "secret",
+		                         :password_hash => "$2a$10$cg2feQJfTglKpkJjwCtFves068nDh00m6AYhSvwkBvFb5af2AAvwi",
+		                         :password_salt => "$2a$10$cg2feQJfTglKpkJjwCtFve")
 		@current_user.save!
 		session[:user_id] = @current_user.id
 	end
 
 	def give_full_access
-    new_params = {:name => "admin"}
-    UserGroup.access_type_attributes.each do |attrs|
-      new_params[attrs] = true
-    end
+		new_params = { :name => "admin" }
+		UserGroup.access_type_attributes.each do |attrs|
+			new_params[attrs] = true
+		end
 		@admin_group = UserGroup.create(new_params)
 		@current_user.user_groups = [@admin_group]
 		@current_user.save!
