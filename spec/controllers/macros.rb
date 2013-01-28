@@ -3,39 +3,44 @@ module ControllerMacros
 		base.extend(ClassMethods)
 	end
 
+	# standard, empty value for additional_params
+	def additional_params
+		{ }
+	end
+
 	module ClassMethods
-		def it_should_redirect_for_actions(actions, params, description, expected_redirect, expected_error)
+		def it_should_redirect_for_actions(actions, description, expected_redirect, expected_error)
 			actions.each do |action|
 				it "#{action} action #{description}" do
-					get action, params.nil? ? { :id => 1 } : { :id => 1 }.merge(params)
+					get action, { :id => 1 }.merge(additional_params)
 					response.should redirect_to(send(expected_redirect))
 					flash[:error].should == expected_error
 				end
 			end
 		end
 
-		def it_should_require_login_for_actions(actions, params)
-			it_should_redirect_for_actions(actions, params, "should require login", :login_url, "You must first log in or sign up before accessing this page.")
+		def it_should_require_login_for_actions(actions)
+			it_should_redirect_for_actions(actions, "should require login", :login_url, "You must first log in or sign up before accessing this page.")
 		end
 
-		def it_should_deny_access(actions, params)
-			it_should_redirect_for_actions(actions, params, "should deny access", :home_url, "You are not allowed in this section.")
+		def it_should_deny_access_for_actions(actions)
+			it_should_redirect_for_actions(actions, "should deny access", :home_url, "You are not allowed in this section.")
 		end
 
-		def it_should_require_access_for_actions(access_type, actions, params)
+		def it_should_require_access_for_actions(access_type, actions)
 			describe "for access type #{access_type}" do
 				before(:each) do
-					@admin_group.update_attributes({ :"access_type_#{access_type}" => false })
+					withdraw_access(access_type)
 				end
-				it_should_deny_access(actions, params)
+				it_should_deny_access_for_actions(actions)
 			end
 		end
 
-		def describe_access(access_requirements, params = nil, &body)
+		def describe_access(access_requirements, &body)
 			login_actions = access_requirements.delete(:login) || []
 
 			describe "when not yet logged in" do
-				it_should_require_login_for_actions login_actions, params
+				it_should_require_login_for_actions login_actions
 			end
 			describe "when logged in" do
 				before(:each) do
@@ -45,7 +50,7 @@ module ControllerMacros
 
 				describe "and access has not yet been granted" do
 					access_requirements.each do |access_type, actions|
-						it_should_require_access_for_actions access_type, actions, params
+						it_should_require_access_for_actions access_type, actions
 					end
 				end
 
@@ -77,5 +82,13 @@ module ControllerMacros
 		UserGroup.remove_implications
 		@current_user.user_groups = [@admin_group]
 		@current_user.save!
+	end
+
+	def access_type_attribute(access_type)
+		:"access_type_#{access_type}"
+	end
+
+	def withdraw_access(access_type)
+		@admin_group.update_attributes({ access_type_attribute(access_type) => false })
 	end
 end

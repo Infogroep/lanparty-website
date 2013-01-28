@@ -12,17 +12,18 @@ class BlogCommentsController < ApplicationController
 	def create
 		@blog_post = BlogPost.find(params[:blog_post_id])
 		@blog_comment = @blog_post.blog_comments.create(params[:blog_comment].merge({ :user_id => current_user.id }))
-		redirect_to blog_post_path(@blog_post)
+		redirect_to @blog_post
 	end
 
 	# PUT /blog_comments/1
 	# PUT /blog_comments/1.json
 	def update
+		@blog_post = BlogPost.find(params[:blog_post_id])
 		@blog_comment = BlogComment.find(params[:id])
 
 		respond_to do |format|
 			if @blog_comment.update_attributes(params[:blog_comment])
-				format.html { redirect_to @blog_comment, notice: 'Blog comment was successfully updated.' }
+				format.html { redirect_to @blog_post, notice: 'Blog comment was successfully updated.' }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }
@@ -34,11 +35,12 @@ class BlogCommentsController < ApplicationController
 	# DELETE /blog_comments/1
 	# DELETE /blog_comments/1.json
 	def destroy
+		@blog_post = BlogPost.find(params[:blog_post_id])
 		@blog_comment = BlogComment.find(params[:id])
 		@blog_comment.destroy
 
 		respond_to do |format|
-			format.html { redirect_to blog_comments_url }
+			format.html { redirect_to @blog_post }
 			format.json { head :no_content }
 		end
 	end

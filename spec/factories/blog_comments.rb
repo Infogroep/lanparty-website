@@ -3,7 +3,7 @@
 FactoryGirl.define do
 	factory :blog_comment do
 		content "MyText"
-		post nil
-		user nil
+		post
+		user
 	end
 end
