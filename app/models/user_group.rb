@@ -50,5 +50,10 @@ class UserGroup < ActiveRecord::Base
 		self.class.get_implications(access_type).any? { |atype| self.allows_access?(atype) }
 	end
 
+	# used for testing
+	def self.remove_implications
+		@@implied_by = {}
+	end
+
 	implies :user_editing, :user_detail_viewing
 end

@@ -54,6 +54,9 @@ gem 'simple_form'
 gem 'ledermann-rails-settings', :require => 'rails-settings'
 gem 'chosen-rails'
 
+
+gem 'rb-inotify', '~> 0.8.8'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -19,7 +19,12 @@ module ControllerMacros
 		end
 
 		def it_should_require_access_for_actions(access_type, actions, params)
-			it_should_require_for_actions(actions, params, "should require #{access_type} access", :home_url, "You are not allowed in this section.")
+			describe "for access type #{access_type}" do
+				before(:each) do
+					@admin_group.update_attributes({ :"access_type_#{access_type}" => false })
+				end
+				it_should_require_for_actions(actions, params, "should require #{access_type} access", :home_url, "You are not allowed in this section.")
+			end
 		end
 
 		def describe_access(access_requirements, params = nil, &body)
@@ -31,16 +36,16 @@ module ControllerMacros
 			describe "when logged in" do
 				before(:each) do
 					login
+					give_full_access
 				end
+
 				describe "and access has not yet been granted" do
 					access_requirements.each do |access_type, actions|
 						it_should_require_access_for_actions access_type, actions, params
 					end
 				end
+
 				describe "and access has been granted" do
-					before(:each) do
-						give_full_access
-					end
 					body && instance_eval(&body)
 				end
 			end
@@ -65,6 +70,7 @@ module ControllerMacros
 			new_params[attrs] = true
 		end
 		@admin_group = UserGroup.create(new_params)
+		UserGroup.remove_implications
 		@current_user.user_groups = [@admin_group]
 		@current_user.save!
 	end
