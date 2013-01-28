@@ -28,7 +28,7 @@ describe GamesController do
 	end
 
 	describe_access(
-			:login => [:index, :destroy, :show, :new, :update, :create]
+			:login => [:destroy, :show, :new, :update, :create]
 	) do
 
 		describe "GET index" do
@@ -76,9 +76,9 @@ describe GamesController do
 					assigns(:game).should be_persisted
 				end
 
-				it "redirects to the created game" do
+				it "redirects to the game index" do
 					post :create, { :game => valid_attributes }
-					response.should redirect_to(Game.last)
+					response.should redirect_to(games_url)
 				end
 			end
 
@@ -117,10 +117,10 @@ describe GamesController do
 					assigns(:game).should eq(game)
 				end
 
-				it "redirects to the game" do
+				it "redirects to the games index" do
 					game = Game.create! valid_attributes
 					put :update, { :id => game.to_param, :game => valid_attributes }
-					response.should redirect_to(game)
+					response.should redirect_to(games_url)
 				end
 			end
 

@@ -4,42 +4,40 @@ module ControllerMacros
 	end
 
 	module ClassMethods
-		def it_should_require_login_for_actions(actions)
+		def it_should_require_for_actions(actions, params, description, expected_redirect, expected_error)
 			actions.each do |action|
-				it "#{action} action should require login" do
-					get action, :id => 1
-					response.should redirect_to(login_url)
-					flash[:error].should == "You must first log in or sign up before accessing this page."
+				it "#{action} action #{description}" do
+					get action, params.nil? ? { :id => 1 } : { :id => 1 }.merge(params)
+					response.should redirect_to(send(expected_redirect))
+					flash[:error].should == expected_error
 				end
 			end
 		end
 
-		def it_should_require_access_for_actions(access_type, actions)
-			actions.each do |action|
-				it "#{action} action should require #{access_type} access" do
-					get action, :id => 1
-					response.should redirect_to(home_url)
-					flash[:error].should == "You are not allowed in this section."
-				end
-			end
+		def it_should_require_login_for_actions(actions, params)
+			it_should_require_for_actions(actions, params, "should require login", :login_url, "You must first log in or sign up before accessing this page.")
 		end
 
-		def describe_access(access_requirements, &body)
+		def it_should_require_access_for_actions(access_type, actions, params)
+			it_should_require_for_actions(actions, params, "should require #{access_type} access", :home_url, "You are not allowed in this section.")
+		end
+
+		def describe_access(access_requirements, params = nil, &body)
 			login_actions = access_requirements.delete(:login) || []
 
-			describe "login required" do
-				it_should_require_login_for_actions login_actions
+			describe "when not yet logged in" do
+				it_should_require_login_for_actions login_actions, params
 			end
-			describe "logged in" do
+			describe "when logged in" do
 				before(:each) do
 					login
 				end
-				describe "access required" do
+				describe "and access has not yet been granted" do
 					access_requirements.each do |access_type, actions|
-						it_should_require_access_for_actions access_type, actions
+						it_should_require_access_for_actions access_type, actions, params
 					end
 				end
-				describe "access granted" do
+				describe "and access has been granted" do
 					before(:each) do
 						give_full_access
 					end

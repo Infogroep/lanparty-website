@@ -84,9 +84,9 @@ describe ComposController do
 					assigns(:compo).should be_persisted
 				end
 
-				it "redirects to the created compo" do
+				it "redirects to the index" do
 					post :create, { :compo => valid_attributes }
-					response.should redirect_to(Compo.last)
+					response.should redirect_to(compos_url)
 				end
 			end
 
@@ -125,10 +125,10 @@ describe ComposController do
 					assigns(:compo).should eq(compo)
 				end
 
-				it "redirects to the compo" do
+				it "redirects to the index" do
 					compo = Compo.create! valid_attributes
 					put :update, { :id => compo.to_param, :compo => valid_attributes }
-					response.should redirect_to(compo)
+					response.should redirect_to(compos_url)
 				end
 			end
 

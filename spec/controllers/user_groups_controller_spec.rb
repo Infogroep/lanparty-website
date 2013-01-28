@@ -77,9 +77,9 @@ describe UserGroupsController do
 					assigns(:user_group).should be_persisted
 				end
 
-				it "redirects to the created user_group" do
+				it "redirects to the user_group index" do
 					post :create, { :user_group => valid_attributes }
-					response.should redirect_to(UserGroup.last)
+					response.should redirect_to(user_groups_url)
 				end
 			end
 
@@ -118,10 +118,10 @@ describe UserGroupsController do
 					assigns(:user_group).should eq(user_group)
 				end
 
-				it "redirects to the user_group" do
+				it "redirects to the user_group index" do
 					user_group = UserGroup.create! valid_attributes
 					put :update, { :id => user_group.to_param, :user_group => valid_attributes }
-					response.should redirect_to(user_group)
+					response.should redirect_to(user_groups_url)
 				end
 			end
 

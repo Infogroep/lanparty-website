@@ -20,11 +20,15 @@ require 'spec_helper'
 
 describe StoreItemsController do
 
+	before(:each) do
+		@store_item_class = FactoryGirl.create(:store_item_class)
+	end
+
 	# This should return the minimal set of attributes required to create a valid
 	# StoreItem. As you add validations to StoreItem, be sure to
 	# update the return value of this method accordingly.
 	def valid_attributes
-		{ :name => "store_itemname", :purchase_price => 12, :stock => 5 }
+		{ :name => "store_itemname", :purchase_price => 12, :stock => 5, :store_item_class_id => @store_item_class.id }
 	end
 
 	describe_access(
@@ -77,9 +81,9 @@ describe StoreItemsController do
 					assigns(:store_item).should be_persisted
 				end
 
-				it "redirects to the created store_item" do
+				it "redirects to the store_item index" do
 					post :create, :store_item => valid_attributes
-					response.should redirect_to(StoreItem.last)
+					response.should redirect_to(store_items_url)
 				end
 			end
 
@@ -118,10 +122,10 @@ describe StoreItemsController do
 					assigns(:store_item).should eq(store_item)
 				end
 
-				it "redirects to the store_item" do
+				it "redirects to the store_item index" do
 					store_item = StoreItem.create! valid_attributes
 					put :update, :id => store_item.id, :store_item => valid_attributes
-					response.should redirect_to(store_item)
+					response.should redirect_to(store_items_url)
 				end
 			end
 
