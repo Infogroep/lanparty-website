@@ -33,6 +33,7 @@ en:
   game:
     one: "Game"
     other: "Games"
+    played_in: "Playedzefe in"
   user_group:
     one: "User Group"
     other: "User Groups"
@@ -328,6 +329,9 @@ en:
     payment_processing: "Payment processing"
     new:
       warning: "Warning: This is a reservation form! Filling out this form will reserve a spot for you at ILAN!"
+  games:
+    show:
+      played_in: "Played in"
   pages:
     info:
       content_html: '<h3>Where and when?</h3>

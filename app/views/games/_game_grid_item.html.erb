@@ -9,6 +9,8 @@
 <% end %>
 <h3><%= game.name %></h3>
 <% image = game.image_url(:front) %>
-<%= image_tag image if image %>
+<% if image %>
+	<%= link_to image_tag(image), game %>
+<% end %>
 <p class="well"><%= game.info %></p>
 

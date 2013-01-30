@@ -1,0 +1,18 @@
+<% buttons    ||= buttons.nil? %>
+<% slots      ||= slots.nil? %>
+<% group_size ||= group_size.nil? %>
+<% date       ||= date.nil? %>
+<% admin = current_user && current_user.access_allowed?(:compo_editing) %>
+
+
+<tr>
+	<td><%= link_to compo.game.name, compo %></td>
+	<% if slots %>      <td><%= compo.teams.count %>/<%= compo.slots %> </td> <% end %>
+	<% if group_size %> <td><%= compo.group_size %>                     </td> <% end %>
+	<% if date %>       <td><%= l(compo.date_time, :format => :short) %></td> <% end %>
+	<% if admin && buttons %>
+		<td class="action_column"><%= link_to t(:show), compo, class: "btn" %></td>
+		<td class="action_column"><%= link_to t(:edit), edit_compo_path(compo), class: "btn" %></td>
+		<td class="action_column"><%= link_to t(:destroy), compo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+	<% end %>
+</tr>

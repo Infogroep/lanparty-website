@@ -18,6 +18,23 @@
 	<%= @game.download_location %>
 </p>
 
+<p>
+	<b><%= t(".played_in") %>:</b>
+	<table class="table table-striped datatable">
+		<tr>
+			<th><%= t("simple_form.labels.compo.game") %></th>
+			<th><%= t("simple_form.labels.compo.slots") %></th>
+			<th><%= t("simple_form.labels.compo.group_size") %></th>
+			<th><%= t("simple_form.labels.compo.date_time") %></th>
+		</tr>
+		<tr>
+			<% @game.compos.each do |compo| %>
+				<%= render partial: "compos/table_row", locals: {compo: compo, buttons: false} %>
+			<% end %>
+		</tr>
+	</table>
+</p>
+
 
 <%= link_to t(:edit), edit_game_path(@game), class: "btn" %> |
 <%= link_to 'Back', games_path, class: "btn" %>

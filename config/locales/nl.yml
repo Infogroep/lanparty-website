@@ -33,6 +33,7 @@ nl:
   game:
     one: "Game"
     other: "Games"
+    played_in: "Playedzefe in"
   user_group:
     one: "Gebruikersgroep"
     other: "Gebruikersgroepen"
@@ -322,6 +323,9 @@ nl:
     payment_processing: "Betalingsverwerking"
     new:
       warning: "Opgelet: dit is een reservatieformulier! Door dit formulier in te vullen reserveert u een plaats op ILAN!"
+  games:
+    show:
+      played_in: "Wordt gespeeld in"
   pages:
     info:
       content_html: '<h3>Waar & wanneer?</h3>
@@ -332,7 +336,7 @@ nl:
                      (ook gekend als &quot;Ruimte onder Aula Q&quot;)<br />
                      Pleinlaan 2<br />
                      B-1050 Brussel</em></p>
-               		 <h3>Inschrijven & reglement</h3>
+                  <h3>Inschrijven & reglement</h3>
                      <p>De inkomprijs bij voorafbetaling zal dit jaar een luttele <strong>10</strong> euro bedragen.</p>
                      <p>Om een plaats te reserveren klikt u rechts bovenaan op "registreer". Wanneer u zich registreert gaat u automatisch akkoord met het <a href="%{rules_link}">reglement</a>. Dit zal ook uithangen aan de ingang.</p>
                      <p>Betaling gebeurt via bankoverschrijving. Onze bankinformatie is te vinden op de <a href="%{contact_link}">contactpagina</a>. Daar vindt u ook uw persoonlijke gestructureerde mededeling die u dient in te vullen op het overschrijvingsformulier.</p>

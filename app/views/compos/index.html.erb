@@ -18,17 +18,7 @@
 
 	<tbody>
 	<% @compos.each do |compo| %>
-		<tr>
-			<td><%= link_to compo.game.name, compo %></td>
-			<td><%= compo.slots %></td>
-			<td><%= compo.group_size %></td>
-			<td><%= l(compo.date_time, :format => :short) %></td>
-			<% if admin %>
-				<td class="action_column"><%= link_to t(:show), compo, class: "btn" %></td>
-				<td class="action_column"><%= link_to t(:edit), edit_compo_path(compo), class: "btn" %></td>
-				<td class="action_column"><%= link_to t(:destroy), compo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-			<% end %>
-		</tr>
+		<%= render partial: "table_row", locals: {compo: compo} %>
 	<% end %>
 	</tbody>
 </table>

@@ -20,4 +20,11 @@ describe Compo do
 		x = Compo.new()
 		x.featured.should be_false
 	end
+
+	it "responds with game name when calling .name" do
+		x = Compo.new()
+		y = Game.new(name: "test")
+		x.game = y
+		x.name.should == "test"
+	end
 end
