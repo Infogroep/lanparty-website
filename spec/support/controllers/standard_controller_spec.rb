@@ -6,8 +6,11 @@ shared_examples "standard_controller" do |model,options = {}|
 	singular_model     = singular_model_str.to_sym
 	plural_model       = singular_model_str.pluralize.to_sym
 
-	singular_model_url = :"#{singular_model}_url"
-	plural_model_url   = :"#{plural_model}_url"
+	class_eval(<<-EOF)
+	def plural_model_url
+		:#{plural_model}_url
+	end
+	EOF
 
 	def self.fetch_option(options,action,option,default)
 		return default if (action_options = options[action]).nil?
@@ -19,7 +22,7 @@ shared_examples "standard_controller" do |model,options = {}|
 		it "assigns all #{plural_model} as @#{plural_model}" do
 			model_instance = model.create! valid_attributes
 			get :index, additional_params
-			assigns(plural_model).should eq([model_instance])
+			assigns(plural_model).should eq(model.all)
 		end
 	end if actions.include?(:index)
 
@@ -48,7 +51,7 @@ shared_examples "standard_controller" do |model,options = {}|
 
 	describe "POST create" do
 		describe "with valid params" do
-			it "creates a new model" do
+			it "creates a new #{singular_model}" do
 				expect {
 					post :create, additional_params.merge({ singular_model => valid_attributes })
 				}.to change(model, :count).by(1)
@@ -60,10 +63,9 @@ shared_examples "standard_controller" do |model,options = {}|
 				assigns(singular_model).should be_persisted
 			end
 
-			it fetch_option(options,:create,:on_success_description,"redirects to the #{plural_model} list") do
+			it fetch_option(options,:create,:on_success,"redirects to the #{plural_model} list") do
 				post :create, additional_params.merge({ singular_model => valid_attributes })
-				on_success = self.class.fetch_option(options,:create,:on_success,lambda { |me| response.should redirect_to(send(plural_model_url)) })
-				instance_eval(&on_success)
+				on_create_success
 			end
 		end
 
@@ -75,12 +77,11 @@ shared_examples "standard_controller" do |model,options = {}|
 				assigns(singular_model).should be_a_new(model)
 			end
 
-			it fetch_option(options,:create,:on_fail_description,"re-renders the 'new' template") do
+			it fetch_option(options,:create,:on_fail,"re-renders the 'new' template") do
 				# Trigger the behavior that occurs when invalid params are submitted
 				model.any_instance.stub(:save).and_return(false)
 				post :create, additional_params.merge({ singular_model => { } })
-				on_fail = self.class.fetch_option(options,:create,:on_fail,lambda { |me| response.should render_template("new") })
-				instance_eval(&on_fail)
+				on_create_fail
 			end
 		end
 	end if actions.include?(:create)
@@ -103,11 +104,10 @@ shared_examples "standard_controller" do |model,options = {}|
 				assigns(singular_model).should eq(model_instance)
 			end
 
-			it fetch_option(options,:create,:on_success_description,"redirects to the #{plural_model} list") do
+			it fetch_option(options,:update,:on_success,"redirects to the #{plural_model} list") do
 				model_instance = model.create! valid_attributes
 				put :update, additional_params.merge({ :id => model_instance.id, singular_model => valid_attributes })
-				on_success = self.class.fetch_option(options,:create,:on_success,lambda { |me| response.should redirect_to(send(plural_model_url)) })
-				instance_eval(&on_success)
+				on_update_success(model_instance)
 			end
 		end
 
@@ -120,13 +120,12 @@ shared_examples "standard_controller" do |model,options = {}|
 				assigns(singular_model).should eq(model_instance)
 			end
 
-			it fetch_option(options,:create,:on_fail_description,"re-renders the 'edit' template") do
+			it fetch_option(options,:update,:on_fail,"re-renders the 'edit' template") do
 				model_instance = model.create! valid_attributes
 				# Trigger the behavior that occurs when invalid params are submitted
 				model.any_instance.stub(:save).and_return(false)
 				put :update, additional_params.merge({ :id => model_instance.id.to_s, singular_model => { } })
-				on_fail = self.class.fetch_option(options,:create,:on_fail,lambda { |me| response.should render_template("edit") })
-				instance_eval(&on_fail)
+				on_update_fail(model_instance)
 			end
 		end
 	end if actions.include?(:update)
@@ -139,11 +138,10 @@ shared_examples "standard_controller" do |model,options = {}|
 			}.to change(model, :count).by(-1)
 		end
 
-		it fetch_option(options,:create,:on_success_description,"redirects to the #{plural_model} list") do
+		it fetch_option(options,:destroy,:on_success,"redirects to the #{plural_model} list") do
 			model_instance = model.create! valid_attributes
 			delete :destroy, additional_params.merge({ :id => model_instance.id.to_s })
-			on_success = self.class.fetch_option(options,:create,:on_success,lambda { |me| response.should redirect_to(send(plural_model_url)) })
-			instance_eval(&on_success)
+			on_destroy_success
 		end
 	end if actions.include?(:destroy)
 end

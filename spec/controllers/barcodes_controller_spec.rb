@@ -32,8 +32,8 @@ describe BarcodesController do
 	end
 
 	describe_access(
-			:login => [:index, :destroy, :show, :new, :update, :create],
-			:store_editing => [:index, :destroy, :show, :new, :update, :create]
+			:login => [:index, :destroy, :edit, :show, :new, :update, :create],
+			:store_editing => [:index, :destroy, :edit, :show, :new, :update, :create]
 	) do
 
 		include_examples "standard_controller", Barcode

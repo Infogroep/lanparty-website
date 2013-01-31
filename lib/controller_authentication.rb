@@ -46,6 +46,10 @@ module ControllerAuthentication
 		true_required(current_user.access_allowed?(access_type))
 	end
 
+	def user_or_access_required(userid,access_type)
+		true_required(userid == current_user.id || current_user.access_allowed?(access_type))
+	end
+
 	def redirect_to_target_or_default(default, *args)
 		redirect_to(session[:return_to] || default, *args)
 		session[:return_to] = nil

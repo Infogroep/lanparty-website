@@ -25,11 +25,35 @@ describe BlogCommentsController do
 # BlogComment. As you add validations to BlogComment, be sure to
 # update the return value of this method accordingly.
 	def valid_attributes
-		{ :content => "MyText", :blog_post_id => @blog_post.id, :user_id => @user.id }
+		{ :content => "MyText", :blog_post_id => @blog_post.id, :user_id => @user2.id }
 	end
 
 	def additional_params
 		@additional_params
+	end
+
+	redirect_txt = "redirects to the associated blog_post"
+
+	def on_create_success
+		response.should redirect_to(@blog_post)
+	end
+
+	def on_create_fail
+		response.should redirect_to(@blog_post)
+	end
+
+	def on_update_success(instance)
+		response.should redirect_to(@blog_post)
+	end
+
+	def on_destroy_success
+		response.should redirect_to(@blog_post)
+	end
+
+	def set_owner(user)
+		@user2 = user
+		@blog_comment = BlogComment.create! valid_attributes
+		@additional_params = additional_params.merge({ :id => @blog_comment.id })
 	end
 
 	before(:each) do
@@ -44,19 +68,15 @@ describe BlogCommentsController do
 		:login => [:edit, :destroy, :update, :create]
 	) do
 
-		describe "if the current user has no blog_editing access and the blog_comment does not belong to the current user" do
-			before(:each) do
-				blog_comment = BlogComment.create! valid_attributes
-				withdraw_access(:blog_editing)
-				@additional_params = @additional_params.merge({ :id => blog_comment.id })
-			end
-			it_should_deny_access_for_actions [:edit,:update,:destroy]
+		it_should_require_user_or_access_for_actions(:blog_editing,[:edit,:update,:destroy]) do
+
+			include_examples "standard_controller",
+			                 BlogComment,
+			                 :only => [:edit, :create, :update, :destroy],
+			                 :create => { :on_success => redirect_txt, :on_fail => redirect_txt },
+			                 :update => { :on_success => redirect_txt },
+			                 :destroy => { :on_success => redirect_txt }
+
 		end
-
-		include_examples "standard_controller",
-		                 BlogComment,
-		                 :only => [:edit, :create, :update, :destroy]
-		                 :create => { :on_success => lambda { |me| response.should redirect_to(@blog_post) } }
-
 	end
 end

@@ -36,7 +36,7 @@ module ControllerMacros
 			end
 		end
 
-		def describe_access(access_requirements, &body)
+		def describe_access(access_requirements = {}, &body)
 			login_actions = access_requirements.delete(:login) || []
 
 			describe "when not yet logged in" do
@@ -57,6 +57,31 @@ module ControllerMacros
 				describe "and access has been granted" do
 					body && instance_eval(&body)
 				end
+			end
+		end
+
+		def it_should_require_user_or_access_for_actions(access_type, actions, &body)
+			describe "if current user is not the owner and current user does not have #{access_type} access" do
+				before(:each) do
+					set_owner FactoryGirl.create(:user)
+					withdraw_access(access_type)
+				end
+				it_should_deny_access_for_actions(actions)
+			end
+
+			describe "if current user is not the owner and current user has #{access_type} access" do
+				before(:each) do
+					set_owner FactoryGirl.create(:user)
+				end
+				body && instance_eval(&body)
+			end
+
+			describe "if current_user is the owner and current user does not have #{access_type} access" do
+				before(:each) do
+					set_owner @current_user
+					withdraw_access(access_type)
+				end
+				body && instance_eval(&body)
 			end
 		end
 	end

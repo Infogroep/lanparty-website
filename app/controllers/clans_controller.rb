@@ -44,7 +44,7 @@ class ClansController < ApplicationController
 
 		respond_to do |format|
 			if @clan.save
-				format.html { redirect_to @clan, notice: 'Clan was successfully created.' }
+				format.html { redirect_to clans_url, notice: 'Clan was successfully created.' }
 				format.json { render json: @clan, status: :created, location: @clan }
 			else
 				format.html { render action: "new" }
@@ -60,7 +60,7 @@ class ClansController < ApplicationController
 
 		respond_to do |format|
 			if @clan.update_attributes(params[:clan])
-				format.html { redirect_to @clan, notice: 'Clan was successfully updated.' }
+				format.html { redirect_to clans_url, notice: 'Clan was successfully updated.' }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

@@ -44,7 +44,7 @@ class BarcodesController < ApplicationController
 
 		respond_to do |format|
 			if @barcode.save
-				format.html { redirect_to @barcode, flash: { info: 'Barcode was successfully created.' } }
+				format.html { redirect_to barcodes_url, flash: { info: 'Barcode was successfully created.' } }
 			else
 				format.html { render action: "new" }
 			end
@@ -58,7 +58,7 @@ class BarcodesController < ApplicationController
 
 		respond_to do |format|
 			if @barcode.update_attributes(params[:barcode])
-				format.html { redirect_to @barcode, flash: { info: 'Barcode was successfully updated.' } }
+				format.html { redirect_to barcodes_url, flash: { info: 'Barcode was successfully updated.' } }
 			else
 				format.html { render action: "edit" }
 			end

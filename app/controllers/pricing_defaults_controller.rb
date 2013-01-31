@@ -47,7 +47,7 @@ class PricingDefaultsController < ApplicationController
 
 		respond_to do |format|
 			if @pricing_default.save
-				format.html { redirect_to @pricing_default, flash: { info: 'Pricing default was successfully created.' } }
+				format.html { redirect_to pricing_defaults_url, flash: { info: 'Pricing default was successfully created.' } }
 				format.json { render json: @pricing_default, status: :created, location: @pricing_default }
 			else
 				format.html { render action: "new" }
@@ -63,7 +63,7 @@ class PricingDefaultsController < ApplicationController
 
 		respond_to do |format|
 			if @pricing_default.update_attributes(params[:pricing_default])
-				format.html { redirect_to @pricing_default, flash: { info: 'Pricing default was successfully updated.' } }
+				format.html { redirect_to pricing_defaults_url, flash: { info: 'Pricing default was successfully updated.' } }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

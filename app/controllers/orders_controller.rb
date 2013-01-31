@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
 	before_filter :login_required
+	before_filter(:only => [:show,:edit,:update,:create,:destroy]) { user_or_access_required(Order.find(params[:id]).user_id,:order_processing) }
 
 	# GET /orders
 	# GET /orders.json
@@ -46,7 +47,7 @@ class OrdersController < ApplicationController
 
 		respond_to do |format|
 			if @order.save
-				format.html { redirect_to @order, notice: 'Order was successfully created.' }
+				format.html { redirect_to orders_url, notice: 'Order was successfully created.' }
 				format.json { render json: @order, status: :created, location: @order }
 			else
 				format.html { render action: "new" }
@@ -62,7 +63,7 @@ class OrdersController < ApplicationController
 
 		respond_to do |format|
 			if @order.update_attributes(params[:order])
-				format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+				format.html { redirect_to orders_url, notice: 'Order was successfully updated.' }
 				format.json { head :no_content }
 			else
 				format.html { render action: "edit" }

@@ -1,4 +1,7 @@
 class OrderItemsController < ApplicationController
+	before_filter :login_required
+	before_filter { user_or_access_required(Order.find(params[:order_id]).user_id,:order_processing) }
+
 	# POST /order/1/order_items
 	def create
 		@order = Order.find(params[:order_id])
