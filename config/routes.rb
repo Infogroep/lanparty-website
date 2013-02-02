@@ -1,6 +1,4 @@
 Lanparty::Application.routes.draw do
-
-
 	scope "(:locale)", :locale => /en|nl/ do
 
 		resources :blog_posts do
@@ -21,6 +19,7 @@ Lanparty::Application.routes.draw do
 
 		resources :logs
 
+		resources :sponsors
 
 		match 'user/edit' => 'users#edit', :as => :edit_current_user
 

@@ -2,6 +2,12 @@
 	<h2><%= t(:login) %></h2>
 	<%= render partial: "sessions/small_form" %>
 <% end %>
+<% if Sponsor.count > 0 %>
+	<h2><%= t("sponsor", :count => Sponsor.count) %></h2>
+	<% Sponsor.all.each do |sponsor| %>
+        <p><%= link_to (sponsor.image.nil? ? sponsor.name : image_tag(sponsor.image_url(:sidebar))), sponsor.website %></p>
+	<% end %>
+<% end %>
 <h2><%= t(:info) %></h2>
 <table class="table table-striped">
 	<tr>

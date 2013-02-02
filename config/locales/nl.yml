@@ -33,10 +33,13 @@ nl:
   game:
     one: "Game"
     other: "Games"
-    played_in: "Playedzefe in"
+    played_in: "Played in"
   user_group:
     one: "Gebruikersgroep"
     other: "Gebruikersgroepen"
+  sponsor:
+    one: "Sponsor"
+    other: "Sponsors"
 
   show: "Toon"
   edit: "Bewerk"
@@ -103,6 +106,10 @@ nl:
         stock: "Stock"
         purchase_price: "Aankoopprijs"
         store_item_class: "Itemtype"
+      sponsor:
+        name: "Naam"
+        website: "Website"
+        image: "Logo"
 
   ago: "%{time_difference} geleden"
   btn_details: "Details »"

@@ -33,10 +33,13 @@ en:
   game:
     one: "Game"
     other: "Games"
-    played_in: "Playedzefe in"
+    played_in: "Played in"
   user_group:
     one: "User Group"
     other: "User Groups"
+  sponsor:
+    one: "Sponsor"
+    other: "Sponsors"
 
   show: "Show"
   edit: "Edit"
@@ -102,6 +105,10 @@ en:
         stock: "Stock"
         purchase_price: "Purchase price"
         store_item_class: "Item class"
+      sponsor:
+        name: "Name"
+        website: "Website"
+        image: "Logo"
 
   ago: "%{time_difference} ago"
   btn_details: "Details »"
