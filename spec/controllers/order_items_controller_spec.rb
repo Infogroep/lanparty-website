@@ -19,146 +19,124 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe OrderItemsController do
-=begin
-  # This should return the minimal set of attributes required to create a valid
-  # OrderItem. As you add validations to OrderItem, be sure to
-  # update the return value of this method accordingly.
-  def valid_attributes
-    { "store_item" => "" }
-  end
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # OrderItemsController. Be sure to keep this updated too.
-  def valid_session
-    {}
-  end
+	def additional_params
+		@additional_params || { :order_id => 1 }
+	end
 
-  describe "GET index" do
-    it "assigns all order_items as @order_items" do
-      order_item = OrderItem.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:order_items).should eq([order_item])
-    end
-  end
+	def general_success
+		should respond_with(:ok)
+		response.should render_template("orders/_order_items")
+	end
 
-  describe "GET show" do
-    it "assigns the requested order_item as @order_item" do
-      order_item = OrderItem.create! valid_attributes
-      get :show, {:id => order_item.to_param}, valid_session
-      assigns(:order_item).should eq(order_item)
-    end
-  end
+	def general_fail
+		should respond_with(:internal_server_error)
+		response.should render_template("layouts/_flash_messages")
+	end
 
-  describe "GET new" do
-    it "assigns a new order_item as @order_item" do
-      get :new, {}, valid_session
-      assigns(:order_item).should be_a_new(OrderItem)
-    end
-  end
+	def on_update_success(instance)
+		general_success
+	end
 
-  describe "GET edit" do
-    it "assigns the requested order_item as @order_item" do
-      order_item = OrderItem.create! valid_attributes
-      get :edit, {:id => order_item.to_param}, valid_session
-      assigns(:order_item).should eq(order_item)
-    end
-  end
+	# When update fails, it renders an error message
+	def on_update_fail(instance)
+		general_fail
+	end
 
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new OrderItem" do
-        expect {
-          post :create, {:order_item => valid_attributes}, valid_session
-        }.to change(OrderItem, :count).by(1)
-      end
+	def on_destroy_success
+		general_success
+	end
 
-      it "assigns a newly created order_item as @order_item" do
-        post :create, {:order_item => valid_attributes}, valid_session
-        assigns(:order_item).should be_a(OrderItem)
-        assigns(:order_item).should be_persisted
-      end
+	def set_owner(user)
+		@order = FactoryGirl.build(:order)
+		@order.user = user
+		@order.save
 
-      it "redirects to the created order_item" do
-        post :create, {:order_item => valid_attributes}, valid_session
-        response.should redirect_to(OrderItem.last)
-      end
-    end
+		@additional_params = { :order_id => @order.id }
+	end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved order_item as @order_item" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        OrderItem.any_instance.stub(:save).and_return(false)
-        post :create, {:order_item => { "store_item" => "invalid value" }}, valid_session
-        assigns(:order_item).should be_a_new(OrderItem)
-      end
+	def first_order_item_count
+		@order.order_items.first.count
+	end
 
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        OrderItem.any_instance.stub(:save).and_return(false)
-        post :create, {:order_item => { "store_item" => "invalid value" }}, valid_session
-        response.should render_template("new")
-      end
-    end
-  end
+	# This should return the minimal set of attributes required to create a valid
+	# OrderItem. As you add validations to OrderItem, be sure to
+	# update the return value of this method accordingly.
+	def valid_attributes
+		{ :order_id => @order.id, :store_item_id => @store_item.id, :count => 1 }
+	end
 
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested order_item" do
-        order_item = OrderItem.create! valid_attributes
-        # Assuming there are no other order_items in the database, this
-        # specifies that the OrderItem created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        OrderItem.any_instance.should_receive(:update_attributes).with({ "store_item" => "" })
-        put :update, {:id => order_item.to_param, :order_item => { "store_item" => "" }}, valid_session
-      end
+	describe_access(
+			:login => [:create, :update, :destroy],
+	) do
 
-      it "assigns the requested order_item as @order_item" do
-        order_item = OrderItem.create! valid_attributes
-        put :update, {:id => order_item.to_param, :order_item => valid_attributes}, valid_session
-        assigns(:order_item).should eq(order_item)
-      end
+		before(:each) do
+			@store_item = FactoryGirl.create(:store_item)
+		end
 
-      it "redirects to the order_item" do
-        order_item = OrderItem.create! valid_attributes
-        put :update, {:id => order_item.to_param, :order_item => valid_attributes}, valid_session
-        response.should redirect_to(order_item)
-      end
-    end
+		it_should_require_user_or_access_for_actions(:order_processing,[:create,:update,:destroy]) do
+			include_examples "standard_controller", OrderItem, :only => [:update,:destroy],
+			                 :update  => { :on_success => "renders the orders/_order_items partial",
+			                               :on_fail    => "renders the layouts/_flash_messages partial" },
+			                 :destroy => { :on_success => "renders the orders/_order_items partial" }
 
-    describe "with invalid params" do
-      it "assigns the order_item as @order_item" do
-        order_item = OrderItem.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        OrderItem.any_instance.stub(:save).and_return(false)
-        put :update, {:id => order_item.to_param, :order_item => { "store_item" => "invalid value" }}, valid_session
-        assigns(:order_item).should eq(order_item)
-      end
+			describe "POST create" do
+				before(:each) do
+					@barcode = FactoryGirl.create(:barcode, :store_item => @store_item)
+				end
 
-      it "re-renders the 'edit' template" do
-        order_item = OrderItem.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        OrderItem.any_instance.stub(:save).and_return(false)
-        put :update, {:id => order_item.to_param, :order_item => { "store_item" => "invalid value" }}, valid_session
-        response.should render_template("edit")
-      end
-    end
-  end
+				describe "when there is already an order_item for this store_item" do
+					before(:each) do
+						FactoryGirl.create(:order_item, :store_item => @store_item, :order => @order)
+					end
 
-  describe "DELETE destroy" do
-    it "destroys the requested order_item" do
-      order_item = OrderItem.create! valid_attributes
-      expect {
-        delete :destroy, {:id => order_item.to_param}, valid_session
-      }.to change(OrderItem, :count).by(-1)
-    end
+					describe "with valid params" do
+						it "increases the count of this order_item by 1" do
+							expect {
+								post :create, additional_params.merge({ :barcode => @barcode.code })
+							}.to change(self, :first_order_item_count).by(1)
+						end
 
-    it "redirects to the order_items list" do
-      order_item = OrderItem.create! valid_attributes
-      delete :destroy, {:id => order_item.to_param}, valid_session
-      response.should redirect_to(order_items_url)
-    end
-  end
-=end
+						it "redirects to the order_items list" do
+							post :create, additional_params.merge({ :barcode => @barcode.code })
+							general_success
+						end
+					end
+
+					describe "with invalid params" do
+						it "generates an error flash" do
+							# Trigger the behavior that occurs when invalid params are submitted
+							OrderItem.any_instance.stub(:save).and_return(false)
+							post :create, additional_params.merge({ :barcode => -1878 })
+							general_fail
+						end
+					end
+				end
+
+				describe "when there is no existing order_item for this store_item" do
+					describe "with valid params" do
+						it "creates a new order_item" do
+							expect {
+								post :create, additional_params.merge({ :barcode => @barcode.code })
+							}.to change(OrderItem, :count).by(1)
+						end
+
+						it "redirects to the order_items list" do
+							post :create, additional_params.merge({ :barcode => @barcode.code })
+							general_success
+						end
+					end
+
+					describe "with invalid params" do
+						it "generates an error flash" do
+							# Trigger the behavior that occurs when invalid params are submitted
+							OrderItem.any_instance.stub(:save).and_return(false)
+							post :create, additional_params.merge({ :barcode => -1878 })
+							general_fail
+						end
+					end
+				end
+			end
+		end
+	end
 end
