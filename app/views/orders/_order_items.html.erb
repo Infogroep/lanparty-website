@@ -10,7 +10,7 @@
 	</thead>
 	<tbody>
 	<% order.order_items.each do |order_item| %>
-		<tr>
+		<tr class="<%= order_item_stock_color(order_item) %>">
 			<td class="action-column">
 				<%= simple_form_for([order, order_item], :remote => true, class: "order-amount-form") do |f| %>
 					<%= f.input_field :count, :value => order_item.count, class: "order-amount" %>

@@ -53,6 +53,8 @@ gem 'rmagick'
 gem 'simple_form'
 gem 'ledermann-rails-settings', :require => 'rails-settings'
 gem 'chosen-rails'
+gem 'ckeditor'
+gem 'mini_magick'
 
 
 gem 'rb-inotify', '~> 0.8.8'

@@ -6,4 +6,8 @@ module OrdersHelper
 			else ""
 		end
 	end
+
+	def order_item_stock_color(order_item)
+		order_item.out_of_stock? ? "error" : ""
+	end
 end

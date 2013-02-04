@@ -16,4 +16,8 @@ class OrderItem < ActiveRecord::Base
 	def unit_price(user)
 		store_item.price(user)
 	end
+
+	def out_of_stock?
+		store_item.stock < count
+	end
 end

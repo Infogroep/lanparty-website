@@ -1,9 +1,12 @@
 class OrdersController < ApplicationController
 	before_filter :login_required
-	before_filter(:only => :new) { access_required(:order_processing) }
+	before_filter(:only => [:new,:pay]) { access_required(:order_processing) }
 	before_filter(:only => :create) { true_required(params[:order][:user_id] == current_user.id.to_s || current_user.access_allowed?(:order_processing)) }
-	before_filter(:only => [:show,:destroy]) { user_or_access_required(Order.find(params[:id]).user_id,:order_processing) }
-	before_filter(:only => :destroy) { true_required(Order.find(params[:id]).status == :open || current_user.access_allowed?(:order_processing)) }
+	before_filter(:only => [:show,:destroy,:place]) { user_or_access_required(Order.find(params[:id]).user_id,:order_processing) }
+	before_filter(:only => :destroy) do
+		order = Order.find(params[:id])
+		true_required(order.status == :open || current_user.access_allowed?(:order_processing) && order.status == :pending)
+	end
 
 	# GET /orders
 	# GET /orders.json

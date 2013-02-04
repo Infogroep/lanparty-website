@@ -1,4 +1,6 @@
 Lanparty::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
 	scope "(:locale)", :locale => /en|nl/ do
 
 		resources :blog_posts do
@@ -10,6 +12,9 @@ Lanparty::Application.routes.draw do
 				post "scan", :on => :collection
 				post "add", :on => :collection
 			end
+
+			put "place", :on => :member
+			put "pay", :on => :member
 		end
 
 		resources :clans
