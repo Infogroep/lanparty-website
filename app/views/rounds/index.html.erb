@@ -3,17 +3,13 @@
 <table>
 	<tr>
 		<th>Compo</th>
-		<th></th>
-		<th></th>
-		<th></th>
+		<th class="action-column"></th>
 	</tr>
 
 	<% @rounds.each do |round| %>
 		<tr>
 			<td><%= round.compo_id %></td>
-			<td><%= link_to t(:show), round %></td>
-			<td><%= link_to t(:edit), edit_round_path(round) %></td>
-			<td><%= link_to t(:destroy), round, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td class="action-column"><%= standard_edit_buttons(round) %></td>
 		</tr>
 	<% end %>
 </table>

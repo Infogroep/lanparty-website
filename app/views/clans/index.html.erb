@@ -1,19 +1,15 @@
 <h1>Listing clans</h1>
 
-<table>
+<table class="table">
 	<tr>
 		<th>Tag</th>
-		<th></th>
-		<th></th>
-		<th></th>
+		<th class="action-column"></th>
 	</tr>
 
 	<% @clans.each do |clan| %>
 		<tr>
 			<td><%= clan.tag %></td>
-			<td><%= link_to t(:show), clan %></td>
-			<td><%= link_to t(:edit), edit_clan_path(clan) %></td>
-			<td><%= link_to t(:destroy), clan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td class="action-column"><%= standard_edit_buttons(clan) %></td>
 		</tr>
 	<% end %>
 </table>

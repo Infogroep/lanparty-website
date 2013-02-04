@@ -4,7 +4,7 @@
 <table class="table table-striped datatable">
 	<thead>
 	<tr>
-		<th class="action_column"></th>
+		<th class="action-column"></th>
 		<th><%= t("simple_form.labels.user.username") %></th>
 		<th nowrap><%= t("simple_form.labels.user.badge") %></th>
 		<th><%= t("simple_form.labels.user.clan_tag") %></th>
@@ -14,16 +14,14 @@
 			<th class="colapse"><%= t("simple_form.labels.user.user_groups") %></th>
 		<% end %>
 		<% if admin %>
-			<th class="action_column"></th>
-			<th class="action_column"></th>
-			<th class="action_column"></th>
+			<th class="action-column"></th>
 		<% end %>
 	</tr>
 	</thead>
 	<tbody>
 	<% @users.each do |user| %>
 		<tr class="<%= canview ? (user.payed ? "success" : "error") : "" %>">
-			<td class="action_column"><%= image_tag(avatar_url(user), :alt => "Icon") %></td>
+			<td class="action-column"><%= image_tag(avatar_url(user), :alt => "Icon") %></td>
 			<td><%= user.username %> </td>
 			<td nowrap><%= render :partial => "badges", :locals => { :user => user } %></td>
 			<td><%= user.clan.tag if user.clan %></td>
@@ -35,9 +33,7 @@
 				<td class="colapse"><%= user.user_groups.map { |grp| grp.name }.join(",") %></td>
 			<% end %>
 			<% if admin %>
-				<td class="action_column"><%= link_to t(:show), user, class: "btn" %></td>
-				<td class="action_column"><%= link_to t(:edit), edit_user_path(user), class: "btn" %></td>
-				<td class="action_column"><%= link_to t(:destroy), user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+				<td class="action-column"><%= standard_edit_buttons(user) %></td>
 			<% end %>
 		</tr>
 	<% end %>

@@ -4,18 +4,14 @@
 	<tr>
 		<th>Name</th>
 		<th>Compo</th>
-		<th></th>
-		<th></th>
-		<th></th>
+		<th class="action-column"></th>
 	</tr>
 
 	<% @teams.each do |team| %>
 		<tr>
 			<td><%= team.name %></td>
 			<td><%= team.compo_id %></td>
-			<td><%= link_to t(:show), team %></td>
-			<td><%= link_to t(:edit), edit_team_path(team) %></td>
-			<td><%= link_to t(:destroy), team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td class="action-column"><%= standard_edit_buttons(team) %></td>
 		</tr>
 	<% end %>
 </table>

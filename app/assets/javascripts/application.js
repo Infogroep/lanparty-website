@@ -21,7 +21,7 @@
 
 $(function () {
 	$('input.date_picker').datetimepicker({dateFormat:"dd/mm/yy"});
-	$('.chosen').chosen();
+	$('select').chosen();
 });
 
 function load_i18n_js(locale) {
@@ -53,4 +53,5 @@ function load_i18n_js(locale) {
 	}
 
 	$('.datatable').dataTable(datatable_settings);
+	$('.datatable').trigger('after-datatable');
 }

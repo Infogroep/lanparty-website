@@ -5,9 +5,7 @@
     <th><%= t("simple_form.labels.sponsor.name") %></th>
     <th><%= t("simple_form.labels.sponsor.website") %></th>
     <th><%= t("simple_form.labels.sponsor.image") %></th>
-    <th class="action_column"></th>
-    <th class="action_column"></th>
-    <th class="action_column"></th>
+    <th class="action-column"></th>
   </tr>
 
 <% @sponsors.each do |sponsor| %>
@@ -15,9 +13,7 @@
     <td><%= sponsor.name %></td>
     <td><%= sponsor.website %></td>
     <td><%= image_tag sponsor.image_url(:sidebar) %></td>
-    <td class="action_column"><%= link_to 'Show', sponsor, class: "btn" %></td>
-    <td class="action_column"><%= link_to 'Edit', edit_sponsor_path(sponsor), class: "btn" %></td>
-    <td class="action_column"><%= link_to 'Destroy', sponsor, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+    <td class="action-column"><%= standard_edit_buttons(sponsor) %></td>
   </tr>
 <% end %>
 </table>

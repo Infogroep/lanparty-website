@@ -5,9 +5,7 @@
 		<th><%= t("simple_form.labels.game.info") %></th>
 		<% if admin %>
 			<th><%= t("simple_form.labels.game.download_location") %></th>
-			<th class="action_column"></th>
-			<th class="action_column"></th>
-			<th class="action_column"></th>
+			<th class="action-column"></th>
 		<% end %>
 	</tr>
 
@@ -17,9 +15,7 @@
 			<td><%= game.info %></td>
 			<% if admin %>
 				<td><%= game.download_location %></td>
-				<td><%= link_to t(:show), game, class: "btn" %></td>
-				<td><%= link_to t(:edit), edit_game_path(game), class: "btn" %></td>
-				<td><%= link_to t(:destroy), game, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+				<td class="action-column"><%= standard_edit_buttons(game) %></td>
 			<% end %>
 		</tr>
 	<% end %>

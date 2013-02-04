@@ -1,21 +1,17 @@
 <% title "Barcodes" %>
 
-<table>
+<table class="table">
 	<tr>
 		<th>StoreItem</th>
 		<th>Code</th>
-		<th></th>
-		<th></th>
-		<th></th>
+		<th class="action-column"></th>
 	</tr>
 
 	<% @barcodes.each do |barcode| %>
 		<tr>
 			<td><%= barcode.store_item.name %></td>
 			<td><%= barcode.code %></td>
-			<td><%= link_to t(:show), barcode %></td>
-			<td><%= link_to t(:edit), edit_barcode_path(barcode) %></td>
-			<td><%= link_to t(:destroy), barcode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td class="action-column"><%= standard_edit_buttons(barcode) %></td>
 		</tr>
 	<% end %>
 </table>

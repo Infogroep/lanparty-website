@@ -1,13 +1,11 @@
 <% no_user ||= false %>
-<table>
+<table class="table">
 	<tr>
 		<th>Message</th>
 		<% if not @no_user %>
 			<th>User</th>
 		<% end %>
-		<th></th>
-		<th></th>
-		<th></th>
+		<th class="action-column"></th>
 	</tr>
 
 	<% logs.each do |log| %>
@@ -16,9 +14,7 @@
 			<% if not no_user %>
 				<td><%= log.user.username %></td>
 			<% end %>
-			<td><%= link_to t(:show), log %></td>
-			<td><%= link_to t(:edit), edit_log_path(log) %></td>
-			<td><%= link_to t(:destroy), log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td class="action-column"><%= standard_edit_buttons(log) %></td>
 		</tr>
 	<% end %>
 </table>

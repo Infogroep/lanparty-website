@@ -1,0 +1,27 @@
+<table id="order-list" class="table table-striped datatable">
+	<thead>
+		<tr>
+			<th><%= t("simple_form.labels.order.user") %></th>
+			<th><%= t("simple_form.labels.order.placed_at") %></th>
+			<th><%= t("simple_form.labels.order.processed_at") %></th>
+			<th><%= t("simple_form.labels.order.total_item_count") %></th>
+			<th><%= t("simple_form.labels.order.total_price") %></th>
+		    <th><%= t("simple_form.labels.order.status") %></th>
+			<th class="action-column"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% orders.each do |order| %>
+			<tr class="<%= order_status_color(order) %>">
+				<td><%= order.user.username %></td>
+				<td><%= order.placed_at ? l(order.placed_at, :format => :short) : "-" %></td>
+				<td><%= order.processed_at ? l(order.processed_at, :format => :short) : "-" %></td>
+				<td><%= order.total_item_count %></td>
+				<td><%= order.total_price %></td>
+				<td><%= t(order.status) %></td>
+				<td class="action-column"><%= standard_edit_buttons(order, :except => [:edit]) %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
 	before_filter :login_required
-	before_filter(:only => [:show,:edit,:update,:create,:destroy]) { user_or_access_required(Order.find(params[:id]).user_id,:order_processing) }
+	before_filter(:only => :new) { access_required(:order_processing) }
+	before_filter(:only => :create) { true_required(params[:order][:user_id] == current_user.id.to_s || current_user.access_allowed?(:order_processing)) }
+	before_filter(:only => [:show,:destroy]) { user_or_access_required(Order.find(params[:id]).user_id,:order_processing) }
+	before_filter(:only => :destroy) { true_required(Order.find(params[:id]).status == :open || current_user.access_allowed?(:order_processing)) }
 
 	# GET /orders
 	# GET /orders.json
@@ -9,7 +12,6 @@ class OrdersController < ApplicationController
 
 		respond_to do |format|
 			format.html # index.html.erb
-			format.json { render json: @orders }
 		end
 	end
 
@@ -20,7 +22,6 @@ class OrdersController < ApplicationController
 
 		respond_to do |format|
 			format.html # show.html.erb
-			format.json { render json: @order }
 		end
 	end
 
@@ -31,13 +32,7 @@ class OrdersController < ApplicationController
 
 		respond_to do |format|
 			format.html # new.html.erb
-			format.json { render json: @order }
 		end
-	end
-
-	# GET /orders/1/edit
-	def edit
-		@order = Order.find(params[:id])
 	end
 
 	# POST /orders
@@ -47,27 +42,9 @@ class OrdersController < ApplicationController
 
 		respond_to do |format|
 			if @order.save
-				format.html { redirect_to orders_url, notice: 'Order was successfully created.' }
-				format.json { render json: @order, status: :created, location: @order }
+				format.html { redirect_to @order, notice: 'Order was successfully created.' }
 			else
 				format.html { render action: "new" }
-				format.json { render json: @order.errors, status: :unprocessable_entity }
-			end
-		end
-	end
-
-	# PUT /orders/1
-	# PUT /orders/1.json
-	def update
-		@order = Order.find(params[:id])
-
-		respond_to do |format|
-			if @order.update_attributes(params[:order])
-				format.html { redirect_to orders_url, notice: 'Order was successfully updated.' }
-				format.json { head :no_content }
-			else
-				format.html { render action: "edit" }
-				format.json { render json: @order.errors, status: :unprocessable_entity }
 			end
 		end
 	end
@@ -80,7 +57,6 @@ class OrdersController < ApplicationController
 
 		respond_to do |format|
 			format.html { redirect_to orders_url }
-			format.json { head :no_content }
 		end
 	end
 end

@@ -1,9 +1,16 @@
 class OrderItemsController < ApplicationController
 	before_filter :login_required
 	before_filter { user_or_access_required(Order.find(params[:order_id]).user_id,:order_processing) }
+	before_filter { true_required(Order.find(params[:order_id]).status == :open || current_user.access_allowed?(:order_processing)) }
 
-	# POST /order/1/order_items
-	def create
+	before_filter :set_view, :only => :new
+
+	def set_view
+		session[:store_items_view] = (params[:store_items_view] || session[:store_items_view] || :list).to_sym
+	end
+
+	# POST /order/1/order_items/scan
+	def scan
 		@order = Order.find(params[:order_id])
 
 		respond_to do |format|
@@ -16,6 +23,29 @@ class OrderItemsController < ApplicationController
 					render :partial => "layouts/flash_messages", :status => 500
 				end
 			end
+		end
+	end
+
+	# POST /order/1/order_items/add
+	def add
+		@order = Order.find(params[:order_id])
+
+		respond_to do |format|
+			begin
+				raise WebsiteErrors::UserFriendlyError.new("Couldn't create order entry.") unless @order.add_item_by_id(params[:store_item_id])
+				format.html { redirect_to @order }
+			rescue WebsiteErrors::UserFriendlyError => e
+				format.html { redirect_to @order, flash: { error: e.message } }
+			end
+		end
+	end
+
+	def new
+		@order = Order.find(params[:order_id])
+		@store_items = StoreItem.all
+
+		respond_to do |format|
+			format.html # new.html.erb
 		end
 	end
 

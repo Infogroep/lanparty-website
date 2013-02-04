@@ -1,7 +1,7 @@
 <% title t(".order", :user => @order.user.username) %>
 
 <% content_for(:before_title) do %>
-	<%= form_tag(order_order_items_path(@order), :remote => true, :data => { :static => true }, :class => "pull-right") do %>
+	<%= form_tag(scan_order_order_items_path(@order), :remote => true, :data => { :static => true }, :class => "pull-right") do %>
 		<%= text_field_tag :barcode %>
 	<% end %>
 <% end %>
@@ -9,3 +9,4 @@
 <div id="order-item-table">
 	<%= render :partial => "order_items", :locals => { :order => @order } %>
 </div>
+<%= link_to content_tag("i", "", :class => "icon-spinner icon-spin order-lock-indicator") + t(:edit, :model => t("order.one")), home_path, class: "btn order-submit-button" %>

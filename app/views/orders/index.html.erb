@@ -1,23 +1,12 @@
-<h1>Listing orders</h1>
+<% title t("order.other") %>
 
-<table>
-	<tr>
-		<th>User</th>
-		<th></th>
-		<th></th>
-		<th></th>
-	</tr>
+<%= render :partial => "order_list", :locals => { :orders => @orders } %>
 
-	<% @orders.each do |order| %>
-		<tr>
-			<td><%= order.user %></td>
-			<td><%= link_to 'Show', order %></td>
-			<td><%= link_to 'Edit', edit_order_path(order) %></td>
-			<td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		</tr>
+<% if current_user.access_allowed? :order_processing? %>
+	<%= link_to t(:new, :model => t("order.one")), new_order_path, class: "btn" %>
+<% else %>
+	<%= simple_form_for(Order.new) do |f| %>
+		<%= f.hidden_field :user_id, value: current_user.id %>
+		<%= f.submit class: "btn" %>
 	<% end %>
-</table>
-
-<br/>
-
-<%= link_to 'New Order', new_order_path %>
+<% end %>

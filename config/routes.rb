@@ -6,7 +6,10 @@ Lanparty::Application.routes.draw do
 		end
 
 		resources :orders do
-			resources :order_items
+			resources :order_items do
+				post "scan", :on => :collection
+				post "add", :on => :collection
+			end
 		end
 
 		resources :clans

@@ -22,8 +22,8 @@ describe UsersController do
 	end
 
 	describe_access(
-			:login => [:edit,:update],
-	    :user_editing => [:markpayed]
+		:login => [:edit,:update],
+		:user_editing => [:markpayed]
 	) do
 
 		describe "if user_group_ids is in the request parameters" do

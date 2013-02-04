@@ -3,5 +3,5 @@
 	<%= f.association :compo, label_method: :name %>
 	<%= f.submit %>
 
-	<%= f.association :users, collection: User.all, :label_method => :username, :input_html => { "data-placeholder" => 'Chose some Exercises', class: 'chosen' } %>
+	<%= f.association :users, collection: User.all, :label_method => :username, :input_html => { "data-placeholder" => 'Chose some Exercises' } %>
 <% end %>

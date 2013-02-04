@@ -1,0 +1,9 @@
+<% supported_buttons = [:show,:edit,:destroy]
+   enabled_buttons = options[:only] ? options[:only] : options[:except] ? supported_buttons - options[:except] : supported_buttons %>
+<div class="btn-toolbar action-toolbar <%= options[:toolbar_class] %>">
+    <div class="btn-group">
+        <%= link_to content_tag("i", "", class: "icon-eye-open"), instance, class: "btn #{options[:button_class]}" if enabled_buttons.include?(:show) %>
+        <%= link_to content_tag("i", "", class: "icon-edit"), edit_polymorphic_path(instance), class: "btn #{options[:button_class]}" if enabled_buttons.include?(:edit) %>
+        <%= link_to content_tag("i", "", class: "icon-trash"), instance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger #{options[:button_class]}" if enabled_buttons.include?(:destroy) %>
+    </div>
+</div>

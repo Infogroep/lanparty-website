@@ -60,3 +60,19 @@ input[type=submit] {
 	background-color: rgba(223, 208, 216, 0.7);
 }
 
+.order-lock-indicator {
+	margin-right: 4px;
+}
+
+input.order-amount {
+	width: 50px;
+	margin-bottom: 0px;
+}
+
+th.order-price {
+	width: 100px;
+}
+
+.action-toolbar {
+	margin: 0px;
+}
