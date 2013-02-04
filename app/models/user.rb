@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
 	end
 
 	def self.find_by_structured_message msg
-		m = /\+\+\+(\d{3})\/(\d{4})\/(\d{3})(\d{2})\+\+\+/.match(msg)
+		m = /(?:\+|\*){,3}(\d{3})\/?(\d{4})\/?(\d{3})(\d{2})(?:\+|\*){,3}/.match(msg)
 
 		raise "invalid structured message: #{msg}" if m.nil?
 
