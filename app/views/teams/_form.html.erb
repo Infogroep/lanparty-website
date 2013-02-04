@@ -8,6 +8,9 @@
 <%= simple_form_for(@team) do |f| %>
 	<%= f.input :name %>
 	<%= f.association :compo, label_method: :name, selected:selected_id %>
-	<%= f.association :users, collection: User.all, label:label, :label_method => :username, :input_html => { "data-placeholder" => 'Chose some Exercises', class: 'chosen' }, selected:@selected_users %>
+	<%= f.association :users, collection: User.all, label:label, 
+		:label_method => :username,
+		:input_html => { "data-placeholder" => 'Chose team members', class: 'chosen' },
+		selected:@selected_users %>
 	<%= f.submit %>
 <% end %>

@@ -37,6 +37,9 @@ en:
   user_group:
     one: "User Group"
     other: "User Groups"
+  team:
+    one: "Team"
+    other: "Teams"
 
   show: "Show"
   edit: "Edit"

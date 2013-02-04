@@ -13,14 +13,7 @@
 	</thead>
 
 	<% @teams.each do |team| %>
-		<tr>
-			<td><%= team.name %></td>
-			<td><%= team.compo.game.name %></td>
-			<td><%= team.compo.date_time.strftime(Settings.format) %></td>
-			<td><%= link_to t(:show), team, class:"btn" %></td>
-			<td><%= link_to t(:edit), edit_team_path(team), class:"btn" %></td>
-			<td><%= link_to t(:destroy), team, method: :delete, data: { confirm: 'Are you sure?'}, class:"btn btn-danger" %></td>
-		</tr>
+			<%= render partial:"table_row", locals:{team:team} %>
 	<% end %>
 </table>
 

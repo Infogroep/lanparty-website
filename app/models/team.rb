@@ -5,6 +5,7 @@ class Team < ActiveRecord::Base
 	validates_presence_of :compo
 	validate :users_must_not_be_participating
 	validate :required_amount_of_users
+	validates_uniqueness_of :name, scope: :compo_id
 
 	#validates :name, :uniqueness => {:scope => :compo}
 
@@ -18,7 +19,7 @@ class Team < ActiveRecord::Base
 	end
 
 	def required_amount_of_users
-		errors.add(:users, "Exaclty #{compo.group_size} users need to be selected") unless users.count == compo.group_size
+		errors.add(:users, "Exaclty #{compo.group_size} users need to be selected") unless users.length == compo.group_size
 	end
 
 end

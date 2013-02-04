@@ -1,0 +1,18 @@
+<% buttons    ||= buttons.nil? %>
+<% compo      ||= compo.nil? %>
+<% time       ||= time.nil? %>
+
+<tr>
+	<td><%= link_to team.name, team %></td>
+	<% if compo %>
+		<td><%= team.compo.game.name %></td>
+	<% end %>
+	<% if time %>
+		<td><%= team.compo.date_time.strftime(Settings.format) %></td>
+	<% end %>
+	<% if buttons %>
+		<td><%= link_to t(:show), team, class:"btn" %></td>
+		<td><%= link_to t(:edit), edit_team_path(team), class:"btn" %></td>
+		<td><%= link_to t(:destroy), team, method: :delete, data: { confirm: 'Are you sure?'}, class:"btn btn-danger" %></td>
+		<% end %>
+</tr>

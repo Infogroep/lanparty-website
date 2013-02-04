@@ -45,6 +45,7 @@ class TeamsController < ApplicationController
 	def create
 		@team = Team.new(params[:team])
 		@selected_users = params[:team][:user_ids] if params[:team]
+		@compo = Compo.find(params[:team][:compo_id]) if params[:team]
 
 		respond_to do |format|
 			if @team.save
