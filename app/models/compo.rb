@@ -25,4 +25,8 @@ class Compo < ActiveRecord::Base
 	def name
 		return game.name
 	end
+
+	def users
+		teams.map{|x|x.users}.flatten
+	end
 end

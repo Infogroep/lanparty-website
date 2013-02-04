@@ -1,18 +1,17 @@
 <% title "Teams" %>
 
-<table>
-	<tr>
-		<th>Name</th>
-		<th>Compo</th>
-		<th class="action-column"></th>
-	</tr>
+<table class="table table-striped datatable">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Compo</th>
+			<th>Time</th>
+			<th class="action_column"></th>
+		</tr>
+	</thead>
 
 	<% @teams.each do |team| %>
-		<tr>
-			<td><%= team.name %></td>
-			<td><%= team.compo_id %></td>
-			<td class="action-column"><%= standard_edit_buttons(team) %></td>
-		</tr>
+			<%= render partial:"table_row", locals:{team:team} %>
 	<% end %>
 </table>
 

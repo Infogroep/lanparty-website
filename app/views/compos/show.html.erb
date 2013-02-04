@@ -31,11 +31,16 @@
 	<%= link_to @compo.game.name, @compo.game %>
 </p>
 
+<table class="table table-striped datatable">
+	<thead>
+		<tr>
+			<th>Name</th>
+		</tr>
+	</thead>
+	<% @compo.teams.each do |team| %>
+		<%= render partial:"teams/table_row", locals:{buttons:false, team:team, compo:false, time:false} %>
+	<% end %>
+</table>
+
 <%= link_to t(:edit), edit_compo_path(@compo), class: "btn" %> |
 <%= link_to 'Back', compos_path, class: "btn" %>
-
-<ul>
-	<% @compo.teams.each do |team| %>
-		<li><%= link_to team.name, team %></li>
-	<% end %>
-</ul>
