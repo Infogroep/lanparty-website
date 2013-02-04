@@ -1,21 +1,25 @@
 <% title "Teams" %>
 
-<table>
-	<tr>
-		<th>Name</th>
-		<th>Compo</th>
-		<th></th>
-		<th></th>
-		<th></th>
-	</tr>
+<table class="table table-striped datatable">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Compo</th>
+			<th>Time</th>
+			<th class="action_column"></th>
+			<th class="action_column"></th>
+			<th class="action_column"></th>
+		</tr>
+	</thead>
 
 	<% @teams.each do |team| %>
 		<tr>
 			<td><%= team.name %></td>
-			<td><%= team.compo_id %></td>
-			<td><%= link_to t(:show), team %></td>
-			<td><%= link_to t(:edit), edit_team_path(team) %></td>
-			<td><%= link_to t(:destroy), team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td><%= team.compo.game.name %></td>
+			<td><%= team.compo.date_time.strftime(Settings.format) %></td>
+			<td><%= link_to t(:show), team, class:"btn" %></td>
+			<td><%= link_to t(:edit), edit_team_path(team), class:"btn" %></td>
+			<td><%= link_to t(:destroy), team, method: :delete, data: { confirm: 'Are you sure?'}, class:"btn btn-danger" %></td>
 		</tr>
 	<% end %>
 </table>

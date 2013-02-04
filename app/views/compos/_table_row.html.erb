@@ -11,6 +11,7 @@
 	<% if group_size %> <td><%= compo.group_size %>                     </td> <% end %>
 	<% if date %>       <td><%= l(compo.date_time, :format => :short) %></td> <% end %>
 	<% if admin && buttons %>
+		<td class="action_column"><%= link_to t(:subscribe), new_team_path(:compo => compo), class: "btn btn-success" %></td>
 		<td class="action_column"><%= link_to t(:show), compo, class: "btn" %></td>
 		<td class="action_column"><%= link_to t(:edit), edit_compo_path(compo), class: "btn" %></td>
 		<td class="action_column"><%= link_to t(:destroy), compo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>

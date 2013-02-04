@@ -26,6 +26,8 @@ class TeamsController < ApplicationController
 	# GET /teams/new.json
 	def new
 		@team = Team.new
+		@compo = Compo.find(params[:compo]) if params[:compo]
+		@selected_users ||= [current_user.id]
 
 		respond_to do |format|
 			format.html # new.html.erb
@@ -42,6 +44,7 @@ class TeamsController < ApplicationController
 	# POST /teams.json
 	def create
 		@team = Team.new(params[:team])
+		@selected_users = params[:team][:user_ids] if params[:team]
 
 		respond_to do |format|
 			if @team.save

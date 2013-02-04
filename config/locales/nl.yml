@@ -516,3 +516,6 @@ nl:
     show:
       order: "Bestelling voor %{user}"
       scan: "Scannen"
+  teams:
+    form:
+      select_team_members: "Selecteer %{amount} teamgenoten"

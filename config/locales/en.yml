@@ -521,3 +521,6 @@ en:
     show:
       order: "Order for %{user}"
       scan: "Scan"
+  teams:
+    form:
+      select_team_members: "Select %{amount} team members"
