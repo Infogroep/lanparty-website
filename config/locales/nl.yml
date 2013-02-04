@@ -40,11 +40,14 @@ nl:
   sponsor:
     one: "Sponsor"
     other: "Sponsors"
+  team:
+    one: "Team"
+    other: "Teams"
 
   show: "Toon"
   edit: "Bewerk"
   destroy: "Verwijder"
-  new: "Nieuwe %{model}"
+  new: "Nieuw %{model}"
   edit_title: "%{model} bewerken"
 
   iLan: "iLan"

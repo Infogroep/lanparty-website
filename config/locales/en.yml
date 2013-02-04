@@ -40,6 +40,9 @@ en:
   sponsor:
     one: "Sponsor"
     other: "Sponsors"
+  team:
+    one: "Team"
+    other: "Teams"
 
   show: "Show"
   edit: "Edit"
