@@ -43,22 +43,20 @@ class Compo < ActiveRecord::Base
 	end
 	def new_bracket
 		teams_amount = teams.count
-		bracket_amount = next_power_of_2(teams_amount/2)
+		bracket_amount = next_power_of_2(teams_amount/2.0)
 		bracket = []
 		bracket_amount.times do
 			bracket.append ["N/A","N/A"]
 		end
-		pos = 0
-		teams.each do |team|
-			if pos >= bracket.length
-				bracket[pos-bracket.length][1] = team.name
-			else
-				bracket[pos][0] = team.name
-			end
-			pos+=1
+		tems = teams.dup
+		bracket.each do |slot|
+			slot[0] = tems.pop.name
 		end
-		result_string = "{\"teams\":#{bracket},\"result\":[]}"
-		return result_string
+		bracket.each do |slot|
+			tem = tems.pop
+			slot[1] = tem ? tem.name : "N/A"
+		end
+		return "{\"teams\":#{bracket},\"result\":[]}"
 	end
 end
 
