@@ -1,0 +1,4 @@
+<%= simple_form_for(@compo, url:save_bracket_compo_path(@compo)) do |f| %>
+	<%= f.input :bracket_string, as: :hidden, input_html: {value: @compo.bracket_string} %>
+	<%= f.button :submit %>
+<% end %>
