@@ -83,4 +83,14 @@ class ComposController < ApplicationController
 			format.json { head :no_content }
 		end
 	end
+
+	def save_bracket
+		@compo = Compo.find(params[:id])
+		@bracket_string = params[:compo][:bracket_string]
+		@compo.bracket = @bracket_string
+		@compo.save
+		respond_to do |format|
+			format.html {redirect_to @compo, flash: {info:"saved"}}
+		end
+	end
 end

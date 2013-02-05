@@ -17,12 +17,14 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
 //= require chosen-jquery
+//= require jquery.bracket
 //= require ckeditor/init
 //= require_tree .
 
 $(function () {
 	$('input.date_picker').datetimepicker({dateFormat:"dd/mm/yy"});
 	$('select').chosen();
+	$('.chosen').chosen();
 });
 
 function load_i18n_js(locale) {
