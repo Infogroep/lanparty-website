@@ -1,9 +1,11 @@
-$linkColor: #777;
+@import "bootswatch_variables";
+//$linkColor: #777;
 $navbarHeight: 45px;
 
 //$bodyBackground: #FBFFE0;
 
 @import "bootstrap";
+
 
 @font-face {
 	font-family: 'razer_regularitalic';
@@ -190,3 +192,4 @@ span.badges {
 }
 
 @import "bootstrap-responsive";
+@import "bootswatch";
