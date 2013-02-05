@@ -45,14 +45,11 @@
 <%= link_to t(:edit), edit_compo_path(@compo), class: "btn" %> |
 <%= link_to 'Back', compos_path, class: "btn" %>
 
-
 <div id="brackets" class="demo">
 </div>
-
-<div id="saveOutput">
-	
-</div>
-<%= render partial:"bracket_form" %>
+<% if current_user && current_user.access_allowed?(:compo_editing) %>
+	<%= render partial:"bracket_form" %>
+<% end %>
 <script type="text/javascript" charset="utf-8">
 var saveData =  <%=raw @compo.bracket_string  %>
 
