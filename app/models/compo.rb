@@ -1,5 +1,5 @@
 class Compo < ActiveRecord::Base
-	attr_accessible :date_time, :slots, :match_id, :group_size, :game_id, :featured, :description
+	attr_accessible :date_time, :slots, :match_id, :group_size, :game_id, :featured, :description, :bracket
 	validates_presence_of :date_time
 	validates_presence_of :slots
 	validates_presence_of :group_size

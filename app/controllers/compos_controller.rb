@@ -86,9 +86,11 @@ class ComposController < ApplicationController
 
 	def save_bracket
 		@compo = Compo.find(params[:id])
-		@test = params[:bracket_string]
+		@bracket_string = params[:compo][:bracket_string]
+		@compo.bracket = @bracket_string
+		@compo.save
 		respond_to do |format|
-			format.html {redirect_to @compo}
+			format.html {redirect_to @compo, flash: {info:"saved"}}
 		end
 	end
 end

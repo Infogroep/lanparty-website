@@ -52,6 +52,7 @@
 <div id="saveOutput">
 	
 </div>
+<%= render partial:"bracket_form" %>
 <script type="text/javascript" charset="utf-8">
 var saveData =  <%=raw @compo.bracket_string  %>
 
@@ -62,7 +63,7 @@ var saveData =  <%=raw @compo.bracket_string  %>
 // */
 function saveFn(data, userData) {
   var json = JSON.stringify(data) //jQuery.toJSON(data)
-//  $('#saveOutput').text('POST '+userData+' '+json)
+  $('#compo_bracket_string').val(json)
 }
 $(function() {
     var container = $('#brackets')
