@@ -45,22 +45,6 @@ input[type=submit] {
 	}
 }
 
-.alert-error {
-	background-color: rgba(242, 222, 222, 0.7);
-}
-
-.alert-info {
-	background-color: rgba(217, 237, 223, 0.7);
-}
-
-.alert-warning {
-	background-color: rgba(252, 248, 227, 0.7);
-}
-
-.alert-success {
-	background-color: rgba(223, 208, 216, 0.7);
-}
-
 .order-lock-indicator {
 	margin-right: 4px;
 }
@@ -81,4 +65,9 @@ th.order-price {
 .blog-post-buttons {
 	float: right;
 	margin-left: 5px;
+}
+
+// Counteract an artefact in Chosen caused by the bootstrap theme
+.chzn-results {
+	color: rgb(82, 87, 92);
 }
