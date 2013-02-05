@@ -62,7 +62,9 @@ Lanparty::Application.routes.draw do
 
 		resources :games
 
-		resources :compos
+		resources :compos do
+			post :save_bracket, :on => :member
+		end
 
 		resources :barcodes
 

@@ -83,4 +83,12 @@ class ComposController < ApplicationController
 			format.json { head :no_content }
 		end
 	end
+
+	def save_bracket
+		@compo = Compo.find(params[:id])
+		@test = params[:bracket_string]
+		respond_to do |format|
+			format.html {redirect_to @compo}
+		end
+	end
 end

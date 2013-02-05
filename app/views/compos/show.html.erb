@@ -48,40 +48,27 @@
 
 <div id="brackets" class="demo">
 </div>
+
+<div id="saveOutput">
+	
+</div>
 <script type="text/javascript" charset="utf-8">
-<% x = @compo.teams.map {|x| x.name} %>
-<% x.append(["forfeit"]) if x.length.odd? %>
-<% x = x.each_slice(2).to_a %>
-var saveData = {
-    teams : <%= raw x %> ,
-    results : []
-  }
- 
-/* Called whenever bracket is modified
- *
- * data:     changed bracket object in format given to init
- * userData: optional data given when bracket is created.
- */
+var saveData =  <%=raw @compo.bracket_string  %>
+
+///* Called whenever bracket is modified
+// *
+// * data:     changed bracket object in format given to init
+// * userData: optional data given when bracket is created.
+// */
 function saveFn(data, userData) {
-  var json = jQuery.toJSON(data)
-  $('#saveOutput').text('POST '+userData+' '+json)
-  /* You probably want to do something like this
-  jQuery.ajax("rest/"+userData, {contentType: 'application/json',
-                                dataType: 'json',
-                                type: 'post',
-                                data: json})
-  */
+  var json = JSON.stringify(data) //jQuery.toJSON(data)
+//  $('#saveOutput').text('POST '+userData+' '+json)
 }
- 
 $(function() {
     var container = $('#brackets')
     container.bracket({
       init: saveData,
       save: saveFn,
       userData: "http://myapi"})
- 
-    /* You can also inquiry the current data */
-    var data = container.bracket('data')
-    $('#dataOutput').text(jQuery.toJSON(data))
   })
 </script>
