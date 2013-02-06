@@ -50,11 +50,12 @@ class Compo < ActiveRecord::Base
 		end
 		tems = teams.dup
 		bracket.each do |slot|
-			slot[0] = tems.pop.name
+			tem = tems.pop
+			slot[0] = tem.name if tem
 		end
 		bracket.each do |slot|
 			tem = tems.pop
-			slot[1] = tem ? tem.name : "N/A"
+			slot[1] = tem.name if tem
 		end
 		return "{\"teams\":#{bracket},\"result\":[]}"
 	end
