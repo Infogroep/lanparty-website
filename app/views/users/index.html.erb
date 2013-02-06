@@ -30,7 +30,7 @@
 			</td>
 			<% if canview %>
 				<td class="colapse"><%= user.email %></td>
-				<td class="colapse"><%= user.user_groups.map { |grp| grp.name }.join(",") %></td>
+				<td class="colapse"><%= user.user_groups.map { |grp| grp.name }.join(", ") %></td>
 			<% end %>
 			<% if admin %>
 				<td class="action-column"><%= standard_edit_buttons(user) %></td>
