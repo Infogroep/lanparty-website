@@ -4,6 +4,6 @@ module StoreItemsHelper
 	end
 
 	def stock_warning_color(store_item)
-		store_item.stock == 0 ? "error" : store_item.stock < 10 ? "warning" : ""
+		store_item.stock == 0 ? "error" : "" #store_item.stock < 10 ? "warning" : ""
 	end
 end

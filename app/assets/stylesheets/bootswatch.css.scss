@@ -426,6 +426,10 @@ div.subnav {
 		background-color: $infoText;
 	}
 
+	tbody tr.warning td {
+		background-color: $orange;
+		color: rgb(82, 87, 92);
+	}
 }
 
 

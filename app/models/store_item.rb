@@ -14,9 +14,13 @@ class StoreItem < ActiveRecord::Base
 	validates_presence_of :store_item_class
 
 	def price(user)
-		# TODO: (URGENT) do something if a person does not have a suitable pricing default
 		pricing_default = PricingDefault.find_best_pricing_default(user)
-		calculate_overrides(pricing_default)
+
+		if pricing_default
+			calculate_overrides(pricing_default)
+		else
+			purchase_price
+		end
 	end
 
 	def calculate_overrides(pricing_default)

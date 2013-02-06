@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
 	# GET /orders
 	# GET /orders.json
 	def index
-		@orders = Order.all
+		@orders = Order.order("created_at DESC").limit(100).order("status_code ASC")
 
 		respond_to do |format|
 			format.html # index.html.erb
@@ -42,10 +42,11 @@ class OrdersController < ApplicationController
 	# POST /orders.json
 	def create
 		@order = Order.new(params[:order])
+		@order.status = :open
 
 		respond_to do |format|
 			if @order.save
-				format.html { redirect_to @order, notice: 'Order was successfully created.' }
+				format.html { redirect_to @order }
 			else
 				format.html { render action: "new" }
 			end
@@ -60,6 +61,30 @@ class OrdersController < ApplicationController
 
 		respond_to do |format|
 			format.html { redirect_to orders_url }
+		end
+	end
+
+	def place
+		@order = Order.find(params[:id])
+		@order.place
+		respond_to do |format|
+			if @order.save
+				format.html { redirect_to orders_url, flash: { info: 'Order placed.' } }
+			else
+				format.html { redirect_to @order, error: "Couldn't place order." }
+			end
+		end
+	end
+
+	def pay
+		@order = Order.find(params[:id])
+		@order.process(current_user)
+		respond_to do |format|
+			if @order.save
+				format.html { redirect_to orders_url, flash: { info: 'Order payed.' } }
+			else
+				format.html { redirect_to @order, error: "Couldn't pay order." }
+			end
 		end
 	end
 end

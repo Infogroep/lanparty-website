@@ -9,4 +9,7 @@
 <div id="order-item-table">
 	<%= render :partial => "order_items", :locals => { :order => @order } %>
 </div>
-<%= link_to content_tag("i", "", :class => "icon-spinner icon-spin order-lock-indicator") + t(:edit, :model => t("order.one")), home_path, class: "btn order-submit-button" %>
+<div class="pull-right">
+  <%= link_to content_tag("i", "", :class => "icon-spinner icon-spin order-lock-indicator") + t(".place"), place_order_path(@order), method: "PUT", class: "btn btn-success btn-order-submit-button" if @order.status == :open %>
+  <%= link_to t(".pay"), pay_order_path(@order), method: "PUT", class: "btn btn-warning order-submit-button" if current_user.access_allowed? :order_processing %>
+</div>

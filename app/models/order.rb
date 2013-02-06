@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-	attr_accessible :user_id, :placed_at, :processed_at
+	attr_accessible :user_id, :placed_at, :processed_at, :status_code
 
 	belongs_to :user
 	belongs_to :cashier, :class_name => "User"
@@ -7,11 +7,32 @@ class Order < ActiveRecord::Base
 	has_many :order_items, :dependent => :destroy
 
 	validates_presence_of :user
-	validates_presence_of :cashier, :if => Proc.new { |order| order.processed? }
+	validates_presence_of :status_code
+	validates_presence_of :placed_at, :if => Proc.new { |order| order.status == :pending }
+	validates_presence_of :cashier, :if => Proc.new { |order| order.status == :closed }
+	validates_presence_of :processed_at, :if => Proc.new { |order| order.status == :closed }
 
-	scope :open_orders,    where("placed_at IS NULL AND processed_at IS NULL")
-	scope :pending_orders, where("placed_at IS NOT NULL AND processed_at IS NULL")
-	scope :closed_orders,  where("processed_at IS NOT NULL")
+	def self.status_to_int(status)
+		case status
+			when :open then 1
+			when :pending then 2
+			when :closed then 3
+			else raise WebsiteErrors::UserFriendlyError("Unknown order status")
+		end
+	end
+
+	def self.int_to_status(code)
+		case code
+			when 1 then :open
+			when 2 then :pending
+			when 3 then :closed
+			else raise WebsiteErrors::UserFriendlyError("Unknown order status code")
+		end
+	end
+
+	scope :open_orders,    where(:status_code => status_to_int(:open))
+	scope :pending_orders, where(:status_code => status_to_int(:pending))
+	scope :closed_orders,  where(:status_code => status_to_int(:closed))
 
 	def total_price
 		order_items.map { |order_item| order_item.price(user) }.reduce(:+)
@@ -46,23 +67,29 @@ class Order < ActiveRecord::Base
 		add_item(item)
 	end
 
-	def placed?
-		placed_at
-	end
-
-	def processed?
-		processed_at
-	end
-
 	def place
-		placed_at = DateTime.current
+		raise WebsiteErrors::UserFriendlyError.new("Can only place open orders") unless status == :open
+
+		self.placed_at = DateTime.current
+		self.status = :pending
 	end
 
-	def process
-		processed_at = DateTime.current
+	def process(cashier)
+		raise WebsiteErrors::UserFriendlyError.new("Can only process open or pending orders") unless status == :open or status == :pending
+
+		self.cashier = cashier
+		self.processed_at = DateTime.current
+		self.status = :closed
 	end
 
 	def status
-		!placed? ? :open : !processed? ? :pending : :closed
+		self.class.int_to_status(status_code)
 	end
+
+	def status=(status)
+		self.status_code = self.class.status_to_int(status)
+	end
+
+	private
+
 end
