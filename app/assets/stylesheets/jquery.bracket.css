@@ -22,7 +22,7 @@ div.jQBracket {
 		position: absolute;
 		top: 0px;
 		color: white; }
-	div.jQBracket .tools span {
+	div.jQBracket .tools span, div.jQBracket .tools div {
 		cursor: pointer;
 		margin: 5px;
 		display: block;
@@ -30,7 +30,7 @@ div.jQBracket {
 		width: 18px;
 		height: 18px;
 		background-color: #666666; }
-	div.jQBracket .tools span:hover {
+	div.jQBracket .tools span:hover, div.jQBracket .tools div:hover {
 		background-color: #999999; }
 	div.jQBracket .finals {
 		float: right;

@@ -45,28 +45,12 @@
 <%= link_to t(:edit), edit_compo_path(@compo), class: "btn" %> |
 <%= link_to 'Back', compos_path, class: "btn" %>
 
-<div id="brackets" class="demo">
-</div>
+<% if @compo.bracket_type == :tree %>
+	<%= render "tree_bracket" %>
+<% else %>
+	<%= render "list_bracket" %>
+<% end %>
+
 <% if current_user && current_user.access_allowed?(:compo_editing) %>
 	<%= render partial:"bracket_form" %>
 <% end %>
-<script type="text/javascript" charset="utf-8">
-var saveData =  <%=raw @compo.bracket_string  %>
-
-///* Called whenever bracket is modified
-// *
-// * data:     changed bracket object in format given to init
-// * userData: optional data given when bracket is created.
-// */
-function saveFn(data, userData) {
-  var json = JSON.stringify(data) //jQuery.toJSON(data)
-  $('#compo_bracket_string').val(json)
-}
-$(function() {
-    var container = $('#brackets')
-    container.bracket({
-      init: saveData,
-      save: saveFn,
-      userData: "http://myapi"})
-  })
-</script>
