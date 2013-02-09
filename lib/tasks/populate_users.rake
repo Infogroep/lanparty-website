@@ -10,19 +10,19 @@ namespace :db do
 		puts "--------------"
 
 		User.delete_all
-		User.create(
+		User.create!(
 				:username => "Enermis",
 				:email => "fulgens.ailurus@gmail.com",
 				:password => "roeland1",
 				:password_confirmation => "roeland1"
 		)
-		User.create(
+		User.create!(
 				:username => "user",
 				:email => "user@gmail.com",
 				:password => "roeland1",
 				:password_confirmation => "roeland1"
 		)
-		User.create(
+		User.create!(
 				:username => "peanut",
 				:email => "rik.vanmechelen@gmail.com",
 				:password => "roeland1",
@@ -32,7 +32,7 @@ namespace :db do
 		amount.times do
 			user = FactoryGirl.create("user")
 			puts "creating #{user.username}"
-			user.save! if user.valid?
+			user.save!
 		end
 	end
 end

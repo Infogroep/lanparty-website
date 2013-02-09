@@ -7,8 +7,14 @@ en:
     one: "Compo"
     other: "Compos"
   store_item:
-    one: "Store item"
-    other: "Store items"
+    one: "Product"
+    other: "Products"
+  store_item_class:
+    one: "Product Type"
+    other: "Product Types"
+  order:
+    one: "Order"
+    other: "Orders"
   user:
     one: "User"
     other: "Users"
@@ -43,6 +49,12 @@ en:
   team:
     one: "Team"
     other: "Teams"
+  pricing_default:
+    one: "Pricing Default"
+    other: "Pricing Defaults"
+  pricing_override:
+    one: "Pricing Override"
+    other: "Pricing Overrides"
 
   show: "Show"
   edit: "Edit"
@@ -65,6 +77,9 @@ en:
   or: "or"
   admin: "Admin"
   back: "Back"
+  store: "Store"
+
+  pending_order: "An order is pending!"
 
   blog: "Blag"
   username: "Username"
@@ -89,6 +104,7 @@ en:
         payed: "Payed"
         email: "E-mail"
         user_groups: "User groups"
+        account_balance: "Account balance"
       compo:
         game: "Game"
         slots: "Slots"
@@ -107,11 +123,29 @@ en:
         name: "Name"
         stock: "Stock"
         purchase_price: "Purchase price"
+        price: "Price"
         store_item_class: "Item class"
+      store_item_class:
+        name: "Name"
+        parent: "Parent"
       sponsor:
         name: "Name"
         website: "Website"
         image: "Logo"
+      pricing_default:
+        name: "Name"
+        description: "Description"
+        user_groups: "User groups"
+        transform: "Transform function"
+      pricing_override:
+        pricing_default: "Pricing default"
+        payable_id: "Product (type)"
+        transform: "Transform function"
+      order_item:
+        count: "Amount"
+        store_item: "Product"
+        unit_price: "Unit price"
+        price: "Price"
 
   ago: "%{time_difference} ago"
   btn_details: "Details »"
@@ -531,3 +565,7 @@ en:
     show:
       order: "Order for %{user}"
       scan: "Scan"
+      place: "Place"
+      pay: "Pay"
+    order_items:
+      total: "Total"

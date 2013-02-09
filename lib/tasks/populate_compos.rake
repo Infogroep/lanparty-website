@@ -17,7 +17,7 @@ namespace :db do
 			compo = FactoryGirl.build("compo")
 			compo.game = Game.all.sample
 			puts "creating compo for game #{compo.game.name}"
-			compo.save! if compo.valid?
+			compo.save!
 		end
 	end
 end

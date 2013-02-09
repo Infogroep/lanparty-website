@@ -1,10 +1,17 @@
 <div class="container">
 	<div class="row flashmsgholder">
-
 		<% flash.each do |name, msg| %>
 			<div class="<%= "span12 alert alert-#{name}" %>">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
 				<%= msg %>
+			</div>
+		<% end %>
+		<% if current_user and current_user.access_allowed?(:cashier_service) %>
+			<div id="pending-order-container" data-updatepath="<%= util_order_check_path %>">
+				<%= render "components/pending_order_message" %>
+			</div>
+			<div id="pending-order-audio">
+				<%= sound_player(current_user.sound_or_default) %>
 			</div>
 		<% end %>
 	</div>

@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-	attr_accessible :user_id, :placed_at, :processed_at, :status_code
+	attr_accessible :user_id, :placed_at, :payed_at, :status_code
 
 	belongs_to :user
 	belongs_to :cashier, :class_name => "User"
@@ -10,7 +10,7 @@ class Order < ActiveRecord::Base
 	validates_presence_of :status_code
 	validates_presence_of :placed_at, :if => Proc.new { |order| order.status == :pending }
 	validates_presence_of :cashier, :if => Proc.new { |order| order.status == :closed }
-	validates_presence_of :processed_at, :if => Proc.new { |order| order.status == :closed }
+	validates_presence_of :payed_at, :if => Proc.new { |order| order.status == :closed }
 
 	def self.status_to_int(status)
 		case status
@@ -35,11 +35,11 @@ class Order < ActiveRecord::Base
 	scope :closed_orders,  where(:status_code => status_to_int(:closed))
 
 	def total_price
-		order_items.map { |order_item| order_item.price(user) }.reduce(:+)
+		order_items.map { |order_item| order_item.price }.reduce(BigDecimal.new("0"),:+)
 	end
 
 	def total_item_count
-		order_items.map { |order_item| order_item.count }.reduce(:+)
+		order_items.map { |order_item| order_item.count }.reduce(0,:+)
 	end
 
 	def add_item(item)
@@ -74,12 +74,26 @@ class Order < ActiveRecord::Base
 		self.status = :pending
 	end
 
-	def process(cashier)
-		raise WebsiteErrors::UserFriendlyError.new("Can only process open or pending orders") unless status == :open or status == :pending
+	def pay(cashier)
+		raise WebsiteErrors::UserFriendlyError.new("Can only pay open or pending orders") unless status == :open or status == :pending
 
-		self.cashier = cashier
-		self.processed_at = DateTime.current
-		self.status = :closed
+		self.with_lock do
+			client = user
+			client.lock!
+
+			client.account_balance -= self.total_price
+			client.save!
+
+			self.order_items.each do |order_item|
+				order_item.decrease_stock!
+				order_item.lock_price!
+			end
+
+			self.cashier = cashier
+			self.payed_at = DateTime.current
+			self.status = :closed
+			self.save!
+		end
 	end
 
 	def status

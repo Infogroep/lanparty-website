@@ -1,0 +1,6 @@
+<% unless Order.pending_orders.empty? %>
+	<div id="pending-order-message" class="span12 alert">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		<%= link_to t(:pending_order), orders_path %>
+	</div>
+<% end %>

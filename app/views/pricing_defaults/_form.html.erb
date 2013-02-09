@@ -2,8 +2,6 @@
 	<%= f.input :name %>
 	<%= f.input :description %>
 	<%= f.association :user_groups, :multiple => true %>
-	<%#= f.label :user_groups %><br />
-	<%#= f.collection_select :user_group_ids, UserGroup.all, :id, :id, {}, { :multiple => true } %>
 	<%= f.input :transform %>
-	<%= f.submit %>
+	<%= f.submit class: "btn" %>
 <% end %>

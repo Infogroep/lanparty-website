@@ -2,9 +2,10 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 	# new columns need to be added here to be writable through mass assignment
-	attr_accessible :username, :email, :password, :password_confirmation, :password_hash, :password_salt, :clan_tag, :payed, :user_group_ids
+	attr_accessible :username, :email, :password, :password_confirmation, :password_hash, :password_salt, :clan_tag, :payed, :user_group_ids, :account_balance, :pending_order_sound
 	attr_accessor :password
 	before_save :prepare_password
+	before_save :init_balance
 
 	scope :payed, -> { where("payed = ?", true) }
 
@@ -89,6 +90,32 @@ class User < ActiveRecord::Base
 		end
 
 		badges
+	end
+
+	def init_balance
+		self.account_balance ||= BigDecimal.new("0")
+	end
+
+	def sound_or_default_name
+		pending_order_sound || "Bloom"
+	end
+
+	def self.build_sound_info(sound_name)
+		{ :name => sound_name,
+		  :files => [{:ext => "mp3", :type => "audio/mpeg"},
+		             {:ext => "wav", :type => "audio/wav"}].map do |type_info|
+		               { :file => sound_name + "." + type_info[:ext],
+		                 :type => type_info[:type] }
+			           end }
+	end
+
+	def sound_or_default
+		self.class.build_sound_info sound_or_default_name
+	end
+
+	def self.all_sounds
+		%w(Bloom Concern Connected Full Gentle\ Roll High\ Boom Hollow Hope Jump\ Down Jump\ Up Looking\ Down Looking\ Up
+		   Nudge Picked Puff Realization Second\ Glance Stumble Suspended Turn Unsure Metal\ Gear\ Solid\ -\ Alert).map { |sound| build_sound_info(sound) }
 	end
 
 	private

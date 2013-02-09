@@ -57,7 +57,7 @@ module ControllerAuthentication
 
 	def admin_accessible
 		# add access types needed for functions available on the admin page in the array below
-		current_user && [:user_editing,:sponsor_editing].any? { |access_type| current_user.access_allowed? access_type }
+		current_user && [:user_editing,:sponsor_editing,:store_editing].any? { |access_type| current_user.access_allowed? access_type }
 	end
 
 	private

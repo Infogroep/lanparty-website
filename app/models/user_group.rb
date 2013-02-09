@@ -14,7 +14,8 @@ class UserGroup < ActiveRecord::Base
 	validates_presence_of :name
 
 	has_and_belongs_to_many :users
-	has_and_belongs_to_many :pricing_defaults
+	# TODO: I really want this dependent
+	has_and_belongs_to_many :pricing_defaults#, :dependent => :destroy
 
 	mount_uploader :badge, BadgeUploader
 

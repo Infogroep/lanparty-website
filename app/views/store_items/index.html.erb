@@ -2,6 +2,6 @@
 
 <%= render :partial => "store_items/store_items_collection",
            :locals => { :store_items => @store_items,
-                        :render_actions => lambda { |store_item| standard_edit_buttons(store_item) } } %>
+                        :render_actions => lambda { |store_item| standard_edit_buttons(store_item) if current_user.access_allowed? :store_editing } } %>
 
 <%= link_to t(:new, :model => t("store_item.one")), new_store_item_path, class: "btn" %>

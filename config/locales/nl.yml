@@ -7,8 +7,14 @@ nl:
     one: "Compo"
     other: "Compos"
   store_item:
-    one: "Winkelitem"
-    other: "Winkelitems"
+    one: "Product"
+    other: "Producten"
+  store_item_class:
+    one: "Producttype"
+    other: "Producttypes"
+  order:
+    one: "Bestelling"
+    other: "Bestellingen"
   user:
     one: "Gebruiker"
     other: "Gebruikers"
@@ -43,6 +49,12 @@ nl:
   team:
     one: "Team"
     other: "Teams"
+  pricing_default:
+    one: "Standaard Prijsberekening"
+    other: "Standaard Prijsberekeningen"
+  pricing_override:
+    one: "Prijsoverschrijving"
+    other: "Prijsoverschrijvingen"
 
   show: "Toon"
   edit: "Bewerk"
@@ -65,6 +77,9 @@ nl:
   or: "of"
   admin: "Admin"
   back: "Terug"
+  store: "Winkel"
+
+  pending_order: "Er staat een bestelling in de wachtrij!"
 
   blog: "Blag"
   username: "Gebruikersnaam"
@@ -90,6 +105,7 @@ nl:
         payed: "Betaald"
         email: "E-mail"
         user_groups: "Gebruikersgroepen"
+        account_balance: "Rekeningsaldo"
       compo:
         game: "Spel"
         slots: "Plaatsen"
@@ -108,11 +124,29 @@ nl:
         name: "Naam"
         stock: "Stock"
         purchase_price: "Aankoopprijs"
+        price: "Prijs"
         store_item_class: "Itemtype"
+      store_item_class:
+        name: "Naam"
+        parent: "Bovenliggend producttype"
       sponsor:
         name: "Naam"
         website: "Website"
         image: "Logo"
+      pricing_default:
+        name: "Naam"
+        description: "Beschrijving"
+        user_groups: "Gebruikersgroepen"
+        transform: "Transformatiefunctie"
+      pricing_override:
+        pricing_default: "Standaard prijsberekening"
+        payable_id: "Product(type)"
+        transform: "Transformatiefunctie"
+      order_item:
+        count: "Aantal"
+        store_item: "Product"
+        unit_price: "Eenheidsprijs"
+        price: "Prijs"
 
   ago: "%{time_difference} geleden"
   btn_details: "Details »"
@@ -524,5 +558,9 @@ nl:
                      <p><a href='/files/lanparty-reglement.pdf'>%{pdf_image}Lange versie reglement</a></p>"
   orders:
     show:
-      order: "Bestelling voor %{user}"
+      order: "Bestelling van %{user}"
       scan: "Scannen"
+      place: "Plaats"
+      pay: "Betaal"
+    order_items:
+      total: "Totaal"

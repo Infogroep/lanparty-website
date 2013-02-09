@@ -1,5 +1,5 @@
 <%= simple_form_for(@store_item_class) do |f| %>
 	<%= f.input :name %>
-	<%= f.input :parent %>
-	<%= f.submit %>
+	<%= f.association :parent, input_html: { "data-chosenparams" => '{"allow_single_deselect":true}' } %>
+	<%= f.submit class: "btn" %>
 <% end %>

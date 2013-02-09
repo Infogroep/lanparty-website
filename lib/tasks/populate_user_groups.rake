@@ -15,12 +15,12 @@ namespace :db do
 			params[attrs] = true
 		end
 		admin_group = UserGroup.new(params)
-		admin_group.save! if admin_group.valid?
+		admin_group.save!
 
 		users.each do |u|
 			user = User.find_by_username(u)
 			user.user_groups = [admin_group]
-			user.save! if user.valid?
+			user.save!
 			puts "#{u} is now admin"
 		end
 	end
