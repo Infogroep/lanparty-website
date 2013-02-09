@@ -51,6 +51,4 @@
 	<%= render "list_bracket" %>
 <% end %>
 
-<% if current_user && current_user.access_allowed?(:compo_editing) %>
-	<%= render partial:"bracket_form" %>
-<% end %>
+<%= render partial:"bracket_form" %>

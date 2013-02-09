@@ -31,7 +31,8 @@ $(function () {
 			$(this).chosen(data);
 		else
 			$(this).chosen();
-	})
+	});
+	render_bracket();
 });
 
 function load_i18n_js(locale) {

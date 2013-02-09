@@ -1,19 +1,28 @@
+function render_bracket(){
+	if($("#tree_brackets")[0]){
+		render_tree_bracket();
+	}
+	if($("#list_bracket")[0]){
+		render_list_bracket();
+	}
+}
+
 //tree bracket
-//$(function() {
-//	var container = $('#tree_brackets')
-//	var saveData = $.parseJSON($('#compo_bracket_string').val())
-//	
-//	function saveFn(data, userData) {
-//		var json = JSON.stringify(data) //jQuery.toJSON(data)
-//		$('#compo_bracket_string').val(json)
-//	}
-//
-//	container.bracket({
-//		init: saveData,
-//		save: saveFn,
-//		userData: "http://myapi"})
-//})
-//
+function render_tree_bracket() {
+	var container = $('#tree_brackets')
+	var saveData = $.parseJSON($('#compo_bracket_string').val())
+	
+	function saveFn(data, userData) {
+		var json = JSON.stringify(data) //jQuery.toJSON(data)
+		$('#compo_bracket_string').val(json)
+	}
+
+	container.bracket({
+		init: saveData,
+		save: saveFn,
+		userData: "http://myapi"})
+}
+
 //list bracket
 
 function render_list_brackets(container) {
@@ -55,6 +64,7 @@ function addNewRound(){
 		addTeam(i, teams[i], 0, round);
 	}
 	postProcess($('#list_bracket'));
+	save(bracket);
 }
 function removeRound(){
 	var saveData  = $.parseJSON($('#compo_bracket_string').val());
@@ -62,6 +72,7 @@ function removeRound(){
 	var teams= saveData.teams;
 	var id = teams[0][1].length-1;
 	$(".round#round"+id).remove();
+	save(bracket);
 }
 
 function addRound(id, container){
@@ -127,9 +138,9 @@ function changeToInput(element, container){
 }
 
 
-$(function(){
+function render_list_bracket(){
 	var container = $('#list_bracket');
 	render_list_brackets(container);
 	postProcess(container);
-})
+}
 
