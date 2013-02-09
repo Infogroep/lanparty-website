@@ -115,7 +115,7 @@ class User < ActiveRecord::Base
 
 	def self.all_sounds
 		%w(Bloom Concern Connected Full Gentle\ Roll High\ Boom Hollow Hope Jump\ Down Jump\ Up Looking\ Down Looking\ Up
-		   Nudge Picked Puff Realization Second\ Glance Stumble Suspended Turn Unsure).map { |sound| build_sound_info(sound) }
+		   Nudge Picked Puff Realization Second\ Glance Stumble Suspended Turn Unsure Metal\ Gear\ Solid\ -\ Alert).map { |sound| build_sound_info(sound) }
 	end
 
 	private
