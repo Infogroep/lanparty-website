@@ -32,7 +32,7 @@ class StoreItemClassPricingOverridesController < ApplicationController
 
 		respond_to do |format|
 			format.html { render :template => 'pricing_overrides/edit', :locals => { :path_method => :store_item_class_pricing_overrides_path,
-			                                                                         :instance_path_method => :store_item_pricing_override_path } }
+			                                                                         :instance_path_method => :store_item_class_pricing_override_path } }
 		end
 	end
 
