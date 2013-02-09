@@ -23,4 +23,4 @@
 	<% end %>
 </table>
 
-<%= link_to t(:new, :model => t("pricing_override.one")), new_path, class: "btn" %>
+<%= link_to t(:new, :model => t("pricing_override.one")), send(new_path_method), class: "btn" %>
