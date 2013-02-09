@@ -35,11 +35,11 @@ class Order < ActiveRecord::Base
 	scope :closed_orders,  where(:status_code => status_to_int(:closed))
 
 	def total_price
-		order_items.map { |order_item| order_item.price }.reduce(:+)
+		order_items.map { |order_item| order_item.price }.reduce(BigDecimal.new("0"),:+)
 	end
 
 	def total_item_count
-		order_items.map { |order_item| order_item.count }.reduce(:+)
+		order_items.map { |order_item| order_item.count }.reduce(0,:+)
 	end
 
 	def add_item(item)
