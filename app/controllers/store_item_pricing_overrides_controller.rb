@@ -8,7 +8,7 @@ class StoreItemPricingOverridesController < ApplicationController
 		@pricing_overrides = PricingOverride.where(:payable_type => StoreItem.name)
 
 		respond_to do |format|
-			format.html { render :template => 'pricing_overrides/index', :locals => { :new_path => new_store_item_pricing_override_path,
+			format.html { render :template => 'pricing_overrides/index', :locals => { :new_path_method => :new_store_item_pricing_override_path,
 			                                                                          :edit_path_method => :edit_store_item_pricing_override_path,
 			                                                                          :path_method => :store_item_pricing_override_path } }
 		end
@@ -21,7 +21,7 @@ class StoreItemPricingOverridesController < ApplicationController
 		@payable_model = StoreItem
 
 		respond_to do |format|
-			format.html { render :template => 'pricing_overrides/new', :locals => { :path => store_item_pricing_overrides_path } }
+			format.html { render :template => 'pricing_overrides/new', :locals => { :path_method => :store_item_pricing_overrides_path } }
 		end
 	end
 
@@ -31,7 +31,8 @@ class StoreItemPricingOverridesController < ApplicationController
 		@payable_model = StoreItem
 
 		respond_to do |format|
-			format.html { render :template => 'pricing_overrides/edit', :locals => { :path => store_item_pricing_overrides_path } }
+			format.html { render :template => 'pricing_overrides/edit', :locals => { :path_method => :store_item_pricing_overrides_path,
+			                                                                         :instance_path_method => :store_item_pricing_override_path } }
 		end
 	end
 
@@ -44,7 +45,7 @@ class StoreItemPricingOverridesController < ApplicationController
 			if @pricing_override.save
 				format.html { redirect_to store_item_pricing_overrides_url, flash: { info: 'PricingOverride was successfully created.' } }
 			else
-				format.html { render :template => 'pricing_overrides/new', :locals => { :path => store_item_pricing_overrides_path } }
+				format.html { render :template => 'pricing_overrides/new', :locals => { :path_method => :store_item_pricing_overrides_path } }
 			end
 		end
 	end
@@ -58,7 +59,7 @@ class StoreItemPricingOverridesController < ApplicationController
 			if @pricing_override.update_attributes(params[:pricing_override])
 				format.html { redirect_to store_item_pricing_overrides_url, flash: { info: 'PricingOverride was successfully updated.' } }
 			else
-				format.html { render :template => 'pricing_overrides/edit', :locals => { :path => store_item_pricing_overrides_path } }
+				format.html { render :template => 'pricing_overrides/edit', :locals => { :path_method => :store_item_pricing_overrides_path } }
 			end
 		end
 	end

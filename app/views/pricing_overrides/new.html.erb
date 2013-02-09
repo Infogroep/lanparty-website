@@ -1,5 +1,5 @@
-<% title t(:new, :model => t("pricing_override.one")) %>
+<% title t(:new, :model => t("pricing_override.one") + " (" + t("store_item.other") + ")") %>
 
-<%= render 'pricing_overrides/form', form_path: path %>
+<%= render 'pricing_overrides/form', form_path: send(path_method) %>
 
-<%= link_to 'Back', path %>
+<%= link_to 'Back', send(path_method) %>
