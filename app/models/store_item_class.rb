@@ -1,7 +1,8 @@
 class StoreItemClass < ActiveRecord::Base
-	attr_accessible :name, :description
+	attr_accessible :name, :description, :parent_id
 
 	validates_presence_of :name
+	validate :cant_be_own_parent
 
 	has_many :children, :class_name => "StoreItemClass", :foreign_key => :parent_id
 	has_many :pricing_overrides, :as => :payable, :dependent => :destroy
@@ -23,5 +24,9 @@ class StoreItemClass < ActiveRecord::Base
 		else
 			cumulative_price
 		end
+	end
+
+	def cant_be_own_parent
+		errors.add(:parent, "Can't be its own parent") if parent == self
 	end
 end

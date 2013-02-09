@@ -13,7 +13,7 @@
 		<tr class="<%= stock_warning_color(store_item) %>">
 			<td><%= store_item.name %></td>
 			<td><%= store_item.stock %></td>
-			<td><%= store_item.purchase_price %></td>
+			<td><%= number_to_currency store_item.purchase_price, :unit => "€" %></td>
 			<td class="action-column"><%= render_actions.call(store_item) %></td>
 		</tr>
 	<% end %>

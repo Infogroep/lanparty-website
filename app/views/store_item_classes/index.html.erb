@@ -1,17 +1,17 @@
-<h1>Listing store_item_classes</h1>
+<h1><%= t("store_item_class.other") %></h1>
 
 <table class="table">
 	<tr>
-		<th>Name</th>
-		<th>Parent</th>
+		<th><%= t("simple_form.labels.store_item_class.name") %></th>
+		<th><%= t("simple_form.labels.store_item_class.parent") %></th>
 		<th class="action-column"></th>
 	</tr>
 
 	<% @store_item_classes.each do |store_item_class| %>
 		<tr>
 			<td><%= store_item_class.name %></td>
-			<td><%= store_item_class.parent %></td>
-			<td class="action-column"><%= standard_edit_buttons(store_item_class) %></td>
+			<td><%= store_item_class.parent ? store_item_class.parent.name : "-" %></td>
+			<td class="action-column"><%= standard_edit_buttons(store_item_class, :except => [:show]) %></td>
 		</tr>
 	<% end %>
 </table>

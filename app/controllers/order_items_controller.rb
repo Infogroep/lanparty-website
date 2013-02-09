@@ -1,7 +1,7 @@
 class OrderItemsController < ApplicationController
+	include OrdersHelper
 	before_filter :login_required
-	before_filter { user_or_access_required(Order.find(params[:order_id]).user_id,:order_processing) }
-	before_filter { true_required(Order.find(params[:order_id]).status == :open || current_user.access_allowed?(:order_processing)) }
+	before_filter { true_required(can_modify_order?(Order.find(params[:order_id]))) }
 
 	before_filter :set_view, :only => :new
 

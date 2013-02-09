@@ -40,6 +40,13 @@
 							<ul class="dropdown-menu">
 								<li><%= link_to t("user_group.other"), user_groups_path if current_user.access_allowed? :user_editing %></li>
 								<li><%= link_to t("sponsor.other"), sponsors_path if current_user.access_allowed? :sponsor_editing %></li>
+								<% if current_user.access_allowed? :store_editing %>
+								<li><%= link_to t("store_item.other"), store_items_path %></li>
+								<li><%= link_to t("store_item_class.other"), store_item_classes_path %></li>
+								<li><%= link_to t("pricing_default.other"), pricing_defaults_path %></li>
+								<li><%= link_to t("pricing_override.other") + " (" + t("store_item.other") + ")", store_item_pricing_overrides_path %></li>
+								<li><%= link_to t("pricing_override.other") + " (" + t("store_item_class.other") + ")", store_item_class_pricing_overrides_path %></li>
+								<% end %>
 							</ul>
 						</li>
 					<% end %>

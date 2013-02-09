@@ -21,7 +21,7 @@ namespace :db do
 				end
 			end
 			if game
-				game.save! if game.valid?
+				game.save!
 				puts "creating #{game.name}"
 			else
 				puts "failed creating game after #{tries} tries"

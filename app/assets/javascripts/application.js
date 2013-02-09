@@ -23,8 +23,14 @@
 
 $(function () {
 	$('input.date_picker').datetimepicker({dateFormat:"dd/mm/yy"});
-	$('select').chosen();
-	$('.chosen').chosen();
+	$('select').each(function () {
+		var data = $(this).data("chosenparams");
+
+		if(data)
+			$(this).chosen(data);
+		else
+			$(this).chosen();
+	})
 });
 
 function load_i18n_js(locale) {

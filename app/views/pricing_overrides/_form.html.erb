@@ -1,0 +1,7 @@
+<%= simple_form_for(@pricing_override, :url => form_path) do |f| %>
+	<%= f.association :pricing_default %>
+	<%= f.input :payable_id, collection: @payable_model.all %>
+	<%= f.hidden_field :payable_type, value: @payable_model.name %>
+	<%= f.input :transform %>
+	<%= f.submit class: "btn" %>
+<% end %>

@@ -23,6 +23,10 @@ Lanparty::Application.routes.draw do
 
 		resources :pricing_defaults
 
+		resources :store_item_pricing_overrides
+
+		resources :store_item_class_pricing_overrides
+
 		resources :user_groups
 
 		resources :logs

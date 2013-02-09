@@ -1,23 +1,21 @@
-<h1>Listing pricing_defaults</h1>
+<h1><%= t("pricing_default.other") %></h1>
 
 <table class="table">
 	<tr>
-		<th>Name</th>
-		<th>Description</th>
-		<th></th>
+		<th><%= t("simple_form.labels.pricing_default.name") %></th>
+		<th><%= t("simple_form.labels.pricing_default.description") %></th>
+		<th class="action-column"></th>
 	</tr>
 
 	<% @pricing_defaults.each do |pricing_default| %>
 		<tr>
 			<td><%= pricing_default.name %></td>
 			<td><%= pricing_default.description %></td>
-			<td><%= link_to t(:show), pricing_default %></td>
-			<td><%= link_to t(:edit), edit_pricing_default_path(pricing_default) %></td>
-			<td><%= link_to t(:destroy), pricing_default, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<td class="action-column"><%= standard_edit_buttons(pricing_default) %></td>
 		</tr>
 	<% end %>
 </table>
 
 <br/>
 
-<%= link_to t(:new, :model => t("pricing_default.one")), new_pricing_default_path %>
+<%= link_to t(:new, :model => t("pricing_default.one")), new_pricing_default_path, class: "btn" %>

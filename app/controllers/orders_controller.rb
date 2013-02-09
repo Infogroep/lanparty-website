@@ -1,17 +1,17 @@
 class OrdersController < ApplicationController
+	include OrdersHelper
 	before_filter :login_required
-	before_filter(:only => [:new,:pay]) { access_required(:order_processing) }
-	before_filter(:only => :create) { true_required(params[:order][:user_id] == current_user.id.to_s || current_user.access_allowed?(:order_processing)) }
-	before_filter(:only => [:show,:destroy,:place]) { user_or_access_required(Order.find(params[:id]).user_id,:order_processing) }
-	before_filter(:only => :destroy) do
-		order = Order.find(params[:id])
-		true_required(order.status == :open || current_user.access_allowed?(:order_processing) && order.status == :pending)
-	end
+	before_filter(:only => :new) { access_required(:order_processing) }
+	before_filter(:only => :create) { user_or_access_required(params[:order][:user_id].to_i, :order_processing) }
+	before_filter(:only => :show) { user_or_access_required(Order.find(params[:id]).user_id,:order_processing) }
+	before_filter(:only => :place) { true_required(can_place_order?(Order.find(params[:id]))) }
+	before_filter(:only => :pay) { true_required(can_pay_order?(Order.find(params[:id]))) }
+	before_filter(:only => :destroy) { true_required(can_modify_order?(Order.find(params[:id]))) }
 
 	# GET /orders
 	# GET /orders.json
 	def index
-		@orders = Order.order("created_at DESC").limit(100).order("status_code ASC")
+		@orders = Order.order("created_at DESC").limit(100)
 
 		respond_to do |format|
 			format.html # index.html.erb
@@ -71,19 +71,20 @@ class OrdersController < ApplicationController
 			if @order.save
 				format.html { redirect_to orders_url, flash: { info: 'Order placed.' } }
 			else
-				format.html { redirect_to @order, error: "Couldn't place order." }
+				format.html { redirect_to @order, flash: { error: e.message } }
 			end
 		end
 	end
 
 	def pay
 		@order = Order.find(params[:id])
-		@order.process(current_user)
+
 		respond_to do |format|
-			if @order.save
+			begin
+				@order.pay(current_user)
 				format.html { redirect_to orders_url, flash: { info: 'Order payed.' } }
-			else
-				format.html { redirect_to @order, error: "Couldn't pay order." }
+			rescue WebsiteErrors::UserFriendlyError => e
+				format.html { redirect_to @order, flash: { error: e.message } }
 			end
 		end
 	end

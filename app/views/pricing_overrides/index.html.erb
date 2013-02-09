@@ -1,0 +1,26 @@
+<h1><%= t("pricing_override.other") %></h1>
+
+<table class="table">
+	<tr>
+		<th><%= t("simple_form.labels.pricing_override.payable_id") %></th>
+		<th><%= t("simple_form.labels.pricing_override.transform") %></th>
+		<th class="action-column"></th>
+	</tr>
+
+	<% @pricing_overrides.each do |pricing_override| %>
+		<tr>
+			<td><%= pricing_override.payable.name %></td>
+			<td><%= pricing_override.transform %></td>
+			<td class="action-column">
+				<div class="btn-toolbar action-toolbar">
+					<div class="btn-group">
+						<%= link_to content_tag("i", "", class: "icon-edit"), send(edit_path_method,pricing_override), class: "btn" %>
+						<%= link_to content_tag("i", "", class: "icon-trash"), send(path_method,pricing_override), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+					</div>
+				</div>
+			</td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to t(:new, :model => t("pricing_override.one")), new_path, class: "btn" %>

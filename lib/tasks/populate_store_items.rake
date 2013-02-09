@@ -24,7 +24,7 @@ namespace :db do
 			else
 				taken_item << store_item.name
 			end
-			store_item.save! if store_item.valid?
+			store_item.save!
 			rand(3)+1.times do
 				barcode = FactoryGirl.build("barcode")
 				store_item.barcodes << barcode

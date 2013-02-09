@@ -23,7 +23,7 @@ namespace :db do
 			team = FactoryGirl.build("team")
 			team.compo = Compo.all.sample
 			team.users << User.all.sample(team.compo.group_size+1)
-			team.save! if team.valid?
+			team.save!
 			puts "creating #{team.name}"
 		end
 	end
