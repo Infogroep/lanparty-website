@@ -1,9 +1,13 @@
+<% admin = current_user.access_allowed?(:store_editing) %>
 <table class="table table-striped datatable">
 	<thead>
 	<tr>
 		<th><%= t("simple_form.labels.store_item.name") %></th>
 		<th><%= t("simple_form.labels.store_item.stock") %></th>
+		<th><%= t("simple_form.labels.store_item.price") %></th>
+		<% if admin %>
 		<th><%= t("simple_form.labels.store_item.purchase_price") %></th>
+		<% end %>
 		<th class="action-column"></th>
 	</tr>
 	</thead>
@@ -13,7 +17,10 @@
 		<tr class="<%= stock_warning_color(store_item) %>">
 			<td><%= store_item.name %></td>
 			<td><%= store_item.stock %></td>
+			<td><%= number_to_currency store_item.price(current_user), :unit => "€" %></td>
+			<% if admin %>
 			<td><%= number_to_currency store_item.purchase_price, :unit => "€" %></td>
+			<% end %>
 			<td class="action-column"><%= render_actions.call(store_item) %></td>
 		</tr>
 	<% end %>

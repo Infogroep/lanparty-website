@@ -19,6 +19,7 @@
 //= require chosen-jquery
 //= require jquery.bracket
 //= require ckeditor/init
+//= require cashier_notifications
 //= require_tree .
 
 $(function () {

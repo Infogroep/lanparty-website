@@ -4,3 +4,12 @@
 jQuery ->
 	$('#user_clan_tag').autocomplete
 		source: $('#user_clan_tag').data('autocomplete-source')
+
+$(() ->
+	$('#sound-selector').on('change',(evt) ->
+		me = $(evt.target)
+		$.ajax(me.data("soundtestpath"),
+			data:
+				sound: me.val()
+			success: (data,status,xhr) -> $('#sound-test-area').html(data)
+		)))

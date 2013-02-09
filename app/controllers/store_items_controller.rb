@@ -1,6 +1,6 @@
 class StoreItemsController < ApplicationController
 	before_filter :login_required
-	before_filter { access_required :store_editing }
+	before_filter(:except => [:index,:show]) { access_required :store_editing }
 
 	before_filter :set_view, :only => :index
 
@@ -80,6 +80,7 @@ class StoreItemsController < ApplicationController
 
 	# DELETE /store_items/1
 	# DELETE /store_items/1.json
+	# TODO: URGENT!!! DELETING A STORE ITEM SHOULD EITHER NOT BE POSSIBLE OR ORDER ITEMS SHOULD HANDLE THIS
 	def destroy
 		@store_item = StoreItem.find(params[:id])
 		@store_item.destroy

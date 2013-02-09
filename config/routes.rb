@@ -49,6 +49,11 @@ Lanparty::Application.routes.draw do
 		match 'darules' => 'pages#rules', :as => :rules
 		match 'admin' => 'pages#admin', :as => :admin
 
+		namespace 'util' do
+			match 'soundtest' => 'soundtest#soundtest', :as => :soundtest
+			match 'order_check' => 'order_check#order_check', :as => :order_check
+		end
+
 		resources :teams do
 			put :join, :on => :member
 			put :leave, :on => :member
@@ -58,6 +63,7 @@ Lanparty::Application.routes.draw do
 
 		resources :users do
 			post :markpayed, :on => :collection
+			get :soundtest, :on => :collection
 		end
 
 		resources :match_lose_links

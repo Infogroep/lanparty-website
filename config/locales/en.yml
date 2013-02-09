@@ -12,6 +12,9 @@ en:
   store_item_class:
     one: "Product Type"
     other: "Product Types"
+  order:
+    one: "Order"
+    other: "Orders"
   user:
     one: "User"
     other: "Users"
@@ -74,6 +77,9 @@ en:
   or: "or"
   admin: "Admin"
   back: "Back"
+  store: "Store"
+
+  pending_order: "An order is pending!"
 
   blog: "Blag"
   username: "Username"
@@ -117,6 +123,7 @@ en:
         name: "Name"
         stock: "Stock"
         purchase_price: "Purchase price"
+        price: "Price"
         store_item_class: "Item class"
       store_item_class:
         name: "Name"

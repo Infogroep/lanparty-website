@@ -9,7 +9,7 @@
 			<%= link_to t(:iLan), home_path, :class => "brand" %>
 			<div class="nav-collapse collapse">
 				<ul class="nav pull-left">
-					<li class="dropdown visible-smalldesktop">
+					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							Info
 							<b class="caret"></b>
@@ -19,18 +19,24 @@
 							<li class="<%= active_class('pages#location') %>"><%= link_to t(:location), controller: :pages, action: :location %></li>
 							<li class="<%= active_class('pages#rules') %>"><%= link_to t(:rules), controller: :pages, action: :rules %></li>
 							<li class="<%= active_class('pages#faq') %>"><%= link_to t(:faq), controller: :pages, action: :faq %></li>
+							<li class="<%= active_class('pages#contact') %>"><%= link_to t(:contact), controller: :pages, action: :contact %></li>
 						</ul>
 					</li>
-					<li class="<%= active_class('pages#info') %> hidden-smalldesktop"><%= link_to t(:info), controller: :pages, action: :info %></li>
 					<li class="<%= active_class('games') %>"><%= link_to t("game.other"), games_path %></li>
 					<% if current_user %>
 						<li class="<%= active_class('compos') %>"><%= link_to t("compo.other"), compos_path %></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<%= t(:store) %>
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="<%= active_class('store_items') %>"><%= link_to t("store_item.other"), store_items_path %></li>
+								<li class="<%= active_class('orders') %>"><%= link_to t("order.other"), orders_path %></li>
+							</ul>
+						</li>
 					<% end %>
 					<li class="<%= active_class('users') %>"><%= link_to t("participant.other"), users_path %></li>
-					<li class="<%= active_class('pages#location') %> hidden-smalldesktop"><%= link_to t(:location), controller: :pages, action: :location %></li>
-					<li class="<%= active_class('pages#rules') %> hidden-smalldesktop"><%= link_to t(:rules), controller: :pages, action: :rules %></li>
-					<li class="<%= active_class('pages#faq') %> hidden-smalldesktop"><%= link_to t(:faq), controller: :pages, action: :faq %></li>
-					<li class="<%= active_class('pages#contact') %>"><%= link_to t(:contact), controller: :pages, action: :contact %></li>
 					<% if admin_accessible %>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -38,12 +44,12 @@
 								<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
-								<li><%= link_to t("user_group.other"), user_groups_path if current_user.access_allowed? :user_editing %></li>
-								<li><%= link_to t("sponsor.other"), sponsors_path if current_user.access_allowed? :sponsor_editing %></li>
+								<li class="<%= active_class('user_groups') %>"><%= link_to t("user_group.other"), user_groups_path if current_user.access_allowed? :user_editing %></li>
+								<li class="<%= active_class('sponsors') %>"><%= link_to t("sponsor.other"), sponsors_path if current_user.access_allowed? :sponsor_editing %></li>
 								<% if current_user.access_allowed? :store_editing %>
-								<li><%= link_to t("store_item.other"), store_items_path %></li>
-								<li><%= link_to t("store_item_class.other"), store_item_classes_path %></li>
-								<li><%= link_to t("pricing_default.other"), pricing_defaults_path %></li>
+								<li class="<%= active_class('store_items') %>"><%= link_to t("store_item.other"), store_items_path %></li>
+								<li class="<%= active_class('store_item_classes') %>"><%= link_to t("store_item_class.other"), store_item_classes_path %></li>
+								<li class="<%= active_class('pricing_defaults') %>"><%= link_to t("pricing_default.other"), pricing_defaults_path %></li>
 								<li><%= link_to t("pricing_override.other") + " (" + t("store_item.other") + ")", store_item_pricing_overrides_path %></li>
 								<li><%= link_to t("pricing_override.other") + " (" + t("store_item_class.other") + ")", store_item_class_pricing_overrides_path %></li>
 								<% end %>
