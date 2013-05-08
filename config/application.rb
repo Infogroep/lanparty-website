@@ -6,6 +6,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
+require 'yaml'
 # require "rails/test_unit/railtie"
 
 if defined?(Bundler)
@@ -15,32 +16,36 @@ if defined?(Bundler)
 	# Bundler.require(:default, :assets, Rails.env)
 end
 
+SETTINGS = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
+SETTINGS.merge! SETTINGS.fetch(Rails.env, {})
+SETTINGS.symbolize_keys!
+
 module Lanparty
 	class Application < Rails::Application
 		config.autoload_paths << "#{config.root}/lib" # Settings in config/environments/* take precedence over those specified here.
-		                                              # Application configuration should go into files in config/initializers
-		                                              # -- all .rb files in that directory are automatically loaded.
+		# Application configuration should go into files in config/initializers
+		# -- all .rb files in that directory are automatically loaded.
 
-		                                              # Custom directories with classes and modules you want to be autoloadable.
-		                                              # config.autoload_paths += %W(#{config.root}/extras)
+		# Custom directories with classes and modules you want to be autoloadable.
+		# config.autoload_paths += %W(#{config.root}/extras)
 
-		                                              # Only load the plugins named here, in the order given (default is alphabetical).
-		                                              # :all can be used as a placeholder for all plugins not explicitly named.
-		                                              # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+		# Only load the plugins named here, in the order given (default is alphabetical).
+		# :all can be used as a placeholder for all plugins not explicitly named.
+		# config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
-		                                              # Activate observers that should always be running.
-		                                              # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
+		# Activate observers that should always be running.
+		# config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
-		                                              # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-		                                              # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-		                                              # config.time_zone = 'Central Time (US & Canada)'
+		# Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
+		# Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
+		# config.time_zone = 'Central Time (US & Canada)'
 
-		                                              # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-		                                              # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-		                                              # config.i18n.default_locale = :de
+		# The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+		# config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+		# config.i18n.default_locale = :de
 		config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 
-		                                              # Configure the default encoding used in templates for Ruby 1.9.
+		# Configure the default encoding used in templates for Ruby 1.9.
 		config.encoding = "utf-8"
 
 		# Configure sensitive parameters which will be filtered from the log file.

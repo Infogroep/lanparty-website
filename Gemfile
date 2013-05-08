@@ -1,5 +1,14 @@
 source 'https://rubygems.org'
 
+# OSX is darwin
+def darwin_only(require_as)
+  RUBY_PLATFORM.include?('darwin') && require_as
+end
+
+def linux_only(require_as)
+  RUBY_PLATFORM.include?('linux') && require_as
+end
+
 gem 'rails', '>= 3.2.7'
 
 # Bundle edge Rails instead:
@@ -51,14 +60,16 @@ gem 'jquery-ui-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'simple_form'
-gem 'ledermann-rails-settings', :require => 'rails-settings'
 gem 'chosen-rails'
 gem 'ckeditor'
 gem 'mini_magick'
 
-
-gem 'rb-inotify', '~> 0.8.8'
 gem 'simplecov'
+
+# Notification
+gem 'rb-fsevent', require: darwin_only('rb-fsevent')
+#gem 'growl',      require: darwin_only('growl')
+gem 'rb-inotify', require: linux_only('rb-inotify')
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
