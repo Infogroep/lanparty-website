@@ -63,6 +63,8 @@ function load_i18n_js(locale) {
 		}
 	}
 
-	$('.datatable').dataTable(datatable_settings);
-	$('.datatable').trigger('after-datatable');
+	$('.datatable').each(function () {
+		var dt = $(this).dataTable(datatable_settings);
+		$(this).trigger('after-datatable',{datatable: dt});
+	});
 }

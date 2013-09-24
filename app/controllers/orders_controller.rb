@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
 	# GET /orders
 	# GET /orders.json
 	def index
-		@orders = Order.order("created_at DESC").limit(100)
+		@orders = Order.order("updated_at DESC").limit(100)
 
 		respond_to do |format|
 			format.html # index.html.erb

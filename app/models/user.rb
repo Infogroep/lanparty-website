@@ -97,7 +97,11 @@ class User < ActiveRecord::Base
 	end
 
 	def sound_or_default_name
-		pending_order_sound || "Bloom"
+		if pending_order_sound && self.class.all_sounds.map{|sound| sound[:name]}.include?(pending_order_sound)
+			pending_order_sound 
+		else
+			"Bloom"
+		end
 	end
 
 	def self.build_sound_info(sound_name)
