@@ -8,7 +8,7 @@
 		<td><%= team.compo.game.name %></td>
 	<% end %>
 	<% if time %>
-		<td><%= team.compo.date_time.strftime(Settings.format) %></td>
+		<td><%= team.compo.date_time.strftime(SETTINGS[:format]) %></td>
 	<% end %>
 	<% if buttons %>
 		<td><%= standard_edit_buttons(team) %></td>

@@ -1,0 +1,6 @@
+entry_fee: 10
+max_participants: 50
+registration_available: true
+date: 2013-2-15
+location: "VUB Mandela"
+format: "%a %H:%M"
