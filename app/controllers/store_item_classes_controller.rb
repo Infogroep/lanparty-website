@@ -7,31 +7,17 @@ class StoreItemClassesController < ApplicationController
 	# GET /store_item_classes.json
 	def index
 		@store_item_classes = StoreItemClass.all
-
-		respond_to do |format|
-			format.html # index.html.erb
-			format.json { render json: @store_item_classes }
-		end
 	end
 
 	# GET /store_item_classes/1
 	# GET /store_item_classes/1.json
 	def show
-		respond_to do |format|
-			format.html # show.html.erb
-			format.json { render json: @store_item_class }
-		end
 	end
 
 	# GET /store_item_classes/new
 	# GET /store_item_classes/new.json
 	def new
 		@store_item_class = StoreItemClass.new
-
-		respond_to do |format|
-			format.html # new.html.erb
-			format.json { render json: @store_item_class }
-		end
 	end
 
 	# GET /store_item_classes/1/edit
@@ -43,28 +29,20 @@ class StoreItemClassesController < ApplicationController
 	def create
 		@store_item_class = StoreItemClass.new(store_item_class_params)
 
-		respond_to do |format|
-			if @store_item_class.save
-				format.html { redirect_to store_item_classes_url, flash: { info: 'Store item class was successfully created.' } }
-				format.json { render json: @store_item_class, status: :created, location: @store_item_class }
-			else
-				format.html { render action: "new" }
-				format.json { render json: @store_item_class.errors, status: :unprocessable_entity }
-			end
+		if @store_item_class.save
+			redirect_to store_item_classes_url, flash: { info: 'Store item class was successfully created.' }
+		else
+			render action: "new"
 		end
 	end
 
 	# PUT /store_item_classes/1
 	# PUT /store_item_classes/1.json
 	def update
-		respond_to do |format|
-			if @store_item_class.update(store_item_class_params)
-				format.html { redirect_to store_item_classes_url, flash: { info: 'Store item class was successfully updated.' } }
-				format.json { head :no_content }
-			else
-				format.html { render action: "edit" }
-				format.json { render json: @store_item_class.errors, status: :unprocessable_entity }
-			end
+		if @store_item_class.update(store_item_class_params)
+			redirect_to store_item_classes_url, flash: { info: 'Store item class was successfully updated.' }
+		else
+			render action: "edit"
 		end
 	end
 
@@ -73,10 +51,7 @@ class StoreItemClassesController < ApplicationController
 	def destroy
 		@store_item_class.destroy
 
-		respond_to do |format|
-			format.html { redirect_to store_item_classes_url }
-			format.json { head :no_content }
-		end
+		redirect_to store_item_classes_url
 	end
 
 	private

@@ -7,31 +7,17 @@ class PricingDefaultsController < ApplicationController
 	# GET /pricing_defaults.json
 	def index
 		@pricing_defaults = PricingDefault.all
-
-		respond_to do |format|
-			format.html # index.html.erb
-			format.json { render json: @pricing_defaults }
-		end
 	end
 
 	# GET /pricing_defaults/1
 	# GET /pricing_defaults/1.json
 	def show
-		respond_to do |format|
-			format.html # show.html.erb
-			format.json { render json: @pricing_default }
-		end
 	end
 
 	# GET /pricing_defaults/new
 	# GET /pricing_defaults/new.json
 	def new
 		@pricing_default = PricingDefault.new
-
-		respond_to do |format|
-			format.html # new.html.erb
-			format.json { render json: @pricing_default }
-		end
 	end
 
 	# GET /pricing_defaults/1/edit
@@ -43,28 +29,20 @@ class PricingDefaultsController < ApplicationController
 	def create
 		@pricing_default = PricingDefault.new(pricing_default_params)
 
-		respond_to do |format|
-			if @pricing_default.save
-				format.html { redirect_to pricing_defaults_url, flash: { info: 'Pricing default was successfully created.' } }
-				format.json { render json: @pricing_default, status: :created, location: @pricing_default }
-			else
-				format.html { render action: "new" }
-				format.json { render json: @pricing_default.errors, status: :unprocessable_entity }
-			end
+		if @pricing_default.save
+			redirect_to pricing_defaults_url, flash: { info: 'Pricing default was successfully created.' }
+		else
+			render action: "new"
 		end
 	end
 
 	# PUT /pricing_defaults/1
 	# PUT /pricing_defaults/1.json
 	def update
-		respond_to do |format|
-			if @pricing_default.update(pricing_default_params)
-				format.html { redirect_to pricing_defaults_url, flash: { info: 'Pricing default was successfully updated.' } }
-				format.json { head :no_content }
-			else
-				format.html { render action: "edit" }
-				format.json { render json: @pricing_default.errors, status: :unprocessable_entity }
-			end
+		if @pricing_default.update(pricing_default_params)
+			redirect_to pricing_defaults_url, flash: { info: 'Pricing default was successfully updated.' }
+		else
+			render action: "edit"
 		end
 	end
 
@@ -73,10 +51,7 @@ class PricingDefaultsController < ApplicationController
 	def destroy
 		@pricing_default.destroy
 
-		respond_to do |format|
-			format.html { redirect_to pricing_defaults_url }
-			format.json { head :no_content }
-		end
+		redirect_to pricing_defaults_url
 	end
 
 	private

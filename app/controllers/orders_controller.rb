@@ -13,28 +13,17 @@ class OrdersController < ApplicationController
 	# GET /orders.json
 	def index
 		@orders = Order.order("updated_at DESC").limit(100)
-
-		respond_to do |format|
-			format.html # index.html.erb
-		end
 	end
 
 	# GET /orders/1
 	# GET /orders/1.json
 	def show
-		respond_to do |format|
-			format.html # show.html.erb
-		end
 	end
 
 	# GET /orders/new
 	# GET /orders/new.json
 	def new
 		@order = Order.new
-
-		respond_to do |format|
-			format.html # new.html.erb
-		end
 	end
 
 	# POST /orders
@@ -43,12 +32,10 @@ class OrdersController < ApplicationController
 		@order = Order.new(order_params)
 		@order.status = :open
 
-		respond_to do |format|
-			if @order.save
-				format.html { redirect_to @order }
-			else
-				format.html { render action: "new" }
-			end
+		if @order.save
+			redirect_to @order
+		else
+			render action: "new"
 		end
 	end
 
@@ -57,30 +44,24 @@ class OrdersController < ApplicationController
 	def destroy
 		@order.destroy
 
-		respond_to do |format|
-			format.html { redirect_to orders_url }
-		end
+		redirect_to orders_url
 	end
 
 	def place
 		@order.place
-		respond_to do |format|
-			if @order.save
-				format.html { redirect_to orders_url, flash: { info: 'Order placed.' } }
-			else
-				format.html { redirect_to @order, flash: { error: e.message } }
-			end
+		if @order.save
+			redirect_to orders_url, flash: { info: 'Order placed.' }
+		else
+			redirect_to @order, flash: { error: e.message }
 		end
 	end
 
 	def pay
-		respond_to do |format|
-			begin
-				@order.pay(current_user)
-				format.html { redirect_to orders_url, flash: { info: 'Order payed.' } }
-			rescue WebsiteErrors::UserFriendlyError => e
-				format.html { redirect_to @order, flash: { error: e.message } }
-			end
+		begin
+			@order.pay(current_user)
+			redirect_to orders_url, flash: { info: 'Order payed.' }
+		rescue WebsiteErrors::UserFriendlyError => e
+			redirect_to @order, flash: { error: e.message }
 		end
 	end
 

@@ -19,14 +19,10 @@ class BlogCommentsController < ApplicationController
 	# PUT /blog_comments/1
 	# PUT /blog_comments/1.json
 	def update
-		respond_to do |format|
-			if @blog_comment.update(blog_comment_params)
-				format.html { redirect_to @blog_post, notice: 'Blog comment was successfully updated.' }
-				format.json { head :no_content }
-			else
-				format.html { render action: "edit" }
-				format.json { render json: @blog_comment.errors, status: :unprocessable_entity }
-			end
+		if @blog_comment.update(blog_comment_params)
+			redirect_to @blog_post, notice: 'Blog comment was successfully updated.'
+		else
+			render action: "edit"
 		end
 	end
 
@@ -35,10 +31,7 @@ class BlogCommentsController < ApplicationController
 	def destroy
 		@blog_comment.destroy
 
-		respond_to do |format|
-			format.html { redirect_to @blog_post }
-			format.json { head :no_content }
-		end
+		redirect_to @blog_post
 	end
 
 	private
