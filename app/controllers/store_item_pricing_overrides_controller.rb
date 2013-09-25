@@ -1,4 +1,5 @@
 class StoreItemPricingOverridesController < ApplicationController
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
 	before_filter { access_required :store_editing }
 
@@ -73,5 +74,15 @@ class StoreItemPricingOverridesController < ApplicationController
 		respond_to do |format|
 			format.html { redirect_to store_item_pricing_overrides_url }
 		end
+	end
+
+	private
+
+	def setup_environment
+		@pricing_override = PricingOverride.find(params[:id])
+	end
+
+	def barcode_params
+
 	end
 end

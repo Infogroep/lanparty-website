@@ -1,4 +1,5 @@
 class BlogCommentsController < ApplicationController
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
 	before_filter(:only => [:edit, :update, :destroy]) { true_required (BlogComment.find(params[:id]).user_id == current_user.id || current_user.access_allowed?(:blog_editing)) }
 
@@ -43,5 +44,16 @@ class BlogCommentsController < ApplicationController
 			format.html { redirect_to @blog_post }
 			format.json { head :no_content }
 		end
+	end
+
+	private
+
+	def setup_environment
+		@blog_post = BlogPost.find(params[:blog_post_id])
+		@blog_comment = BlogComment.find(params[:id])
+	end
+
+	def barcode_params
+
 	end
 end

@@ -1,4 +1,5 @@
 class BlogPostsController < ApplicationController
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required, :except => [:index, :show]
 	before_filter(:except => [:index, :show]) { access_required(:blog_editing) }
 
@@ -82,5 +83,15 @@ class BlogPostsController < ApplicationController
 			format.html { redirect_to blog_posts_url }
 			format.json { head :no_content }
 		end
+	end
+
+	private
+
+	def setup_environment
+		@blog_post = BlogPost.find(params[:id])
+	end
+
+	def barcode_params
+
 	end
 end

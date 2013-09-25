@@ -1,4 +1,5 @@
 class ComposController < ApplicationController
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
 	before_filter(:except => [:index, :show]) { access_required :compo_editing }
 
@@ -92,5 +93,15 @@ class ComposController < ApplicationController
 		respond_to do |format|
 			format.html {redirect_to @compo, flash: {info:"saved"}}
 		end
+	end
+
+	private
+
+	def setup_environment
+		@barcode = Compo.find(params[:id])
+	end
+
+	def barcode_params
+
 	end
 end

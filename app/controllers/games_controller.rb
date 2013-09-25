@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required, :except => [:index]
 	before_filter(:except => [:index]) { access_required :compo_editing }
 
@@ -88,5 +89,15 @@ class GamesController < ApplicationController
 			format.html { redirect_to games_url }
 			format.json { head :no_content }
 		end
+	end
+
+	private
+
+	def setup_environment
+		@barcode = Game.find(params[:id])
+	end
+
+	def barcode_params
+
 	end
 end

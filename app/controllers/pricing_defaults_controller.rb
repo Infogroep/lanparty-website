@@ -1,4 +1,5 @@
 class PricingDefaultsController < ApplicationController
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
 	before_filter { access_required :store_editing }
 
@@ -82,5 +83,15 @@ class PricingDefaultsController < ApplicationController
 			format.html { redirect_to pricing_defaults_url }
 			format.json { head :no_content }
 		end
+	end
+
+	private
+
+	def setup_environment
+		@pricing_default = PricingDefault.find(params[:id])
+	end
+
+	def barcode_params
+
 	end
 end

@@ -1,5 +1,6 @@
 class OrderItemsController < ApplicationController
 	include OrdersHelper
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
 	before_filter { true_required(can_modify_order?(Order.find(params[:order_id]))) }
 
@@ -76,5 +77,16 @@ class OrderItemsController < ApplicationController
 		respond_to do |format|
 			format.html { render :partial => "orders/order_items", :locals => { :order => @order } }
 		end
+	end
+
+	private
+
+	def setup_environment
+		@order = Order.find(params[:order_id])
+		@order_item = OrderItem.find(params[:id])
+	end
+
+	def barcode_params
+
 	end
 end

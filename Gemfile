@@ -9,7 +9,7 @@ def linux_only(require_as)
   RUBY_PLATFORM.include?('linux') && require_as
 end
 
-gem 'rails', '>= 3.2.7'
+gem 'rails', '~> 4.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -21,29 +21,29 @@ gem 'sqlite3'
 # in production environments by default.
 group :assets do
 	gem 'bootstrap-sass'
-	gem 'sass-rails',   '~> 3.2.3'
-	gem 'coffee-rails', '~> 3.2.1'
+	gem 'sass-rails', '~> 4.0.0'
+	gem 'coffee-rails', '~> 4.0.0'
 
 	# See https://github.com/sstephenson/execjs#readme for more supported runtimes
 	gem 'therubyracer', :platform => :ruby
-	gem 'libv8', '~> 3.11.8'
+	gem 'libv8'
 	gem 'jquery-datatables-rails'
 	gem 'font-awesome-sass-rails'
 
-	gem 'uglifier', '>= 1.0.3'
+	gem 'uglifier', '>= 1.3.0'
 end
 
 group :development, :test do
   gem "capybara"
   gem "launchy"
-  gem 'rspec', '>= 2.8.1'
-  gem 'rspec-rails', '>= 2.8.1'
-  gem 'shoulda', '>= 2.11.3'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'shoulda'
   gem 'shoulda-matchers'
-  gem 'factory_girl_rails', '~> 4.0'
-	gem 'nifty-generators'
-	gem 'bcrypt-ruby', :require => 'bcrypt'
-	gem 'faker'
+  gem 'factory_girl_rails'
+  gem 'nifty-generators'
+  gem 'bcrypt-ruby', :require => 'bcrypt'
+  gem 'faker'
   gem 'guard-spork'
   gem 'guard-rspec'
   gem 'spork'

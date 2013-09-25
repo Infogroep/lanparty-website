@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
 	# GET /teams
 	# GET /teams.json
@@ -84,5 +85,15 @@ class TeamsController < ApplicationController
 			format.html { redirect_to teams_url }
 			format.json { head :no_content }
 		end
+	end
+
+	private
+
+	def setup_environment
+		@team = Team.find(params[:id])
+	end
+
+	def barcode_params
+
 	end
 end

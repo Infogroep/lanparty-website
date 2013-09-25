@@ -1,7 +1,7 @@
 Lanparty::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-	scope "(:locale)", :locale => /en|nl/ do
+	scope "(:locale)", locale: /en|nl/ do
 
 		resources :blog_posts do
 			resources :blog_comments
@@ -9,12 +9,12 @@ Lanparty::Application.routes.draw do
 
 		resources :orders do
 			resources :order_items do
-				post "scan", :on => :collection
-				post "add", :on => :collection
+				post "scan", on: :collection
+				post "add", on: :collection
 			end
 
-			put "place", :on => :member
-			put "pay", :on => :member
+			patch "place", on: :member
+			patch "pay", on: :member
 		end
 
 		resources :clans
@@ -33,37 +33,37 @@ Lanparty::Application.routes.draw do
 
 		resources :sponsors
 
-		match 'user/edit' => 'users#edit', :as => :edit_current_user
+		get 'user/edit', to: 'users#edit', as: :edit_current_user
 
-		match 'signup' => 'users#new', :as => :signup
+		get 'signup', to: 'users#new', as: :signup
 
-		match 'logout' => 'sessions#destroy', :as => :logout
+		get 'logout', to: 'sessions#destroy', as: :logout
 
-		match 'login' => 'sessions#new', :as => :login
+		get 'login', to: 'sessions#new', as: :login
 
-		match 'info' => 'pages#info'
-		match 'location' => 'pages#location'
-		match 'faq' => 'pages#faq'
-		match 'contact' => 'pages#contact', :as => :contact
-		match 'signup_finished' => 'pages#signup_finished', :as => :signup_finished
-		match 'darules' => 'pages#rules', :as => :rules
-		match 'admin' => 'pages#admin', :as => :admin
+		get 'info', to: 'pages#info'
+		get 'location', to: 'pages#location'
+		get 'faq', to: 'pages#faq'
+		get 'contact', to: 'pages#contact', as: :contact
+		get 'signup_finished', to: 'pages#signup_finished', as: :signup_finished
+		get 'darules', to: 'pages#rules', as: :rules
+		get 'admin', to: 'pages#admin', as: :admin
 
 		namespace 'util' do
-			match 'soundtest' => 'soundtest#soundtest', :as => :soundtest
-			match 'order_check' => 'order_check#order_check', :as => :order_check
+			get 'soundtest', to: 'soundtest#soundtest', as: :soundtest
+			get 'order_check', to: 'order_check#order_check', as: :order_check
 		end
 
 		resources :teams do
-			put :join, :on => :member
-			put :leave, :on => :member
+			patch :join, on: :member
+			patch :leave, on: :member
 		end
 
 		resources :sessions
 
 		resources :users do
-			post :markpayed, :on => :collection
-			get :soundtest, :on => :collection
+			post :markpayed, on: :collection
+			get :soundtest, on: :collection
 		end
 
 		resources :match_lose_links
@@ -81,7 +81,7 @@ Lanparty::Application.routes.draw do
 		resources :games
 
 		resources :compos do
-			put :save_bracket, :on => :member
+			patch :save_bracket, on: :member
 		end
 
 		resources :barcodes
@@ -89,17 +89,17 @@ Lanparty::Application.routes.draw do
 		resources :store_items
 	end
 
-	match '/:locale' => 'pages#home', :as => :home
+	get '/:locale', to: 'pages#home', as: :home
 	# The priority is based upon order of creation:
 	# first created -> highest priority.
 
 	# Sample of regular route:
-	#	 match 'products/:id' => 'catalog#view'
+	#	 get 'products/:id', to: 'catalog#view'
 	# Keep in mind you can assign values other than :controller and :action
 
 	# Sample of named route:
-	#	 match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-	# This route can be invoked with purchase_url(:id => product.id)
+	#	 get 'products/:id/purchase', to: 'catalog#purchase', as: :purchase
+	# This route can be invoked with purchase_url(id: product.id)
 
 	# Sample resource route (maps HTTP verbs to controller actions automatically):
 	#	 resources :products
@@ -126,7 +126,7 @@ Lanparty::Application.routes.draw do
 	#	 resources :products do
 	#		 resources :comments
 	#		 resources :sales do
-	#			 get 'recent', :on => :collection
+	#			 get 'recent', on: :collection
 	#		 end
 	#	 end
 
@@ -139,7 +139,7 @@ Lanparty::Application.routes.draw do
 
 	# You can have the root of your site routed with "root"
 	# just remember to delete public/index.html.
-	root :to => 'pages#home'
+	root to: 'pages#home'
 
 	# See how all your routes lay out with "rake routes"
 

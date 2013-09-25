@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
 	include OrdersHelper
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
 	before_filter(:only => :new) { access_required(:order_processing) }
 	before_filter(:only => :create) { user_or_access_required(params[:order][:user_id].to_i, :order_processing) }
@@ -87,5 +88,15 @@ class OrdersController < ApplicationController
 				format.html { redirect_to @order, flash: { error: e.message } }
 			end
 		end
+	end
+
+	private
+
+	def setup_environment
+		@order = Order.find(params[:id])
+	end
+
+	def barcode_params
+
 	end
 end

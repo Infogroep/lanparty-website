@@ -1,4 +1,5 @@
 class UserGroupsController < ApplicationController
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
 	before_filter { access_required :user_editing }
 
@@ -82,5 +83,15 @@ class UserGroupsController < ApplicationController
 			format.html { redirect_to user_groups_url }
 			format.json { head :no_content }
 		end
+	end
+
+	private
+
+	def setup_environment
+		@user_group = UserGroup.find(params[:id])
+	end
+
+	def barcode_params
+
 	end
 end

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 	include ControllerAuthentication
 	include SoundPlayer
-	protect_from_forgery
+	protect_from_forgery with: :exception
 
 	before_filter :set_locale
 

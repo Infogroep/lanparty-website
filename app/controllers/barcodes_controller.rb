@@ -1,4 +1,5 @@
 class BarcodesController < ApplicationController
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
 	before_filter { access_required :store_editing }
 
@@ -74,5 +75,15 @@ class BarcodesController < ApplicationController
 		respond_to do |format|
 			format.html { redirect_to barcodes_url }
 		end
+	end
+
+	private
+
+	def setup_environment
+		@barcode = Barcode.find(params[:id])
+	end
+
+	def barcode_params
+
 	end
 end

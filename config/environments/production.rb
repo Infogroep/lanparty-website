@@ -4,6 +4,8 @@ Lanparty::Application.configure do
 	# Code is not reloaded between requests
 	config.cache_classes = true
 
+	config.eager_load = true
+
 	# Full error reports are disabled and caching is turned on
 	config.consider_all_requests_local = false
 	config.action_controller.perform_caching = true
@@ -23,6 +25,8 @@ Lanparty::Application.configure do
 	# Defaults to nil and saved in location specified by config.assets.prefix
 	# config.assets.manifest = YOUR_PATH
 
+	config.assets.version = '1.0'
+
 	# Specifies the header that your server uses for sending files
 	# config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
 	# config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
@@ -31,7 +35,7 @@ Lanparty::Application.configure do
 	# config.force_ssl = true
 
 	# See everything in the log (default is :info)
-	# config.log_level = :debug
+	config.log_level = :info
 
 	# Prepend all log lines with the following tags
 	# config.log_tags = [ :subdomain, :uuid ]
