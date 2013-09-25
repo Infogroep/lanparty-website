@@ -16,8 +16,6 @@ class BarcodesController < ApplicationController
 	# GET /barcodes/1
 	# GET /barcodes/1.json
 	def show
-		@barcode = Barcode.find(params[:id])
-
 		respond_to do |format|
 			format.html # show.html.erb
 		end
@@ -35,13 +33,12 @@ class BarcodesController < ApplicationController
 
 	# GET /barcodes/1/edit
 	def edit
-		@barcode = Barcode.find(params[:id])
 	end
 
 	# POST /barcodes
 	# POST /barcodes.json
 	def create
-		@barcode = Barcode.new(params[:barcode])
+		@barcode = Barcode.new(barcode_params)
 
 		respond_to do |format|
 			if @barcode.save
@@ -55,10 +52,8 @@ class BarcodesController < ApplicationController
 	# PUT /barcodes/1
 	# PUT /barcodes/1.json
 	def update
-		@barcode = Barcode.find(params[:id])
-
 		respond_to do |format|
-			if @barcode.update_attributes(params[:barcode])
+			if @barcode.update(barcode_params)
 				format.html { redirect_to barcodes_url, flash: { info: 'Barcode was successfully updated.' } }
 			else
 				format.html { render action: "edit" }
@@ -69,7 +64,6 @@ class BarcodesController < ApplicationController
 	# DELETE /barcodes/1
 	# DELETE /barcodes/1.json
 	def destroy
-		@barcode = Barcode.find(params[:id])
 		@barcode.destroy
 
 		respond_to do |format|
@@ -84,6 +78,6 @@ class BarcodesController < ApplicationController
 	end
 
 	def barcode_params
-
+		params.require(:barcode).permit(:code, :store_item_id)
 	end
 end

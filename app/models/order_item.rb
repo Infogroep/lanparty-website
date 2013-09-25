@@ -1,7 +1,6 @@
 class OrderItem < ActiveRecord::Base
 	belongs_to :order
 	belongs_to :store_item
-	attr_accessible :count, :order_id, :store_item_id, :locked_price
 
 	validates_presence_of :order
 	validates_presence_of :store_item

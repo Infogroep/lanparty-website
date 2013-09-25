@@ -1,11 +1,9 @@
 class UserGroup < ActiveRecord::Base
 	@@access_type_attributes = []
 
-	attr_accessible :description, :name, :badge
 	column_names.each do |col|
 		if col.start_with?("access_type_")
 			s = col.to_sym
-			attr_accessible s
 			@@access_type_attributes.push(s)
 		end
 	end

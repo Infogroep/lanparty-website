@@ -114,6 +114,6 @@ module ControllerMacros
 	end
 
 	def withdraw_access(access_type)
-		@admin_group.update_attributes({ access_type_attribute(access_type) => false })
+		@admin_group.update({ access_type_attribute(access_type) => false })
 	end
 end

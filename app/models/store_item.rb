@@ -1,6 +1,4 @@
 class StoreItem < ActiveRecord::Base
-	attr_accessible :purchase_price, :name, :stock, :store_item_class_id
-
 	has_many :barcodes, :dependent => :destroy
 	has_many :pricing_overrides, :as => :payable, :dependent => :destroy
 	belongs_to :store_item_class

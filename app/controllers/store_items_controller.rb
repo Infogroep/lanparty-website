@@ -23,8 +23,6 @@ class StoreItemsController < ApplicationController
 	# GET /store_items/1
 	# GET /store_items/1.json
 	def show
-		@store_item = StoreItem.find(params[:id])
-
 		respond_to do |format|
 			format.html # show.html.erb
 			format.json { render json: @store_item }
@@ -44,13 +42,12 @@ class StoreItemsController < ApplicationController
 
 	# GET /store_items/1/edit
 	def edit
-		@store_item = StoreItem.find(params[:id])
 	end
 
 	# POST /store_items
 	# POST /store_items.json
 	def create
-		@store_item = StoreItem.new(params[:store_item])
+		@store_item = StoreItem.new(store_item_params)
 
 		respond_to do |format|
 			if @store_item.save
@@ -66,10 +63,8 @@ class StoreItemsController < ApplicationController
 	# PUT /store_items/1
 	# PUT /store_items/1.json
 	def update
-		@store_item = StoreItem.find(params[:id])
-
 		respond_to do |format|
-			if @store_item.update_attributes(params[:store_item])
+			if @store_item.update(store_item_params)
 				format.html { redirect_to store_items_url, flash: { info: 'StoreItem was successfully updated.' } }
 				format.json { head :no_content }
 			else
@@ -83,7 +78,6 @@ class StoreItemsController < ApplicationController
 	# DELETE /store_items/1.json
 	# TODO: URGENT!!! DELETING A STORE ITEM SHOULD EITHER NOT BE POSSIBLE OR ORDER ITEMS SHOULD HANDLE THIS
 	def destroy
-		@store_item = StoreItem.find(params[:id])
 		@store_item.destroy
 
 		respond_to do |format|
@@ -98,7 +92,7 @@ class StoreItemsController < ApplicationController
 		@store_item = StoreItem.find(params[:id])
 	end
 
-	def barcode_params
-
+	def store_item_params
+		params.require(:store_item).permit(:purchase_price, :name, :stock, :store_item_class_id)
 	end
 end

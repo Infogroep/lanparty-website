@@ -1,6 +1,4 @@
 class StoreItemClass < ActiveRecord::Base
-	attr_accessible :name, :description, :parent_id
-
 	validates_presence_of :name
 	validate :cant_be_own_parent
 

@@ -15,8 +15,6 @@ class TeamsController < ApplicationController
 	# GET /teams/1
 	# GET /teams/1.json
 	def show
-		@team = Team.find(params[:id])
-
 		respond_to do |format|
 			format.html # show.html.erb
 			format.json { render json: @team }
@@ -38,15 +36,14 @@ class TeamsController < ApplicationController
 
 	# GET /teams/1/edit
 	def edit
-		@team = Team.find(params[:id])
 	end
 
 	# POST /teams
 	# POST /teams.json
 	def create
-		@team = Team.new(params[:team])
-		@selected_users = params[:team][:user_ids] if params[:team]
-		@compo = Compo.find(params[:team][:compo_id]) if params[:team]
+		@team = Team.new(team_params)
+		@selected_users = team_params[:user_ids] if team_params
+		@compo = Compo.find(team_params[:compo_id]) if team_params
 
 		respond_to do |format|
 			if @team.save
@@ -62,10 +59,8 @@ class TeamsController < ApplicationController
 	# PUT /teams/1
 	# PUT /teams/1.json
 	def update
-		@team = Team.find(params[:id])
-
 		respond_to do |format|
-			if @team.update_attributes(params[:team])
+			if @team.update(team_params)
 				format.html { redirect_to teams_url, flash: { info: 'Team was successfully updated.' } }
 				format.json { head :no_content }
 			else
@@ -78,7 +73,6 @@ class TeamsController < ApplicationController
 	# DELETE /teams/1
 	# DELETE /teams/1.json
 	def destroy
-		@team = Team.find(params[:id])
 		@team.destroy
 
 		respond_to do |format|
@@ -93,7 +87,7 @@ class TeamsController < ApplicationController
 		@team = Team.find(params[:id])
 	end
 
-	def barcode_params
-
+	def team_params
+		params.require(:team).permit(:compo_id, :name, :user_ids)
 	end
 end

@@ -1,6 +1,4 @@
 class Order < ActiveRecord::Base
-	attr_accessible :user_id, :placed_at, :payed_at, :status_code
-
 	belongs_to :user
 	belongs_to :cashier, :class_name => "User"
 

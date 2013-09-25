@@ -17,8 +17,6 @@ class SponsorsController < ApplicationController
 	# GET /sponsors/1
 	# GET /sponsors/1.json
 	def show
-		@sponsor = Sponsor.find(params[:id])
-
 		respond_to do |format|
 			format.html # show.html.erb
 			format.json { render json: @sponsor }
@@ -38,13 +36,12 @@ class SponsorsController < ApplicationController
 
 	# GET /sponsors/1/edit
 	def edit
-		@sponsor = Sponsor.find(params[:id])
 	end
 
 	# POST /sponsors
 	# POST /sponsors.json
 	def create
-		@sponsor = Sponsor.new(params[:sponsor])
+		@sponsor = Sponsor.new(sponsor_params)
 
 		respond_to do |format|
 			if @sponsor.save
@@ -60,10 +57,8 @@ class SponsorsController < ApplicationController
 	# PUT /sponsors/1
 	# PUT /sponsors/1.json
 	def update
-		@sponsor = Sponsor.find(params[:id])
-
 		respond_to do |format|
-			if @sponsor.update_attributes(params[:sponsor])
+			if @sponsor.update(sponsor_params)
 				format.html { redirect_to sponsors_url, notice: 'Sponsor was successfully updated.' }
 				format.json { head :no_content }
 			else
@@ -76,7 +71,6 @@ class SponsorsController < ApplicationController
 	# DELETE /sponsors/1
 	# DELETE /sponsors/1.json
 	def destroy
-		@sponsor = Sponsor.find(params[:id])
 		@sponsor.destroy
 
 		respond_to do |format|
@@ -91,7 +85,7 @@ class SponsorsController < ApplicationController
 		@sponsor = Sponsor.find(params[:id])
 	end
 
-	def barcode_params
-
+	def sponsor_params
+		params.require(:sponsor).permit(:image, :name, :website)
 	end
 end

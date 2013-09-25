@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 	include OrdersHelper
-	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy, :place, :pay]
 	before_filter :login_required
 	before_filter(:only => :new) { access_required(:order_processing) }
 	before_filter(:only => :create) { user_or_access_required(params[:order][:user_id].to_i, :order_processing) }
@@ -22,8 +22,6 @@ class OrdersController < ApplicationController
 	# GET /orders/1
 	# GET /orders/1.json
 	def show
-		@order = Order.find(params[:id])
-
 		respond_to do |format|
 			format.html # show.html.erb
 		end
@@ -42,7 +40,7 @@ class OrdersController < ApplicationController
 	# POST /orders
 	# POST /orders.json
 	def create
-		@order = Order.new(params[:order])
+		@order = Order.new(order_params)
 		@order.status = :open
 
 		respond_to do |format|
@@ -57,7 +55,6 @@ class OrdersController < ApplicationController
 	# DELETE /orders/1
 	# DELETE /orders/1.json
 	def destroy
-		@order = Order.find(params[:id])
 		@order.destroy
 
 		respond_to do |format|
@@ -66,7 +63,6 @@ class OrdersController < ApplicationController
 	end
 
 	def place
-		@order = Order.find(params[:id])
 		@order.place
 		respond_to do |format|
 			if @order.save
@@ -78,8 +74,6 @@ class OrdersController < ApplicationController
 	end
 
 	def pay
-		@order = Order.find(params[:id])
-
 		respond_to do |format|
 			begin
 				@order.pay(current_user)
@@ -96,7 +90,7 @@ class OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 	end
 
-	def barcode_params
-
+	def order_params
+		params.require(:order).permit(:user_id, :placed_at, :payed_at, :status_code)
 	end
 end

@@ -86,15 +86,15 @@ shared_examples "standard_controller" do |model,options = {}|
 		end
 	end if actions.include?(:create)
 
-	describe "PUT update" do
+	describe "PATCH update" do
 		describe "with valid params" do
 			it "updates the requested #{singular_model}" do
 				model_instance = model.create! valid_attributes
 				# Assuming there are no other plural_model in the database, this
 				# specifies that the model created on the previous line
-				# receives the :update_attributes message with whatever params are
+				# receives the :update message with whatever params are
 				# submitted in the request.
-				model.any_instance.should_receive(:update_attributes).with({ 'these' => 'params' })
+				model.any_instance.should_receive(:update).with({ 'these' => 'params' })
 				put :update, additional_params.merge({ :id => model_instance.id, singular_model => { 'these' => 'params' } })
 			end
 

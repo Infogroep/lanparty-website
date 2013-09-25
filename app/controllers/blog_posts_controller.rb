@@ -17,8 +17,6 @@ class BlogPostsController < ApplicationController
 	# GET /blog_posts/1
 	# GET /blog_posts/1.json
 	def show
-		@blog_post = BlogPost.find(params[:id])
-
 		respond_to do |format|
 			format.html # show.html.erb
 			format.json { render json: @blog_post }
@@ -38,13 +36,12 @@ class BlogPostsController < ApplicationController
 
 	# GET /blog_posts/1/edit
 	def edit
-		@blog_post = BlogPost.find(params[:id])
 	end
 
 	# POST /blog_posts
 	# POST /blog_posts.json
 	def create
-		@blog_post = BlogPost.new(params[:blog_post].merge({ :user_id => current_user.id }))
+		@blog_post = BlogPost.new(blog_post_params.merge({ :user_id => current_user.id }))
 
 		respond_to do |format|
 			if @blog_post.save
@@ -60,10 +57,8 @@ class BlogPostsController < ApplicationController
 	# PUT /blog_posts/1
 	# PUT /blog_posts/1.json
 	def update
-		@blog_post = BlogPost.find(params[:id])
-
 		respond_to do |format|
-			if @blog_post.update_attributes(params[:blog_post])
+			if @blog_post.update(blog_post_params)
 				format.html { redirect_to @blog_post, notice: 'Blog post was successfully updated.' }
 				format.json { head :no_content }
 			else
@@ -76,7 +71,6 @@ class BlogPostsController < ApplicationController
 	# DELETE /blog_posts/1
 	# DELETE /blog_posts/1.json
 	def destroy
-		@blog_post = BlogPost.find(params[:id])
 		@blog_post.destroy
 
 		respond_to do |format|
@@ -91,7 +85,7 @@ class BlogPostsController < ApplicationController
 		@blog_post = BlogPost.find(params[:id])
 	end
 
-	def barcode_params
-
+	def blog_post_params
+		params.require(:blog_post).permit(:content,:title,:user_id)
 	end
 end

@@ -12,7 +12,6 @@ class UsersController < ApplicationController
 
 	def show
 		@nav_tab = 'profile'
-		@user = User.find(params[:id])
 	end
 
 	def new
@@ -20,7 +19,7 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new(params[:user])
+		@user = User.new(user_params)
 		if @user.save
 			session[:user_id] = @user.id
 			redirect_to signup_finished_url, flash: { info: "Thank you for signing up! You are now logged in." }
@@ -30,12 +29,10 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		@user = User.find params[:id]
 	end
 
 	def update
-		@user = User.find params[:id]
-		if @user.update_attributes(params[:user])
+		if @user.update(user_params)
 			redirect_to users_url, flash: { info: "Your profile has been updated." }
 		else
 			render :action => 'edit'
@@ -44,7 +41,7 @@ class UsersController < ApplicationController
 
 	def markpayed
 		@user = User.find_by_structured_message(params[:msg])
-		if @user.update_attributes({ :payed => true })
+		if @user.update({ :payed => true })
 			redirect_to users_url, flash: { info: "User has been marked as payed." }
 		else
 			render :action => 'index'
@@ -57,7 +54,7 @@ class UsersController < ApplicationController
 		@user = User.find params[:id]
 	end
 
-	def barcode_params
-
+	def user_params
+		params.require(:user).permit(:username, :email, :password, :password_confirmation, :password_hash, :password_salt, :clan_tag, :payed, :user_group_ids, :account_balance, :pending_order_sound)
 	end
 end

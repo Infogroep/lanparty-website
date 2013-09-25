@@ -1,5 +1,5 @@
 class ComposController < ApplicationController
-	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy, :save_bracket]
 	before_filter :login_required
 	before_filter(:except => [:index, :show]) { access_required :compo_editing }
 
@@ -17,8 +17,6 @@ class ComposController < ApplicationController
 	# GET /compos/1
 	# GET /compos/1.json
 	def show
-		@compo = Compo.find(params[:id])
-
 		respond_to do |format|
 			format.html # show.html.erb
 			format.json { render json: @compo }
@@ -38,13 +36,12 @@ class ComposController < ApplicationController
 
 	# GET /compos/1/edit
 	def edit
-		@compo = Compo.find(params[:id])
 	end
 
 	# POST /compos
 	# POST /compos.json
 	def create
-		@compo = Compo.new(params[:compo])
+		@compo = Compo.new(compo_params)
 
 		respond_to do |format|
 			if @compo.save
@@ -60,10 +57,8 @@ class ComposController < ApplicationController
 	# PUT /compos/1
 	# PUT /compos/1.json
 	def update
-		@compo = Compo.find(params[:id])
-
 		respond_to do |format|
-			if @compo.update_attributes(params[:compo])
+			if @compo.update(compo_params)
 				format.html { redirect_to compos_url, flash: { info: 'Compo was successfully updated.' } }
 				format.json { head :no_content }
 			else
@@ -76,7 +71,6 @@ class ComposController < ApplicationController
 	# DELETE /compos/1
 	# DELETE /compos/1.json
 	def destroy
-		@compo = Compo.find(params[:id])
 		@compo.destroy
 
 		respond_to do |format|
@@ -86,7 +80,6 @@ class ComposController < ApplicationController
 	end
 
 	def save_bracket
-		@compo = Compo.find(params[:id])
 		@bracket_string = params[:compo][:bracket_string]
 		@compo.bracket = @bracket_string
 		@compo.save
@@ -98,10 +91,10 @@ class ComposController < ApplicationController
 	private
 
 	def setup_environment
-		@barcode = Compo.find(params[:id])
+		@compo = Compo.find(params[:id])
 	end
 
-	def barcode_params
-
+	def compo_params
+		params.require(:compo).permit(:date_time, :slots, :match_id, :group_size, :game_id, :featured, :description, :bracket, :bbracket_type)
 	end
 end

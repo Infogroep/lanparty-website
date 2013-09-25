@@ -2,7 +2,6 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 	# new columns need to be added here to be writable through mass assignment
-	attr_accessible :username, :email, :password, :password_confirmation, :password_hash, :password_salt, :clan_tag, :payed, :user_group_ids, :account_balance, :pending_order_sound
 	attr_accessor :password
 	before_save :prepare_password
 	before_save :init_balance
@@ -11,8 +10,8 @@ class User < ActiveRecord::Base
 
 	validates_presence_of :username, :email
 	validates_uniqueness_of :username, :email, :allow_blank => true
-	validates_format_of :username, :with => /^[-\w\._@]+$/i, :allow_blank => true, :message => "should only contain letters, numbers, or .-_@"
-	validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
+	validates_format_of :username, :with => /\A[-\w\._@]+\z/i, :allow_blank => true, :message => "should only contain letters, numbers, or .-_@"
+	validates_format_of :email, :with => /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
 	validates_presence_of :password, :on => :create
 	validates_confirmation_of :password
 	validates_length_of :password, :minimum => 4, :allow_blank => true

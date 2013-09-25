@@ -1,4 +1,5 @@
 class StoreItemClassPricingOverridesController < ApplicationController
+	include PricingOverrideController
 	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
 	before_filter { access_required :store_editing }
@@ -28,7 +29,6 @@ class StoreItemClassPricingOverridesController < ApplicationController
 
 	# GET /pricing_overrides/1/edit
 	def edit
-		@pricing_override = PricingOverride.find(params[:id])
 		@payable_model = StoreItemClass
 
 		respond_to do |format|
@@ -40,7 +40,7 @@ class StoreItemClassPricingOverridesController < ApplicationController
 	# POST /pricing_overrides
 	# POST /pricing_overrides.json
 	def create
-		@pricing_override = PricingOverride.new(params[:pricing_override])
+		@pricing_override = PricingOverride.new(pricing_override_params)
 
 		respond_to do |format|
 			if @pricing_override.save
@@ -54,10 +54,8 @@ class StoreItemClassPricingOverridesController < ApplicationController
 	# PUT /pricing_overrides/1
 	# PUT /pricing_overrides/1.json
 	def update
-		@pricing_override = PricingOverride.find(params[:id])
-
 		respond_to do |format|
-			if @pricing_override.update_attributes(params[:pricing_override])
+			if @pricing_override.update(pricing_override_params)
 				format.html { redirect_to store_item_class_pricing_overrides_url, flash: { info: 'PricingOverride was successfully updated.' } }
 			else
 				format.html { render :template => 'pricing_overrides/edit', :locals => { :path_method => :store_item_class_pricing_overrides_path } }
@@ -68,21 +66,10 @@ class StoreItemClassPricingOverridesController < ApplicationController
 	# DELETE /pricing_overrides/1
 	# DELETE /pricing_overrides/1.json
 	def destroy
-		@pricing_override = PricingOverride.find(params[:id])
 		@pricing_override.destroy
 
 		respond_to do |format|
 			format.html { redirect_to store_item_class_pricing_overrides_url }
 		end
-	end
-
-	private
-
-	def setup_environment
-		@pricing_override = PricingOverride.find(params[:id])
-	end
-
-	def barcode_params
-
 	end
 end

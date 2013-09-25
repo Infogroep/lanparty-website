@@ -17,8 +17,6 @@ class PricingDefaultsController < ApplicationController
 	# GET /pricing_defaults/1
 	# GET /pricing_defaults/1.json
 	def show
-		@pricing_default = PricingDefault.find(params[:id])
-
 		respond_to do |format|
 			format.html # show.html.erb
 			format.json { render json: @pricing_default }
@@ -38,13 +36,12 @@ class PricingDefaultsController < ApplicationController
 
 	# GET /pricing_defaults/1/edit
 	def edit
-		@pricing_default = PricingDefault.find(params[:id])
 	end
 
 	# POST /pricing_defaults
 	# POST /pricing_defaults.json
 	def create
-		@pricing_default = PricingDefault.new(params[:pricing_default])
+		@pricing_default = PricingDefault.new(pricing_default_params)
 
 		respond_to do |format|
 			if @pricing_default.save
@@ -60,10 +57,8 @@ class PricingDefaultsController < ApplicationController
 	# PUT /pricing_defaults/1
 	# PUT /pricing_defaults/1.json
 	def update
-		@pricing_default = PricingDefault.find(params[:id])
-
 		respond_to do |format|
-			if @pricing_default.update_attributes(params[:pricing_default])
+			if @pricing_default.update(pricing_default_params)
 				format.html { redirect_to pricing_defaults_url, flash: { info: 'Pricing default was successfully updated.' } }
 				format.json { head :no_content }
 			else
@@ -76,7 +71,6 @@ class PricingDefaultsController < ApplicationController
 	# DELETE /pricing_defaults/1
 	# DELETE /pricing_defaults/1.json
 	def destroy
-		@pricing_default = PricingDefault.find(params[:id])
 		@pricing_default.destroy
 
 		respond_to do |format|
@@ -91,7 +85,7 @@ class PricingDefaultsController < ApplicationController
 		@pricing_default = PricingDefault.find(params[:id])
 	end
 
-	def barcode_params
-
+	def pricing_default_params
+		params.require(:pricing_default).permit(:transform, :user_group_ids, :description, :name, :priority)
 	end
 end

@@ -23,8 +23,6 @@ class GamesController < ApplicationController
 	# GET /games/1
 	# GET /games/1.json
 	def show
-		@game = Game.find(params[:id])
-
 		respond_to do |format|
 			format.html # show.html.erb
 			format.json { render json: @game }
@@ -44,13 +42,12 @@ class GamesController < ApplicationController
 
 	# GET /games/1/edit
 	def edit
-		@game = Game.find(params[:id])
 	end
 
 	# POST /games
 	# POST /games.json
 	def create
-		@game = Game.new(params[:game])
+		@game = Game.new(game_params)
 
 		respond_to do |format|
 			if @game.save
@@ -66,10 +63,8 @@ class GamesController < ApplicationController
 	# PUT /games/1
 	# PUT /games/1.json
 	def update
-		@game = Game.find(params[:id])
-
 		respond_to do |format|
-			if @game.update_attributes(params[:game])
+			if @game.update(game_params)
 				format.html { redirect_to games_url, flash: { info: 'Game was successfully updated.' } }
 				format.json { head :no_content }
 			else
@@ -82,7 +77,6 @@ class GamesController < ApplicationController
 	# DELETE /games/1
 	# DELETE /games/1.json
 	def destroy
-		@game = Game.find(params[:id])
 		@game.destroy
 
 		respond_to do |format|
@@ -94,10 +88,10 @@ class GamesController < ApplicationController
 	private
 
 	def setup_environment
-		@barcode = Game.find(params[:id])
+		@game = Game.find(params[:id])
 	end
 
-	def barcode_params
-
+	def game_params
+		params.require(:game).permit(:download_location, :info, :name, :image)
 	end
 end

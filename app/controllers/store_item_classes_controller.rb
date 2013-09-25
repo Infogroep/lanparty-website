@@ -17,8 +17,6 @@ class StoreItemClassesController < ApplicationController
 	# GET /store_item_classes/1
 	# GET /store_item_classes/1.json
 	def show
-		@store_item_class = StoreItemClass.find(params[:id])
-
 		respond_to do |format|
 			format.html # show.html.erb
 			format.json { render json: @store_item_class }
@@ -38,13 +36,12 @@ class StoreItemClassesController < ApplicationController
 
 	# GET /store_item_classes/1/edit
 	def edit
-		@store_item_class = StoreItemClass.find(params[:id])
 	end
 
 	# POST /store_item_classes
 	# POST /store_item_classes.json
 	def create
-		@store_item_class = StoreItemClass.new(params[:store_item_class])
+		@store_item_class = StoreItemClass.new(store_item_class_params)
 
 		respond_to do |format|
 			if @store_item_class.save
@@ -60,10 +57,8 @@ class StoreItemClassesController < ApplicationController
 	# PUT /store_item_classes/1
 	# PUT /store_item_classes/1.json
 	def update
-		@store_item_class = StoreItemClass.find(params[:id])
-
 		respond_to do |format|
-			if @store_item_class.update_attributes(params[:store_item_class])
+			if @store_item_class.update(store_item_class_params)
 				format.html { redirect_to store_item_classes_url, flash: { info: 'Store item class was successfully updated.' } }
 				format.json { head :no_content }
 			else
@@ -76,7 +71,6 @@ class StoreItemClassesController < ApplicationController
 	# DELETE /store_item_classes/1
 	# DELETE /store_item_classes/1.json
 	def destroy
-		@store_item_class = StoreItemClass.find(params[:id])
 		@store_item_class.destroy
 
 		respond_to do |format|
@@ -91,7 +85,7 @@ class StoreItemClassesController < ApplicationController
 		@store_item_class = StoreItemClass.find(params[:id])
 	end
 
-	def barcode_params
-
+	def store_item_class_params
+		params.require(:store_item_class).permit(:name, :description, :parent_id)
 	end
 end

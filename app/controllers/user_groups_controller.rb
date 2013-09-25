@@ -17,8 +17,6 @@ class UserGroupsController < ApplicationController
 	# GET /user_groups/1
 	# GET /user_groups/1.json
 	def show
-		@user_group = UserGroup.find(params[:id])
-
 		respond_to do |format|
 			format.html # show.html.erb
 			format.json { render json: @user_group }
@@ -38,13 +36,12 @@ class UserGroupsController < ApplicationController
 
 	# GET /user_groups/1/edit
 	def edit
-		@user_group = UserGroup.find(params[:id])
 	end
 
 	# POST /user_groups
 	# POST /user_groups.json
 	def create
-		@user_group = UserGroup.new(params[:user_group])
+		@user_group = UserGroup.new(user_group_params)
 
 		respond_to do |format|
 			if @user_group.save
@@ -60,10 +57,8 @@ class UserGroupsController < ApplicationController
 	# PUT /user_groups/1
 	# PUT /user_groups/1.json
 	def update
-		@user_group = UserGroup.find(params[:id])
-
 		respond_to do |format|
-			if @user_group.update_attributes(params[:user_group])
+			if @user_group.update(user_group_params)
 				format.html { redirect_to user_groups_url, flash: { info: 'User group was successfully updated.' } }
 				format.json { head :no_content }
 			else
@@ -76,7 +71,6 @@ class UserGroupsController < ApplicationController
 	# DELETE /user_groups/1
 	# DELETE /user_groups/1.json
 	def destroy
-		@user_group = UserGroup.find(params[:id])
 		@user_group.destroy
 
 		respond_to do |format|
@@ -91,7 +85,9 @@ class UserGroupsController < ApplicationController
 		@user_group = UserGroup.find(params[:id])
 	end
 
-	def barcode_params
-
+	def user_group_params
+		# TODO: Should do real permission checking. Not doing this now because i need column info
+		# params.require(:user_group).permit(:description, :name, :badge, ...access type columns)
+		params.require(:user_group).permit()
 	end
 end

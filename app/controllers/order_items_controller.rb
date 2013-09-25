@@ -52,12 +52,9 @@ class OrderItemsController < ApplicationController
 
 	# PUT /order/1/order_items/1
 	def update
-		@order = Order.find(params[:order_id])
-		@order_item = OrderItem.find(params[:id])
-
 		respond_to do |format|
 			begin
-				raise WebsiteErrors::UserFriendlyError.new("Couldn't update order entry.") unless @order_item.update_attributes(params[:order_item])
+				raise WebsiteErrors::UserFriendlyError.new("Couldn't update order entry.") unless @order_item.update(order_item_params)
 				format.html { render :partial => "orders/order_items", :locals => { :order => @order } }
 			rescue WebsiteErrors::UserFriendlyError => e
 				format.html do
@@ -70,8 +67,6 @@ class OrderItemsController < ApplicationController
 
 	# DELETE /order/1/order_items/1
 	def destroy
-		@order = Order.find(params[:order_id])
-		@order_item = OrderItem.find(params[:id])
 		@order_item.destroy
 
 		respond_to do |format|
@@ -86,7 +81,7 @@ class OrderItemsController < ApplicationController
 		@order_item = OrderItem.find(params[:id])
 	end
 
-	def barcode_params
-
+	def order_item_params
+		params.require(:order_item).permit(:count, :order_id, :store_item_id, :locked_price)
 	end
 end

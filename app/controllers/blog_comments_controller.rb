@@ -12,18 +12,15 @@ class BlogCommentsController < ApplicationController
 	# POST /blog_comments.json
 	def create
 		@blog_post = BlogPost.find(params[:blog_post_id])
-		@blog_comment = @blog_post.blog_comments.create(params[:blog_comment].merge({ :user_id => current_user.id }))
+		@blog_comment = @blog_post.blog_comments.create(blog_comment_params.merge({ :user_id => current_user.id }))
 		redirect_to @blog_post
 	end
 
 	# PUT /blog_comments/1
 	# PUT /blog_comments/1.json
 	def update
-		@blog_post = BlogPost.find(params[:blog_post_id])
-		@blog_comment = BlogComment.find(params[:id])
-
 		respond_to do |format|
-			if @blog_comment.update_attributes(params[:blog_comment])
+			if @blog_comment.update(blog_comment_params)
 				format.html { redirect_to @blog_post, notice: 'Blog comment was successfully updated.' }
 				format.json { head :no_content }
 			else
@@ -36,8 +33,6 @@ class BlogCommentsController < ApplicationController
 	# DELETE /blog_comments/1
 	# DELETE /blog_comments/1.json
 	def destroy
-		@blog_post = BlogPost.find(params[:blog_post_id])
-		@blog_comment = BlogComment.find(params[:id])
 		@blog_comment.destroy
 
 		respond_to do |format|
@@ -53,7 +48,7 @@ class BlogCommentsController < ApplicationController
 		@blog_comment = BlogComment.find(params[:id])
 	end
 
-	def barcode_params
-
+	def blog_comment_params
+		params.require(:blog_comment).permit(:content, :blog_post_id, :user_id)
 	end
 end

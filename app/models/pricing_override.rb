@@ -1,6 +1,5 @@
 class PricingOverride < ActiveRecord::Base
 	include PricingTransform
-	attr_accessible :transform, :pricing_default_id, :payable_id, :payable_type
 
 	validates_presence_of :transform
 

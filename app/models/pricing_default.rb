@@ -1,11 +1,7 @@
 class PricingDefault < ActiveRecord::Base
 	include PricingTransform
-	attr_accessible :transform, :user_group_ids
 
 	validates_presence_of :transform
-
-	attr_accessible :description, :name, :priority
-
 	validates_presence_of :name
 	validates_uniqueness_of :name
 
