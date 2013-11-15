@@ -8,10 +8,10 @@
 		<th><%= t("simple_form.labels.user.username") %></th>
 		<th nowrap><%= t("simple_form.labels.user.badge") %></th>
 		<th><%= t("simple_form.labels.user.clan_tag") %></th>
-		<th class="colapse"><%= t("simple_form.labels.user.payed") %></th>
+		<th class="visible-md visible-lg"><%= t("simple_form.labels.user.payed") %></th>
 		<% if canview %>
-			<th class="colapse"><%= t("simple_form.labels.user.email") %></th>
-			<th class="colapse"><%= t("simple_form.labels.user.user_groups") %></th>
+			<th class="visible-md visible-lg"><%= t("simple_form.labels.user.email") %></th>
+			<th class="visible-md visible-lg"><%= t("simple_form.labels.user.user_groups") %></th>
 		<% end %>
 		<% if admin %>
 			<th class="action-column"></th>
@@ -20,17 +20,17 @@
 	</thead>
 	<tbody>
 	<% @users.each do |user| %>
-		<tr class="<%= canview ? (user.payed ? "success" : "error") : "" %>">
+		<tr class="<%= canview ? (user.payed ? "success" : "danger") : "" %>">
 			<td class="action-column"><%= image_tag(avatar_url(user), :alt => "Icon") %></td>
 			<td><%= user.username %> </td>
 			<td nowrap><%= render :partial => "badges", :locals => { :user => user } %></td>
 			<td><%= user.clan.tag if user.clan %></td>
-			<td class="colapse">
-				<span class="hide"><%= user.payed %></span><i class="<%= user.payed ? "icon-check" : "icon-check-empty" %>"></i>
+			<td class="visible-md visible-lg">
+				<span class="hide"><%= user.payed %></span><i class="fa <%= user.payed ? "fa-check" : "fa-check-empty" %>"></i>
 			</td>
 			<% if canview %>
-				<td class="colapse"><%= user.email %></td>
-				<td class="colapse"><%= user.user_groups.map { |grp| grp.name }.join(", ") %></td>
+				<td class="visible-md visible-lg"><%= user.email %></td>
+				<td class="visible-md visible-lg"><%= user.user_groups.map { |grp| grp.name }.join(", ") %></td>
 			<% end %>
 			<% if admin %>
 				<td class="action-column"><%= standard_edit_buttons(user) %></td>
@@ -41,7 +41,7 @@
 </table>
 
 <% if admin %>
-	<%= link_to t(:new, :model => t("user.one")), new_user_path, class: "btn" %>
+	<%= link_to t(:new, :model => t("user.one")), new_user_path, class: "btn btn-default" %>
 	<h4><%= t(".payment_processing") %></h4>
 	<%= render 'payed_form' %>
 <% end %>

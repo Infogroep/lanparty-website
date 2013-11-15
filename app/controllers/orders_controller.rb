@@ -52,7 +52,7 @@ class OrdersController < ApplicationController
 		if @order.save
 			redirect_to orders_url, flash: { info: 'Order placed.' }
 		else
-			redirect_to @order, flash: { error: e.message }
+			redirect_to @order, flash: { danger: e.message }
 		end
 	end
 
@@ -61,7 +61,7 @@ class OrdersController < ApplicationController
 			@order.pay(current_user)
 			redirect_to orders_url, flash: { info: 'Order payed.' }
 		rescue WebsiteErrors::UserFriendlyError => e
-			redirect_to @order, flash: { error: e.message }
+			redirect_to @order, flash: { danger: e.message }
 		end
 	end
 

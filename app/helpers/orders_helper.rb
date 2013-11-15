@@ -8,7 +8,7 @@ module OrdersHelper
 	end
 
 	def order_item_stock_color(order_item)
-		order_item.out_of_stock? ? "error" : ""
+		order_item.out_of_stock? ? "danger" : ""
 	end
 
 	def can_modify_order?(order)

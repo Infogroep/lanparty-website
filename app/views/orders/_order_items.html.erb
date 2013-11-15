@@ -28,7 +28,7 @@
 	<% end %>
 	<tr class="info">
 		<td></td>
-		<td><%= link_to content_tag("i", "", :class => "icon-plus"), new_order_order_item_path(order), class: "btn btn-small" if can_modify_order?(order) %></td>
+		<td><%= link_to content_tag("i", "", :class => "fa fa-plus"), new_order_order_item_path(order), class: "btn btn-default btn-sm" if can_modify_order?(order) %></td>
 		<td><strong><%= t(".total") %></strong></td>
 		<td><%= number_to_currency order.total_price, :unit => "€" %></td>
 		<td></td>

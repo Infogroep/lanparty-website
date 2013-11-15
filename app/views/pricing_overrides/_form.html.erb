@@ -3,5 +3,5 @@
 	<%= f.input :payable_id, collection: @payable_model.all %>
 	<%= f.hidden_field :payable_type, value: @payable_model.name %>
 	<%= f.input :transform %>
-	<%= f.submit class: "btn" %>
+	<%= f.submit class: "btn btn-default" %>
 <% end %>

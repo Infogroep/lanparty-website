@@ -3,10 +3,10 @@
 <%= render :partial => "order_list", :locals => { :orders => @orders } %>
 
 <% if current_user.access_allowed? :order_processing? %>
-	<%= link_to t(:new, :model => t("order.one")), new_order_path, class: "btn" %>
+	<%= link_to t(:new, :model => t("order.one")), new_order_path, class: "btn btn-default" %>
 <% else %>
 	<%= simple_form_for(Order.new) do |f| %>
 		<%= f.hidden_field :user_id, value: current_user.id %>
-		<%= f.submit class: "btn" %>
+		<%= f.submit class: "btn btn-default" %>
 	<% end %>
 <% end %>

@@ -1,0 +1,60 @@
+// The username and timestamp of blog posts on the home page
+.blog-post-info {
+	float: right;
+	font-style: italic;
+	opacity: 0.6;
+	filter: alpha(opacity = 60);
+}
+
+// The username and timestamp of blog posts in the "detail" view.
+.blog-post-large-info {
+	font-style: italic;
+	opacity: 0.6;
+	filter: alpha(opacity = 60);
+}
+
+// Action buttons at the top right of blog posts.
+.blog-post-buttons {
+	float: right;
+	margin-left: 5px;
+}
+
+// The small "more" link at the bottom of the home page that opens the blog archive index page.
+.paragraph-more {
+	text-align: center;
+}
+
+// Button for admins to add new blog posts
+.btn-new-blog-post {
+	margin-top: 20px;
+	float: right;
+}
+
+// Vertically center the avatar, username and time of posting of blog comments.
+.blog-comment-info {
+	vertical-align: center;
+}
+
+// Make the avatar in blog comments float to the left and space it a bit.
+.blog-comment-avatar {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+// Blog comment author in bold.
+.blog-comment-author {
+	font-weight: bold;
+}
+
+// Blog comment timestamp italic and faded.
+.blog-comment-timestamp {
+	font-style: italic;
+	opacity: 0.6;
+	filter: alpha(opacity = 60);
+}
+
+// Comment content should not wrap around the avatar.
+.blog-comment-content {
+	clear: left;
+}

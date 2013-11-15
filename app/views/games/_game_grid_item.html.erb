@@ -1,5 +1,5 @@
 <% if current_user and current_user.access_allowed?(:compo_editing) %>
-	<%= standard_edit_buttons(game, toolbar_class: "grid-game-manipulation-buttons", button_class: "btn-mini") %>
+	<%= standard_edit_buttons(game, toolbar_class: "grid-game-manipulation-buttons", button_class: "btn-xs") %>
 <% end %>
 <h3><%= game.name %></h3>
 <% image = game.image_url(:front) %>

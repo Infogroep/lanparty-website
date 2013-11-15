@@ -1,0 +1,16 @@
+// We want to make the column with action buttons in table listings is as small as possible.
+table {
+	th.action-column {
+		width: 1px;
+	}
+
+	td.action-column {
+		white-space: nowrap;
+		text-align: right;
+	}
+
+	// TODO: Not sure what this is for. Might be unnecessary.
+	form {
+		margin: 0px;
+	}
+}

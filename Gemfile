@@ -25,7 +25,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer', :platform => :ruby
 gem 'libv8'
 gem 'jquery-datatables-rails'
-gem 'font-awesome-sass-rails'
+gem 'font-awesome-sass'
 
 gem 'uglifier', '>= 1.3.0'
 

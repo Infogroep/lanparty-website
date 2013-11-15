@@ -37,7 +37,7 @@ $(function () {
 
 function load_i18n_js(locale) {
 	var datatable_settings = {
-		"sDom":"<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+		"sDom":"<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
 		"sPaginationType":"bootstrap"
 	};
 

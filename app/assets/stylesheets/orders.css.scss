@@ -1,0 +1,15 @@
+// Some spacing on the "request running" spinner.
+.order-lock-indicator {
+	margin-right: 4px;
+}
+
+// Order item amount input fields on the order page.
+input.order-amount {
+	width: 50px;
+	margin-bottom: 0px;
+}
+
+// Size of the price column.
+th.order-price {
+	width: 100px;
+}

@@ -1,4 +1,4 @@
 <%= form_tag(add_order_order_items_path(order)) do %>
 	<%= hidden_field_tag :store_item_id, store_item.id %>
-	<%= button_tag content_tag("i", "", class: "icon-shopping-cart"), type: :submit, class: "btn"  %>
+	<%= button_tag content_tag("i", "", class: "fa fa-shopping-cart"), type: :submit, class: "btn btn-default"  %>
 <% end %>

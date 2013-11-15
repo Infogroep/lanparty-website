@@ -1,7 +1,7 @@
 <% count = 0 %>
 <div class="row">
 	<% games.each do |game| %>
-		<div class="span6">
+		<div class="col-md-6">
 			<%= render :partial => "game_grid_item", :locals => { :game => game } %>
 		</div>
 		<% count += 1 %>

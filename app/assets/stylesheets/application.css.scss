@@ -9,65 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require jquery.ui.all
- *= require jquery-ui-timepicker-addon
- *= require jquery.bracket
  *= require dataTables/jquery.dataTables.bootstrap
  *= require chosen
+ *= require font-awesome
+ *= require_tree ./jquery-ui
+ *= require_directory .
  */
-@import "bootstrap_and_overrides";
-@import 'font-awesome';
-@import "pages";
-
-input[type=submit] {
-	border-radius: 5px;
-}
-
-.center {
-	text-align: center;
-}
-
-.alert {
-	// TODO: This line breaks twitter bootstrap on small devices. My solution is not ideal.
-	// position: absolute;
-	z-index: 1029;
-}
-
-.flashmsgholder {
-	// Said solution
-	position: absolute;
-	padding-right: 20px;
-}
-
-@media (max-width: 979px) {
-	.alert {
-		margin-top: 51px;
-	}
-}
-
-.order-lock-indicator {
-	margin-right: 4px;
-}
-
-input.order-amount {
-	width: 50px;
-	margin-bottom: 0px;
-}
-
-th.order-price {
-	width: 100px;
-}
-
-.action-toolbar {
-	margin: 0px;
-}
-
-.blog-post-buttons {
-	float: right;
-	margin-left: 5px;
-}
-
-// Counteract an artefact in Chosen caused by the bootstrap theme
-.chosen-results {
-	color: rgb(82, 87, 92);
-}

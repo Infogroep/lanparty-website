@@ -1,196 +1,90 @@
-@import "bootswatch_variables";
-//$linkColor: #777;
-$navbarHeight: 45px;
+@import "include/bootswatch/bootswatch_variables";
 
-//$bodyBackground: #FBFFE0;
+$navbar-height: 45px;
 
 @import "bootstrap";
+@import "include/fonts";
+@import "include/bootswatch/bootswatch";
 
+//-----------------------------------------------
+// Specific overrides
 
-@font-face {
-	font-family: 'razer_regularitalic';
-	src: font-url('razer-webfont.eot');
-	src: font-url('razer-webfont.eot?#iefix') format('embedded-opentype'), font-url('razer-webfont.woff') format('woff'), font-url('razer-webfont.ttf') format('truetype'), font-url('razer-webfont.svg#razer_regularitalic') format('svg');
-	font-weight: normal;
-	font-style: normal;
-
+// Navbar font
+.navbar-brand {
+	font-family: razer_regularitalic;
+	font-weight: bold;
+	padding: 12px 15px;
 }
 
-@font-face {
-	font-family: 'audiowideregular';
-	src: font-url('audiowide-regular-webfont.eot');
-	src: font-url('audiowide-regular-webfont.eot?#iefix') format('embedded-opentype'), font-url('audiowide-regular-webfont.woff') format('woff'), font-url('audiowide-regular-webfont.ttf') format('truetype'), font-url('audiowide-regular-webfont.svg#audiowideregular') format('svg');
-	font-weight: normal;
-	font-style: normal;
-
-}
-
-body {
-	padding-top: 46px;
-}
-
-div#content {
-	padding-top: 20px;
-}
-
-table {
-	th.action-column {
-		width: 1px;
-	}
-
-	td.action-column {
-		white-space: nowrap;
-		text-align: right;
-	}
-
-	form {
-		margin: 0px;
-	}
-}
-
-.table td {
-	vertical-align: middle;
-}
-
-ul.ui-autocomplete {
-	position: absolute;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	border: solid 1px #999;
-	cursor: default;
-	li {
-		background-color: #FFF;
-		border-top: solid 1px #DDD;
-		margin: 0;
-		padding: 0;
-		a {
-			color: #000;
-			display: block;
-			padding: 3px;
-		}
-		a.ui-state-hover, a.ui-state-active {
-			background-color: #FFFCB2;
-		}
-	}
-}
-
-// Profile logo in navbar
-$profilePicHeight: 25px;
-$normalNavLinkPadding: ($navbarHeight - $baseLineHeight) / 2;
-$profilePicOverflow: ($profilePicHeight - $baseLineHeight) / 2;
-$profileNavLinkPadding: $normalNavLinkPadding - $profilePicOverflow;
+// Profile logo in navbar. We don't want the navbar to expand because of the logo size.
+$profile-pic-height: 25px;
+$normal-nav-link-padding: ($navbar-height - $line-height-computed) / 2;
+$profile-pic-overflow: ($profile-pic-height - $line-height-computed) / 2;
+$profile-nav-link-padding: $normal-nav-link-padding - $profile-pic-overflow;
 
 img.nav-profile-logo {
-	height: $profilePicHeight;
+	height: $profile-pic-height;
 }
 
 .navbar .nav > li > a.nav-profile-logo {
-	padding: $profileNavLinkPadding 15px;
+	padding: $profile-nav-link-padding 15px;
 }
 
-.blog-post-info {
-	float: right;
-	font-style: italic;
-	opacity: 0.6;
-	filter: alpha(opacity = 60);
-}
-
-.blog-post-large-info {
-	font-style: italic;
-	opacity: 0.6;
-	filter: alpha(opacity = 60);
-}
-
-.paragraph-more {
-	text-align: center;
-}
-
-.btn-new-blog-post {
-	margin-top: 20px;
-	float: right;
-}
-
-.blog-comment-info {
-	vertical-align: center;
-}
-
-.blog-comment-avatar {
-	float: left;
-	margin-right: 10px;
-	margin-bottom: 10px;
-}
-
-.blog-comment-author {
+// I like bold text for links
+.nav > li > a {
 	font-weight: bold;
 }
 
-.blog-comment-timestamp {
-	font-style: italic;
-	opacity: 0.6;
-	filter: alpha(opacity = 60);
+// Counteract an artefact in Chosen caused by the bootstrap theme
+.chosen-results {
+	color: rgb(82, 87, 92);
 }
 
-.blog-comment-content {
-	clear: left;
+// Prevent the jumbotron from making the carousel's caption box larger than usual
+// This might be a hack, I'm not sure if you're actually supposed to put a carousel
+// in a jumbotron but it's how Roeland did it.
+.jumbotron {
+	line-height: 0;
 }
 
-textarea {
-	width: 600px;
-	height: 100px;
+// Set button sizes back to how they were in Bootstrap 2.
+// The site was designed around those sizes and I liked them better.
+.btn {
+	padding: 4px 12px;
 }
 
-.carousel-inner {
-	background-color: black;
+.btn-xs {
+	padding: 0px 6px;
 }
 
-.brand {
-	font-family: razer_regularitalic;
+.btn-sm {
+	padding: 2px 10px;
 }
 
-span.badges {
-	margin: 0px 5px;
-}
-
-.game-list-view-options {
-	float: right;
-}
-
-.grid-game-manipulation-buttons {
-	float: right;
-	margin-top: 18px;
-}
-
-.hidden-smalldesktop {
-	display: inherit !important;
-}
-
-.visible-smalldesktop {
-	display: none !important;
-}
-
-@media (min-width: 980px) and (max-width: 1199px) {
-	.hidden-smalldesktop {
-		display: none !important;
-	}
-	.visible-smalldesktop {
-		display: inherit !important;
+// Make sure table entries are vertically centered.
+.table {
+	& > tbody
+	{
+		& > tr > td {
+			vertical-align: middle;
+		}
 	}
 }
 
-@media (max-width: 980px) {
-	table td.colapse,
-	table th.colapse {
-		display: none;
+// Normally Bootstrap 3 does button groups by making the buttons float left.
+// This automatically removes the whitespace between 2 buttons.
+// The bad thing is that this also makes them ignore the 'white-space: nowrap' property we set on action-columns.
+// This makes the columns collapse and the buttons start wrapping.
+// The following override changes the behaviour to more or less how it was in Bootstrap 2 to avoid this problem.
+// This is only applied to action columns.
+td.action-column {
+	.btn-group {
+		font-size: 0px;
+	}
+	.btn {
+		float: none;
 	}
 }
 
-@media (max-width: 980px) {
-	table td.colapse,
-	table th.colapse {
-		display: none;
-	}
-}
-
-@import "bootstrap-responsive";
-@import "bootswatch";
+// Allow info-colored table rows. For some reason these were removed in Bootstrap 3.
+@include table-row-variant('info', $state-info-bg, $state-info-border);

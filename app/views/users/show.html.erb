@@ -8,6 +8,6 @@
 <p class="field"><b><%= t("simple_form.labels.user.account_balance") %>:</b> <%= number_to_currency @user.account_balance, :unit => "€" %> </p>
 <% end %>
 
-<%= link_to t(:edit), edit_user_path(@user), class: "btn" if current_user and current_user == @user %>
+<%= link_to t(:edit), edit_user_path(@user), class: "btn btn-default" if current_user and current_user == @user %>
 
 <%#= render :partial => 'logs/log_list', :locals => {:logs => @user.logs, :no_user => true} %>

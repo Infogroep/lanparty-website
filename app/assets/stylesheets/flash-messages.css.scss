@@ -1,0 +1,10 @@
+// Make sure alerts are on top.
+.alert {
+	z-index: 1029;
+}
+
+// Make sure flash messages don't push the body down.
+.flashmsgholder {
+	position: absolute;
+	padding-right: 20px;
+}

@@ -3,11 +3,11 @@
 <% content_for(:before_title) do %>
 	<div class="btn-toolbar game-list-view-options">
 		<div class="btn-group">
-			<%= link_to content_tag("i", "", class: "icon-th-large"), url_for(:games_view => :grid), class: games_view_selector_class(:grid) %>
-			<%= link_to content_tag("i", "", class: "icon-list"),     url_for(:games_view => :list), class: games_view_selector_class(:list) %>
+			<%= link_to content_tag("i", "", class: "fa fa-th-large"), url_for(:games_view => :grid), class: games_view_selector_class(:grid) %>
+			<%= link_to content_tag("i", "", class: "fa fa-list"),     url_for(:games_view => :list), class: games_view_selector_class(:list) %>
 		</div>
 	</div>
 <% end %>
 
 <%= render :partial => (session[:games_view] == :list ? "game_list" : "game_grid"), :locals => { :games => @games } %>
-<%= link_to t(:new, :model => t("game.one")), new_game_path, class: "btn" if current_user and current_user.access_allowed?(:compo_editing) %>
+<%= link_to t(:new, :model => t("game.one")), new_game_path, class: "btn btn-default" if current_user and current_user.access_allowed?(:compo_editing) %>

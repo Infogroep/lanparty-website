@@ -11,11 +11,12 @@
 		<tr>
 			<td><%= pricing_override.payable.name %></td>
 			<td><%= pricing_override.transform %></td>
+			<%# TODO: Why is this not using the standard_edit_controls component? %>
 			<td class="action-column">
 				<div class="btn-toolbar action-toolbar">
 					<div class="btn-group">
-						<%= link_to content_tag("i", "", class: "icon-edit"), send(edit_path_method,pricing_override), class: "btn" %>
-						<%= link_to content_tag("i", "", class: "icon-trash"), send(path_method,pricing_override), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+						<%= link_to content_tag("i", "", class: "fa fa-edit"), send(edit_path_method,pricing_override), class: "btn btn-default" %>
+						<%= link_to content_tag("i", "", class: "fa fa-trash-o"), send(path_method,pricing_override), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 					</div>
 				</div>
 			</td>
@@ -23,4 +24,4 @@
 	<% end %>
 </table>
 
-<%= link_to t(:new, :model => t("pricing_override.one")), send(new_path_method), class: "btn" %>
+<%= link_to t(:new, :model => t("pricing_override.one")), send(new_path_method), class: "btn btn-default" %>

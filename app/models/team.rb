@@ -17,7 +17,7 @@ class Team < ActiveRecord::Base
 	end
 
 	def required_amount_of_users
-		errors.add(:users, "Exaclty #{compo.group_size} users need to be selected") unless users.length == compo.group_size
+		errors.add(:users, "Exactly #{compo.group_size} users need to be selected") unless users.length == compo.group_size
 	end
 
 end
