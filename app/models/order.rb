@@ -28,9 +28,9 @@ class Order < ActiveRecord::Base
 		end
 	end
 
-	scope :open_orders,    where(:status_code => status_to_int(:open))
-	scope :pending_orders, where(:status_code => status_to_int(:pending))
-	scope :closed_orders,  where(:status_code => status_to_int(:closed))
+	scope :open_orders,    -> { where(:status_code => status_to_int(:open)) }
+	scope :pending_orders, -> { where(:status_code => status_to_int(:pending)) }
+	scope :closed_orders,  -> { where(:status_code => status_to_int(:closed)) }
 
 	def total_price
 		order_items.map { |order_item| order_item.price }.reduce(BigDecimal.new("0"),:+)
