@@ -1,0 +1,42 @@
+$ ->
+	# General settings
+	datatable_settings =
+	#	"sDom":"<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+		sPaginationType:"bootstrap"
+
+	# Locales
+	# TODO: Use the rails i18n system.
+	if "<%= I18n.locale %>" == "nl"
+		datatable_settings.oLanguage =
+			sProcessing:"Bezig..."
+			sLengthMenu:"_MENU_ resultaten weergeven"
+			sZeroRecords:"Geen resultaten gevonden"
+			sInfo:"_START_ tot _END_ van _TOTAL_ resultaten"
+			sInfoEmpty:"Geen resultaten om weer te geven"
+			sInfoFiltered:" (gefilterd uit _MAX_ resultaten)"
+			sInfoPostFix:""
+			sSearch:"Zoeken:"
+			sEmptyTable:"Geen resultaten aanwezig in de tabel"
+			sInfoThousands:"."
+			sLoadingRecords:"Een moment geduld aub - bezig met laden..."
+			oPaginate:
+				sFirst:"Eerste"
+				sLast:"Laatste"
+				sNext:"Volgende"
+				sPrevious:"Vorige"
+
+	# Iterate over all datatables
+	$('.datatable').each ->
+		t = $(@)
+
+		# Create the datatable
+		dt = t.dataTable datatable_settings
+
+		# Notify other scripts
+		t.trigger 'after-datatable', datatable: dt
+
+	# Do some hacks to introduce form-control classes the length selector and filter field.
+	# The datatables gem already prepares these settings but DataTables doesn't do anything with it yet.
+	# TODO: Remove this when DataTables fix their code.
+	$('.dataTables_length select').addClass('form-control input-sm')
+	$('.dataTables_filter input').addClass('form-control input-sm')

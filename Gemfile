@@ -24,7 +24,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', :platform => :ruby
 gem 'libv8'
-gem 'jquery-datatables-rails'
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 gem 'font-awesome-sass'
 
 gem 'uglifier', '>= 1.3.0'

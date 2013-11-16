@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 	before_filter(:only => [:markpayed]) { access_required :user_editing }
 
 	def index
-		@users = User.all
+		@users = User.all.includes(:teams,:user_groups)
 	end
 
 	def show

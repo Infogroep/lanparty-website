@@ -61,6 +61,11 @@ img.nav-profile-logo {
 	padding: 2px 10px;
 }
 
+.pagination > li > a, .pagination > li > span {
+	padding: 4px 12px;
+	font-weight: bold;
+}
+
 // Make sure table entries are vertically centered.
 .table {
 	& > tbody

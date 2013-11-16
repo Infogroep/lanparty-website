@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require dataTables/jquery.dataTables
-//= require dataTables/jquery.dataTables.bootstrap
+//= require dataTables/jquery.dataTables.bootstrap3
 //= require chosen-jquery
 //= require jquery.bracket
 //= require ckeditor/init
@@ -24,7 +24,7 @@
 
 $(function () {
 	$('input.date_picker').datetimepicker({dateFormat:"dd/mm/yy"});
-	$('select').each(function () {
+	$('.chosen-enabled-form select').each(function () {
 		var data = $(this).data("chosenparams");
 
 		if(data)
@@ -34,37 +34,3 @@ $(function () {
 	});
 	render_bracket();
 });
-
-function load_i18n_js(locale) {
-	var datatable_settings = {
-		"sDom":"<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-		"sPaginationType":"bootstrap"
-	};
-
-	if (locale == "nl") {
-		datatable_settings.oLanguage = {
-			"sProcessing":"Bezig...",
-			"sLengthMenu":"_MENU_ resultaten weergeven",
-			"sZeroRecords":"Geen resultaten gevonden",
-			"sInfo":"_START_ tot _END_ van _TOTAL_ resultaten",
-			"sInfoEmpty":"Geen resultaten om weer te geven",
-			"sInfoFiltered":" (gefilterd uit _MAX_ resultaten)",
-			"sInfoPostFix":"",
-			"sSearch":"Zoeken:",
-			"sEmptyTable":"Geen resultaten aanwezig in de tabel",
-			"sInfoThousands":".",
-			"sLoadingRecords":"Een moment geduld aub - bezig met laden...",
-			"oPaginate":{
-				"sFirst":"Eerste",
-				"sLast":"Laatste",
-				"sNext":"Volgende",
-				"sPrevious":"Vorige"
-			}
-		}
-	}
-
-	$('.datatable').each(function () {
-		var dt = $(this).dataTable(datatable_settings);
-		$(this).trigger('after-datatable',{datatable: dt});
-	});
-}

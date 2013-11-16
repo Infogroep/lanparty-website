@@ -4,7 +4,6 @@
 	<title><%= content_for?(:title) ? yield(:title) : "ILAN" %></title>
 	<%= stylesheet_link_tag "application" %>
 	<%= javascript_include_tag :application %>
-	<%= javascript_tag "$(function(){load_i18n_js('#{I18n.locale}');})" %>
 	<%= csrf_meta_tag %>
 	<%= yield(:head) %>
 </head>
