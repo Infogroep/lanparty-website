@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required, :except => [:new, :create, :index]
+	# TODO: Move these checks to strong parameters.
 	before_filter(:only => [:create]) { true_required !params[:user].has_key?(:user_group_ids) }
 	before_filter(:only => [:update]) { true_required(!params[:user].has_key?(:user_group_ids) || current_user.access_allowed?(:user_editing)) }
 	before_filter(:only => [:edit,:update]) { true_required(params[:id] == current_user.id.to_s || current_user.access_allowed?(:user_editing)) }
@@ -55,6 +56,6 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		params.require(:user).permit(:username, :email, :password, :password_confirmation, :password_hash, :password_salt, :clan_tag, :payed, :user_group_ids, :account_balance, :pending_order_sound)
+		params.require(:user).permit(:username, :email, :password, :password_confirmation, :password_hash, :password_salt, :clan_tag, :payed, :account_balance, :pending_order_sound, user_group_ids: [])
 	end
 end

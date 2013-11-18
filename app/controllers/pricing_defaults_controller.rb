@@ -61,6 +61,6 @@ class PricingDefaultsController < ApplicationController
 	end
 
 	def pricing_default_params
-		params.require(:pricing_default).permit(:transform, :user_group_ids, :description, :name, :priority)
+		params.require(:pricing_default).permit(:transform, :description, :name, :priority, user_group_ids: [])
 	end
 end

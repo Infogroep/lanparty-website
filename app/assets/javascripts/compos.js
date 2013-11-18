@@ -144,3 +144,6 @@ function render_list_bracket(){
 	postProcess(container);
 }
 
+$(function() {
+	render_bracket();
+});

@@ -569,3 +569,21 @@ en:
       pay: "Pay"
     order_items:
       total: "Total"
+  dynamic_scripts:
+    datatables:
+      processing: "Processing..."
+      length_menu: "Display _MENU_ items"
+      zero_records: "No items found"
+      info: "_START_ to _END_ of _TOTAL_ items"
+      info_empty: "No items to display"
+      info_filtered: " (filtered from _MAX_ items)"
+      info_post_fix: ""
+      search: "Search:"
+      empty_table: "No items in the table"
+      info_thousands: "."
+      loading_records: "One moment please - loading items..."
+      paginate:
+        first: "First"
+        last: "Last"
+        next: "Next"
+        previous: "Previous"

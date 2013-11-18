@@ -1,7 +1,7 @@
 Lanparty::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-	scope "(:locale)", locale: /en|nl/ do
+	scope '(:locale)', locale: /en|nl/ do
 
 		resources :blog_posts do
 			resources :blog_comments
@@ -9,12 +9,12 @@ Lanparty::Application.routes.draw do
 
 		resources :orders do
 			resources :order_items do
-				post "scan", on: :collection
-				post "add", on: :collection
+				post 'scan', on: :collection
+				post 'add', on: :collection
 			end
 
-			patch "place", on: :member
-			patch "pay", on: :member
+			patch 'place', on: :member
+			patch 'pay', on: :member
 		end
 
 		resources :clans
@@ -48,6 +48,10 @@ Lanparty::Application.routes.draw do
 		get 'signup_finished', to: 'pages#signup_finished', as: :signup_finished
 		get 'darules', to: 'pages#rules', as: :rules
 		get 'admin', to: 'pages#admin', as: :admin
+
+		scope 'dynamic_scripts', as: :dynamic_scripts do
+			get 'datatables', to: 'dynamic_scripts#datatables', as: :datatables
+		end
 
 		namespace 'util' do
 			get 'soundtest', to: 'soundtest#soundtest', as: :soundtest
@@ -87,9 +91,9 @@ Lanparty::Application.routes.draw do
 		resources :barcodes
 
 		resources :store_items
-	end
 
-	get '/:locale', to: 'pages#home', as: :home
+		root to: 'pages#home', as: :home
+	end
 
 	root to: 'pages#home'
 end

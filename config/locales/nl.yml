@@ -564,3 +564,21 @@ nl:
       pay: "Betaal"
     order_items:
       total: "Totaal"
+  dynamic_scripts:
+    datatables:
+      processing: "Bezig met verwerken..."
+      length_menu: "_MENU_ items weergeven"
+      zero_records: "Geen items gevonden"
+      info: "_START_ tot _END_ van _TOTAL_ items"
+      info_empty: "Geen items om weer te geven"
+      info_filtered: " (gefilterd uit _MAX_ items)"
+      info_post_fix: ""
+      search: "Zoeken:"
+      empty_table: "Geen items aanwezig in de tabel"
+      info_thousands: "."
+      loading_records: "Een ogenblik geduld aub - bezig met laden..."
+      paginate:
+        first: "Eerste"
+        last: "Laatste"
+        next: "Volgende"
+        previous: "Vorige"

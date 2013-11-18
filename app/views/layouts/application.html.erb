@@ -4,6 +4,7 @@
 	<title><%= content_for?(:title) ? yield(:title) : "ILAN" %></title>
 	<%= stylesheet_link_tag "application" %>
 	<%= javascript_include_tag :application %>
+	<%= javascript_include_tag dynamic_scripts_datatables_path %>
 	<%= csrf_meta_tag %>
 	<%= yield(:head) %>
 </head>

@@ -63,6 +63,6 @@ class UserGroupsController < ApplicationController
 	def user_group_params
 		# TODO: Should do real permission checking. Not doing this now because i need column info
 		# params.require(:user_group).permit(:description, :name, :badge, ...access type columns)
-		params.require(:user_group).permit()
+		params.require(:user_group).permit!
 	end
 end

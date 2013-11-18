@@ -1,4 +1,0 @@
-$(function () {
-	$('.carousel').carousel()
-});
-

@@ -17,20 +17,6 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap3
 //= require chosen-jquery
-//= require jquery.bracket
 //= require ckeditor/init
-//= require cashier_notifications
 //= require_tree .
 
-$(function () {
-	$('input.date_picker').datetimepicker({dateFormat:"dd/mm/yy"});
-	$('.chosen-enabled-form select').each(function () {
-		var data = $(this).data("chosenparams");
-
-		if(data)
-			$(this).chosen(data);
-		else
-			$(this).chosen();
-	});
-	render_bracket();
-});
