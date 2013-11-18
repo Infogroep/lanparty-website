@@ -1,7 +1,20 @@
+# Price for entry in EUR
 entry_fee: 10
+
+# Number of participants allowed
 max_participants: 50
+
+# Registrations open?
 registration_available: true
+
+# Start date of LANparty
 date: 2014-2-21
+
+# Location of LANparty
 location: "VUB Mandela"
+
+# Time and date format
 format: "%a %H:%M"
 
+# Has the LANparty started?
+on_lanparty: false
