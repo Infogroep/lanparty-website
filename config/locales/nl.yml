@@ -373,7 +373,7 @@ nl:
   pages:
     info:
       content_html: '<h3>Waar & wanneer?</h3>
-                     <p>ILAN 2012 vindt plaats van vrijdag 15/2 om 18u tot zondag 17/2 om 18u.</p>
+                     <p>ILAN %{year} vindt plaats van vrijdag 15/2 om 18u tot zondag 17/2 om 18u.</p>
 
                      <p>Onze zaal:
                      <em>De Mandela-zaal op de campus van de Vrije Universiteit Brussel<br />
