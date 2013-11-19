@@ -18,3 +18,7 @@ format: "%a %H:%M"
 
 # Has the LANparty started?
 on_lanparty: false
+
+# Year
+year: 2014
+
