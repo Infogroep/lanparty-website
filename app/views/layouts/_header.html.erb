@@ -44,6 +44,7 @@
 						<b class="caret"></b>
 					</a>
 					<ul class="dropdown-menu">
+						<%# TODO: This is probably bugged (if doesn't prevent li from being placed %>
 						<li class="<%= active_class('user_groups') %>"><%= link_to t("user_group.other"), user_groups_path if current_user.access_allowed? :user_editing %></li>
 						<li class="<%= active_class('sponsors') %>"><%= link_to t("sponsor.other"), sponsors_path if current_user.access_allowed? :sponsor_editing %></li>
 						<% if current_user.access_allowed? :store_editing %>
