@@ -73,14 +73,14 @@ shared_examples "standard_controller" do |model,options = {}|
 			it "assigns a newly created but unsaved #{singular_model} as @#{singular_model}" do
 				# Trigger the behavior that occurs when invalid params are submitted
 				model.any_instance.stub(:save).and_return(false)
-				post :create, additional_params.merge({ singular_model => { } })
+				post :create, additional_params.merge({ singular_model => { "bleh" => "bah" } })
 				assigns(singular_model).should be_a_new(model)
 			end
 
 			it fetch_option(options,:create,:on_fail,"re-renders the 'new' template") do
 				# Trigger the behavior that occurs when invalid params are submitted
 				model.any_instance.stub(:save).and_return(false)
-				post :create, additional_params.merge({ singular_model => { } })
+				post :create, additional_params.merge({ singular_model => { "bleh" => "bah" } })
 				on_create_fail
 			end
 		end
@@ -94,8 +94,8 @@ shared_examples "standard_controller" do |model,options = {}|
 				# specifies that the model created on the previous line
 				# receives the :update message with whatever params are
 				# submitted in the request.
-				model.any_instance.should_receive(:update).with({ 'these' => 'params' })
-				put :update, additional_params.merge({ :id => model_instance.id, singular_model => { 'these' => 'params' } })
+				model.any_instance.should_receive(:update).with(valid_attributes)
+				put :update, additional_params.merge({ :id => model_instance.id, singular_model => valid_attributes })
 			end
 
 			it "assigns the requested #{singular_model} as @#{singular_model}" do
@@ -116,7 +116,7 @@ shared_examples "standard_controller" do |model,options = {}|
 				model_instance = model.create! valid_attributes
 				# Trigger the behavior that occurs when invalid params are submitted
 				model.any_instance.stub(:save).and_return(false)
-				put :update, additional_params.merge({ :id => model_instance.id.to_s, singular_model => { } })
+				put :update, additional_params.merge({ :id => model_instance.id.to_s, singular_model => { "bleh" => "bah" } })
 				assigns(singular_model).should eq(model_instance)
 			end
 
@@ -124,7 +124,7 @@ shared_examples "standard_controller" do |model,options = {}|
 				model_instance = model.create! valid_attributes
 				# Trigger the behavior that occurs when invalid params are submitted
 				model.any_instance.stub(:save).and_return(false)
-				put :update, additional_params.merge({ :id => model_instance.id.to_s, singular_model => { } })
+				put :update, additional_params.merge({ :id => model_instance.id.to_s, singular_model => { "bleh" => "bah" } })
 				on_update_fail(model_instance)
 			end
 		end

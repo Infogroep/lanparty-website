@@ -14,7 +14,7 @@ module ControllerMacros
 				it "#{action} action #{description}" do
 					get action, { :id => 1 }.merge(additional_params)
 					response.should redirect_to(send(expected_redirect))
-					flash[:error].should == expected_error
+					flash[:danger].should == expected_error
 				end
 			end
 		end

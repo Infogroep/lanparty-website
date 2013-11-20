@@ -26,7 +26,7 @@
 			<td nowrap><%= render :partial => "badges", :locals => { :user => user } %></td>
 			<td><%= user.clan.tag if user.clan %></td>
 			<td class="visible-md visible-lg">
-				<span class="hide"><%= user.payed %></span><i class="fa <%= user.payed ? "fa-check" : "fa-check-empty" %>"></i>
+				<span class="hide"><%= user.payed %></span><i class="fa <%= user.payed ? "fa-check-square-o" : "fa-square-o" %>"></i>
 			</td>
 			<% if canview %>
 				<td class="visible-md visible-lg"><%= user.email %></td>

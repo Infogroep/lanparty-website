@@ -1,9 +1,9 @@
 class GamesController < ApplicationController
-	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required, :except => [:index]
 	before_filter(:except => [:index]) { access_required :compo_editing }
 
-	before_filter :set_view, :only => :index
+	before_action :set_view, only: :index
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 
 	def set_view
 		session[:games_view] = (params[:games_view] || session[:games_view] || :grid).to_sym

@@ -1,7 +1,7 @@
 class BlogCommentsController < ApplicationController
-	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
 	before_filter(:only => [:edit, :update, :destroy]) { true_required (BlogComment.find(params[:id]).user_id == current_user.id || current_user.access_allowed?(:blog_editing)) }
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 
 	# GET /blog_comments/1/edit
 	def edit
@@ -20,7 +20,7 @@ class BlogCommentsController < ApplicationController
 	# PUT /blog_comments/1.json
 	def update
 		if @blog_comment.update(blog_comment_params)
-			redirect_to @blog_post, notice: 'Blog comment was successfully updated.'
+			redirect_to @blog_post, flash: { info: 'Blog comment was successfully updated.' }
 		else
 			render action: "edit"
 		end

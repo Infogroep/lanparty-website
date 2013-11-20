@@ -27,7 +27,7 @@ class ClansController < ApplicationController
 		@clan = Clan.new(clan_params)
 
 		if @clan.save
-			redirect_to clans_url, notice: 'Clan was successfully created.'
+			redirect_to clans_url, flash: { info: 'Clan was successfully created.' }
 		else
 			render action: "new"
 		end
@@ -37,7 +37,7 @@ class ClansController < ApplicationController
 	# PUT /clans/1.json
 	def update
 		if @clan.update(clan_params)
-			redirect_to clans_url, notice: 'Clan was successfully updated.'
+			redirect_to clans_url, flash: { info: 'Clan was successfully updated.' }
 		else
 			render action: "edit"
 		end

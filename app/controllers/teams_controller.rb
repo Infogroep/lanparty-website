@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
-	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
+
 	# GET /teams
 	# GET /teams.json
 	def index

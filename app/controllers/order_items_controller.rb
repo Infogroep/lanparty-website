@@ -1,10 +1,10 @@
 class OrderItemsController < ApplicationController
 	include OrdersHelper
-	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
 	before_filter { true_required(can_modify_order?(Order.find(params[:order_id]))) }
 
-	before_filter :set_view, :only => :new
+	before_action :set_view, only: :new
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 
 	def set_view
 		session[:store_items_view] = (params[:store_items_view] || session[:store_items_view] || :list).to_sym

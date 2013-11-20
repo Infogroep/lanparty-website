@@ -1,7 +1,7 @@
 class BlogPostsController < ApplicationController
-	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required, :except => [:index, :show]
 	before_filter(:except => [:index, :show]) { access_required(:blog_editing) }
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 
 	# GET /blog_posts
 	# GET /blog_posts.json
@@ -30,7 +30,7 @@ class BlogPostsController < ApplicationController
 		@blog_post = BlogPost.new(blog_post_params.merge({ :user_id => current_user.id }))
 
 		if @blog_post.save
-			redirect_to @blog_post, notice: 'Blog post was successfully created.'
+			redirect_to @blog_post, flash: { info: 'Blog post was successfully created.' }
 		else
 			render action: "new"
 		end
@@ -40,7 +40,7 @@ class BlogPostsController < ApplicationController
 	# PUT /blog_posts/1.json
 	def update
 		if @blog_post.update(blog_post_params)
-			redirect_to @blog_post, notice: 'Blog post was successfully updated.'
+			redirect_to @blog_post, flash: { info: 'Blog post was successfully updated.' }
 		else
 			render action: "edit"
 		end

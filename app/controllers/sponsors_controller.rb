@@ -1,7 +1,7 @@
 class SponsorsController < ApplicationController
-	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
 	before_filter { access_required :sponsor_editing }
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 
 	# GET /sponsors
 	# GET /sponsors.json
@@ -30,7 +30,7 @@ class SponsorsController < ApplicationController
 		@sponsor = Sponsor.new(sponsor_params)
 
 		if @sponsor.save
-			redirect_to sponsors_url, notice: 'Sponsor was successfully created.'
+			redirect_to sponsors_url, flash: { info: 'Sponsor was successfully created.' }
 		else
 			render action: "new"
 		end
@@ -40,7 +40,7 @@ class SponsorsController < ApplicationController
 	# PUT /sponsors/1.json
 	def update
 		if @sponsor.update(sponsor_params)
-			redirect_to sponsors_url, notice: 'Sponsor was successfully updated.'
+			redirect_to sponsors_url, flash: { info: 'Sponsor was successfully updated.' }
 		else
 			render action: "edit"
 		end

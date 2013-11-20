@@ -1,7 +1,7 @@
 class StoreItemClassesController < ApplicationController
-	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 	before_filter :login_required
 	before_filter { access_required :store_editing }
+	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 
 	# GET /store_item_classes
 	# GET /store_item_classes.json
