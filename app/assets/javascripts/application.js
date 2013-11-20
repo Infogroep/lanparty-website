@@ -17,6 +17,7 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap3
 //= require chosen-jquery
+//= require ckeditor/override
 //= require ckeditor/init
 //= require_tree .
 

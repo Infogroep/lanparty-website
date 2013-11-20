@@ -61,7 +61,7 @@ gem 'rmagick'
 gem 'simple_form'
 gem 'chosen-rails'
 gem 'compass-rails', '~> 2.0.alpha.0'
-gem 'ckeditor'
+gem 'ckeditor', github: "galetahub/ckeditor"
 gem 'mini_magick'
 
 # To use ActiveModel has_secure_password
