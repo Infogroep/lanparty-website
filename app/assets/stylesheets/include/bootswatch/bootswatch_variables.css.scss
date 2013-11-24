@@ -160,7 +160,7 @@ $grid-columns:              12;
 $grid-gutter-width:         30px;
 // Point at which the navbar stops collapsing
 // TODO: Maybe collapse at sm (like default) and move games/compo's into 1 during md
-$grid-float-breakpoint:     $screen-md-min;
+$grid-float-breakpoint:     $screen-sm-min;
 
 
 // Tabs

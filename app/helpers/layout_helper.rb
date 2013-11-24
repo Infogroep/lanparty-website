@@ -33,14 +33,12 @@ module LayoutHelper
 		end
 	end
 
-	def navbar_item(text = nil, options = nil, html_options = nil)
-		options ||= {}
-
+	def navbar_item(text = nil, options = {}, html_options = nil)
 		path = url_for(options)
 		render partial: "layouts/navbar_item", locals: { text: text, path: path, link_options: html_options }
 	end
 
-	def navbar_dropdown(text, &content)
-		render layout: "layouts/navbar_dropdown", locals: { text: text }, &content
+	def navbar_dropdown(text, options = {}, &content)
+		render layout: "layouts/navbar_dropdown", locals: { text: text, link_options: options }, &content
 	end
 end

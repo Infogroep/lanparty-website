@@ -13,12 +13,18 @@
 				= navbar_item t(:rules), pages_rules_path
 				= navbar_item t(:faq), pages_faq_path
 				= navbar_item t(:contact), pages_contact_path
-			= navbar_item t("game.other"), games_path
 			- if current_user
-				= navbar_item t("compo.other"), compos_path
+				-# During the sm responsive layout, games and compos collapse into a dropdown
+				= navbar_item t("game.other"), games_path, class: "hidden-sm"
+				= navbar_item t("compo.other"), compos_path, class: "hidden-sm"
+				= navbar_dropdown t("compo.other"), class: "visible-sm" do
+					= navbar_item t("game.other"), games_path
+					= navbar_item t("compo.other"), compos_path
 				= navbar_dropdown t(:store) do
 					= navbar_item t("store_item.other"), store_items_path
 					= navbar_item t("order.other"), orders_path
+			- else
+				= navbar_item t("game.other"), games_path
 			= navbar_item t("user.other"), users_path
 			- if admin_accessible
 				= navbar_dropdown "Admin" do
