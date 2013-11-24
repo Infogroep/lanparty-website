@@ -3,6 +3,7 @@ class PricingDefault < ActiveRecord::Base
 
 	validates_presence_of :transform
 	validates_presence_of :name
+	validates_presence_of :priority
 	validates_uniqueness_of :name
 
 	has_and_belongs_to_many :user_groups
