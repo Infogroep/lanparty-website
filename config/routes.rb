@@ -41,13 +41,15 @@ Lanparty::Application.routes.draw do
 
 		get 'login', to: 'sessions#new', as: :login
 
-		get 'info', to: 'pages#info'
-		get 'location', to: 'pages#location'
-		get 'faq', to: 'pages#faq'
-		get 'contact', to: 'pages#contact', as: :contact
-		get 'signup_finished', to: 'pages#signup_finished', as: :signup_finished
-		get 'darules', to: 'pages#rules', as: :rules
-		get 'admin', to: 'pages#admin', as: :admin
+		scope controller: :pages, as: :pages do
+			get 'info', to: :info
+			get 'location', to: :location
+			get 'faq', to: :faq
+			get 'contact', to: :contact
+			get 'signup_finished', to: :signup_finished
+			get 'darules', to: :rules, as: :rules
+			get 'admin', to: :admin
+		end
 
 		scope 'dynamic_scripts', as: :dynamic_scripts do
 			get 'datatables', to: 'dynamic_scripts#datatables', as: :datatables
