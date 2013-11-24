@@ -28,6 +28,7 @@ gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-ra
 gem 'font-awesome-sass'
 
 gem 'uglifier', '>= 1.3.0'
+gem 'haml'
 
 group :development, :test do
 	gem "capybara"

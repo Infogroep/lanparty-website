@@ -20,11 +20,27 @@ module LayoutHelper
 		content_for(:head) { javascript_include_tag(*args) }
 	end
 
-	def active_class(css_class)
-		if controller.controller_name == css_class || css_class == "#{controller.controller_name}##{controller.action_name}" || (@nav_tab && @nav_tab == css_class)
-			return "active"
+	def active_class_path(path)
+		resolved = Rails.application.routes.recognize_path(path)
+		active_class_action resolved[:controller], resolved[:action]
+	end
+
+	def active_class_action(_controller, action)
+		if controller.controller_name == _controller.to_s and controller.action_name == (action || controller.action_name).to_s
+			"active"
 		else
-			return ""
+			""
 		end
+	end
+
+	def navbar_item(text = nil, options = nil, html_options = nil)
+		options ||= {}
+
+		path = url_for(options)
+		render partial: "layouts/navbar_item", locals: { text: text, path: path, link_options: html_options }
+	end
+
+	def navbar_dropdown(text, &content)
+		render layout: "layouts/navbar_dropdown", locals: { text: text }, &content
 	end
 end

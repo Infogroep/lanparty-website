@@ -1,0 +1,48 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top{ role: "navigation" }
+	.navbar-header
+		%button.navbar-toggle{ type: "button", data: { toggle: "collapse", target: ".navbar-collapse" } }
+			%span.icon-bar
+			%span.icon-bar
+			%span.icon-bar
+		= link_to t(:iLan), home_path, :class => "navbar-brand"
+	.navbar-collapse.collapse
+		%ul.nav.navbar-nav
+			= navbar_dropdown t(:info) do
+				= navbar_item t(:info), pages_info_path
+				= navbar_item t(:location), pages_location_path
+				= navbar_item t(:rules), pages_rules_path
+				= navbar_item t(:faq), pages_faq_path
+				= navbar_item t(:contact), pages_contact_path
+			= navbar_item t("game.other"), games_path
+			- if current_user
+				= navbar_item t("compo.other"), compos_path
+				= navbar_dropdown t(:store) do
+					= navbar_item t("store_item.other"), store_items_path
+					= navbar_item t("order.other"), orders_path
+			= navbar_item t("user.other"), users_path
+			- if admin_accessible
+				= navbar_dropdown "Admin" do
+					- if current_user.access_allowed? :user_editing
+						= navbar_item t("user_group.other"), user_groups_path
+					- if current_user.access_allowed? :sponsor_editing
+						= navbar_item t("sponsor.other"), sponsors_path
+					- if current_user.access_allowed? :store_editing
+						= navbar_item t("store_item.other"), store_items_path
+						= navbar_item t("store_item_class.other"), store_item_classes_path
+						= navbar_item t("pricing_default.other"), pricing_defaults_path
+						= navbar_item t("pricing_override.other") + " (" + t("store_item.other") + ")", store_item_pricing_overrides_path
+						= navbar_item t("pricing_override.other") + " (" + t("store_item_class.other") + ")", store_item_class_pricing_overrides_path
+		%ul.nav.navbar-nav.navbar-right
+			- if I18n.locale == :nl
+				= navbar_item t("lang.en", :locale => :en), locale: :en
+			- else
+				= navbar_item t("lang.nl", :locale => :nl), locale: :nl
+			%li.divider-vertical
+			- if current_user
+				= navbar_item image_tag(avatar_url(current_user), class: 'nav-profile-logo')+" "+current_user.username, current_user, class: "nav-profile-logo"
+				%li.divider-vertical
+				= navbar_item t(:logout), logout_path
+			- else
+				= navbar_item t(:login), login_path
+				%li.navbar-text= t(:or)
+				= navbar_item t(:signup), signup_path

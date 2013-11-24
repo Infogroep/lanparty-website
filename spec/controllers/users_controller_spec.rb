@@ -18,7 +18,7 @@ describe UsersController do
 	end
 
 	def on_create_success
-		response.should redirect_to(signup_finished_url)
+		response.should redirect_to(pages_signup_finished_url)
 	end
 
 	describe_access(
