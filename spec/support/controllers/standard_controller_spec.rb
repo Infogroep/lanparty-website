@@ -95,18 +95,18 @@ shared_examples "standard_controller" do |model,options = {}|
 				# receives the :update message with whatever params are
 				# submitted in the request.
 				model.any_instance.should_receive(:update).with(valid_attributes)
-				put :update, additional_params.merge({ :id => model_instance.id, singular_model => valid_attributes })
+				put :update, additional_params.merge({ :id => model_instance.to_param, singular_model => valid_attributes })
 			end
 
 			it "assigns the requested #{singular_model} as @#{singular_model}" do
 				model_instance = model.create! valid_attributes
-				put :update, additional_params.merge({ :id => model_instance.id, singular_model => valid_attributes })
+				put :update, additional_params.merge({ :id => model_instance.to_param, singular_model => valid_attributes })
 				assigns(singular_model).should eq(model_instance)
 			end
 
 			it fetch_option(options,:update,:on_success,"redirects to the #{plural_model} list") do
 				model_instance = model.create! valid_attributes
-				put :update, additional_params.merge({ :id => model_instance.id, singular_model => valid_attributes })
+				put :update, additional_params.merge({ :id => model_instance.to_param, singular_model => valid_attributes })
 				on_update_success(model_instance)
 			end
 		end
@@ -116,7 +116,7 @@ shared_examples "standard_controller" do |model,options = {}|
 				model_instance = model.create! valid_attributes
 				# Trigger the behavior that occurs when invalid params are submitted
 				model.any_instance.stub(:save).and_return(false)
-				put :update, additional_params.merge({ :id => model_instance.id.to_s, singular_model => { "bleh" => "bah" } })
+				put :update, additional_params.merge({ :id => model_instance.to_param, singular_model => { "bleh" => "bah" } })
 				assigns(singular_model).should eq(model_instance)
 			end
 
@@ -124,7 +124,7 @@ shared_examples "standard_controller" do |model,options = {}|
 				model_instance = model.create! valid_attributes
 				# Trigger the behavior that occurs when invalid params are submitted
 				model.any_instance.stub(:save).and_return(false)
-				put :update, additional_params.merge({ :id => model_instance.id.to_s, singular_model => { "bleh" => "bah" } })
+				put :update, additional_params.merge({ :id => model_instance.to_param, singular_model => { "bleh" => "bah" } })
 				on_update_fail(model_instance)
 			end
 		end
@@ -134,13 +134,13 @@ shared_examples "standard_controller" do |model,options = {}|
 		it "destroys the requested #{singular_model}" do
 			model_instance = model.create! valid_attributes
 			expect {
-				delete :destroy, additional_params.merge({ :id => model_instance.id.to_s })
+				delete :destroy, additional_params.merge({ :id => model_instance.to_param })
 			}.to change(model, :count).by(-1)
 		end
 
 		it fetch_option(options,:destroy,:on_success,"redirects to the #{plural_model} list") do
 			model_instance = model.create! valid_attributes
-			delete :destroy, additional_params.merge({ :id => model_instance.id.to_s })
+			delete :destroy, additional_params.merge({ :id => model_instance.to_param })
 			on_destroy_success
 		end
 	end if actions.include?(:destroy)
