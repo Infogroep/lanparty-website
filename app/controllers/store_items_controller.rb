@@ -56,7 +56,8 @@ class StoreItemsController < ApplicationController
 	# DELETE /store_items/1.json
 	# TODO: URGENT!!! DELETING A STORE ITEM SHOULD EITHER NOT BE POSSIBLE OR ORDER ITEMS SHOULD HANDLE THIS
 	def destroy
-		@store_item.destroy
+		@store_item.removed = true
+		@store_item.save!
 
 		redirect_to store_items_url
 	end

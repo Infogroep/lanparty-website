@@ -4,12 +4,14 @@ class StoreItem < ActiveRecord::Base
 	belongs_to :store_item_class
 
 	validates_presence_of :name, :purchase_price
-	validates_uniqueness_of :name
+	validates_uniqueness_of :name, scope: :removed
 	validates_presence_of :stock
 	validates_numericality_of :stock, :only_integer => true, :greater_than_or_equal_to => 0
 	validates_presence_of :purchase_price
 	validates_numericality_of :purchase_price, :greater_than_or_equal_to => 0
 	validates_presence_of :store_item_class
+
+	default_scope { where(removed:false) }
 
 	def price(user)
 		pricing_default = PricingDefault.find_best_pricing_default(user)
