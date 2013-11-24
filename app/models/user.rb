@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
 		allowed
 	end
 
-	def clan_tag()
+	def clan_tag
 		clan.try(:tag)
 	end
 
