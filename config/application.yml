@@ -22,3 +22,6 @@ on_lanparty: false
 # Year
 year: 2014
 
+#name of the pricingdefault to be used when user is not part of any group
+fallback_pricing_default_name: "FALLBACK_PRICING_DEFAULT"
+fallback_pricing_default_transform: "cprice * p('1.75')"
