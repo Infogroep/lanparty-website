@@ -1,4 +1,4 @@
-<%#
+-#
 	The reason for there being 2 nested containers here is the following:
 	Flash messages must be overlayed over the content of the site, otherwise it looks ugly.
 	The flashmsgholder class makes this possible by specifying position:absolute.
@@ -12,24 +12,16 @@
 	Thus, we have one container to center the whole thing, then position a subcontainer absolutely
 	relative to the coordinates of this parent container. The subcontainer then stretches the alert
 	box since containers do specify their width in a fixed fashion.
-%>
-<div class="container">
-	<div class="container flashmsgholder">
-		<div class="row">
-			<% flash.each do |name, msg| %>
-				<div class="<%= "col-md-12 alert alert-#{name}" %>">
-					<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<%= msg %>
-				</div>
-			<% end %>
-			<% if current_user and current_user.access_allowed?(:cashier_service) %>
-				<div id="pending-order-container" data-updatepath="<%= util_order_check_path %>">
-					<%= render "components/pending_order_message" %>
-				</div>
-				<div id="pending-order-audio">
-					<%= sound_player(current_user.sound_or_default) %>
-				</div>
-			<% end %>
-		</div>
-	</div>
-</div>
+
+.container
+	.container.flashmsgholder
+		.row
+			- flash.each do |name, msg|
+				.col-md-12.alert{ class: "alert-#{name}" }
+					%button.close{ type: "button", data: { dismiss: "alert" } } &times;
+					= msg
+			- if current_user and current_user.access_allowed?(:cashier_service)
+				.pending-order-container{ data: { updatepath: util_order_check_path } }
+					= render "components/pending_order_message"
+				.pending-order-audio
+					= sound_player(current_user.sound_or_default)

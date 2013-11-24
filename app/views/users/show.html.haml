@@ -1,0 +1,21 @@
+- title t("profile.one")
+
+= image_tag avatar_url(@user, 128), id: "profile-avatar"
+%p
+	%b #{t(:username)}:
+	= @user.username
+	= render :partial => "badges", locals: { user: @user }
+%p
+	%b #{t("clan.one")}:
+	= @user.clan.tag if @user.clan
+%p
+	%b #{t(:email)}:
+	= @user.email
+- if current_user && (current_user == @user || current_user.access_allowed?(:user_editing))
+	%p
+		%b #{t("simple_form.labels.user.account_balance")}:
+		= number_to_currency @user.account_balance, unit: "€"
+
+
+#profile-edit-btn
+	= link_to t(:edit), edit_user_path(@user), class: "btn btn-default" if current_user and current_user == @user
