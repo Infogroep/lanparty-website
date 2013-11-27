@@ -68,7 +68,7 @@ class Order < ActiveRecord::Base
 	def place
 		raise WebsiteErrors::UserFriendlyError.new("Can only place open orders") unless status == :open
 
-		self.placed_at = DateTime.current
+		self.placed_at = Time.now
 		self.status = :pending
 	end
 
@@ -88,7 +88,7 @@ class Order < ActiveRecord::Base
 			end
 
 			self.cashier = cashier
-			self.payed_at = DateTime.current
+			self.payed_at = Time.now
 			self.status = :closed
 			self.save!
 		end

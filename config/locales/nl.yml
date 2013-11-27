@@ -347,6 +347,9 @@ nl:
       default: ! '%a %d %b %Y %H:%M:%S %Z'
       long: ! '%d %B %Y %H:%M'
       short: ! '%d %b %H:%M'
+      verylong: ! '%A %d %B %Y om %H:%M'
+      date_iso: ! '%Y-%m-%d'
+      datetimeshort_iso: ! '%Y-%m-%d %H:%M'
     pm: ! '''s middags'
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
@@ -373,7 +376,7 @@ nl:
   pages:
     info:
       content_html: '<h3>Waar & wanneer?</h3>
-                     <p>ILAN %{year} vindt plaats van vrijdag 21/2 om 18u tot zondag 23/2 om 18u.</p>
+                     <p>ILAN %{year} vindt plaats van %{starttime} tot %{endtime}.</p>
 
                      <p>Onze zaal:
                      <em>De Mandela-zaal op de campus van de Vrije Universiteit Brussel<br />

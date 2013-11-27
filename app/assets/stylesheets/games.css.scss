@@ -8,3 +8,9 @@
 	float: right;
 	margin-top: 18px;
 }
+
+// Images may not overflow their div
+.game-grid-item img {
+	max-width: 100%;
+	height: auto;
+}

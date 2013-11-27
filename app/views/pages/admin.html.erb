@@ -1,6 +1,0 @@
-<% title t(:admin) %>
-
-<ul>
-	<li><%= link_to t("user_group.other"), user_groups_path if current_user.access_allowed? :user_editing %></li>
-	<li><%= link_to t("sponsor.other"), sponsors_path if current_user.access_allowed? :sponsor_editing %></li>
-</ul>

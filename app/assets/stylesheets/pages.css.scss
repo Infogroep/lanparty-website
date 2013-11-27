@@ -26,3 +26,11 @@
 		width: 100%;
 	}
 }
+
+#side-info-bar > tbody > tr > td:first-child {
+	font-weight: bold;
+
+	&:after {
+		content: ":";
+	}
+}

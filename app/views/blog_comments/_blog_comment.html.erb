@@ -2,7 +2,7 @@
 	<%= image_tag(avatar_url(blog_comment.user), class: "blog-comment-avatar") %>
 	<span class="blog-comment-author"><%= blog_comment.user.username %></span>
 	<%= render :partial => "users/badges", :locals => { :user => blog_comment.user } %><br>
-	<span class="blog-comment-timestamp"><%= t(:ago, :time_difference => distance_of_time_in_words(blog_comment.created_at, DateTime.current)) %></span>
+	<span class="blog-comment-timestamp"><%= t(:ago, :time_difference => distance_of_time_in_words(blog_comment.created_at, Time.now)) %></span>
 </p>
 <p class="blog-comment-content"><%= blog_comment.content %></p>
 <hr>
