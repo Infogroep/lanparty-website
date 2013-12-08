@@ -379,11 +379,11 @@ nl:
         ### Waar & wanneer?
         ILAN %{year} vindt plaats van %{starttime} tot %{endtime}.
         
-        <p>Onze zaal:
-        <em>De Mandela-zaal op de campus van de Vrije Universiteit Brussel  
-        (ook gekend als &quot;Ruimte onder Aula Q&quot;)  
+        Onze zaal:
+        *De Mandela-zaal op de campus van de Vrije Universiteit Brussel  
+        (ook gekend als "Ruimte onder Aula Q")  
         Pleinlaan 2  
-        B-1050 Brussel</em></p>
+        B-1050 Brussel*
         
         ### Inschrijven & reglement
         De inkomprijs bij voorafbetaling zal dit jaar een luttele __10__ euro bedragen.
