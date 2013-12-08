@@ -33,6 +33,10 @@ class UsersController < ApplicationController
 
 	def update
 		if @user.update(user_params)
+			if user_params[:clan_tag].empty?
+				@user.clan = nil
+				@user.save
+			end
 			redirect_to users_url, flash: { info: "Your profile has been updated." }
 		else
 			render :action => 'edit'

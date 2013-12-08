@@ -1,0 +1,4 @@
+- unless Order.pending_orders.empty?
+	#pending-order-message.col-md-12.alert.alert-warning
+		%button.close{ type: "button", data: { dismiss: "alert" } } &times;
+		= link_to t(:pending_order), orders_path

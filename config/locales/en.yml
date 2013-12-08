@@ -381,189 +381,198 @@ en:
       played_in: "Played in"
   pages:
     info:
-      content_html: '<h3>Where and when?</h3>
-                     <p>ILAN %{year} will take place from %{starttime} till %{endtime}.</p>
-                     <p>Our venue:<br>
-                     <em>The Mandela hall on campus Etterbeek of the Vrije Universiteit Brussel<br>
-                     (also known as "Room below Aula Q")<br>
-                     Pleinlaan 2<br>
-                     B-1050 Brussel</em>
-                     <h3>Registration &amp; Rules</h3>
-                     <p>The entry fee is the mere sum of <strong>10</strong> euro.</p>
-                     <p>To reserve a spot, click on "Sign Up" in the top right corner. When you sign up, you automatically agree with the <a href="%{rules_link}">rules</a>. These rules will also be posted at the entrance.</p>
-                     <p>Payment occurs by bank transfer. Our bank information can be found on the <a href="%{contact_link}">contact page</a>, along with the structured message you must write in the comment section of your bank transfer form.</p>
-                     <p>Students 1BA Computer Science get their entrance fee payed back in food&amp;drink credit. This will be when they arrive at ILAN.</p>
-                     <p>Feel free to contact Infogroep with any further questions.</p>'
+      content_html: |
+        ### Where and when?
+        ILAN %{year} will take place from %{starttime} till %{endtime}.
+
+        Our venue:  
+        *The Mandela hall on campus Etterbeek of the Vrije Universiteit Brussel  
+        (also known as "Room below Aula Q")  
+        Pleinlaan 2  
+        B-1050 Brussel*
+
+        ### Registration & Rules
+        The entry fee is the mere sum of __10__ euro.  
+        To reserve a spot, click on "Sign Up" in the top right corner. When you sign up, you automatically agree with the [rules](%{rules_link}). These rules will also be posted at the entrance.
+        Payment occurs by bank transfer. Our bank information can be found on the [contact page](%{contact_link}), along with the structured message you must write in the comment section of your bank transfer form.
+        Students 1BA Computer Science get their entrance fee payed back in food&drink credit. This will be when they arrive at ILAN.  
+        Feel free to contact Infogroep with any further questions.
     faq:
-      content_html: "<div id='left'>
-      <div class='faq'>
-      <dl>
-      <dt>What do i need to bring?</dt>
-      <dd><ul>
-      <li>Your computer + monitor (or laptop) and necessary.</li>
-      <li>Keyboard and mouse.</li>
-      <li>A distributing plyg (without on/off switch!) with at least enough sockets for your own devices (and if possible 1 extra); We only provide one socket per person.</li>
-      <li>A cat5 or better network cable of at least 3 meters.</li>
-      <li>Headsets (speakers or other sound producting equipement is not allowed!)</li>
-      <li>Some method of identification (ID card, ...) for us to know who you are when you arive.</li>
-      <li>It's a good idea to take the instalations disks of your OS/drivers with you. You never know what will go wrong once you arive!</li>
-      </ul></dd>
-      <dt>Will i die of suffocation?</dt>
-      <dd><ul>
-      <li>Being in the same environment with a couple dozen sweaty people can produce some minor toxic gasses. Therefor we advice everyone to bring some toothpaste, deodorant and other such trifle things.</li>
-      </ul></dd>
-      <dt>what is not allowed?</dt>
-      <dd><ul>
-      <li>Speakers. And other loud equipement is not allowed. Different tastes in music should not be forced upon other participants. Bring a headset to enjoy your own music.</li>
-      <li>Downloading or distribution of illigal content over the intern network is not allowed. We wouldn't be the first lan-party to be shut down because of this.</li>
-      <li>Heavy electronic machinery like fridges and (microwave)ovens are not allowed. First of all, it would look realy silly, and second we try to provide all the necessary equipement free of charge. so there is no real need. In case of doubt about whether or not it is allowed to bring some specific electronics, you can always send us a mail and we'll decide on a case-by-case basis.</li>
-      <li>Domestic regulations of the VUB are still in order. And in case of discussion the organisation allways has the last word.</li>
-      </ul>
-      </dd>
-      <dt>How much space can i use?</dt>
-      <dd>Your personal bubble can be quite large (One of the organisers has personal space issues). We provide a table surface of 180x80cm. Depending on the amount of registrations you'll have to share a table. This should still be sufficiant space to put a monitor or two, a keyboard and half a dozen mice.<br>
-      </dd>
-      <dt>Will there be an internet connection?</dt>
-      <dd>Yes.<br>
-      We provide a 200mbit connection. However not that this connection is shared between all participants, to the actual speed might be notably lower.
-      </dd>
-      <dt>Will i die of hunger or thirst?</dt>
-      <dd>Most likely not.<br>
-      We have a little snack shop where we sell all kinds of food, drinks and snacks. And we sell these at democratic prices.
-      There are also a couple of cheap restaurants, pizzahuts or snackbars in the vicinity of the VUB.
-      </dd>
-      <dt>How will i pay for the food/drinks?</dt>
-      <dd>We make use of an internal prepaid system.<br/> Each registered user can put money on his internal account. We will scan whatever food/drink you want to buy, and the transaction will be made automaticaly. At the end of the event any leftover money on your internal account can be retracted.
-      </dd>
-      <dt>Can i still take my own food with me?</dt>
-      <dd>Yes ofcourse you can. There will be empty tables where you can eat your food if you rather not eat at your pc.
-      </dd>
-      <dt>What will i do when i get tired?</dt>
-      <dd>there are a couple of options. But here are the most common ones
-      <lu><li>Go to sleep. Seems obvious right? If you have a dorm nearby you can always leave and come back when you are rested. There will also be room on the floor to lay down (or install a field bed). We can not turn of the lights however.</li>
-      <li>Eat more sugar... Sugar rushes have been known to keep a man awake.</li>
-      <li>Drink some caffeine holding drinks. Plenty of those will be available in the shop</li>
-      <li>Just power through, common you can stay up 72hours, right?</li></lu>
-      </dd>
-      <dt>Will there be security for my stuff?</dt>
-      <dd>No there will not. Everyone is responsible for their own stuff. Don't bring your diamond-embedded ipad with you if you are not going to use them... If something goes missing, the organisation will not be responsible. We will however be on the lookout for any such misbehavior.
-      </dd>
-      <dt>Will there be side activities</dt>
-      <dd>There will be room for non-electronic games as well. Card games, board games, ...
-      These tables can also be used to eat your food if you rather not eat at your pc.
-      </dd>
-      <dt>Are visitors allowed?
-      </dt><dd>Visitors are allowed in the rooms (as long as they are let on the campus by the VUB security, e.g. not after 22h00). Visitors are not allowed to use any of the equipement of other participants. But they can watch the competitions, or streams as long as they like. And drinks and food are also available for them.
-      </dd>
-      </dl>
-      </div>
-      </div>"
+      content_html: |
+        #### What do i need to bring?
+        * Your computer + monitor (or laptop) and necessary.
+        * Keyboard and mouse.
+        * A distributing plyg (without on/off switch!) with at least enough sockets for your own devices (and if possible 1 extra); We only provide one socket per person.
+        * A cat5 or better network cable of at least 3 meters.
+        * Headsets (speakers or other sound producting equipement is not allowed!)
+        * Some method of identification (ID card, ...) for us to know who you are when you arive.
+        * It's a good idea to take the instalations disks of your OS/drivers with you. You never know what will go wrong once you arive!
+
+        #### Will i die of suffocation?
+        Being in the same environment with a couple dozen sweaty people can produce some minor toxic gasses. Therefor we advice everyone to bring some toothpaste, deodorant and other such trifle things.
+
+        #### What is not allowed?
+        * Speakers. And other loud equipement is not allowed. Different tastes in music should not be forced upon other participants. Bring a headset to enjoy your own music.
+        * Downloading or distribution of illigal content over the intern network is not allowed. We wouldn't be the first lan-party to be shut down because of this.
+        * Heavy electronic machinery like fridges and (microwave)ovens are not allowed. First of all, it would look realy silly, and second we try to provide all the necessary equipement free of charge. so there is no real need. In case of doubt about whether or not it is allowed to bring some specific electronics, you can always send us a mail and we'll decide on a case-by-case basis.
+        * Domestic regulations of the VUB are still in order. And in case of discussion the organisation allways has the last word.
+
+        #### How much space can i use?
+        Your personal bubble can be quite large (One of the organisers has personal space issues). We provide a table surface of 180x80cm. Depending on the amount of registrations you'll have to share a table. This should still be sufficiant space to put a monitor or two, a keyboard and half a dozen mice.
+
+        #### Will there be an internet connection?
+        Yes.  
+        We provide a 200mbit connection. However not that this connection is shared between all participants, to the actual speed might be notably lower.
+
+        #### Will i die of hunger or thirst?
+        Most likely not.  
+        We have a little snack shop where we sell all kinds of food, drinks and snacks. And we sell these at democratic prices.
+        There are also a couple of cheap restaurants, pizzahuts or snackbars in the vicinity of the VUB.
+
+        #### How will i pay for the food/drinks?
+        We make use of an internal prepaid system.  
+        Each registered user can put money on his internal account. We will scan whatever food/drink you want to buy, and the transaction will be made automaticaly. At the end of the event any leftover money on your internal account can be retracted.
+
+        #### Can i still take my own food with me?
+        Yes of course you can. There will be empty tables where you can eat your food if you rather not eat at your pc.
+
+        #### What will i do when i get tired?
+        There are a couple of options. But here are the most common ones:
+
+        * Go to sleep. Seems obvious right? If you have a dorm nearby you can always leave and come back when you are rested. There will also be room on the floor to lay down (or install a field bed). We can not turn of the lights however.
+        * Eat more sugar... Sugar rushes have been known to keep a man awake.
+        * Drink some caffeine holding drinks. Plenty of those will be available in the shop
+        * Just power through, common you can stay up 72hours, right?
+
+        #### Will there be security for my stuff?
+        No there will not. Everyone is responsible for their own stuff. Don't bring your diamond-embedded iPad with you if you are not going to use them... If something goes missing, the organisation will not be responsible. We will however be on the lookout for any such misbehavior.
+
+        #### Will there be side activities
+        There will be room for non-electronic games as well. Card games, board games, ...
+        These tables can also be used to eat your food if you rather not eat at your pc.
+
+        #### Are visitors allowed?
+        Visitors are allowed in the rooms (as long as they are let on the campus by the VUB security, e.g. not after 22h00). Visitors are not allowed to use any of the equipement of other participants. But they can watch the competitions, or streams as long as they like. And drinks and food are also available for them.
     location:
-      content_html: "<div id='left'>
-      <h2>Get there</h2>
-      <p>	</p><div class='wiki'>
-      <h3>Address</h3>
-      <div class='wikiText'><em>Vrije Universiteit Brussel<br>
-      Pleinlaan 2<br>
-      B-1050 Brussel</em></div>
-      </div>
-      <p></p><p>	</p><div class='wiki'>
-      <h3>Aditional Information</h3>
-      <div class='wikiText'>The main campus (aka 'campus Etterbeek') of the Vrije Universiteit Brussel is enclosed between several major traffic arteries. Below you may find short descriptions of the most common routes.<br>
-      <br>
-      <h4>How to reach the Campus Etterbeek? </h4>
-      <h5>By train</h5>
-      <p>Our campus is located next to the railway station &quot;Etterbeek&quot;.
-      <a 
-      href='http://www.b-rail.be/main/E/'>Consult the timetables</a> of the Belgian National Railroad Company. (NMBS) </p>
-      <h5>By subway/tram/bus</h5>
-      <p>Subways, trams and busses in Brussels are run by the MIVB. Subwaystations &quot;Petillion&quot; and &quot;Delta&quot; are closest to the Campus (+/- 15 minutes walk). There are several trams and buses from the different train stations in Brussels. Please consult<a href='http://www.mivb.be/index.htm?guest_user=guest_en' target='_blank'> the timetables of the MIVB</a>. </p>
-      <p>The vrije Universiteit Brussel has asked the MIVB to make a <strong>'How to get to' brochure</strong> for both Campus Etterbeek and Campus Jette. This brochure gives an overview of the different means of public transport in Brussel you can use to reach the campusses. </p>
-      <ul>
-      <li><a class=' pdf'
-      href='../../downloads/bereikbaarheidsficheMIVB_campusEtterbeek_ENG.pdf'
-      target='_blank'>'How to get to' brochure MIVB for Campus Etterbeek</a> </li>
-      </ul>
-      <h5>By plane</h5>
-      <p><a href='http://www.brusselsairport.be/en/'>Brussels Airport </a> (Zaventem) is the largest airport in Belgium. Most international flights arrive here. From Brussels Airport you can reach our campus by train or by bus (bus 12, Brussels City). </p>
-      <p>Other airports in Belgium are:</p>
-      <ul>
-      <li><a href='http://www.ost.aero'>Ostend-Bruges</a> (Jetair, TUI Airlines Belgium...) </li>
-      <li><a href='http://www.liegeairport.com'>Liege Airport </a> (Thomas Cook, TUI Airlines Belgium...) </li>
-      <li><a href='http://www.antwerpairport.be/'>Antwerp Airport</a> (VLM...) </li>
-      <li><a href='http://www.charleroi-airport.com'>Brussels South - Charleroi Airport</a> (Ryanair...) </li>
-      </ul>
-      <h5>By car </h5>
-      <ul>
-      <li>From France / Luxemburg / Namen: E411</li>
-      <li>From UK / Ostend (Oostende) / Brugge / Gent: E40 </li>
-      <li>From Netherlands / Antwerpen / Mechelen: A12 or E19 </li>
-      <li>From Germany / Aken / Luik / Leuven: E40 </li>
-      </ul>
-      For detailed or alternative routes, you may use <a href='http://maps.google.com/maps?f=q&amp;hl=nl&amp;q=Pleinlaan+2&amp;sll=37.0625,-95.677068&amp;sspn=59.856937,113.730469&amp;ie=UTF8&amp;ll=50.820144,4.387493&amp;spn=0.023696,0.055532&amp;z=14&amp;om=1'>Google Maps</a> or <a href='http://www.mappy.com/'>Mappy.com</a>.<br>
-      <br>
-      (update to follow)</div>
-      </div>	
-      </div>"
+      content_html: |
+        ## Get there
+        
+        ### Address
+        *Vrije Universiteit Brussel  
+        Pleinlaan 2  
+        B-1050 Brussel*
+
+        ### Additional Information
+        The main campus (aka 'campus Etterbeek') of the Vrije Universiteit Brussel is enclosed between several major
+        traffic arteries. Below you may find short descriptions of the most common routes.
+        
+        #### By train
+        Our campus is located next to the railway station "Etterbeek".
+
+        [Consult the timetables](http://www.b-rail.be/main/E/) of the Belgian National Railroad Company. (NMBS)
+
+        #### By subway/tram/bus
+        Subways, trams and busses in Brussels are run by the MIVB. Subwaystations "Petillion" and "Delta" are closest
+        to the Campus (+/- 15 minutes walk). There are several trams and buses from the different train stations
+        in Brussels. Please consult [the timetables of the MIVB](http://www.mivb.be/index.htm?guest_user=guest_en)
+
+        The vrije Universiteit Brussel has asked the MIVB to make a __'How to get to' brochure__ for both
+        Campus Etterbeek and Campus Jette. This brochure gives an overview of the different means of public transport
+        in Brussel you can use to reach the campusses.
+
+        ['How to get to' brochure MIVB for Campus Etterbeek](../../downloads/bereikbaarheidsficheMIVB_campusEtterbeek_ENG.pdf)
+
+        #### By plane
+        [Brussels Airport](http://www.brusselsairport.be/en/) (Zaventem) is the largest airport in Belgium.
+        Most international flights arrive here. From Brussels Airport you can reach our campus by train
+        or by bus (bus 12, Brussels City).
+
+        Other airports in Belgium are:
+
+        * [Ostend-Bruges](http://www.ost.aero) (Jetair, TUI Airlines Belgium...)
+        * [Liege Airport](http://www.liegeairport.com) (Thomas Cook, TUI Airlines Belgium...)
+        * [Antwerp Airport](http://www.antwerpairport.be/) (VLM...)
+        * [Brussels South - Charleroi Airport](http://www.charleroi-airport.com) (Ryanair...)
+
+        #### By car
+
+        * From France / Luxemburg / Namen: E411
+        * From UK / Ostend (Oostende) / Brugge / Gent: E40
+        * From Netherlands / Antwerpen / Mechelen: A12 or E19
+        * From Germany / Aken / Luik / Leuven: E40
+
+        For detailed or alternative routes, you may use [Google Maps](http://maps.google.com/maps?fq&hl=en&q=Pleinlaan+2&sll=37.0625,-95.677068&sspn=59.856937,113.730469&ie=UTF8&ll=50.820144,4.387493&spn=0.023696,0.055532&z=14&om=1)
+        or [Mappy.com](http://www.mappy.com/)
       campusmap: "Map of the VUB campus"
       brusselsmap: "Campus location in Brussels"
     contact:
-      content_html: '<h4>Contact Address Infogroep</h4>
-                     <p>Infogroep VUB (WEAC)<br />
-                     Pleinlaan 2<br />
-                     B-1050 Brussel<br /><br />
-                     </p>
-                     <h4>Telephone &amp; e-mail</h4>
-                     <p>Telephone: +32 2 629 33 56<br />
-                     Fax: +32 2 629 13 59<br />
-                     E-mail: <a href="mailto:lanparty@(nospam)infogroep.be">lanparty@(nopam)infogroep.be</a> (remove the "(nospam)" part from the address)<br />
-                     Infogroep website: <a href="http://infogroep.be/">http://infogroep.be/</a><br /><br />
-                     </p>
-                     <h4>Bank information</h4>'
+      content_html: |
+        #### Contact Address Infogroep
+        Infogroep VUB (WEAC)  
+        Pleinlaan 2  
+        B-1050 Brussel  
+        <br />
+        
+        #### Telephone & e-mail
+        Telephone: +32 2 629 33 56  
+        Fax: +32 2 629 13 59  
+        E-mail: <lanparty@(nopam)infogroep.be> 
+        Infogroep website: <http://infogroep.be/>  
+        <br />
+        
+        #### Bank information
     signup_finished:
-      content_html: '<p>Thank you for your reservation! You are can now explore the rest of the website.</p>
-                     <p>To complete your reservation, please transfer the amount of €10 onto the following bank account. Do not forget your structured message, as we need it to identify your payment. This information is also available on the contact page.</p>'
+      content_html: |
+        Thank you for your reservation! You are can now explore the rest of the website.
+        
+        To complete your reservation, please transfer the amount of €10 onto the following bank account.
+        Do not forget your structured message, as we need it to identify your payment.
+        This information is also available on the contact page.
     bank_info:
-      content_html: '<p>ILAN Infogroep<br />
-                     Pleinlaan 2<br />
-                     B-1050 Brussel</p>
-                     <p>ING account: 363-0056700-92<br />
-                     IBAN: BE12-3630-0567-0092<br />
-                     BIC: BBRUBEBB</p>'
-      structured_message_html: '<p>Your structured message (must be added to your bank transfer form): %{structured_message}</p>'
+      content_html: |
+        ILAN Infogroep  
+        Pleinlaan 2  
+        B-1050 Brussel
+        
+        ING account: 363-0056700-92  
+        IBAN: BE12-3630-0567-0092  
+        BIC: BBRUBEBB
+      structured_message_html: |
+        Your structured message (must be added to your bank transfer form): %{structured_message}
     rules:
-      content_html: "<p>
-                         In short:
-                         <ul>
-                             <li>No smoking in the room. Those who can't go without can smoke outside.</li>
-                             <li>Drugs are strictly prohibited. Those caught in possession of or using drugs (including all forms of softdrugs) will be removed from the LAN immediately.</li>
-                             <li>Speakers are not allowed. You are therefore advised to bring a headset.</li>
-                             <li>In case of damage to the room or any kind of third party property the culprit, and only him/her, is personally responsible. Infogroep nor any of its members will be held responsible for damage, unless it was caused with absolute certainty by the malicious actions of one or more of its members.</li>
-                             <li>The organizers reserve the right to deny access to the LAN at any time and without prior notice.</li>
-                             <li>These rules can be changed at any time, even during the LANparty itself, and apply for the entire duration of the LANparty. </li>
-                             <li>Drinking is allowed, excessive drinking is not. Those who are a nuisance for the other attendees will be asked to leave the LAN prematurely.</li>
-                             <li>You are given 1 power socket and 1 network port. This is only meant for your PC and monitor.</li>
-                             <li>Power strips with a switch are NOT allowed, one without a switch is REQUIRED.</li>
-                             <li>De gegevens die de Infogroep verzamelt over de deelnemers bij de inschrijving worden opgeslagen in een databank. Deze gegevens zullen enkel gebruikt worden door de vereniging om zijn deelnemers informatie te verschaffen over voorbije/toekomstige evenementen georganiseerd door Infogroep. Op geen enkele manier en onder geen enkel beding zullen deze gegevens aan derden worden meegedeeld.</li>
-                             <li>De organisatie kan niet aansprakelijk worden gesteld voor inbreuken die derden of de deelnemer plegen via haar netwerk. Het netwerk en infrastructuur mag uitsluitend worden gebruikt voor wettelijk toegestane doeleinden. Het is ondermeer ten strengste verboden om materiaal te zenden, ontvangen, uploaden, downloaden of gebruiken:
-                                 <ul>
-                                     <li>waarvan het bestaan, de inhoud, het bezit, de verspreiding of het gebruik bedreigend, obsceen of frauduleus is</li>
-                                     <li>dat inbreuk pleegt op auteursrechten of andere intellectuele eigendomsrechten, rechten van derden of wettelijke bepalingen</li>
-                                     <li>dat een misdrijf vormt of een inbreuk op een rechterlijk bevel, een overheidsbesluit of enigerlei andere illegale handeling vormt</li>
-                                 </ul></li>
-                             <li>Het is tijdens de evenementen georganiseerd door Infogroep verboden het netwerk en infrastructuur te gebruiken voor elke actie die leidt tot:
-                                 <ul>
-                                     <li>de illegale of zonder toestemming genomen toegang tot de gegevens van de verbonden netwerken</li>
-                                     <li>de aantasting of het in gevaar brengen van de goede werking van het netwerk</li>
-                                     <li>het in gevaar brengen van of de aantasting van de integriteit van computergegevens of de beschadiging of vernietiging van de informaticagegevens of van hun betrouwbaarheid</li>
-                                     <li>het in gevaar brengen van of de aantasting van de privacy van derden in het algemeen of van andere deelnemers van het netwerk in het bijzonder </li>
-                                 </ul></li>
-                             <li>Het is verboden om illegale software binnen te brengen of te gebruiken alsook enig ander materiaal dat illegaal is of inbreuk pleegt op intellectuele eigendomsrechten of rechten van derden. Elke deelnemer vrijwaart de organisatie voor elke vordering van derden in dit verband. De organisatie is niet aansprakelijk voor inbreuken die deelnemers plegen via haar netwerk of infrastructuur. Elke deelnemer is aansprakelijk voor schade die voortvloeit uit het onrechtmatig gebruik ervan. </li>
-                             <li>De deelnemer erkent dat de organisatie niet verantwoordelijk is om de informatie die zich bevindt op haar server(s) en op de verschillende computers van de deelnemers te controleren. De deelnemer is en blijft alleen verantwoordelijk voor de inhoud van alle uitgewisselde gegevens, met inbegrip van maar niet beperkt tot de keuze en de gevolgen van het plaatsen van links naar andere servers of computers. Elke deelnemer vrijwaart de organisatie voor elke vordering en schade dienaangaande van derden.</li>
-                         </ul>
-                     </p>
-                     <p>Deze lijst is een veralgemening van het gedetaïlleerd officiëel reglement, hieronder te vinden.</p>
-                     <p><a href='/files/lanparty-reglement.pdf'>%{pdf_image}Lange versie reglement</a></p>"
+      content_html: |
+        In short:
+        
+        * No smoking in the room. Those who can't go without can smoke outside.
+        * Drugs are strictly prohibited. Those caught in possession of or using drugs
+          (including all forms of softdrugs) will be removed from the LAN immediately.
+        * Speakers are not allowed. You are therefore advised to bring a headset.
+        * In case of damage to the room or any kind of third party property the culprit, and only him/her,
+          is personally responsible. Infogroep nor any of its members will be held responsible for damage,
+          unless it was caused with absolute certainty by the malicious actions of one or more of its members.
+        * The organizers reserve the right to deny access to the LAN at any time and without prior notice.
+        * These rules can be changed at any time, even during the LANparty itself,
+          and apply for the entire duration of the LANparty. 
+        * Drinking is allowed, excessive drinking is not. Those who are a nuisance for the other attendees
+          will be asked to leave the LAN prematurely.
+        * You are given 1 power socket and 1 network port. This is only meant for your PC and monitor.
+        * Power strips with a switch are NOT allowed, one without a switch is REQUIRED.
+        * De gegevens die de Infogroep verzamelt over de deelnemers bij de inschrijving worden opgeslagen in een databank. Deze gegevens zullen enkel gebruikt worden door de vereniging om zijn deelnemers informatie te verschaffen over voorbije/toekomstige evenementen georganiseerd door Infogroep. Op geen enkele manier en onder geen enkel beding zullen deze gegevens aan derden worden meegedeeld.
+        * De organisatie kan niet aansprakelijk worden gesteld voor inbreuken die derden of de deelnemer plegen via haar netwerk. Het netwerk en infrastructuur mag uitsluitend worden gebruikt voor wettelijk toegestane doeleinden. Het is ondermeer ten strengste verboden om materiaal te zenden, ontvangen, uploaden, downloaden of gebruiken:
+          * waarvan het bestaan, de inhoud, het bezit, de verspreiding of het gebruik bedreigend, obsceen of frauduleus is
+          * dat inbreuk pleegt op auteursrechten of andere intellectuele eigendomsrechten, rechten van derden of wettelijke bepalingen
+          * dat een misdrijf vormt of een inbreuk op een rechterlijk bevel, een overheidsbesluit of enigerlei andere illegale handeling vormt
+        * Het is tijdens de evenementen georganiseerd door Infogroep verboden het netwerk en infrastructuur te gebruiken voor elke actie die leidt tot:
+          * de illegale of zonder toestemming genomen toegang tot de gegevens van de verbonden netwerken
+          * de aantasting of het in gevaar brengen van de goede werking van het netwerk
+          * het in gevaar brengen van of de aantasting van de integriteit van computergegevens of de beschadiging of vernietiging van de informaticagegevens of van hun betrouwbaarheid
+          * het in gevaar brengen van of de aantasting van de privacy van derden in het algemeen of van andere deelnemers van het netwerk in het bijzonder 
+        * Het is verboden om illegale software binnen te brengen of te gebruiken alsook enig ander materiaal dat illegaal is of inbreuk pleegt op intellectuele eigendomsrechten of rechten van derden. Elke deelnemer vrijwaart de organisatie voor elke vordering van derden in dit verband. De organisatie is niet aansprakelijk voor inbreuken die deelnemers plegen via haar netwerk of infrastructuur. Elke deelnemer is aansprakelijk voor schade die voortvloeit uit het onrechtmatig gebruik ervan. 
+        * De deelnemer erkent dat de organisatie niet verantwoordelijk is om de informatie die zich bevindt op haar server(s) en op de verschillende computers van de deelnemers te controleren. De deelnemer is en blijft alleen verantwoordelijk voor de inhoud van alle uitgewisselde gegevens, met inbegrip van maar niet beperkt tot de keuze en de gevolgen van het plaatsen van links naar andere servers of computers. Elke deelnemer vrijwaart de organisatie voor elke vordering en schade dienaangaande van derden.
+        
+        Deze lijst is een veralgemening van het gedetaïlleerd officiëel reglement, hieronder te vinden.
+        
+        [%{pdf_image}Lange versie reglement](/files/lanparty-reglement.pdf)
   orders:
     show:
       order: "Order for %{user}"
