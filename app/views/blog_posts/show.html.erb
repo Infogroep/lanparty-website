@@ -4,7 +4,7 @@
 	<%= standard_edit_buttons(@blog_post, :toolbar_class => "pull-right", :except => [:show]) if current_user and current_user.access_allowed?(:blog_editing) %>
 <% end %>
 <p class="blog-post-large-info"><span class="blog-post-large-author"><%= @blog_post.user.username %></span> -
-	<span class="blog-post-large-timestamp"><%= t(:ago, :time_difference => distance_of_time_in_words(@blog_post.created_at, DateTime.current)) %></span>
+	<span class="blog-post-large-timestamp"><%= t(:ago, :time_difference => distance_of_time_in_words(@blog_post.created_at, Time.now)) %></span>
 </p>
 <hr>
 <p class="blog-post-large-content"><%= raw(@blog_post.content) %></p>

@@ -1,0 +1,27 @@
+- if Sponsor.count > 0
+	%h2= t("sponsor", :count => Sponsor.count)
+	- Sponsor.all.each do |sponsor|
+		%p= link_to (sponsor.image.nil? ? sponsor.name : image_tag(sponsor.image_url(:sidebar))), sponsor.website
+
+- if not logged_in?
+	%h2= t(:login)
+	= render partial: "sessions/small_form"
+
+%h2= t(:info)
+%table.table.table-striped#side-info-bar
+	%tbody
+		%tr
+			%td= t("registrations")
+			%td= $SETTINGS[:registration_available] ? t(:open) : t(:closed)
+		%tr
+			%td= t("location")
+			%td= $SETTINGS[:location]
+		%tr
+			%td= t("date_txt")
+			%td= l($SETTINGS[:start_datetime], format: :datetimeshort_iso)
+		%tr
+			%td= t("open_slots")
+			%td= $SETTINGS[:max_participants] - User.count
+		%tr
+			%td= t("payed")
+			%td #{User.payed.count}/#{$SETTINGS[:max_participants]}

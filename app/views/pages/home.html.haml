@@ -1,0 +1,9 @@
+- content_for :before_container do
+	.jumbotron
+		= render "slider"
+
+.row
+	.col-md-8
+		= render "left_home_pane"
+	.col-md-4
+		= render "right_home_pane"

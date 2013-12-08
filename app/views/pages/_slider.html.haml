@@ -1,0 +1,17 @@
+#slider.carousel.slide{ data: { ride: "carousel" } }
+	.carousel-inner
+		.active.item
+			= image_tag("banner_main.png")
+			.container
+				.carousel-caption ILAN #{$SETTINGS[:year]}
+		- @featured_compos.each do |compo|
+			.item
+				= link_to image_tag(compo.game.image_url(:front)), compo
+				.container
+					.carousel-caption
+						= compo.description
+						= l(compo.date_time, :format => :short)
+	%a.carousel-control.left{ href: "#slider", data: { slide: "prev" } }
+		%i.fa.fa-chevron-left
+	%a.carousel-control.right{ href: "#slider", data: { slide: "next" } }
+		%i.fa.fa-chevron-right

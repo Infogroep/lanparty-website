@@ -8,13 +8,11 @@ max_participants: 50
 registration_available: true
 
 # Start date of LANparty
-date: 2014-2-21
+start_datetime: 2014-02-21 18:00:00 +0100
+end_datetime: 2014-02-23 18:00:00 +0100
 
 # Location of LANparty
 location: "VUB Mandela"
-
-# Time and date format
-format: "%a %H:%M"
 
 # Has the LANparty started?
 on_lanparty: false
@@ -25,3 +23,6 @@ year: 2014
 #name of the pricingdefault to be used when user is not part of any group
 fallback_pricing_default_name: "FALLBACK_PRICING_DEFAULT"
 fallback_pricing_default_transform: "cprice * p('1.75')"
+
+
+testtime_in_gmt: 2014-02-21 18:00:00

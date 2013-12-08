@@ -1,0 +1,5 @@
+= link_to t(:new, :model => t("blog_post.one")), new_blog_post_path, class: "btn btn-default btn-new-blog-post" if logged_in? and current_user.access_allowed?(:blog_editing)
+%h2= t(:blog)
+= render BlogPost.order("created_at DESC").limit(5)
+%p.paragraph-more= link_to t(:btn_more), blog_posts_path
+

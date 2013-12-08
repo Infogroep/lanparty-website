@@ -15,12 +15,12 @@ class PricingDefault < ActiveRecord::Base
 
 	def self.fallback_default()
 		# TODO: Implement concept of a "fallback default"
-		pricingDefault = PricingDefault.find_by_name(SETTINGS[:fallback_pricing_default_name])
+		pricingDefault = PricingDefault.find_by_name($SETTINGS[:fallback_pricing_default_name])
 		if pricingDefault
 			return pricingDefault
 		else
-			name = SETTINGS[:fallback_pricing_default_name]
-			transform = SETTINGS[:fallback_pricing_default_transform]
+			name = $SETTINGS[:fallback_pricing_default_name]
+			transform = $SETTINGS[:fallback_pricing_default_transform]
 			description = "Price transform used when user does not belong to any group"
 			priority = 0
 			
