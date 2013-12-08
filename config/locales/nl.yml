@@ -370,195 +370,244 @@ nl:
     payment_processing: "Betalingsverwerking"
     new:
       warning: "Opgelet: dit is een reservatieformulier! Door dit formulier in te vullen reserveert u een plaats op ILAN!"
-  games:
+  games:                                  
     show:
       played_in: "Wordt gespeeld in"
   pages:
     info:
-      content_html: '<h3>Waar & wanneer?</h3>
-                     <p>ILAN %{year} vindt plaats van %{starttime} tot %{endtime}.</p>
-
-                     <p>Onze zaal:
-                     <em>De Mandela-zaal op de campus van de Vrije Universiteit Brussel<br />
-                     (ook gekend als &quot;Ruimte onder Aula Q&quot;)<br />
-                     Pleinlaan 2<br />
-                     B-1050 Brussel</em></p>
-                  <h3>Inschrijven & reglement</h3>
-                     <p>De inkomprijs bij voorafbetaling zal dit jaar een luttele <strong>10</strong> euro bedragen.</p>
-                     <p>Om een plaats te reserveren klikt u rechts bovenaan op "registreer". Wanneer u zich registreert gaat u automatisch akkoord met het <a href="%{rules_link}">reglement</a>. Dit zal ook uithangen aan de ingang.</p>
-                     <p>Betaling gebeurt via bankoverschrijving. Onze bankinformatie is te vinden op de <a href="%{contact_link}">contactpagina</a>. Daar vindt u ook uw persoonlijke gestructureerde mededeling die u dient in te vullen op het overschrijvingsformulier.</p>
-                     <p>Studenten Computerwetenschappen 1BA krijgen hun inkom terug in eetkrediet. Dit gebeurt wanneer ze toekomen op ILAN.</p>
-                     <p>Contacteer gerust Infogroep als u vragen hebt.</p>'
+      content_html: |
+        ### Waar & wanneer?
+        ILAN %{year} vindt plaats van %{starttime} tot %{endtime}.
+        
+        <p>Onze zaal:
+        <em>De Mandela-zaal op de campus van de Vrije Universiteit Brussel  
+        (ook gekend als &quot;Ruimte onder Aula Q&quot;)  
+        Pleinlaan 2  
+        B-1050 Brussel</em></p>
+        
+        ### Inschrijven & reglement
+        De inkomprijs bij voorafbetaling zal dit jaar een luttele __10__ euro bedragen.
+        
+        Om een plaats te reserveren klikt u rechts bovenaan op "registreer". Wanneer u zich registreert
+        gaat u automatisch akkoord met het [reglement](%{rules_link}). Dit zal ook uithangen aan de ingang.
+        
+        Betaling gebeurt via bankoverschrijving.
+        Onze bankinformatie is te vinden op de [contactpagina](%{contact_link}). Daar vindt u ook
+        uw persoonlijke gestructureerde mededeling die u dient in te vullen op het overschrijvingsformulier.
+        
+        Studenten Computerwetenschappen 1BA krijgen hun inkom terug in eetkrediet. Dit gebeurt wanneer ze toekomen op ILAN.
+        
+        Contacteer gerust Infogroep als u vragen hebt.
     faq:
-      content_html: "<div id='left'>
-      <div class='faq'>
-      <dl>
-      <dt>Wat moet ik meebrengen?</dt>
-      <dd><ul>
-      <li>Je computer + monitor (of je laptop) en bijhorende kabels.</li>
-      <li>Toetsenbord + muis.</li>
-      <li>Een stekkerdoos (zonder schakelaar!) met genoeg plaats voor al je materiaal; wij voorzien in principe maar één stopcontact.</li>
-      <li>Een cat5 of beter netwerkkabel van minstens 3m.</li>
-      <li>Een koptelefoon (speakers of andere materialen die geluid maken of anderen storen zijn niet toegelaten!)</li>
-      <li>Je studentenkaart of identiteitskaart om je te identificeren wanneer je aankomt.</li>
-      <li>Eventueel alle installatiecd's van je OS, drivers en de games die je wilt spelen. Je weet nooit dat er iets misgaat!</li>
-      <li>Als je constant in de zaal zelf blijft, kan een tandenborstel, wat deodorant, een handdoek, etc. misschien wel van pas komen.</li>
-      </ul>
-      </dd>
-      <dt>Wat mag niet?</dt>
-      <dd><ul>
-      <li>Luidsprekers. Andere luide apparaten zijn eveneens niet toegelaten.</li>
-      <li>Het illegaal downloaden en/of illegaal verspreiden van bestanden op het interne netwerk zal niet worden toegestaan.
-      Het mag niet en er zijn al vaker LAN-party's ten onder gegaan doordat dit toch gebeurde.</li>
-      <li>Zware elektronische apparaten, bijvoorbeeld frigo's, (microgolf)ovens, waterkokers, etc.
-      Als je toch iets wilt meebrengen waarvan je vermoedt dat het onder deze brede definitie valt, stuur ons dan een mail en dan beslissen we op een case-by-case basis of we het toelaten.</li>
-      <li>Alle andere dingen die verboden zijn in het reglement.
-      In geval van discussie of twijfel heeft de organisatie altijd het laatste woord.</li>
-      </ul>
-      </dd>
-      <dt>Hoeveel ruimte krijg ik?</dt>
-      <dd>De minimumtafelruimte die voorzien wordt is 90cm breed en 80cm diep.
-      Dit is meer dan genoeg voor je scherm, toetsenbord, muis, etc. plus nog wat armruimte natuurlijk.
-      Je computer kan je achter je scherm of naast de tafel op de grond zetten.<br>
-      Afhankelijk van aantal inschrijvingen en waar je zit in de zaal, is het mogelijk dat je iets meer ruimte zal krijgen.
-      </dd>
-      <dt>Kan ik op het internet?</dt>
-      <dd>Ja.<br>
-      We voorzien een breedbandverbinding van 200mbit. Opgepast, deze wordt gedeeld door alle deelnemers, dus je werkelijke snelheid zal meestal een stuk lager liggen.
-      </dd>
-      <dt>Zal ik verhongeren of uitdrogen?</dt>
-      <dd>Dat lijkt onwaarschijnlijk.<br>
-      Je zal doorlopend eten, drank, snacks, etc. uit een uitgebreid aanbod kunnen aankopen aan de bar.
-      Dit alles natuurlijk aan studentvriendelijke prijzen.
-      </dd>
-      <dt>Hoe gebeurt betaling van voedsel &amp; drank?</dt>
-      <dd>Er wordt gewerkt met een intern betalingssysteem.<br>
-      Iedereen krijgt een persoonlijk kaartje met een barcode.
-      Telkens je iets gaat halen, scan je deze even en wordt je bestelling automatisch verrekend.
-      Betalen doe je dan achteraf.
-      </dd>
-      <dt>Mag ik toch mijn eigen eten meebrengen?</dt>
-      <dd>We gaan je niet tegenhouden om dat te doen, maar vragen om toch eerder gebruik te maken van ons aanbod en ter plaatse te kopen.
-      Het is sowieso veel handiger om lokaal aan te kopen dan alles mee te moeten sleuren voor een weekend.
-      </dd>
-      <dt>Wat doe ik als ik moe word?</dt>
-      <dd>Slapen wordt meestal aangeraden op dit moment.<br>
-      Ofwel ga je naar jouw kot of dat van een vriend, ofwel rust je wat uit in de zaal zelf.
-      Opgepast: wij voorzien wel ruimte om je leggen, maar het is aan jou om een slaapzak en/of veldbed mee te brengen.
-      Hou er ook rekening mee dat de rustruimte in dezelfde zaal is als de LAN zelf: als je niet kan slapen met achtergrondlawaai of licht, zoek je misschien best je eigen accomodatie.
-      </dd>
-      <dt>Is er bewaking voor mijn spullen?</dt>
-      <dd>Iedereen is verantwoordelijk voor zijn eigen materiaal.
-      Breng dus geen waardevolle dingen mee die je niet nodig hebt en hou je portefeuille, gsm, etc. altijd bij de hand.<br>
-      De organisatie houdt wel een oogje in het zeil, maar we zijn niet verantwoordelijk als er toch iets verdwijnt.
-      </dd>
-      <dt>Zijn er ook andere activiteiten?</dt>
-      <dd>We voorzien een aantal tafels waaraan je niet-elektronisch spellen kan spelen, bijvoorbeeld met kaarten of een bordspel.
-      Je kan ze ook gebruiken om op je gemak te eten, als je dat liever niet aan je computer doet.<br>
-      Daarnaast zullen we ook een paar randcompetities organiseren, die het hele weekend doorlopen.
-      Dit zijn dingen die niet veel tijd in beslag nemen en je terloops voor de fun kan doen.
-      </dd>
-      <dt>Zijn bezoekers toegelaten?
-      </dt><dd>Bezoekers mogen overdag en tijdens de avond binnen; 's nachts wordt niemand binnengelaten die geen deelnemer is.<br>
-      Bezoekers mogen enkel toekijken tijdens het gamen, ze mogen geen gebruik maken van de plaats en het materiaal van een ingeschreven deelnemer.
-      Het staat ze natuurlijk wel vrij om aan een lege tafel te gaan zitten en eten of drank te kopen bij de organisatie: we moedigen dit zelfs aan ;-).
-      </dd>
-      </dl>
-      </div>
-      </div>"
-    location:
-      content_html: "<div id='left'>
+      content_html: |
+        #### Wat moet ik meebrengen?
+        * Je computer + monitor (of je laptop) en bijhorende kabels.
+        * Toetsenbord + muis.
+        * Een stekkerdoos (zonder schakelaar!) met genoeg plaats voor al je materiaal; wij voorzien in principe maar één stopcontact.
+        * Een cat5 of beter netwerkkabel van minstens 3m.
+        * Een koptelefoon (speakers of andere materialen die geluid maken of anderen storen zijn niet toegelaten!)
+        * Je studentenkaart of identiteitskaart om je te identificeren wanneer je aankomt.
+        * Eventueel alle installatiecd's van je OS, drivers en de games die je wilt spelen. Je weet nooit dat er iets misgaat!
+        * Als je constant in de zaal zelf blijft, kan een tandenborstel, wat deodorant, een handdoek, etc. misschien wel van pas komen.
+        
+        #### Wat mag niet?
+        * Luidsprekers. Andere luide apparaten zijn eveneens niet toegelaten.
+        * Het illegaal downloaden en/of illegaal verspreiden van bestanden op het interne netwerk zal niet worden toegestaan.
+          Het mag niet en er zijn al vaker LAN-party's ten onder gegaan doordat dit toch gebeurde.
+        * Zware elektronische apparaten, bijvoorbeeld frigo's, (microgolf)ovens, waterkokers, etc.
+          Als je toch iets wilt meebrengen waarvan je vermoedt dat het onder deze brede definitie valt, stuur ons dan een mail en dan beslissen we op een case-by-case basis of we het toelaten.
+        * Alle andere dingen die verboden zijn in het reglement.
+          In geval van discussie of twijfel heeft de organisatie altijd het laatste woord.
 
-                     <h2>Bereikbaarheid</h2>
-                     <p>	<div class='wiki'>
-                     		<h3>Adres</h3>
-                     			<div class='wikiText'><em>Vrije Universiteit Brussel<br />
-                     Pleinlaan 2<br />
-                     B-1050 Brussel</em></div>
-                     	</div>
-                     </p><p>	<div class='wiki'>
-                     		<h3>Meer informatie</h3>
-                     			<div class='wikiText'>De hoofdcampus van de Vrije Universiteit Brussel ligt ingesloten tussen een aantal grote verkeersaders. We geven u hieronder een beknopte beschrijving van de meest courante routes naar onze campus.<br />
-                     <br />
-                     Voor gedetailleerde of alternatieve routes kan u onder andere <a href='http://maps.google.com/maps?f=q&amp;hl=nl&amp;q=Pleinlaan+2&amp;sll=37.0625,-95.677068&amp;sspn=59.856937,113.730469&amp;ie=UTF8&amp;ll=50.820144,4.387493&amp;spn=0.023696,0.055532&amp;z=14&amp;om=1'>Google Maps</a> of <a href='http://www.mappy.com/'>Mappy.com</a> raadplegen.<br />
-                     <br />
-                     <ol><li>De E40 vanuit Oostende/Brugge/Gent.<br />
-                     Aan het einde van de E40 volgt u richting Koekelberg en neemt u vervolgens de Leopold II-tunnel tot het centrum van Brussel. Volg de tunnels tot aan 'Troon/Trone'. Verlaat de tunnels en rij de Troonlaan af tot aan de General Jacqueslaan. Draai links op en u ziet de campus rechts van u liggen. Een andere mogelijkheid is dat u aan het einde van de E40 de Ring (R0) richting Namen/Luik neemt en vervolgens de A12 richting Laken volgt. Via de Van Praetlaan en de Van Praetbrug kan u dan richting Reyerslaan en Montgommery rijden. Aan het rond punt 'Montgommery' rijdt u rechtdoor tot u op de General Jacqueslaan komt. Draai links de Triomflaan op. Links ziet u het warenhuis Colruyt, rechts van u ligt de campus.<br />
-                     <br />
-                     </li><li>A12 vanuit Antwerpen/Aartselaar/Meise.<br />
-                     Volg de A12 richting Laken. Via de Van Praetlaan en de Van Praetbrug kan u dan richting Reyerslaan en Montgommery rijden. Aan het rond punt 'Montgommery' rijdt u rechtdoor tot u op de General Jacqueslaan komt. Draai links de Triomflaan op. Links ziet u het warenhuis Colruyt, rechts van u ligt de campus.<br />
-                     <br />
-                     </li><li>E19 vanuit Antwerpen/Mechelen.<br />
-                     Sluit via de grote Ring (R0) aan op de A201 naar Brussel/Evere. Rij voorbij de NAVO-gebouwen en volg richting Reyerslaan. Draai de Reyerslaan links op en volg richting Montgommery. Aan het rond punt 'Montgommery' rijdt u rechtdoor tot u op de General Jacqueslaan komt. Draai links de Triomflaan op. Links ziet u het warenhuis Colruyt, rechts van u ligt de campus.<br />
-                     <br />
-                     </li><li>E40 vanuit Leuven/Luik.<br />
-                     Volg de E40 tot het einde (18, Reyers). Draai de Reyerslaan links op en volg richting Montgommery. Aan het rond punt 'Montgommery' rijdt u rechtdoor tot u op de General Jacqueslaan komt. Draai links de Triomflaan op. Links ziet u het warenhuis Colruyt, rechts van u ligt de campus.<br />
-                     <br />
-                     </li><li>E411 vanuit Luxemburg/Namen/Overijse.<br />
-                     Volg de E411 helemaal tot op het einde. Vervolgens kan u aansluiten op de Jules Cockxstraat. Op het einde daarvan draait u links op, net voor brandweerpost 'Delta'. Dit is de Triomflaan. Volg deze tot voorbij het kruispunt (garage Renault op uw linkerkant) en vervolgens komt u de campus op uw rechterkant tegen.<br />
-                     </li></ol><br />
-                     bron: <a href='http://www.vub.ac.be/infoover/campussen/index.html'>VUB Bereikbaarheid</a></div>
-                     	</div>
-                     </div>"
+        #### Hoeveel ruimte krijg ik?
+        De minimumtafelruimte die voorzien wordt is 90cm breed en 80cm diep.
+        Dit is meer dan genoeg voor je scherm, toetsenbord, muis, etc. plus nog wat armruimte natuurlijk.
+        Je computer kan je achter je scherm of naast de tafel op de grond zetten.  
+        Afhankelijk van aantal inschrijvingen en waar je zit in de zaal, is het mogelijk dat je iets meer ruimte zal krijgen.
+        
+        #### Kan ik op het internet?
+        Ja.  
+        We voorzien een breedbandverbinding van 200mbit. Opgepast, deze wordt gedeeld door alle deelnemers,
+        dus je werkelijke snelheid zal meestal een stuk lager liggen.
+        
+        #### Zal ik verhongeren of uitdrogen?
+        Dat lijkt onwaarschijnlijk.  
+        Je zal doorlopend eten, drank, snacks, etc. uit een uitgebreid aanbod kunnen aankopen aan de bar.
+        Dit alles natuurlijk aan studentvriendelijke prijzen.
+        
+        #### Hoe gebeurt betaling van voedsel & drank?
+        Er wordt gewerkt met een intern betalingssysteem.  
+        Iedereen krijgt een persoonlijk kaartje met een barcode.
+        Telkens je iets gaat halen, scan je deze even en wordt je bestelling automatisch verrekend.
+        Betalen doe je dan achteraf.
+        
+        #### Mag ik toch mijn eigen eten meebrengen?
+        We gaan je niet tegenhouden om dat te doen, maar vragen om toch eerder gebruik te maken van ons aanbod en ter plaatse te kopen.
+        Het is sowieso veel handiger om lokaal aan te kopen dan alles mee te moeten sleuren voor een weekend.
+        
+        #### Wat doe ik als ik moe word?
+        Slapen wordt meestal aangeraden op dit moment.  
+        Ofwel ga je naar jouw kot of dat van een vriend, ofwel rust je wat uit in de zaal zelf.
+        Opgepast: wij voorzien wel ruimte om je leggen, maar het is aan jou om een slaapzak en/of veldbed mee te brengen.
+        Hou er ook rekening mee dat de rustruimte in dezelfde zaal is als de LAN zelf: als je niet kan slapen met
+        achtergrondlawaai of licht, zoek je misschien best je eigen accomodatie.
+        
+        #### Is er bewaking voor mijn spullen?
+        Iedereen is verantwoordelijk voor zijn eigen materiaal.
+        Breng dus geen waardevolle dingen mee die je niet nodig hebt en hou je portefeuille, gsm, etc. altijd bij de hand.  
+        De organisatie houdt wel een oogje in het zeil, maar we zijn niet verantwoordelijk als er toch iets verdwijnt.
+        
+        #### Zijn er ook andere activiteiten?
+        We voorzien een aantal tafels waaraan je niet-elektronisch spellen kan spelen, bijvoorbeeld met kaarten of een bordspel.
+        Je kan ze ook gebruiken om op je gemak te eten, als je dat liever niet aan je computer doet.  
+        Daarnaast zullen we ook een paar randcompetities organiseren, die het hele weekend doorlopen.
+        Dit zijn dingen die niet veel tijd in beslag nemen en je terloops voor de fun kan doen.
+        
+        #### Zijn bezoekers toegelaten?
+        Bezoekers mogen overdag en tijdens de avond binnen; 's nachts wordt niemand binnengelaten die geen deelnemer is.  
+        Bezoekers mogen enkel toekijken tijdens het gamen, ze mogen geen gebruik maken van de plaats en het materiaal van een ingeschreven deelnemer.
+        Het staat ze natuurlijk wel vrij om aan een lege tafel te gaan zitten en eten of drank te kopen bij de organisatie: we moedigen dit zelfs aan ;-).
+    location:
+      content_html: |
+        ## Bereikbaarheid
+        
+        ### Adres
+        *Vrije Universiteit Brussel  
+        Pleinlaan 2  
+        B-1050 Brussel*
+
+        ### Meer informatie
+        De hoofdcampus van de Vrije Universiteit Brussel ligt ingesloten tussen een aantal grote verkeersaders.
+        We geven u hieronder een beknopte beschrijving van de meest courante routes naar onze campus.
+        
+        Voor gedetailleerde of alternatieve routes kan u onder andere
+        [Google Maps](http://maps.google.com/maps?f=q&hl=nl&q=Pleinlaan+2&sll=37.0625,-95.677068&sspn=59.856937,113.730469&ie=UTF8&ll=50.820144,4.387493&spn=0.023696,0.055532&z=14&om=1)
+        of [Mappy.com](http://www.mappy.com/) raadplegen.
+                       
+        * De E40 vanuit Oostende/Brugge/Gent.  
+          Aan het einde van de E40 volgt u richting Koekelberg en neemt u vervolgens de Leopold II-tunnel tot
+          het centrum van Brussel. Volg de tunnels tot aan 'Troon/Trone'. Verlaat de tunnels en rij de Troonlaan af
+          tot aan de General Jacqueslaan. Draai links op en u ziet de campus rechts van u liggen.
+          Een andere mogelijkheid is dat u aan het einde van de E40 de Ring (R0) richting Namen/Luik neemt
+          en vervolgens de A12 richting Laken volgt. Via de Van Praetlaan en de Van Praetbrug kan u dan richting
+          Reyerslaan en Montgommery rijden. Aan het rond punt 'Montgommery' rijdt u rechtdoor tot u op
+          de General Jacqueslaan komt. Draai links de Triomflaan op. Links ziet u het warenhuis Colruyt,
+          rechts van u ligt de campus.
+                       
+        * A12 vanuit Antwerpen/Aartselaar/Meise.  
+          Volg de A12 richting Laken. Via de Van Praetlaan en de Van Praetbrug kan u dan richting
+          Reyerslaan en Montgommery rijden. Aan het rond punt 'Montgommery' rijdt u rechtdoor tot u op de
+          General Jacqueslaan komt. Draai links de Triomflaan op. Links ziet u het warenhuis Colruyt,
+          rechts van u ligt de campus.
+                       
+        * E19 vanuit Antwerpen/Mechelen.  
+          Sluit via de grote Ring (R0) aan op de A201 naar Brussel/Evere. Rij voorbij de NAVO-gebouwen
+          en volg richting Reyerslaan. Draai de Reyerslaan links op en volg richting Montgommery.
+          Aan het rond punt 'Montgommery' rijdt u rechtdoor tot u op de General Jacqueslaan komt.
+          Draai links de Triomflaan op. Links ziet u het warenhuis Colruyt, rechts van u ligt de campus.
+        
+        * E40 vanuit Leuven/Luik.  
+          Volg de E40 tot het einde (18, Reyers). Draai de Reyerslaan links op en volg richting Montgommery.
+          Aan het rond punt 'Montgommery' rijdt u rechtdoor tot u op de General Jacqueslaan komt.
+          Draai links de Triomflaan op. Links ziet u het warenhuis Colruyt, rechts van u ligt de campus.
+                       
+        * E411 vanuit Luxemburg/Namen/Overijse.  
+          Volg de E411 helemaal tot op het einde. Vervolgens kan u aansluiten op de Jules Cockxstraat.
+          Op het einde daarvan draait u links op, net voor brandweerpost 'Delta'. Dit is de Triomflaan.
+          Volg deze tot voorbij het kruispunt (garage Renault op uw linkerkant) en vervolgens
+          komt u de campus op uw rechterkant tegen.
+          
+        bron: [VUB Bereikbaarheid](http://www.vub.ac.be/infoover/campussen/index.html)
       campusmap: "Campusplan"
       brusselsmap: "Situering in Brussel"
     contact:
-      content_html: '<h4>Contactadres Infogroep</h4>
-                     <p>Infogroep VUB (WEAC)<br />
-                     Pleinlaan 2<br />
-                     B-1050 Brussel<br /><br />
-                     </p>
-                     <h4>Telefoon &amp; e-mail</h4>
-                     <p>Telefoon: +32 2 629 33 56<br />
-                     Fax: +32 2 629 13 59<br />
-                     E-mail: <a href="mailto:lanparty@(nospam)infogroep.be">lanparty@(nopam)infogroep.be</a> (verwijder het "(nospam)" gedeelte uit het adres)<br />
-                     Infogroep website: <a href="http://infogroep.be/">http://infogroep.be/</a><br /><br />
-                     </p>
-                     <h4>Bankinformatie</h4>'
+      content_html: |
+        #### Contactadres Infogroep
+        Infogroep VUB (WEAC)  
+        Pleinlaan 2  
+        B-1050 Brussel  
+        <br />
+        
+        #### Telefoon & e-mail
+        Telefoon: +32 2 629 33 56  
+        Fax: +32 2 629 13 59  
+        E-mail: <lanparty@infogroep.be>  
+        Infogroep website: <http://infogroep.be/>  
+        <br />
+        
+        #### Bankinformatie
     signup_finished:
-      content_html: '<p>Bedankt voor uw reservatie! U kan nu de rest van de website verkennen.</p>
-                     <p>Om uw reservatie te voltooien, schrijf €10 over naar de onderstaande bankrekening. Vergeet niet uw gestructureerde mededeling te vermelden. Die hebben we nodig om uw betaling te identificeren. Deze informatie is ook beschikbaar op de contactpagina.</p>'
+      content_html: |
+        Bedankt voor uw reservatie! U kan nu de rest van de website verkennen.
+        
+        Om uw reservatie te voltooien, schrijf €10 over naar de onderstaande bankrekening.
+        Vergeet niet uw gestructureerde mededeling te vermelden. Die hebben we nodig om uw betaling te identificeren.
+        Deze informatie is ook beschikbaar op de contactpagina.
     bank_info:
-      content_html: '<p>ILAN Infogroep<br />
-                     Pleinlaan 2<br />
-                     B-1050 Brussel</p>
-                     <p>ING account: 363-0056700-92<br />
-                     IBAN: BE12-3630-0567-0092<br />
-                     BIC: BBRUBEBB<p/>'
-      structured_message_html: '<p>Uw gestructureerde mededeling (moet toegevoegd worden aan uw overschrijvingsformulier): %{structured_message}</p>'
+      content_html: |
+        ILAN Infogroep  
+        Pleinlaan 2  
+        B-1050 Brussel
+        
+        ING account: 363-0056700-92  
+        IBAN: BE12-3630-0567-0092  
+        BIC: BBRUBEBB
+      structured_message_html: |
+        Uw gestructureerde mededeling (moet toegevoegd worden aan uw overschrijvingsformulier): %{structured_message}
     rules:
-      content_html: "<p>
-                         Kort samengevat:
-                         <ul class=withbullets>
-                             <li>Er wordt niet gerookt in de zaal. Wie echt niet zonder kan, kan buiten roken.</li>
-                             <li>Drugs zijn ten strengste verboden. Wie wordt betrapt op het bezit of gebruik van drugs (en dit geldt ook voor elke vorm van softdrugs) wordt onmiddellijk van de LAN verwijderd.</li>
-                             <li>Speakers zijn niet toegelaten. Hoofdtelefoon is dus aangeraden.</li>
-                             <li>Bij schade aan de zaal of aan elke vorm van eigendom van derden is de dader, en enkel hij/zij persoonlijk verantwoordelijk. Infogroep noch één van zijn leden zal kunnen verantwoordelijk worden gesteld hiervoor, tenzij de schade met absolute zekerheid het gevolg is van een handeling van één van de leden en er sprake is van kwaad opzet. </li>
-                             <li>De organisatoren behouden zich ten allen tijde het recht om de toegang aan een persoon, zonder een voorafgaande ingebrekestelling, te ontzeggen en/of te ontnemen. </li>
-                             <li>Dit reglement kan op elk moment aangepast worden, ook tijdens de lan zelf, en blijft gedurende de hele lanparty onverkort gelden. </li>
-                             <li>Iets drinken mag, maar overdaad schaadt. Wie overlast veroorzaakt, zal gevraagd worden het evenement vroegtijdig te verlaten.</li>
-                             <li>Je hebt recht op 1 stopcontact en 1 netwerkpoort, en dit dient enkel voor pc+monitor.</li>
-                             <li>Verdeelstekkers met een schakelaar zijn NIET toegelaten, eentje zonder schakelaar is een must.</li>
-                             <li>De gegevens die de Infogroep verzamelt over de deelnemers bij de inschrijving worden opgeslagen in een databank. Deze gegevens zullen enkel gebruikt worden door de vereniging om zijn deelnemers informatie te verschaffen over voorbije/toekomstige evenementen georganiseerd door Infogroep. Op geen enkele manier en onder geen enkel beding zullen deze gegevens aan derden worden meegedeeld.</li>
-                             <li>De organisatie kan niet aansprakelijk worden gesteld voor inbreuken die derden of de deelnemer plegen via haar netwerk. Het netwerk en infrastructuur mag uitsluitend worden gebruikt voor wettelijk toegestane doeleinden. Het is ondermeer ten strengste verboden om materiaal te zenden, ontvangen, uploaden, downloaden of gebruiken:
-                                 <ul>
-                                     <li>waarvan het bestaan, de inhoud, het bezit, de verspreiding of het gebruik bedreigend, obsceen of frauduleus is</li>
-                                     <li>dat inbreuk pleegt op auteursrechten of andere intellectuele eigendomsrechten, rechten van derden of wettelijke bepalingen</li>
-                                     <li>dat een misdrijf vormt of een inbreuk op een rechterlijk bevel, een overheidsbesluit of enigerlei andere illegale handeling vormt</li>
-                                 </ul></li>
-                             <li>Het is tijdens de evenementen georganiseerd door Infogroep verboden het netwerk en infrastructuur te gebruiken voor elke actie die leidt tot:
-                                 <ul>
-                                     <li>de illegale of zonder toestemming genomen toegang tot de gegevens van de verbonden netwerken</li>
-                                     <li>de aantasting of het in gevaar brengen van de goede werking van het netwerk</li>
-                                     <li>het in gevaar brengen van of de aantasting van de integriteit van computergegevens of de beschadiging of vernietiging van de informaticagegevens of van hun betrouwbaarheid</li>
-                                     <li>het in gevaar brengen van of de aantasting van de privacy van derden in het algemeen of van andere deelnemers van het netwerk in het bijzonder </li>
-                                 </ul></li>
-                             <li>Het is verboden om illegale software binnen te brengen of te gebruiken alsook enig ander materiaal dat illegaal is of inbreuk pleegt op intellectuele eigendomsrechten of rechten van derden. Elke deelnemer vrijwaart de organisatie voor elke vordering van derden in dit verband. De organisatie is niet aansprakelijk voor inbreuken die deelnemers plegen via haar netwerk of infrastructuur. Elke deelnemer is aansprakelijk voor schade die voortvloeit uit het onrechtmatig gebruik ervan. </li>
-                             <li>De deelnemer erkent dat de organisatie niet verantwoordelijk is om de informatie die zich bevindt op haar server(s) en op de verschillende computers van de deelnemers te controleren. De deelnemer is en blijft alleen verantwoordelijk voor de inhoud van alle uitgewisselde gegevens, met inbegrip van maar niet beperkt tot de keuze en de gevolgen van het plaatsen van links naar andere servers of computers. Elke deelnemer vrijwaart de organisatie voor elke vordering en schade dienaangaande van derden.</li>
-                         </ul>
-                     </p>
-                     <p>Deze lijst is een veralgemening van het gedetaïlleerd officiëel reglement, hieronder te vinden.</p>
-                     <p><a href='/files/lanparty-reglement.pdf'>%{pdf_image}Lange versie reglement</a></p>"
+      content_html: |
+        Kort samengevat:
+        
+        * Er wordt niet gerookt in de zaal. Wie echt niet zonder kan, kan buiten roken.
+        * Drugs zijn ten strengste verboden. Wie wordt betrapt op het bezit of gebruik van drugs
+          (en dit geldt ook voor elke vorm van softdrugs) wordt onmiddellijk van de LAN verwijderd.
+        * Speakers zijn niet toegelaten. Hoofdtelefoon is dus aangeraden.
+        * Bij schade aan de zaal of aan elke vorm van eigendom van derden is de dader, en enkel hij/zij
+          persoonlijk verantwoordelijk. Infogroep noch één van zijn leden zal kunnen verantwoordelijk worden gesteld
+          hiervoor, tenzij de schade met absolute zekerheid het gevolg is van een handeling van één van de leden
+          en er sprake is van kwaad opzet. 
+        * De organisatoren behouden zich ten allen tijde het recht om de toegang aan een persoon,
+          zonder een voorafgaande ingebrekestelling, te ontzeggen en/of te ontnemen. 
+        * Dit reglement kan op elk moment aangepast worden, ook tijdens de lan zelf,
+          en blijft gedurende de hele lanparty onverkort gelden. 
+        * Iets drinken mag, maar overdaad schaadt. Wie overlast veroorzaakt,
+          zal gevraagd worden het evenement vroegtijdig te verlaten.
+        * Je hebt recht op 1 stopcontact en 1 netwerkpoort, en dit dient enkel voor pc+monitor.
+        * Verdeelstekkers met een schakelaar zijn NIET toegelaten, eentje zonder schakelaar is een must.
+        * De gegevens die de Infogroep verzamelt over de deelnemers bij de inschrijving worden opgeslagen
+          in een databank. Deze gegevens zullen enkel gebruikt worden door de vereniging om zijn deelnemers
+          informatie te verschaffen over voorbije/toekomstige evenementen georganiseerd door Infogroep.
+          Op geen enkele manier en onder geen enkel beding zullen deze gegevens aan derden worden meegedeeld.
+        * De organisatie kan niet aansprakelijk worden gesteld voor inbreuken die derden of de deelnemer
+          plegen via haar netwerk. Het netwerk en infrastructuur mag uitsluitend worden gebruikt voor
+          wettelijk toegestane doeleinden. Het is ondermeer ten strengste verboden om materiaal te zenden,
+          ontvangen, uploaden, downloaden of gebruiken:
+           * waarvan het bestaan, de inhoud, het bezit, de verspreiding of het gebruik bedreigend, obsceen of frauduleus is
+           * dat inbreuk pleegt op auteursrechten of andere intellectuele eigendomsrechten, rechten van derden of wettelijke bepalingen
+           * dat een misdrijf vormt of een inbreuk op een rechterlijk bevel, een overheidsbesluit of enigerlei andere illegale handeling vormt
+        * Het is tijdens de evenementen georganiseerd door Infogroep verboden het netwerk en infrastructuur te
+          gebruiken voor elke actie die leidt tot:
+           * de illegale of zonder toestemming genomen toegang tot de gegevens van de verbonden netwerken
+           * de aantasting of het in gevaar brengen van de goede werking van het netwerk
+           * het in gevaar brengen van of de aantasting van de integriteit van computergegevens
+             of de beschadiging of vernietiging van de informaticagegevens of van hun betrouwbaarheid
+           * het in gevaar brengen van of de aantasting van de privacy van derden in het algemeen
+             of van andere deelnemers van het netwerk in het bijzonder 
+        * Het is verboden om illegale software binnen te brengen of te gebruiken alsook enig ander materiaal
+          dat illegaal is of inbreuk pleegt op intellectuele eigendomsrechten of rechten van derden.
+          Elke deelnemer vrijwaart de organisatie voor elke vordering van derden in dit verband.
+          De organisatie is niet aansprakelijk voor inbreuken die deelnemers plegen via haar netwerk of infrastructuur.
+          Elke deelnemer is aansprakelijk voor schade die voortvloeit uit het onrechtmatig gebruik ervan. 
+        * De deelnemer erkent dat de organisatie niet verantwoordelijk is om de informatie die zich bevindt
+          op haar server(s) en op de verschillende computers van de deelnemers te controleren.
+          De deelnemer is en blijft alleen verantwoordelijk voor de inhoud van alle uitgewisselde gegevens,
+          met inbegrip van maar niet beperkt tot de keuze en de gevolgen van het plaatsen van links
+          naar andere servers of computers. Elke deelnemer vrijwaart de organisatie
+          voor elke vordering en schade dienaangaande van derden.
+        
+        Deze lijst is een veralgemening van het gedetaïlleerd officiëel reglement, hieronder te vinden.
+        
+        [%{pdf_image}Lange versie reglement](/files/lanparty-reglement.pdf)
   orders:
     show:
       order: "Bestelling van %{user}"

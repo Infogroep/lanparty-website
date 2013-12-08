@@ -64,6 +64,8 @@ gem 'chosen-rails'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'ckeditor', github: "galetahub/ckeditor"
 gem 'mini_magick'
+gem 'tilt'
+gem 'markdown'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
