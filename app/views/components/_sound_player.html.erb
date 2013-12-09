@@ -1,5 +1,0 @@
-<%= content_tag "audio", :autoplay => options[:autoplay], :preload => "auto" do %>
-  <% sound[:files].each do |file| %>
-      <%= tag "source", src: audio_path(file[:file]), type: file[:type] %>
-  <% end %>
-<% end %>
