@@ -1,23 +1,7 @@
 <h1><%= t("sponsor.other") %></h1>
 
-<table class="table">
-  <tr>
-    <th><%= t("simple_form.labels.sponsor.name") %></th>
-    <th><%= t("simple_form.labels.sponsor.website") %></th>
-    <th><%= t("simple_form.labels.sponsor.image") %></th>
-    <th class="action-column"></th>
-  </tr>
+<%= render partial: "sponsor_grid", locals: {sponsors: @sponsors} %>
 
-<% @sponsors.each do |sponsor| %>
-  <tr>
-    <td><%= sponsor.name %></td>
-    <td><%= sponsor.website %></td>
-    <td><%= image_tag sponsor.image_url(:sidebar) %></td>
-    <td class="action-column"><%= standard_edit_buttons(sponsor) %></td>
-  </tr>
+<% if current_user and current_user.access_allowed?(:sponsor_editing) %>
+	<%= link_to t(:new, :model => t("sponsor.one")), new_sponsor_path, class: "btn btn-default" %>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to t(:new, :model => t("sponsor.one")), new_sponsor_path, class: "btn btn-default" %>

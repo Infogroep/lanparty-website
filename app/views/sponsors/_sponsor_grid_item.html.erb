@@ -1,0 +1,7 @@
+<% if current_user and current_user.access_allowed?(:compo_editing) %>
+	<%= standard_edit_buttons(sponsor, toolbar_class: "grid-game-manipulation-buttons", button_class: "btn-xs") %>
+<% end %>
+<% image = sponsor.image_url %>
+<% if image %>
+	<%= link_to image_tag(image), sponsor.website %>
+<% end %>

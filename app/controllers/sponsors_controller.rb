@@ -1,6 +1,6 @@
 class SponsorsController < ApplicationController
-	before_filter :login_required
-	before_filter { access_required :sponsor_editing }
+	before_filter :login_required, except: [:index]
+	before_filter(except: [:index]){ access_required :sponsor_editing }
 	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 
 	# GET /sponsors

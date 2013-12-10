@@ -1,0 +1,13 @@
+<% count = 0 %>
+<div class="row">
+	<% sponsors.each do |sponsor| %>
+		<div class="col-md-6 sponsor-grid-item">
+			<%= render partial: "sponsor_grid_item", locals:{sponsor: sponsor} %>
+		</div>
+		<% count +=1 %>
+		<% if count % 2 ==0 %>
+			</div>
+			<div class="row">
+		<% end %>
+		</div>
+	<% end %>
