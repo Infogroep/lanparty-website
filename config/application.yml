@@ -8,8 +8,8 @@ max_participants: 50
 registration_available: true
 
 # Start date of LANparty
-start_datetime: 2014-02-21 18:00:00 +0100
-end_datetime: 2014-02-23 18:00:00 +0100
+start_datetime: 2014-02-14 18:00:00 +0100
+end_datetime: 2014-02-16 18:00:00 +0100
 
 # Location of LANparty
 location: "VUB Mandela"

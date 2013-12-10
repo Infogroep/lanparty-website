@@ -1,2 +1,6 @@
 - title t("info")
-= t(".content_html", year: $SETTINGS[:year], rules_link: pages_rules_path, contact_link: pages_contact_path, starttime: l($SETTINGS[:start_datetime], format: :verylong), endtime: l($SETTINGS[:end_datetime], format: :verylong))
+= render_markdown t(".content_html", year: $SETTINGS[:year], 
+                                            rules_link: pages_rules_path,
+                                            contact_link: pages_contact_path,
+                                            starttime: l($SETTINGS[:start_datetime], format: :verylong),
+                                            endtime: l($SETTINGS[:end_datetime], format: :verylong))
