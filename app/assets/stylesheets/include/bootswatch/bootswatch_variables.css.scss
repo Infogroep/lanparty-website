@@ -356,14 +356,16 @@ $zindex-modal:             1050;
 
 $pagination-bg:                        $btn-default-bg;
 $pagination-border:                    rgba(0, 0, 0, 0.6);
-$pagination-disabled-border:           $pagination-border;
 
 $pagination-hover-bg:                  transparent;
+$pagination-hover-border:              $pagination-border;
 
 $pagination-active-bg:                 darken($pagination-bg, 10%);
 $pagination-active-color:              #fff;
+$pagination-active-border:             $pagination-border;
 
 $pagination-disabled-color:            $gray-light;
+$pagination-disabled-border:           $pagination-border;
 
 
 // Pager
