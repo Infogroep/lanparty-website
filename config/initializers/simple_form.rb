@@ -98,7 +98,7 @@ SimpleForm.setup do |config|
 	config.label_class = 'control-label'
 
 	# You can define the class to use on all forms. Default is simple_form.
-	config.form_class = "simple_form chosen-enabled-form well col-md-6"
+	config.form_class = "simple_form chosen-enabled-form"
 
 	# You can define which elements should obtain additional classes
 	# config.generate_additional_classes_for = [:wrapper, :label, :input]

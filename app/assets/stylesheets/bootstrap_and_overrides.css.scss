@@ -90,6 +90,3 @@ td.action-column {
 		float: none;
 	}
 }
-
-// Allow info-colored table rows. For some reason these were removed in Bootstrap 3.
-@include table-row-variant('info', $state-info-bg, $state-info-border);
