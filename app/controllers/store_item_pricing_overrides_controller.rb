@@ -35,6 +35,7 @@ class StoreItemPricingOverridesController < ApplicationController
 	# POST /pricing_overrides.json
 	def create
 		@pricing_override = PricingOverride.new(pricing_override_params)
+		@payable_model = StoreItem
 
 		if @pricing_override.save
 			redirect_to store_item_pricing_overrides_url, flash: { info: 'PricingOverride was successfully created.' }
@@ -46,6 +47,8 @@ class StoreItemPricingOverridesController < ApplicationController
 	# PUT /pricing_overrides/1
 	# PUT /pricing_overrides/1.json
 	def update
+		@payable_model = StoreItem
+
 		if @pricing_override.update(pricing_override_params)
 			redirect_to store_item_pricing_overrides_url, flash: { info: 'PricingOverride was successfully updated.' }
 		else
