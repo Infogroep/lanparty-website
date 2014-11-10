@@ -24,11 +24,11 @@ describe GamesController do
 	# Game. As you add validations to Game, be sure to
 	# update the return value of this method accordingly.
 	def valid_attributes
-		{ :name => "some name", :download_location => "http://hackers.com" }
+		{ name: "some name", download_location: "http://hackers.com" }
 	end
 
 	describe_access(
-			:login => [:destroy, :edit, :show, :new, :update, :create]
+			login: [:destroy, :edit, :show, :new, :update, :create]
 	) do
 
 		include_examples "standard_controller", Game

@@ -12,11 +12,11 @@ describe StoreItemClassesController do
 		end
 
 		it "routes to #show" do
-			get("/store_item_classes/1").should route_to("store_item_classes#show", :id => "1")
+			get("/store_item_classes/1").should route_to("store_item_classes#show", id: "1")
 		end
 
 		it "routes to #edit" do
-			get("/store_item_classes/1/edit").should route_to("store_item_classes#edit", :id => "1")
+			get("/store_item_classes/1/edit").should route_to("store_item_classes#edit", id: "1")
 		end
 
 		it "routes to #create" do
@@ -24,11 +24,11 @@ describe StoreItemClassesController do
 		end
 
 		it "routes to #update" do
-			put("/store_item_classes/1").should route_to("store_item_classes#update", :id => "1")
+			put("/store_item_classes/1").should route_to("store_item_classes#update", id: "1")
 		end
 
 		it "routes to #destroy" do
-			delete("/store_item_classes/1").should route_to("store_item_classes#destroy", :id => "1")
+			delete("/store_item_classes/1").should route_to("store_item_classes#destroy", id: "1")
 		end
 
 	end

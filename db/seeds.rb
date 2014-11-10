@@ -5,7 +5,7 @@
 #
 #	 cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #	 Mayor.create(name: 'Emanuel', city: cities.first)
-new_params = { :name => "godmode" }
+new_params = { name: "godmode" }
 UserGroup.access_type_attributes.each do |attrs|
 	new_params[attrs] = true
 end

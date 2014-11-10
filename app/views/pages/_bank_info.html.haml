@@ -1,2 +1,2 @@
 = render_markdown t(".content_html")
-= render_markdown t(".structured_message_html", :structured_message => current_user.structured_message) if current_user
+= render_markdown t(".structured_message_html", structured_message: current_user.structured_message) if current_user

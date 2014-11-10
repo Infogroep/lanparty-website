@@ -16,7 +16,7 @@ describe Clan do
 	end
 
 	it "should require username" do
-		new_clan(:tag => '').should have(1).error_on(:tag)
+		new_clan(tag: '').should have(1).error_on(:tag)
 	end
 
 

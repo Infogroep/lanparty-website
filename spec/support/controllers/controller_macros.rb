@@ -12,7 +12,7 @@ module ControllerMacros
 		def it_should_redirect_for_actions(actions, description, expected_redirect, expected_error)
 			actions.each do |action|
 				it "#{action} action #{description}" do
-					get action, { :id => 1 }.merge(additional_params)
+					get action, { id: 1 }.merge(additional_params)
 					response.should redirect_to(send(expected_redirect))
 					flash[:danger].should == expected_error
 				end
@@ -88,18 +88,18 @@ module ControllerMacros
 
 
 	def login
-		User.skip_callback :save, :before, :prepare_password, :unless => Proc.new { |user| user.password_hash.nil? }
-		@current_user = User.new(:username => "user",
-		                         :email => "user@example.com",
-		                         :password => "secret",
-		                         :password_hash => "$2a$10$cg2feQJfTglKpkJjwCtFves068nDh00m6AYhSvwkBvFb5af2AAvwi",
-		                         :password_salt => "$2a$10$cg2feQJfTglKpkJjwCtFve")
+		User.skip_callback :save, :before, :prepare_password, unless: Proc.new { |user| user.password_hash.nil? }
+		@current_user = User.new(username: "user",
+		                         email: "user@example.com",
+		                         password: "secret",
+		                         password_hash: "$2a$10$cg2feQJfTglKpkJjwCtFves068nDh00m6AYhSvwkBvFb5af2AAvwi",
+		                         password_salt: "$2a$10$cg2feQJfTglKpkJjwCtFve")
 		@current_user.save!
 		session[:user_id] = @current_user.id
 	end
 
 	def give_full_access
-		new_params = { :name => "admin" }
+		new_params = { name: "admin" }
 		UserGroup.access_type_attributes.each do |attrs|
 			new_params[attrs] = true
 		end

@@ -10,7 +10,7 @@
 				.container
 					.carousel-caption
 						= compo.description
-						= l(compo.date_time, :format => :short)
+						= l(compo.date_time, format: :short)
 	%a.carousel-control.left{ href: "#slider", data: { slide: "prev" } }
 		%i.fa.fa-chevron-left
 	%a.carousel-control.right{ href: "#slider", data: { slide: "next" } }

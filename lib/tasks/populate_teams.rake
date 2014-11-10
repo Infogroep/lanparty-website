@@ -2,7 +2,7 @@ namespace :db do
 	desc "populates the database with teams"
 
 	task :populate_teams, [:amount, :delete] => :environment do |t, args|
-		args.with_defaults(:delete => 'true')
+		args.with_defaults(delete: 'true')
 		delete = args[:delete] == 'true'
 		amount = args[:amount].to_i
 

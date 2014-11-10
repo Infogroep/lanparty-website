@@ -17,9 +17,9 @@
 		<tr class="<%= stock_warning_color(store_item) %>">
 			<td><%= store_item.name %></td>
 			<td><%= store_item.stock %></td>
-			<td><%= number_to_currency store_item.price(current_user), :unit => "€" %></td>
+			<td><%= number_to_currency store_item.price(current_user), unit: "€" %></td>
 			<% if admin %>
-			<td><%= number_to_currency store_item.purchase_price, :unit => "€" %></td>
+			<td><%= number_to_currency store_item.purchase_price, unit: "€" %></td>
 			<% end %>
 			<td class="action-column"><%= render_actions.call(store_item) %></td>
 		</tr>

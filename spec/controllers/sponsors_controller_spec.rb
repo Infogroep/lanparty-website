@@ -28,8 +28,8 @@ describe SponsorsController do
 	end
 
 	describe_access(
-			:login => [:index,:show,:new,:edit,:update,:create,:destroy],
-			:sponsor_editing => [:index,:show,:new,:edit,:update,:create,:destroy]
+			login: [:index,:show,:new,:edit,:update,:create,:destroy],
+			sponsor_editing: [:index,:show,:new,:edit,:update,:create,:destroy]
 	) do
 		include_examples "standard_controller", Sponsor
 	end

@@ -4,7 +4,7 @@
 %p
 	%b #{t(:username)}:
 	= @user.username
-	= render :partial => "badges", locals: { user: @user }
+	= render partial: "badges", locals: { user: @user }
 %p
 	%b #{t("clan.one")}:
 	= @user.clan.tag if @user.clan

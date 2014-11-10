@@ -28,7 +28,7 @@ describe ComposController do
 	end
 
 	def valid_attributes
-		{ :group_size => 1, :slots => 1, :game_id => @game.id, :date_time => "2012-10-10-12-12" }
+		{ group_size: 1, slots: 1, game_id: @game.id, date_time: "2012-10-10-12-12" }
 	end
 
 	# This should return the minimal set of values that should be in the session
@@ -36,7 +36,7 @@ describe ComposController do
 	# ComposController. Be sure to keep this updated too.
 
 	describe_access(
-			:login => [:index, :edit, :destroy, :show, :new, :update, :create]
+			login: [:index, :edit, :destroy, :show, :new, :update, :create]
 	) do
 
 		include_examples "standard_controller", Compo

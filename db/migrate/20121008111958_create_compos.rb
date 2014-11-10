@@ -6,7 +6,7 @@ class CreateCompos < ActiveRecord::Migration
 			t.datetime :date_time
 			t.integer :group_size
 			t.integer :game_id
-			t.boolean :featured, :default => false
+			t.boolean :featured, default: false
 
 			t.timestamps
 		end

@@ -4,9 +4,9 @@ class OrderItem < ActiveRecord::Base
 
 	validates_presence_of :order
 	validates_presence_of :store_item
-	validates_uniqueness_of :store_item_id, :scope => :order_id
+	validates_uniqueness_of :store_item_id, scope: :order_id
 	validates_presence_of :count
-	validates_numericality_of :count, :only_integer => true, :greater_than_or_equal_to => 0
+	validates_numericality_of :count, only_integer: true, greater_than_or_equal_to: 0
 
 	def price
 		locked_price or unit_price * count

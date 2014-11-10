@@ -13,24 +13,24 @@
 		<tr class="<%= order_item_stock_color(order_item) %>">
 			<td class="action-column">
 				<% if can_modify_order?(order) %>
-					<%= simple_form_for([order, order_item], :remote => true, class: "order-amount-form") do |f| %>
-						<%= f.input_field :count, :value => order_item.count, class: "order-amount" %>
+					<%= simple_form_for([order, order_item], remote: true, class: "order-amount-form") do |f| %>
+						<%= f.input_field :count, value: order_item.count, class: "order-amount" %>
 					<% end %>
 				<% else %>
 					<%= order_item.count %>
 				<% end %>
 			</td>
 			<td><%= order_item.store_item.name %></td>
-			<td><%= number_to_currency order_item.unit_price, :unit => "€" %></td>
-			<td><%= number_to_currency order_item.price, :unit => "€" %></td>
-			<td class="action-column"><%= standard_edit_buttons([order,order_item], :only => [:destroy]) if can_modify_order?(order) %></td>
+			<td><%= number_to_currency order_item.unit_price, unit: "€" %></td>
+			<td><%= number_to_currency order_item.price, unit: "€" %></td>
+			<td class="action-column"><%= standard_edit_buttons([order,order_item], only: [:destroy]) if can_modify_order?(order) %></td>
 		</tr>
 	<% end %>
 	<tr class="info">
 		<td></td>
-		<td><%= link_to content_tag("i", "", :class => "fa fa-plus"), new_order_order_item_path(order), class: "btn btn-default btn-sm" if can_modify_order?(order) %></td>
+		<td><%= link_to content_tag("i", "", class: "fa fa-plus"), new_order_order_item_path(order), class: "btn btn-default btn-sm" if can_modify_order?(order) %></td>
 		<td><strong><%= t(".total") %></strong></td>
-		<td><%= number_to_currency order.total_price, :unit => "€" %></td>
+		<td><%= number_to_currency order.total_price, unit: "€" %></td>
 		<td></td>
 	</tr>
 	</tbody>

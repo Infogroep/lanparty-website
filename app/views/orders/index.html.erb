@@ -1,5 +1,5 @@
 <% title t("order.other") %>
 
-<%= render :partial => "order_list", :locals => { :orders => @orders } %>
+<%= render partial: "order_list", locals: { orders: @orders } %>
 
-<%= link_to t(:new, :model => t("order.one")), new_order_path, class: "btn btn-default" %>
+<%= link_to t(:new, model: t("order.one")), new_order_path, class: "btn btn-default" %>

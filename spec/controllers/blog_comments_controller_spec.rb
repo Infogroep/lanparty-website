@@ -25,7 +25,7 @@ describe BlogCommentsController do
 # BlogComment. As you add validations to BlogComment, be sure to
 # update the return value of this method accordingly.
 	def valid_attributes
-		{ :content => "MyText", :blog_post_id => @blog_post.id, :user_id => @user2.id }
+		{ content: "MyText", blog_post_id: @blog_post.id, user_id: @user2.id }
 	end
 
 	def additional_params
@@ -53,7 +53,7 @@ describe BlogCommentsController do
 	def set_owner(user)
 		@user2 = user
 		@blog_comment = BlogComment.create! valid_attributes
-		@additional_params = additional_params.merge({ :id => @blog_comment.id })
+		@additional_params = additional_params.merge(id: @blog_comment.id)
 	end
 
 	before(:each) do
@@ -61,21 +61,21 @@ describe BlogCommentsController do
 		@blog_post = FactoryGirl.build(:blog_post)
 		@blog_post.user = @user
 		@blog_post.save!
-		@additional_params = { :blog_post_id => @blog_post.id }
+		@additional_params = { blog_post_id: @blog_post.id }
 	end
 
 	describe_access(
-		:login => [:edit, :destroy, :update, :create]
+		login: [:edit, :destroy, :update, :create]
 	) do
 
 		it_should_require_user_or_access_for_actions(:blog_editing,[:edit,:update,:destroy]) do
 
 			include_examples "standard_controller",
 			                 BlogComment,
-			                 :only => [:edit, :create, :update, :destroy],
-			                 :create => { :on_success => redirect_txt, :on_fail => redirect_txt },
-			                 :update => { :on_success => redirect_txt },
-			                 :destroy => { :on_success => redirect_txt }
+			                 only: [:edit, :create, :update, :destroy],
+			                 create: { on_success: redirect_txt, on_fail: redirect_txt },
+			                 update: { on_success: redirect_txt },
+			                 destroy: { on_success: redirect_txt }
 
 		end
 	end

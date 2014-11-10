@@ -2,7 +2,7 @@ namespace :db do
 	desc "populates the database with users"
 
 	task :populate_users, [:amount, :delete] => :environment do |t, args|
-		args.with_defaults(:delete => 'true')
+		args.with_defaults(delete: 'true')
 		delete = args[:delete] == 'true'
 		amount = args[:amount].to_i
 		puts "--------------"
@@ -11,22 +11,22 @@ namespace :db do
 
 		User.delete_all
 		User.create!(
-				:username => "Enermis",
-				:email => "fulgens.ailurus@gmail.com",
-				:password => "roeland1",
-				:password_confirmation => "roeland1"
+				username: "Enermis",
+				email: "fulgens.ailurus@gmail.com",
+				password: "roeland1",
+				password_confirmation: "roeland1"
 		)
 		User.create!(
-				:username => "user",
-				:email => "user@gmail.com",
-				:password => "roeland1",
-				:password_confirmation => "roeland1"
+				username: "user",
+				email: "user@gmail.com",
+				password: "roeland1",
+				password_confirmation: "roeland1"
 		)
 		User.create!(
-				:username => "peanut",
-				:email => "rik.vanmechelen@gmail.com",
-				:password => "roeland1",
-				:password_confirmation => "roeland1"
+				username: "peanut",
+				email: "rik.vanmechelen@gmail.com",
+			  password: "roeland1",
+				password_confirmation: "roeland1"
 		)
 		puts "created Enermis and peanut"
 		amount.times do

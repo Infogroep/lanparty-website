@@ -1,6 +1,6 @@
 class BlogPostsController < ApplicationController
-	before_filter :login_required, :except => [:index, :show]
-	before_filter(:except => [:index, :show]) { access_required(:blog_editing) }
+	before_filter :login_required, except: [:index, :show]
+	before_filter(except: [:index, :show]) { access_required(:blog_editing) }
 	before_action :setup_environment, only: [:show, :edit, :update, :destroy]
 
 	# GET /blog_posts
@@ -27,7 +27,7 @@ class BlogPostsController < ApplicationController
 	# POST /blog_posts
 	# POST /blog_posts.json
 	def create
-		@blog_post = BlogPost.new(blog_post_params.merge({ :user_id => current_user.id }))
+		@blog_post = BlogPost.new(blog_post_params.merge(user_id: current_user.id))
 
 		if @blog_post.save
 			redirect_to @blog_post, flash: { info: 'Blog post was successfully created.' }

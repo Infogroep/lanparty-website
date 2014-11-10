@@ -4,7 +4,7 @@
 			%span.icon-bar
 			%span.icon-bar
 			%span.icon-bar
-		= link_to t(:iLan), home_path, :class => "navbar-brand"
+		= link_to t(:iLan), home_path, class: "navbar-brand"
 	.navbar-collapse.collapse
 		%ul.nav.navbar-nav
 			= navbar_dropdown t(:info) do
@@ -41,9 +41,9 @@
 						= navbar_item t("pricing_override.other") + " (" + t("store_item_class.other") + ")", store_item_class_pricing_overrides_path
 		%ul.nav.navbar-nav.navbar-right
 			- if I18n.locale == :nl
-				= navbar_item t("lang.en", :locale => :en), locale: :en
+				= navbar_item t("lang.en", locale: :en), locale: :en
 			- else
-				= navbar_item t("lang.nl", :locale => :nl), locale: :nl
+				= navbar_item t("lang.nl", locale: :nl), locale: :nl
 			%li.divider-vertical
 			- if current_user
 				= navbar_item image_tag(avatar_url(current_user), class: 'nav-profile-logo')+" "+current_user.username, current_user, class: "nav-profile-logo"

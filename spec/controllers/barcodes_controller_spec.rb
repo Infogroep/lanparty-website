@@ -28,12 +28,12 @@ describe BarcodesController do
 	end
 
 	def valid_attributes
-		{ :code => "1234567890", :store_item_id => @store_item.id }
+		{ code: "1234567890", store_item_id: @store_item.id }
 	end
 
 	describe_access(
-			:login => [:index, :destroy, :edit, :show, :new, :update, :create],
-			:store_editing => [:index, :destroy, :edit, :show, :new, :update, :create]
+			login: [:index, :destroy, :edit, :show, :new, :update, :create],
+			store_editing: [:index, :destroy, :edit, :show, :new, :update, :create]
 	) do
 
 		include_examples "standard_controller", Barcode

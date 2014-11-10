@@ -24,7 +24,7 @@ describe OrdersController do
 	# Order. As you add validations to Order, be sure to
 	# update the return value of this method accordingly.
 	def valid_attributes
-		{ :user_id => @user.id }
+		{ user_id: @user.id }
 	end
 
 	def additional_params
@@ -34,11 +34,11 @@ describe OrdersController do
 	def set_owner(user)
 		@user = user
 		@order = Order.create! valid_attributes
-		@additional_params = additional_params.merge({ :id => @order.id })
+		@additional_params = additional_params.merge(id: @order.id)
 	end
 
 	describe_access(
-		:login => [:index, :edit, :destroy, :show, :new, :update, :create]
+		login: [:index, :edit, :destroy, :show, :new, :update, :create]
 	) do
 
 		it_should_require_user_or_access_for_actions(:order_processing, [:show,:edit,:update,:create,:destroy]) do

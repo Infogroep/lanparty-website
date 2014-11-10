@@ -28,8 +28,8 @@ describe StoreItemClassesController do
 	end
 
 	describe_access(
-			:login => [:index, :edit, :destroy, :show, :new, :update, :create],
-			:store_editing => [:index, :edit, :destroy, :show, :new, :update, :create]
+			login: [:index, :edit, :destroy, :show, :new, :update, :create],
+			store_editing: [:index, :edit, :destroy, :show, :new, :update, :create]
 	) do
 
 		include_examples "standard_controller", StoreItemClass

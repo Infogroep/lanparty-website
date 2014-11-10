@@ -2,11 +2,11 @@ class OrdersController < ApplicationController
 	include OrdersHelper
 	before_filter :login_required
 	#before_filter(:only => :new) { access_required(:order_processing) }
-	before_filter(:only => :create) { user_or_access_required(params[:order][:user_id].to_i, :order_processing) }
-	before_filter(:only => :show) { user_or_access_required(Order.find(params[:id]).user_id,:order_processing) }
-	before_filter(:only => :place) { true_required(can_place_order?(Order.find(params[:id]))) }
-	before_filter(:only => :pay) { true_required(can_pay_order?(Order.find(params[:id]))) }
-	before_filter(:only => :destroy) { true_required(can_modify_order?(Order.find(params[:id]))) }
+	before_filter(only: :create) { user_or_access_required(params[:order][:user_id].to_i, :order_processing) }
+	before_filter(only: :show) { user_or_access_required(Order.find(params[:id]).user_id,:order_processing) }
+	before_filter(only: :place) { true_required(can_place_order?(Order.find(params[:id]))) }
+	before_filter(only: :pay) { true_required(can_pay_order?(Order.find(params[:id]))) }
+	before_filter(only: :destroy) { true_required(can_modify_order?(Order.find(params[:id]))) }
 	before_action :setup_environment, only: [:show, :edit, :update, :destroy, :place, :pay]
 
 	# GET /orders

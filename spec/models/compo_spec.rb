@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Compo do
 	before(:each) do
-		compo = FactoryGirl.build(:compo, :game => FactoryGirl.create(:game))
+		compo = FactoryGirl.build(:compo, game: FactoryGirl.create(:game))
 	end
 
 	it { should validate_presence_of :slots }

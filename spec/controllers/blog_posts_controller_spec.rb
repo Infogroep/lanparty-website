@@ -24,7 +24,7 @@ describe BlogPostsController do
 	# BlogPost. As you add validations to BlogPost, be sure to
 	# update the return value of this method accordingly.
 	def valid_attributes
-		{ :title => "MyString", :content => "MyContent", :user_id => @current_user.id }
+		{ title: "MyString", content: "MyContent", user_id: @current_user.id }
 	end
 
 	def on_create_success
@@ -36,12 +36,12 @@ describe BlogPostsController do
 	end
 
 	describe_access(
-			:login => [:edit, :destroy, :update, :create],
-			:blog_editing => [:new, :edit, :destroy, :update, :create]
+			login: [:edit, :destroy, :update, :create],
+			blog_editing: [:new, :edit, :destroy, :update, :create]
 	) do
 
-		include_examples "standard_controller", BlogPost, :create => { :on_success => "redirects to the created blog_post" },
-		                                                  :update => { :on_success => "redirects to the updated blog_post" }
+		include_examples "standard_controller", BlogPost, create: { on_success: "redirects to the created blog_post" },
+		                                                  update: { on_success: "redirects to the updated blog_post" }
 
 	end
 end

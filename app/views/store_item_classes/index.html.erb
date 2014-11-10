@@ -11,11 +11,11 @@
 		<tr>
 			<td><%= store_item_class.name %></td>
 			<td><%= store_item_class.parent ? store_item_class.parent.name : "-" %></td>
-			<td class="action-column"><%= standard_edit_buttons(store_item_class, :except => [:show]) %></td>
+			<td class="action-column"><%= standard_edit_buttons(store_item_class, except: [:show]) %></td>
 		</tr>
 	<% end %>
 </table>
 
 <br/>
 
-<%= link_to t(:new, :model => t("store_item_class.one")), new_store_item_class_path %>
+<%= link_to t(:new, model: t("store_item_class.one")), new_store_item_class_path %>

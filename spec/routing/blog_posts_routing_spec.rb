@@ -12,11 +12,11 @@ describe BlogPostsController do
 		end
 
 		it "routes to #show" do
-			get("/blog_posts/1").should route_to("blog_posts#show", :id => "1")
+			get("/blog_posts/1").should route_to("blog_posts#show", id: "1")
 		end
 
 		it "routes to #edit" do
-			get("/blog_posts/1/edit").should route_to("blog_posts#edit", :id => "1")
+			get("/blog_posts/1/edit").should route_to("blog_posts#edit", id: "1")
 		end
 
 		it "routes to #create" do
@@ -24,11 +24,11 @@ describe BlogPostsController do
 		end
 
 		it "routes to #update" do
-			put("/blog_posts/1").should route_to("blog_posts#update", :id => "1")
+			put("/blog_posts/1").should route_to("blog_posts#update", id: "1")
 		end
 
 		it "routes to #destroy" do
-			delete("/blog_posts/1").should route_to("blog_posts#destroy", :id => "1")
+			delete("/blog_posts/1").should route_to("blog_posts#destroy", id: "1")
 		end
 
 	end

@@ -1,5 +1,5 @@
 <% title t(:login) %>
 
-<p><%= t(:no_account_yet_html, :signup_link => link_to(t(:signup), signup_path)) %></p>
+<p><%= t(:no_account_yet_html, signup_link: link_to(t(:signup), signup_path)) %></p>
 
 <%= render 'small_form' %>

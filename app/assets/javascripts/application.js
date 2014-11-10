@@ -11,13 +11,11 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery.ui.all
+//= require jquery-ui
 //= require jquery_ujs
-//= require bootstrap
-//= require dataTables/jquery.dataTables
-//= require dataTables/jquery.dataTables.bootstrap3
+//= require bootstrap-sprockets
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require chosen-jquery
-//= require ckeditor/override
 //= require ckeditor/init
 //= require_tree .
 

@@ -1,6 +1,6 @@
 class ComposController < ApplicationController
 	before_filter :login_required
-	before_filter(:except => [:index, :show]) { access_required :compo_editing }
+	before_filter(except: [:index, :show]) { access_required :compo_editing }
 	before_action :setup_environment, only: [:show, :edit, :update, :destroy, :save_bracket]
 
 	# GET /compos

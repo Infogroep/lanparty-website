@@ -9,12 +9,12 @@ class User < ActiveRecord::Base
 	scope :payed, -> { where("payed = ?", true) }
 
 	validates_presence_of :username, :email
-	validates_uniqueness_of :username, :email, :allow_blank => true
-	validates_format_of :username, :with => /\A[-\w\._@]+\z/i, :allow_blank => true, :message => "should only contain letters, numbers, or .-_@"
-	validates_format_of :email, :with => /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
-	validates_presence_of :password, :on => :create
+	validates_uniqueness_of :username, :email, allow_blank: true
+	validates_format_of :username, with: /\A[-\w\._@]+\z/i, allow_blank: true, message: "should only contain letters, numbers, or .-_@"
+	validates_format_of :email, with: /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
+	validates_presence_of :password, on: :create
 	validates_confirmation_of :password
-	validates_length_of :password, :minimum => 4, :allow_blank => true
+	validates_length_of :password, minimum: 4, allow_blank: true
 
 	has_and_belongs_to_many :user_groups
 	has_and_belongs_to_many :teams
@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
 
 		user_groups.each do |user_group|
 			badge_url = user_group.badge_url(:badge)
-			badges.push({ :image_url => badge_url, :title => user_group.description }) if badge_url
+			badges.push(image_url: badge_url, title: user_group.description) if badge_url
 		end
 
 		teams.each do |team|
@@ -85,7 +85,7 @@ class User < ActiveRecord::Base
 			has_won = compo.has_won?(team)
 			badge_url = has_won && compo.winning_badge_url(:badge) || compo.participation_badge_url(:badge)
 			badge_title = has_won && "#{compo.game.name} compo winner" || "#{compo.game.name} compo participant"
-			badges.push({ :image_url => badge_url, :title => badge_title }) if badge_url
+			badges.push(image_url: badge_url, title: badge_title) if badge_url
 		end
 
 		badges
@@ -104,12 +104,12 @@ class User < ActiveRecord::Base
 	end
 
 	def self.build_sound_info(sound_name)
-		{ :name => sound_name,
-		  :files => [{:ext => "mp3", :type => "audio/mpeg"},
-		             {:ext => "wav", :type => "audio/wav"}].map do |type_info|
-		               { :file => sound_name + "." + type_info[:ext],
-		                 :type => type_info[:type] }
-			           end }
+		{ name: sound_name,
+		  files: [{ ext: "mp3", type: "audio/mpeg" },
+		          { ext: "wav", type: "audio/wav"}].map do |type_info|
+		            { file: sound_name + "." + type_info[:ext],
+		              type: type_info[:type] }
+			        end }
 	end
 
 	def sound_or_default

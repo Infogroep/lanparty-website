@@ -16,10 +16,10 @@ class OrderItemsController < ApplicationController
 
 		begin
 			raise WebsiteErrors::UserFriendlyError.new("Couldn't create order entry.") unless @order.scan_item(params[:barcode])
-			render :partial => "orders/order_items", :locals => { :order => @order }
+			render partial: "orders/order_items", locals: { order: @order }
 		rescue WebsiteErrors::UserFriendlyError => e
 			flash.now[:danger] = e.message
-			render :partial => "layouts/flash_messages", :status => 500
+			render partial: "layouts/flash_messages", status: 500
 		end
 	end
 
@@ -44,10 +44,10 @@ class OrderItemsController < ApplicationController
 	def update
 		begin
 			raise WebsiteErrors::UserFriendlyError.new("Couldn't update order entry.") unless @order_item.update(order_item_params)
-			render :partial => "orders/order_items", :locals => { :order => @order }
+			render partial: "orders/order_items", locals: { order: @order }
 		rescue WebsiteErrors::UserFriendlyError => e
 			flash.now[:danger] = e.message
-			render :partial => "layouts/flash_messages", :status => 500
+			render partial: "layouts/flash_messages", status: 500
 		end
 	end
 
@@ -55,7 +55,7 @@ class OrderItemsController < ApplicationController
 	def destroy
 		@order_item.destroy
 
-		render :partial => "orders/order_items", :locals => { :order => @order }
+		render partial: "orders/order_items", locals: { order: @order }
 	end
 
 	private

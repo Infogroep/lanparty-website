@@ -12,11 +12,11 @@ describe ClansController do
 		end
 
 		it "routes to #show" do
-			get("/clans/1").should route_to("clans#show", :id => "1")
+			get("/clans/1").should route_to("clans#show", id: "1")
 		end
 
 		it "routes to #edit" do
-			get("/clans/1/edit").should route_to("clans#edit", :id => "1")
+			get("/clans/1/edit").should route_to("clans#edit", id: "1")
 		end
 
 		it "routes to #create" do
@@ -24,11 +24,11 @@ describe ClansController do
 		end
 
 		it "routes to #update" do
-			put("/clans/1").should route_to("clans#update", :id => "1")
+			put("/clans/1").should route_to("clans#update", id: "1")
 		end
 
 		it "routes to #destroy" do
-			delete("/clans/1").should route_to("clans#destroy", :id => "1")
+			delete("/clans/1").should route_to("clans#destroy", id: "1")
 		end
 
 	end

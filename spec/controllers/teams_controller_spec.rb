@@ -24,16 +24,16 @@ describe TeamsController do
 	# Team. As you add validations to Team, be sure to
 	# update the return value of this method accordingly.
 	before(:each) do
-		@compo = FactoryGirl.create(:compo, :game => FactoryGirl.create(:game))
-		@team = FactoryGirl.create(:team, :compo => @compo)
+		@compo = FactoryGirl.create(:compo, game: FactoryGirl.create(:game))
+		@team = FactoryGirl.create(:team, compo: @compo)
 	end
 
 	def valid_attributes
-		{ :name => "teamname", :compo_id => @compo.id }
+		{ name: "teamname", compo_id: @compo.id }
 	end
 
 	describe_access(
-			:login => [:index, :edit, :destroy, :show, :new, :update, :create, :join]
+			login: [:index, :edit, :destroy, :show, :new, :update, :create, :join]
 	) do
 
 		include_examples "standard_controller", Team

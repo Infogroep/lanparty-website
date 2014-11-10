@@ -1,5 +1,5 @@
 <% title t(".add_order_item") %>
 
-<%= render :partial => "store_items/store_items_collection",
-           :locals => { :store_items => @store_items,
-                        :render_actions => lambda { |store_item| add_order_item_action(@order,store_item) } } %>
+<%= render partial: "store_items/store_items_collection",
+           locals: { store_items: @store_items,
+                     render_actions: lambda { |store_item| add_order_item_action(@order,store_item) } } %>

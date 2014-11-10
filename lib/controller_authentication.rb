@@ -31,14 +31,14 @@ module ControllerAuthentication
 	def login_required
 		unless logged_in?
 			store_target_location
-			redirect_to login_url, flash: { :danger => "You must first log in or sign up before accessing this page." }
+			redirect_to login_url, flash: { danger: "You must first log in or sign up before accessing this page." }
 		end
 	end
 
 	def true_required(value)
 		referer = request.referer.nil? ? home_url : request.referer
 		unless value
-			redirect_to referer, flash: { :danger => "You are not allowed in this section." }
+			redirect_to referer, flash: { danger: "You are not allowed in this section." }
 		end
 	end
 

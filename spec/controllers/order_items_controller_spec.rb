@@ -21,7 +21,7 @@ require 'spec_helper'
 describe OrderItemsController do
 
 	def additional_params
-		@additional_params || { :order_id => 1 }
+		@additional_params || { order_id: 1 }
 	end
 
 	def general_success
@@ -52,7 +52,7 @@ describe OrderItemsController do
 		@order.user = user
 		@order.save
 
-		@additional_params = { :order_id => @order.id }
+		@additional_params = { order_id: @order.id }
 	end
 
 	def first_order_item_count
@@ -63,11 +63,11 @@ describe OrderItemsController do
 	# OrderItem. As you add validations to OrderItem, be sure to
 	# update the return value of this method accordingly.
 	def valid_attributes
-		{ :order_id => @order.id, :store_item_id => @store_item.id, :count => 1 }
+		{ order_id: @order.id, store_item_id: @store_item.id, count: 1 }
 	end
 
 	describe_access(
-			:login => [:create, :update, :destroy],
+			login: [:create, :update, :destroy],
 	) do
 
 		before(:each) do
@@ -75,30 +75,30 @@ describe OrderItemsController do
 		end
 
 		it_should_require_user_or_access_for_actions(:order_processing,[:create,:update,:destroy]) do
-			include_examples "standard_controller", OrderItem, :only => [:update,:destroy],
-			                 :update  => { :on_success => "renders the orders/_order_items partial",
-			                               :on_fail    => "renders the layouts/_flash_messages partial" },
-			                 :destroy => { :on_success => "renders the orders/_order_items partial" }
+			include_examples "standard_controller", OrderItem, only: [:update,:destroy],
+			                 update: { on_success: "renders the orders/_order_items partial",
+			                           on_fail: "renders the layouts/_flash_messages partial" },
+			                 destroy: { on_success: "renders the orders/_order_items partial" }
 
 			describe "POST create" do
 				before(:each) do
-					@barcode = FactoryGirl.create(:barcode, :store_item => @store_item)
+					@barcode = FactoryGirl.create(:barcode, store_item: @store_item)
 				end
 
 				describe "when there is already an order_item for this store_item" do
 					before(:each) do
-						FactoryGirl.create(:order_item, :store_item => @store_item, :order => @order)
+						FactoryGirl.create(:order_item, store_item: @store_item, order: @order)
 					end
 
 					describe "with valid params" do
 						it "increases the count of this order_item by 1" do
 							expect {
-								post :create, additional_params.merge({ :barcode => @barcode.code })
+								post :create, additional_params.merge(barcode: @barcode.code)
 							}.to change(self, :first_order_item_count).by(1)
 						end
 
 						it "redirects to the order_items list" do
-							post :create, additional_params.merge({ :barcode => @barcode.code })
+							post :create, additional_params.merge(barcode: @barcode.code)
 							general_success
 						end
 					end
@@ -107,7 +107,7 @@ describe OrderItemsController do
 						it "generates an error flash" do
 							# Trigger the behavior that occurs when invalid params are submitted
 							OrderItem.any_instance.stub(:save).and_return(false)
-							post :create, additional_params.merge({ :barcode => -1878 })
+							post :create, additional_params.merge(barcode: -1878)
 							general_fail
 						end
 					end
@@ -117,12 +117,12 @@ describe OrderItemsController do
 					describe "with valid params" do
 						it "creates a new order_item" do
 							expect {
-								post :create, additional_params.merge({ :barcode => @barcode.code })
+								post :create, additional_params.merge(barcode: @barcode.code)
 							}.to change(OrderItem, :count).by(1)
 						end
 
 						it "redirects to the order_items list" do
-							post :create, additional_params.merge({ :barcode => @barcode.code })
+							post :create, additional_params.merge(barcode: @barcode.code)
 							general_success
 						end
 					end
@@ -131,7 +131,7 @@ describe OrderItemsController do
 						it "generates an error flash" do
 							# Trigger the behavior that occurs when invalid params are submitted
 							OrderItem.any_instance.stub(:save).and_return(false)
-							post :create, additional_params.merge({ :barcode => -1878 })
+							post :create, additional_params.merge(barcode: -1878)
 							general_fail
 						end
 					end

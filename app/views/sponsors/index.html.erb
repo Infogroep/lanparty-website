@@ -3,5 +3,5 @@
 <%= render partial: "sponsor_grid", locals: {sponsors: @sponsors} %>
 
 <% if current_user and current_user.access_allowed?(:sponsor_editing) %>
-	<%= link_to t(:new, :model => t("sponsor.one")), new_sponsor_path, class: "btn btn-default" %>
+	<%= link_to t(:new, model: t("sponsor.one")), new_sponsor_path, class: "btn btn-default" %>
 <% end %>

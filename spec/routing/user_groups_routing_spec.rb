@@ -12,11 +12,11 @@ describe UserGroupsController do
 		end
 
 		it "routes to #show" do
-			get("/user_groups/1").should route_to("user_groups#show", :id => "1")
+			get("/user_groups/1").should route_to("user_groups#show", id: "1")
 		end
 
 		it "routes to #edit" do
-			get("/user_groups/1/edit").should route_to("user_groups#edit", :id => "1")
+			get("/user_groups/1/edit").should route_to("user_groups#edit", id: "1")
 		end
 
 		it "routes to #create" do
@@ -24,11 +24,11 @@ describe UserGroupsController do
 		end
 
 		it "routes to #update" do
-			put("/user_groups/1").should route_to("user_groups#update", :id => "1")
+			put("/user_groups/1").should route_to("user_groups#update", id: "1")
 		end
 
 		it "routes to #destroy" do
-			delete("/user_groups/1").should route_to("user_groups#destroy", :id => "1")
+			delete("/user_groups/1").should route_to("user_groups#destroy", id: "1")
 		end
 
 	end

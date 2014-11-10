@@ -1,5 +1,5 @@
 - if Sponsor.count > 0
-	%h2= t("sponsor", :count => Sponsor.count)
+	%h2= t("sponsor", count: Sponsor.count)
 	- Sponsor.all.each do |sponsor|
 		%p= link_to (sponsor.image.nil? ? sponsor.name : image_tag(sponsor.image_url(:sidebar))), sponsor.website
 

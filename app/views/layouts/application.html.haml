@@ -9,8 +9,8 @@
 		= yield(:head)
 	%body
 		.flash-messages
-			= render :partial => 'layouts/flash_messages'
-		= render :partial => 'layouts/header'
+			= render partial: 'layouts/flash_messages'
+		= render partial: 'layouts/header'
 		= yield(:before_container)
 		.container
-			= render :partial => 'layouts/content'
+			= render partial: 'layouts/content'

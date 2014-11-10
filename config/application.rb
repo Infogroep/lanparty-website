@@ -3,7 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 require 'yaml'
 
-Bundler.require(:default, Rails.env)
+Bundler.require(*Rails.groups)
 
 module Lanparty
 	class Application < Rails::Application

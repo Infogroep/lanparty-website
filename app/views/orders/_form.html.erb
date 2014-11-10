@@ -1,4 +1,4 @@
 <%= simple_form_for(@order) do |f| %>
-	<%= f.association :user, :label_method => :username %>
+	<%= f.association :user, label_method: :username %>
 	<%= f.button :submit %>
 <% end %>

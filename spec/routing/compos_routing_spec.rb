@@ -12,11 +12,11 @@ describe ComposController do
 		end
 
 		it "routes to #show" do
-			get("/compos/1").should route_to("compos#show", :id => "1")
+			get("/compos/1").should route_to("compos#show", id: "1")
 		end
 
 		it "routes to #edit" do
-			get("/compos/1/edit").should route_to("compos#edit", :id => "1")
+			get("/compos/1/edit").should route_to("compos#edit", id: "1")
 		end
 
 		it "routes to #create" do
@@ -24,11 +24,11 @@ describe ComposController do
 		end
 
 		it "routes to #update" do
-			put("/compos/1").should route_to("compos#update", :id => "1")
+			put("/compos/1").should route_to("compos#update", id: "1")
 		end
 
 		it "routes to #destroy" do
-			delete("/compos/1").should route_to("compos#destroy", :id => "1")
+			delete("/compos/1").should route_to("compos#destroy", id: "1")
 		end
 
 	end

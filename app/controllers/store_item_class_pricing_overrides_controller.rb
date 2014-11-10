@@ -7,11 +7,11 @@ class StoreItemClassPricingOverridesController < ApplicationController
 	# GET /pricing_overrides
 	# GET /pricing_overrides.json
 	def index
-		@pricing_overrides = PricingOverride.where(:payable_type => StoreItemClass.name)
+		@pricing_overrides = PricingOverride.where(payable_type: StoreItemClass.name)
 
-		render :template => 'pricing_overrides/index', :locals => { :new_path_method => :new_store_item_class_pricing_override_path,
-			                                                          :edit_path_method => :edit_store_item_class_pricing_override_path,
-			                                                          :path_method => :store_item_class_pricing_override_path }
+		render template: 'pricing_overrides/index', locals: { new_path_method: :new_store_item_class_pricing_override_path,
+			                                                    edit_path_method: :edit_store_item_class_pricing_override_path,
+			                                                    path_method: :store_item_class_pricing_override_path }
 	end
 
 	# GET /pricing_overrides/new
@@ -20,15 +20,15 @@ class StoreItemClassPricingOverridesController < ApplicationController
 		@pricing_override = PricingOverride.new
 		@payable_model = StoreItemClass
 
-		render :template => 'pricing_overrides/new', :locals => { :path_method => :store_item_class_pricing_overrides_path }
+		render template: 'pricing_overrides/new', locals: { path_method: :store_item_class_pricing_overrides_path }
 	end
 
 	# GET /pricing_overrides/1/edit
 	def edit
 		@payable_model = StoreItemClass
 
-		render :template => 'pricing_overrides/edit', :locals => { :path_method => :store_item_class_pricing_overrides_path,
-			                                                         :instance_path_method => :store_item_class_pricing_override_path }
+		render template: 'pricing_overrides/edit', locals: { path_method: :store_item_class_pricing_overrides_path,
+			                                                   instance_path_method: :store_item_class_pricing_override_path }
 	end
 
 	# POST /pricing_overrides
@@ -40,7 +40,7 @@ class StoreItemClassPricingOverridesController < ApplicationController
 		if @pricing_override.save
 			redirect_to store_item_class_pricing_overrides_url, flash: { info: 'PricingOverride was successfully created.' }
 		else
-			render :template => 'pricing_overrides/new', :locals => { :path_method => :store_item_class_pricing_overrides_path }
+			render template: 'pricing_overrides/new', locals: { path_method: :store_item_class_pricing_overrides_path }
 		end
 	end
 
@@ -52,7 +52,7 @@ class StoreItemClassPricingOverridesController < ApplicationController
 		if @pricing_override.update(pricing_override_params)
 			redirect_to store_item_class_pricing_overrides_url, flash: { info: 'PricingOverride was successfully updated.' }
 		else
-			render :template => 'pricing_overrides/edit', :locals => { :path_method => :store_item_class_pricing_overrides_path }
+			render template: 'pricing_overrides/edit', locals: { path_method: :store_item_class_pricing_overrides_path }
 		end
 	end
 

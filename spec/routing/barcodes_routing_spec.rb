@@ -12,11 +12,11 @@ describe BarcodesController do
 		end
 
 		it "routes to #show" do
-			get("/barcodes/1").should route_to("barcodes#show", :id => "1")
+			get("/barcodes/1").should route_to("barcodes#show", id: "1")
 		end
 
 		it "routes to #edit" do
-			get("/barcodes/1/edit").should route_to("barcodes#edit", :id => "1")
+			get("/barcodes/1/edit").should route_to("barcodes#edit", id: "1")
 		end
 
 		it "routes to #create" do
@@ -24,11 +24,11 @@ describe BarcodesController do
 		end
 
 		it "routes to #update" do
-			put("/barcodes/1").should route_to("barcodes#update", :id => "1")
+			put("/barcodes/1").should route_to("barcodes#update", id: "1")
 		end
 
 		it "routes to #destroy" do
-			delete("/barcodes/1").should route_to("barcodes#destroy", :id => "1")
+			delete("/barcodes/1").should route_to("barcodes#destroy", id: "1")
 		end
 
 	end

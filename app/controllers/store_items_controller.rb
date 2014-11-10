@@ -1,6 +1,6 @@
 class StoreItemsController < ApplicationController
 	before_filter :login_required
-	before_filter(:except => [:index,:show]) { access_required :store_editing }
+	before_filter(except: [:index,:show]) { access_required :store_editing }
 
 	before_action :set_view, only: :index
 	before_action :setup_environment, only: [:show, :edit, :update, :destroy]

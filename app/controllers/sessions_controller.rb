@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 			redirect_to_target_or_default home_url, flash: { info: "Logged in successfully." }
 		else
 			flash.now[:danger] = "Invalid login or password."
-			render :action => 'new'
+			render action: 'new'
 		end
 	end
 

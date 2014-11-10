@@ -12,11 +12,11 @@ describe SponsorsController do
     end
 
     it "routes to #show" do
-      get("/sponsors/1").should route_to("sponsors#show", :id => "1")
+      get("/sponsors/1").should route_to("sponsors#show", id: "1")
     end
 
     it "routes to #edit" do
-      get("/sponsors/1/edit").should route_to("sponsors#edit", :id => "1")
+      get("/sponsors/1/edit").should route_to("sponsors#edit", id: "1")
     end
 
     it "routes to #create" do
@@ -24,11 +24,11 @@ describe SponsorsController do
     end
 
     it "routes to #update" do
-      put("/sponsors/1").should route_to("sponsors#update", :id => "1")
+      put("/sponsors/1").should route_to("sponsors#update", id: "1")
     end
 
     it "routes to #destroy" do
-      delete("/sponsors/1").should route_to("sponsors#destroy", :id => "1")
+      delete("/sponsors/1").should route_to("sponsors#destroy", id: "1")
     end
 
   end

@@ -9,7 +9,7 @@
 	<td><%= link_to compo.game.name, compo %></td>
 	<% if slots %>      <td><%= compo.teams.count %>/<%= compo.slots %> </td> <% end %>
 	<% if group_size %> <td><%= compo.group_size %>                     </td> <% end %>
-	<% if date %>       <td><%= l(compo.date_time, :format => :short) %></td> <% end %>
+	<% if date %>       <td><%= l(compo.date_time, format: :short) %></td> <% end %>
 	<% if buttons %>
 		<% if (compo.users.include? current_user) && (not admin) %>
 			<td class="action_column"><%= link_to t(:subscribe), "#", class: "btn btn-success", disabled:true %></td>

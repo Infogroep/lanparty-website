@@ -2,7 +2,7 @@ namespace :db do
 	desc "populates the database with user groups"
 
 	task :populate_user_groups, [:amount, :delete] => :environment do |t, args|
-		args.with_defaults(:delete => 'true')
+		args.with_defaults(delete: 'true')
 		delete = args[:delete] == 'true'
 		users = ["peanut", "Enermis"]
 		puts "--------------------"
@@ -10,7 +10,7 @@ namespace :db do
 		puts "--------------------"
 
 		UserGroup.delete_all
-		params = { :name => "admin" }
+		params = { name: "admin" }
 		UserGroup.access_type_attributes.each do |attrs|
 			params[attrs] = true
 		end

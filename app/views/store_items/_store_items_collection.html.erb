@@ -1,10 +1,10 @@
 <% content_for(:before_title) do %>
     <div class="btn-toolbar game-list-view-options">
         <div class="btn-group">
-            <%= link_to content_tag("i", "", class: "fa fa-list"), url_for(:store_items_view => :list), class: store_items_view_selector_class(:list) %>
+            <%= link_to content_tag("i", "", class: "fa fa-list"), url_for(store_items_view: :list), class: store_items_view_selector_class(:list) %>
         </div>
     </div>
 <% end %>
 
-<%= render :partial => (session[:store_items_view] == :list ? "store_items/store_items_list" : "game_grid"),
-           :locals => { :store_items => store_items, :render_actions => render_actions } %>
+<%= render partial: (session[:store_items_view] == :list ? "store_items/store_items_list" : "game_grid"),
+           locals: { store_items: store_items, render_actions: render_actions } %>

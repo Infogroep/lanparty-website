@@ -12,11 +12,11 @@ describe UsersController do
 		end
 
 		it "routes to #show" do
-			get("/user/1").should route_to("user#show", :id => "1")
+			get("/user/1").should route_to("user#show", id: "1")
 		end
 
 		it "routes to #edit" do
-			get("/user/1/edit").should route_to("user#edit", :id => "1")
+			get("/user/1/edit").should route_to("user#edit", id: "1")
 		end
 
 		it "routes to #create" do
@@ -24,11 +24,11 @@ describe UsersController do
 		end
 
 		it "routes to #update" do
-			put("/user/1").should route_to("user#update", :id => "1")
+			put("/user/1").should route_to("user#update", id: "1")
 		end
 
 		it "routes to #destroy" do
-			delete("/user/1").should route_to("user#destroy", :id => "1")
+			delete("/user/1").should route_to("user#destroy", id: "1")
 		end
 
 	end

@@ -1,7 +1,7 @@
 <%= simple_form_for(@pricing_default) do |f| %>
 	<%= f.input :name %>
 	<%= f.input :description %>
-	<%= f.association :user_groups, :multiple => true %>
+	<%= f.association :user_groups, multiple: true %>
 	<%= f.input :transform %>
 	<%= f.submit class: "btn btn-default" %>
 <% end %>

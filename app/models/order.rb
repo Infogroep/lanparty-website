@@ -1,14 +1,14 @@
 class Order < ActiveRecord::Base
 	belongs_to :user
-	belongs_to :cashier, :class_name => "User"
+	belongs_to :cashier, class_name: "User"
 
-	has_many :order_items, :dependent => :destroy
+	has_many :order_items, dependent: :destroy
 
 	validates_presence_of :user
 	validates_presence_of :status_code
-	validates_presence_of :placed_at, :if => Proc.new { |order| order.status == :pending }
-	validates_presence_of :cashier, :if => Proc.new { |order| order.status == :closed }
-	validates_presence_of :payed_at, :if => Proc.new { |order| order.status == :closed }
+	validates_presence_of :placed_at, if: Proc.new { |order| order.status == :pending }
+	validates_presence_of :cashier, if: Proc.new { |order| order.status == :closed }
+	validates_presence_of :payed_at, if: Proc.new { |order| order.status == :closed }
 
 	def self.status_to_int(status)
 		case status
@@ -28,9 +28,9 @@ class Order < ActiveRecord::Base
 		end
 	end
 
-	scope :open_orders,    -> { where(:status_code => status_to_int(:open)) }
-	scope :pending_orders, -> { where(:status_code => status_to_int(:pending)) }
-	scope :closed_orders,  -> { where(:status_code => status_to_int(:closed)) }
+	scope :open_orders,    -> { where(status_code: status_to_int(:open)) }
+	scope :pending_orders, -> { where(status_code: status_to_int(:pending)) }
+	scope :closed_orders,  -> { where(status_code: status_to_int(:closed)) }
 
 	def total_price
 		order_items.map { |order_item| order_item.price }.reduce(BigDecimal.new("0"),:+)
@@ -41,13 +41,13 @@ class Order < ActiveRecord::Base
 	end
 
 	def add_item(item)
-		existing_order_item = order_items.where(:store_item_id => item.id).first
+		existing_order_item = order_items.where(store_item_id: item.id).first
 
 		if existing_order_item
 			existing_order_item.count = existing_order_item.count + 1
 			existing_order_item.save
 		else
-			return false unless (new_order_item = OrderItem.create({ :count => 1, :store_item_id => item.id }))
+			return false unless (new_order_item = OrderItem.create(count: 1, store_item_id: item.id ))
 			order_items.push(new_order_item)
 			save
 		end

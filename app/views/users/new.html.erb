@@ -1,6 +1,6 @@
 <% title t(:signup) %>
 
-<p><%= t(:account_already_html, :login_link => link_to(t(:login), login_path)) %></p>
+<p><%= t(:account_already_html, login_link: link_to(t(:login), login_path)) %></p>
 <p class="text-warning"><%= t(".warning") %></p>
 
 <%= render 'form' %>
