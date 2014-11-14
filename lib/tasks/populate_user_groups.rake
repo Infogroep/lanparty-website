@@ -18,7 +18,7 @@ namespace :db do
 		admin_group.save!
 
 		users.each do |u|
-			user = User.find_by_username(u)
+			user = User.find_by username: u
 			user.user_groups = [admin_group]
 			user.save!
 			puts "#{u} is now admin"

@@ -15,7 +15,7 @@ class PricingDefault < ActiveRecord::Base
 
 	def self.fallback_default()
 		# TODO: Implement concept of a "fallback default"
-		pricingDefault = PricingDefault.find_by_name($SETTINGS[:fallback_pricing_default_name])
+		pricingDefault = PricingDefault.find_by name: $SETTINGS[:fallback_pricing_default_name]
 		if pricingDefault
 			return pricingDefault
 		else

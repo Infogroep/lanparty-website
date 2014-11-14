@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 	end
 
 	def markpayed
-		@user = User.find_by_structured_message(params[:msg])
+		@user = User.find_by_structured_message params[:msg]
 		if @user.update(payed: true)
 			redirect_to users_url, flash: { info: "User has been marked as payed." }
 		else

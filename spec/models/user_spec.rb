@@ -67,13 +67,13 @@ describe User do
 		clan = FactoryGirl.create(:clan)
 		user.clan = clan
 		user.save!
-		User.find_by_username(user.username).clan.tag.should == clan.tag
+		User.find_by(username: user.username).clan.tag.should == clan.tag
 	end
 
 	it "should create new clan on user creation" do
 		tag = "[clan_tag]"
 		new_user(clan_tag: tag).save!
-		User.find_by_username(new_user.username).clan.tag.should == tag
+		User.find_by(username: new_user.username).clan.tag.should == tag
 	end
 
 	it "should authenticate by username" do

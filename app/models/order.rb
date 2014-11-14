@@ -54,7 +54,7 @@ class Order < ActiveRecord::Base
 	end
 
 	def scan_item(barcode_str)
-		raise WebsiteErrors::BarcodeNotFoundError.new(barcode_str) unless (barcode = Barcode.find_by_code(barcode_str))
+		raise WebsiteErrors::BarcodeNotFoundError.new(barcode_str) unless (barcode = Barcode.find_by code: barcode_str)
 
 		add_item(barcode.store_item)
 	end

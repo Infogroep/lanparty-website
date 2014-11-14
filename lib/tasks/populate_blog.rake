@@ -11,8 +11,8 @@ namespace :db do
 		puts "Creating Blog posts"
 		puts "--------------"
 
-		enermis = User.find_by_username("Enermis")
-		peanut = User.find_by_username("peanut")
+		enermis = User.find_by username: "Enermis"
+		peanut = User.find_by username: "peanut"
 
 		BlogComment.delete_all
 		BlogPost.delete_all

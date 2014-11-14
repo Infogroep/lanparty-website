@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 
 	# login can be either username or email address
 	def self.authenticate(login, pass)
-		user = find_by_username(login) || find_by_email(login)
+		user = find_by(username: login) || find_by(email: login)
 		return user if user && user.password_hash == user.encrypt_password(pass)
 	end
 
@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 	end
 
 	def clan_tag=(tag)
-		self.clan = Clan.find_or_create_by_tag(tag) if tag.present?
+		self.clan = Clan.find_or_create_by tag: tag if tag.present?
 	end
 
 	def self.smsg_generate_checksum val
