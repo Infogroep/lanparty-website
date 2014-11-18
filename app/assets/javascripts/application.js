@@ -14,6 +14,7 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require chosen-jquery
 //= require ckeditor/init

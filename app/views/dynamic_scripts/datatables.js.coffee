@@ -2,31 +2,30 @@ $ ->
 	# General settings
 	datatable_settings =
 		# "sDom":"<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-		sPaginationType: "bootstrap"
-		oLanguage:
-			sProcessing: "<%= t(".processing") %>"
-			sLengthMenu: "<%= t(".length_menu") %>"
-			sZeroRecords: "<%= t(".zero_records") %>"
-			sInfo: "<%= t(".info") %>"
-			sInfoEmpty: "<%= t(".info_empty") %>"
-			sInfoFiltered: "<%= t(".info_filtered") %>"
-			sInfoPostFix: "<%= t(".info_post_fix") %>"
-			sSearch: "<%= t(".search") %>"
-			sEmptyTable: "<%= t(".empty_table") %>"
-			sInfoThousands: "<%= t(".info_thousands") %>"
-			sLoadingRecords: "<%= t(".loading_records") %>"
-			oPaginate:
-				sFirst: "<%= t(".paginate.first") %>"
-				sLast: "<%= t(".paginate.last") %>"
-				sNext: "<%= t(".paginate.next") %>"
-				sPrevious: "<%= t(".paginate.previous") %>"
+		language:
+			processing: "<%= t(".processing") %>"
+			lengthMenu: "<%= t(".length_menu") %>"
+			zeroRecords: "<%= t(".zero_records") %>"
+			info: "<%= t(".info") %>"
+			infoEmpty: "<%= t(".info_empty") %>"
+			infoFiltered: "<%= t(".info_filtered") %>"
+			infoPostFix: "<%= t(".info_post_fix") %>"
+			search: "<%= t(".search") %>"
+			emptyTable: "<%= t(".empty_table") %>"
+			thousands: "<%= t(".info_thousands") %>"
+			loadingRecords: "<%= t(".loading_records") %>"
+			paginate:
+				first: "<%= t(".paginate.first") %>"
+				last: "<%= t(".paginate.last") %>"
+				next: "<%= t(".paginate.next") %>"
+				previous: "<%= t(".paginate.previous") %>"
 
 	# Iterate over all datatables
 	$('.datatable').each ->
 		t = $(@)
 
 		# Make the table a datatable
-		dt = t.dataTable datatable_settings
+		dt = t.DataTable datatable_settings
 
 		# Notify other scripts
 		t.trigger 'after-datatable', datatable: dt
