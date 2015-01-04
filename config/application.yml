@@ -2,7 +2,7 @@
 entry_fee: 10
 
 # Number of participants allowed
-max_participants: 50
+max_participants: 65
 
 # Registrations open?
 registration_available: true

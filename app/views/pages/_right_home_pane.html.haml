@@ -1,7 +1,7 @@
 - if Sponsor.count > 0
 	%h2= t("sponsor", count: Sponsor.count)
 	- Sponsor.all.each do |sponsor|
-		%p= link_to (sponsor.image.nil? ? sponsor.name : image_tag(sponsor.image_url(:sidebar))), sponsor.website
+		%p= link_to (sponsor.image.nil? ? sponsor.name : image_tag(sponsor.image_url(:sidebar), class: 'img-responsive')), sponsor.website
 
 - if not logged_in?
 	%h2= t(:login)
