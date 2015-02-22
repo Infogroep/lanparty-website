@@ -15,10 +15,20 @@ class UsersController < ApplicationController
 	end
 
 	def new
+		if User.count >= $SETTINGS[:max_participants]
+			redirect_to root_url, flash: { danger: "Sorry, the lanparty is filled to the brim... :(" }
+			return
+		end
+
 		@user = User.new
 	end
 
 	def create
+		if User.count >= $SETTINGS[:max_participants]
+			redirect_to root_url, flash: { danger: "Sorry, the lanparty is filled to the brim... :(" }
+			return
+		end
+
 		@user = User.new(user_params)
 		if @user.save
 			session[:user_id] = @user.id

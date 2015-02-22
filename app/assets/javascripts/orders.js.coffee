@@ -39,4 +39,6 @@ unlock_order = ->
 
 $ ->
 	$('.order-lock-indicator').hide()
-	$('#order-list').on 'after-datatable', (evt,arg) -> arg.datatable.fnSort([[5,'desc']])
+	$('#order-list').on 'init.dt', (e, settings) ->
+		api = new $.fn.dataTable.Api(settings)
+		api.order([[5,'desc']]).draw()
