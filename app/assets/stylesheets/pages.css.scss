@@ -34,3 +34,17 @@
 		content: ":";
 	}
 }
+
+#banner-main {
+	display: inline-block;
+	position: relative;
+
+	.date {
+		position: absolute;
+		top: 35px;
+		right: 20px;
+		font-family: 'audiowideregular';
+		font-size: 35px;
+		color: white;
+	}
+}

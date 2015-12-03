@@ -1,7 +1,9 @@
 #slider.carousel.slide{ data: { ride: "carousel" } }
 	.carousel-inner
 		.active.item
-			= image_tag("banner_main.png")
+			#banner-main
+				= image_tag("banner_main.png")
+				.date #{$SETTINGS[:start_datetime].day}-#{l $SETTINGS[:end_datetime].to_date, format: :long}
 			.container
 				.carousel-caption ILAN #{$SETTINGS[:year]}
 		- @featured_compos.each do |compo|
