@@ -52,7 +52,7 @@ class Compo < ActiveRecord::Base
 		bracket_amount.times do
 			bracket.append ["N/A","N/A"]
 		end
-		tems = teams.dup
+		tems = teams.dup.to_a
 		bracket.each do |slot|
 			tem = tems.pop
 			slot[0] = tem.name if tem

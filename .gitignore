@@ -21,3 +21,4 @@ pickle-email-*.html
 .rvmrc
 /public/assets
 /public/uploads
+*.log
