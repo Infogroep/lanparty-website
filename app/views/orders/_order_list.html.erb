@@ -14,7 +14,7 @@
 	<tbody>
 		<% orders.each do |order| %>
 			<tr class="<%= order_status_color(order) %>">
-				<td><%= order.user.username %></td>
+				<td><%= order.user ? order.user.username : "-" %></td>
 				<td><%= order.placed_at ? l(order.placed_at, format: :short) : "-" %></td>
 				<td><%= order.payed_at ? l(order.payed_at, format: :short) : "-" %></td>
 				<td><%= order.total_item_count %></td>
